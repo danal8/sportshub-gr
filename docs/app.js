@@ -92,7 +92,7 @@ function selectTab(key){if(state.tab===key)return;state.tab=key;if(key==='tv')st
 for(const id of ['side-nav','top-nav','bottom-nav'])$(id).addEventListener('click',event=>{const b=event.target.closest('[data-tab]');if(b)selectTab(b.dataset.tab);});
 $('competition').addEventListener('change',()=>{state.id=$('competition').value;load();});$('season').addEventListener('change',()=>{state.season=$('season').value;load();});$('round').addEventListener('change',()=>{state.round=$('round').value;render();});$('search').addEventListener('input',()=>{state.search=$('search').value;render();});$('favorites').addEventListener('change',()=>{state.only=$('favorites').checked;render();});
 $('view').addEventListener('click',event=>{const b=event.target.closest('[data-favorite]');if(!b)return;const id=b.dataset.favorite;state.favorites=state.favorites.includes(id)?state.favorites.filter(x=>x!==id):[...state.favorites,id];if(!save('sh-favorites',state.favorites))notify('Τα αγαπημένα λειτουργούν προσωρινά· η αποθήκευση του browser δεν είναι διαθέσιμη.');render();});
-$('refresh').addEventListener('click',()=>load(true));$('help').onclick=showHelp;$('data-help').onclick=showHelp;$('mobile-help').onclick=showHelp;$('close-help').onclick=()=>$('help-dialog').close();
+$('refresh').addEventListener('click',()=>load(true));$('help').onclick=showHelp;$('data-help').onclick=showHelp;$('close-help').onclick=()=>$('help-dialog').close();
 let installPrompt;
 const standaloneMode=window.matchMedia('(display-mode: standalone)');
 function updateInstallButton(){ $('install').hidden=standaloneMode.matches||navigator.standalone===true||read('sh-installed',false)===true; }
