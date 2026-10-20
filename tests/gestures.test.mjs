@@ -1,0 +1,2 @@
+import test from'node:test';import assert from'node:assert/strict';import{swipeDirection}from'../dist/gestures.js';
+test('swipe changes day in either direction but ignores scrolling and short movements',()=>{assert.equal(swipeDirection({x:200,y:100},{x:80,y:108}),1);assert.equal(swipeDirection({x:80,y:100},{x:200,y:108}),-1);assert.equal(swipeDirection({x:200,y:100},{x:180,y:108}),0);assert.equal(swipeDirection({x:200,y:100},{x:100,y:250}),0);});
