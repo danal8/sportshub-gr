@@ -1,0 +1,7 @@
+export function isExplicitLive(title,hasLiveBadge=false){return hasLiveBadge||/\([ΖZ]\)/.test(title);}
+export function broadcastDetails(label){
+ const s=label||'';
+ const sport=/EuroLeague|EuroCup|NBA|Basket|Μπάσκετ/i.test(s)?'Μπάσκετ':/ATP|WTA|Τένις|Tennis/i.test(s)?'Τένις':/UEFA|Super\s*League|Superbet|Premier League|Bundesliga|La\s*Liga|Ποδόσφαιρο|Ligue|Serie A/i.test(s)?'Ποδόσφαιρο':/Volley|Βόλεϊ/i.test(s)?'Βόλεϊ':/Snooker|Σνούκερ/i.test(s)?'Σνούκερ':null;
+ const competition=/UEFA Youth League/i.test(s)?'youth':/Champions League/i.test(s)?'cl':/Europa League/i.test(s)?'europa':/Conference League/i.test(s)?'conference':/EuroLeague/i.test(s)?'el':/EuroCup/i.test(s)?'eurocup':/Super\s*League\s*2|Superbet/i.test(s)?'sl2':/Super\s*League/i.test(s)?'sl':/Premier League/i.test(s)?'pl':/Bundesliga/i.test(s)?'bund':/La\s*Liga/i.test(s)?'laliga':'other';
+ return{sportLabel:sport,competition,competitionLabel:s||null};
+}

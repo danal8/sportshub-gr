@@ -6,3 +6,5 @@
 [hidden]{display:none!important}@media(max-width:700px){.rail .blue-card{display:block}}
 
 .day-bar{display:flex;gap:12px;align-items:center;padding:15px 20px;margin-bottom:22px}.day-bar>label:not(.check){font-size:10px;color:#768399;display:grid;gap:7px;font-weight:700}.day-bar input[type=date]{border:1px solid #dfe5ee;border-radius:6px;padding:9px;color:#263b5b;background:white;font:inherit;font-size:12px}.day-bar>button{min-height:38px}.archive-toggle{margin-left:auto;color:#677c9b}@media(max-width:700px){.day-bar{flex-wrap:wrap;padding:14px;gap:9px}.day-bar>label:not(.check){flex:1}.day-bar input[type=date]{max-width:155px}.archive-toggle{margin-left:0;flex-basis:100%}}
+
+.broadcast-meta{font-size:11px;color:#617795;margin-top:11px;line-height:1.5}.tv-tag{font-size:11px;padding:7px 10px;line-height:1.6}.tv-tag strong{font-size:13px;font-weight:700}.tv-tag a{font-size:10px}
