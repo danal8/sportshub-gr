@@ -1,13 +1,13 @@
-import{badgeSources,loadBadgeCatalog,rememberBadges}from'./badges.js?v=14';
-import{resultLabel}from'./results.js?v=14';
-import{directIDs}from'./direct.js?v=14';
-import{swipeDirection}from'./gestures.js?v=14';
-import{navIcon}from'./icons.js?v=14';
-import{scheduleEntries,daySchedule}from'./schedule.js?v=14';
-import{loadNova}from'./tv.js?v=14';
-import {loadProvider,isConnected} from './providers.js?v=14';
-import {competitions,checkedAt,eliteSchedule,eliteTV,eliteMatches,broadcasts,currentTV,gblStandings} from './data.js?v=14';
-import {escapeHTML as e,normalizeFootball,calculateTable,athensDay,chooseRound,filterMatches,shiftDay} from './core.js?v=14';
+import{badgeSources,loadBadgeCatalog,rememberBadges}from'./badges.js?v=15';
+import{resultLabel}from'./results.js?v=15';
+import{directIDs}from'./direct.js?v=15';
+import{swipeDirection}from'./gestures.js?v=15';
+import{navIcon}from'./icons.js?v=15';
+import{scheduleEntries,daySchedule}from'./schedule.js?v=15';
+import{loadNova}from'./tv.js?v=15';
+import {loadProvider,isConnected} from './providers.js?v=15';
+import {competitions,checkedAt,eliteSchedule,eliteTV,eliteMatches,broadcasts,currentTV,gblStandings} from './data.js?v=15';
+import {escapeHTML as e,normalizeFootball,calculateTable,athensDay,chooseRound,filterMatches,shiftDay} from './core.js?v=15';
 const $=id=>document.getElementById(id);
 const shortLabels={volleyball:'Βόλεϊ',football:'Ποδ.',basketball:'Μπασκ.',tv:'TV',matches:'Αγώνες',standings:'Βαθμοί'};
 const nav=[['football','⚽','Ποδόσφαιρο'],['basketball','◉','Μπάσκετ'],['volleyball','','Βόλεϊ'],['tv','▣','Τηλεόραση'],['matches','▦','Αγώνες'],['standings','≡','Βαθμολογίες']];
@@ -119,3 +119,6 @@ installSwipe($('view'),direction=>{if(['tv','matches'].includes(state.tab))chang
 document.addEventListener('keydown',event=>{if(!['tv','matches'].includes(state.tab)||event.target.closest('input,select,textarea,button,a,summary')||event.altKey||event.ctrlKey||event.metaKey)return;if(event.key==='ArrowLeft')changeDay(-1);if(event.key==='ArrowRight')changeDay(1);});
 setInterval(async()=>{if(document.hidden||state.loading||state.refreshing||!['matches','football','basketball','volleyball'].includes(state.tab))return;if(state.tab==='matches'&&state.tvDate!==athensDay())return;state.refreshing=true;const request=state.request;try{if(state.tab==='matches')await loadDaily(request,true);else if(isConnected(state.id)){const p=await loadProvider(state.id,state.season,{force:true});if(request===state.request){state.matches=p.matches;state.meta=p;render();}}}catch{}finally{state.refreshing=false;}},90000);
 choices();renderNav();load();
+
+// Expire a LIVE label even when the next network request fails.
+setInterval(()=>{if(!document.hidden&&state.matches.some(m=>m.scoreState==='live'))render();},30000);
