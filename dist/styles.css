@@ -34,3 +34,5 @@
 }
 
 .match-score{display:flex;align-items:center;gap:12px;margin-top:6px;color:#a9cbff}.match-score strong{font-size:23px;font-variant-numeric:tabular-nums}.match-score span{font-size:13px;font-weight:700}#season{width:112px;font-weight:750}@media(max-width:700px){.filters{grid-template-columns:112px minmax(0,1fr)}.tabs button{min-width:0;font-size:11px}.tabs .full-label{display:none}.tabs .short-label{display:inline}#season{width:100%;padding:8px}}
+
+.team-badge{width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-inline-end:6px}

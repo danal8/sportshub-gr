@@ -1,0 +1,25 @@
+name: Refresh official schedules
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/refresh-pages.mjs
+      - run: node scripts/build-pages.mjs
+      - run: node --test tests/*.test.mjs
+      - name: Save verified Pages data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dist/snapshots docs
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh verified official season schedules"
+            git push
+          fi

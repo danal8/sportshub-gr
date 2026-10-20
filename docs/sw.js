@@ -1,5 +1,5 @@
-const CACHE='sportshub-shell-v11';
-const ASSETS=['./','./index.html','./styles.css','./styles.css?v=11','./app.js','./app.js?v=11','./tv.js','./tv-meta.js','./icons.js','./schedule.js','./gestures.js','./core.js','./feeds.js','./providers.js','./direct.js','./data.js','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
+const CACHE='sportshub-shell-v12';
+const ASSETS=['./','./index.html','./styles.css','./styles.css?v=12','./app.js','./app.js?v=12','./tv.js','./tv-meta.js','./icons.js','./schedule.js','./gestures.js','./core.js','./feeds.js','./providers.js','./direct.js','./data.js','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS))));
 self.addEventListener('activate',event=>event.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('sportshub-shell-')&&k!==CACHE).map(k=>caches.delete(k)))),self.clients.claim()])));
 self.addEventListener('fetch',event=>{const u=new URL(event.request.url);if(event.request.method!=='GET'||u.origin!==self.location.origin)return;const relative=u.pathname.slice(new URL(self.registration.scope).pathname.length);if(relative&& !ASSETS.some(a=>a.split('?')[0]==='./'+relative))return;

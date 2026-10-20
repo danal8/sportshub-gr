@@ -4,7 +4,7 @@ export const eliteSchedule='https://www.eliteleague.gr/elite-league-to-analytiko
 export const eliteTV='https://www.eliteleague.gr/elite-league-to-tileoptiko-programma-ton-proton-trion-agonistikon/';
 export const competitions=[
  {id:'volley-w',name:'Volley League Γυναικών',sport:'volleyball',url:'https://volleyball.gr/volley-league-gynaikon-2026-2027/',note:'Επίσημο πρόγραμμα και βαθμολογία ΕΟΠΕ.'},
- {id:'volley-m',name:'Volley League Ανδρών',sport:'volleyball',url:'https://www.volleyleague.gr/index.php/season/2026-27/volley-league-2026-27',note:'Δεν υπάρχει ακόμη συνδεδεμένο πρόγραμμα. Άνοιξε την επίσημη ΕΣΑΠ.'},
+ {id:'volley-m',name:'Volley League Ανδρών',sport:'volleyball',url:'https://www.volleyleague.gr/index.php/season/2026-27/volley-league-2026-27',note:'Επίσημο πρόγραμμα 22 αγωνιστικών από την ΕΣΑΠ.'},
  {id:'sl2',name:'Super League 2',sport:'football',url:'https://www.sl2.gr/program',ranking:'https://www.sl2.gr/rating',note:'Επίσημη SL2: αυτόματη ανάκτηση 240 αγώνων σε 30 αγωνιστικές, βαθμολογία 16 ομάδων και δηλωμένες μεταδόσεις. Σκορ μόνο όταν παρέχονται από την πηγή.'},
  {id:'sl',name:'Super League',sport:'football',url:'https://www.slgr.gr/',ranking:'https://www.slgr.gr/el/scoreboard/',note:'Πρόγραμμα κανονικής περιόδου openfootball / CC0. Δημοσιευμένη κατάταξη από Wikipedia / CC BY-SA, με ξεχωριστή αναφορά πηγής.'},
  {id:'elite',name:'Elite League · Α2 Ανδρών',sport:'basketball',url:'https://www.eliteleague.gr/',ranking:'https://www.eliteleague.gr/standings/',note:'Αυτόματη ανάκτηση επίσημου προγράμματος και κατάταξης ΕΟΚ. 30 αγωνιστικές, με πηγή και χρόνο ελέγχου. Σκορ μόνο όταν παρέχονται από την πηγή.'},
