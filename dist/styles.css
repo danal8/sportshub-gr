@@ -13,3 +13,22 @@
 @media(max-width:1100px){.tabs button{font-size:13px}}
 @media(max-width:700px){h1{font-size:23px}.brand{font-size:22px}.tabs button{font-size:12px;font-weight:750;letter-spacing:-.3px}.fixture-title{font-size:19px;line-height:1.38}.match-time{font-size:24px}.match{grid-template-columns:60px minmax(0,1fr) 24px;gap:7px;padding:12px 10px}.broadcast-meta{font-size:13.5px;line-height:1.4}.broadcast-channel strong{font-size:15.5px}.broadcast-channel a{font-size:13px}.match-date{font-size:13px}.filters select,.filters input{font-size:16px}.day-bar input[type=date]{font-size:16px;padding:6px}#today-button{font-size:13px;min-width:54px}.source-details summary{font-size:12px}.source-note{font-size:12px}.table-scroll table{font-size:15px}th{font-size:13px}.status{font-size:13px}.empty p{font-size:14px}.filter-label{font-size:12px}.header-right button{font-size:12px}}
 @media(max-width:380px){.tabs .full-label{display:none}.tabs .short-label{display:block}.tabs button{font-size:12px}.brand{font-size:20px}.header-right{gap:5px}.header-right button{padding:7px 8px;font-size:11px}}
+
+/* Keep standings readable and fully visible on narrow screens. */
+.table-scroll{overflow-x:visible;min-width:0}
+.table-scroll table{table-layout:fixed;width:100%;white-space:normal}
+.table-scroll thead th:first-child{width:32px}
+.table-scroll thead th:nth-child(2){width:auto}
+.table-scroll thead th:not(:first-child):not(:nth-child(2)):not(:last-child){width:44px}
+.table-scroll thead th:last-child{width:58px}
+.table-scroll th,.table-scroll td{padding-left:5px;padding-right:5px}
+.table-scroll td:nth-child(2){white-space:normal;overflow-wrap:anywhere;hyphens:auto;line-height:1.4}
+.table-scroll td:not(:nth-child(2)){white-space:nowrap;font-variant-numeric:tabular-nums}
+.table-scroll th[scope=rowgroup]{text-align:left;padding:11px 10px}
+@media(max-width:700px){
+ .table-scroll thead th:first-child{width:26px}
+ .table-scroll thead th:not(:first-child):not(:nth-child(2)):not(:last-child){width:30px}
+ .table-scroll thead th:last-child{width:45px}
+ .table-scroll th,.table-scroll td{padding-left:3px;padding-right:3px}
+ .table-scroll td:nth-child(2){font-weight:650}
+}
