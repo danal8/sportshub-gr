@@ -1,0 +1,2 @@
+export function scheduleEntries(payload,competition){return payload.matches.filter(m=>m.date).map(m=>({...m,competition:competition.id,competitionLabel:competition.name,sportLabel:competition.sport==='football'?'Ποδόσφαιρο':'Μπάσκετ',source:m.source||payload.source}));}
+export function daySchedule(matches,date){return matches.filter(m=>m.date===date).sort((a,b)=>(a.time||'99:99').localeCompare(b.time||'99:99')||a.competitionLabel.localeCompare(b.competitionLabel,'el'));}

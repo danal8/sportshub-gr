@@ -1,5 +1,5 @@
-const CACHE='sportshub-shell-v4';
-const ASSETS=['./','./index.html','./styles.css','./app.js','./tv.js','./tv-meta.js','./core.js','./feeds.js','./providers.js','./data.js','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
+const CACHE='sportshub-shell-v5';
+const ASSETS=['./','./index.html','./styles.css','./app.js','./tv.js','./tv-meta.js','./icons.js','./schedule.js','./core.js','./feeds.js','./providers.js','./data.js','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS))));
 self.addEventListener('activate',event=>event.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('sportshub-shell-')&&k!==CACHE).map(k=>caches.delete(k)))),self.clients.claim()])));
 self.addEventListener('fetch',event=>{const u=new URL(event.request.url);if(event.request.method!=='GET'||u.origin!==self.location.origin)return;const relative=u.pathname.slice(new URL(self.registration.scope).pathname.length);if(relative&& !ASSETS.some(a=>a==='./'+relative))return;

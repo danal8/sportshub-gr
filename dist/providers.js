@@ -5,7 +5,9 @@ export function isConnected(id){return id==='sl2'||id==='sl'||id==='elite'||!!le
 function read(key){try{return JSON.parse(localStorage.getItem(key));}catch{return null;}}
 function save(key,payload){try{localStorage.setItem(key,JSON.stringify(payload));}catch{}}
 function sportsRequest(url){const request=queue.catch(()=>{}).then(async()=>{const remaining=2200-(Date.now()-lastRequest);if(remaining>0)await new Promise(r=>setTimeout(r,remaining));lastRequest=Date.now();const r=await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('HTTP '+r.status);return r.json();});queue=request;return request;}
-export async function loadProvider(id,season,{force=false}={}){
+const inflight=new Map();
+export function loadProvider(id,season,options={}){const key=id+season;if(inflight.has(key))return inflight.get(key);const task=fetchProvider(id,season,options).finally(()=>inflight.delete(key));inflight.set(key,task);return task;}
+async function fetchProvider(id,season,{force=false}={}){
  const key=`sh-provider-v2-${id}-${season}`,cached=read(key);if(!['elite','gbl','el','eurocup','cl','europa','conference','sl','sl2'].includes(id)&&!force&&cached&&Date.now()-new Date(cached.retrievedAt).getTime()<3600000)return{...cached,cached:true};
  try{
   let payload;
