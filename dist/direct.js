@@ -1,4 +1,4 @@
-import{parseGreekFootball}from'./feeds.js';
+import{parseGreekFootball}from'./feeds.js?v=13';
 const shortcuts={pl:'pl',bund:'bl1',laliga:'la1',cl:'ucl',europa:'uel2026'};
 export const directIDs=['sl','pl','bund','laliga','cl','europa','el','eurocup','volley-w','volley-m'];
 const pair=s=>Array.isArray(s)&&s.length===2&&s.every(n=>Number.isInteger(n)&&n>=0);
