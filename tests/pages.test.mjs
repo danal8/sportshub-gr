@@ -14,9 +14,9 @@ test('Static schedules retain a dated offline copy for the Android PWA',async()=
  const oldFetch=globalThis.fetch,oldStorage=globalThis.localStorage,cache=new Map();globalThis.localStorage={getItem:k=>cache.get(k),setItem:(k,v)=>cache.set(k,v)};
  try{globalThis.fetch=async()=>({ok:true,json:async()=>({season:'2026-27',retrievedAt:'2026-10-20T12:00:00Z',matches:[{id:'offline'}]})});await loadProvider('gbl','2026-27');globalThis.fetch=async()=>{throw Error('offline');};const p=await loadProvider('gbl','2026-27');assert.equal(p.matches[0].id,'offline');assert.equal(p.fallback,'offline');assert.equal(p.retrievedAt,'2026-10-20T12:00:00Z');}finally{globalThis.fetch=oldFetch;globalThis.localStorage=oldStorage;}
 });
-test('Pages providers use only same-origin static schedules and reject other seasons',async()=>{
+test('Pages providers use official SL2 or same-origin schedules and reject other seasons',async()=>{
  const old=globalThis.fetch;const urls=[];globalThis.fetch=async url=>{urls.push(url);return {ok:true,json:async()=>({season:'2026-27',matches:[{id:1}]})};};
- try{for(const id of ['sl2','elite','gbl','volley-m'])await loadProvider(id,'2026-27');assert.ok(urls.every(u=>u.startsWith('./snapshots/')));await assert.rejects(loadProvider('gbl','2025-26'));}finally{globalThis.fetch=old;}
+ try{for(const id of ['sl2','elite','gbl','volley-m'])await loadProvider(id,'2026-27');assert.ok(urls.every(u=>u.startsWith('./snapshots/')||u==='https://www.sl2.gr/api/sportsdata/v1/competitions/sl2-2627/matches'));await assert.rejects(loadProvider('gbl','2025-26'));}finally{globalThis.fetch=old;}
 });
 test('Men parser rejects missing season and partial official layouts',()=>{assert.throws(()=>parseMen('<div class="itemFullText">2025-26</div>'));assert.throws(()=>parseMen('<div class="itemFullText">2026-27<br>1η αγωνιστική<br>A - B</div>'));});
 test('Public provider never references the old private service',async()=>{for(const dir of ['dist','docs']){const s=await readFile(new URL(`../${dir}/providers.js`,import.meta.url),'utf8');assert.ok(!s.includes('chatgpt.site'));assert.ok(!s.includes('elite-personal-'));}});
