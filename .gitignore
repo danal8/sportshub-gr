@@ -1,0 +1,10 @@
+.env
+.env.*
+node_modules/
+*.log
+
+# Personal-use source copies must never enter either Git remote.
+dist/snapshots/*-personal-*.json
+
+dist/server/
+dist/.openai/
