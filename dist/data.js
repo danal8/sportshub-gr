@@ -3,6 +3,7 @@ export const checkedAt='2026-10-20T13:28:31+03:00';
 export const eliteSchedule='https://www.eliteleague.gr/elite-league-to-analytiko-programma-tis-sezon-2026-2027/';
 export const eliteTV='https://www.eliteleague.gr/elite-league-to-tileoptiko-programma-ton-proton-trion-agonistikon/';
 export const competitions=[
+ {id:'sl2',name:'Super League 2',sport:'football',url:'https://www.sl2.gr/program',ranking:'https://www.sl2.gr/rating',note:'Επίσημη SL2: αυτόματη ανάκτηση 240 αγώνων σε 30 αγωνιστικές, βαθμολογία 16 ομάδων και δηλωμένες μεταδόσεις. Χωρίς live scores.'},
  {id:'sl',name:'Super League',sport:'football',url:'https://www.slgr.gr/',ranking:'https://www.slgr.gr/el/scoreboard/',note:'Πρόγραμμα κανονικής περιόδου openfootball / CC0. Δημοσιευμένη κατάταξη από Wikipedia / CC BY-SA, με ξεχωριστή αναφορά πηγής.'},
  {id:'elite',name:'Elite League · Α2 Ανδρών',sport:'basketball',url:'https://www.eliteleague.gr/',ranking:'https://www.eliteleague.gr/standings/',note:'Αυτόματη ανάκτηση επίσημου προγράμματος και κατάταξης ΕΟΚ. 30 αγωνιστικές, με πηγή και χρόνο ελέγχου. Χωρίς live scores.'},
  {id:'gbl',name:'Greek Basket League',sport:'basketball',url:'https://www.esake.gr/',ranking:'https://www.esake.gr/el/action/EsakeRanking',note:'Αυτόματη ανάκτηση επίσημου προγράμματος και κατάταξης ΕΣΑΚΕ. 26 αγωνιστικές. Δεν επινοούνται μη ορισμένες ημερομηνίες, ώρες ή κανάλια.'},
