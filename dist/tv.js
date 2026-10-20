@@ -1,4 +1,4 @@
-import{isExplicitLive,broadcastDetails}from'./tv-meta.js?v=16';
+import{isExplicitLive,broadcastDetails}from'./tv-meta.js?v=17';
 // Runs only in the visitor's browser; no EPG archive is published with the app.
 export function parseNova(html){
  const doc=new DOMParser().parseFromString(html,'text/html');const stamp=doc.querySelector('[name="match-center-date"]')?.value;

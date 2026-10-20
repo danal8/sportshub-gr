@@ -1,7 +1,7 @@
-import{safeResults}from'./results.js?v=16';
-import{rememberBadges,loadBadgeCatalog}from'./badges.js?v=16';
-import{directIDs,directProvider}from'./direct.js?v=16';
-import {parseGreekFootball,normalizeSportsDB,sportsSeason}from'./feeds.js?v=16';
+import{safeResults}from'./results.js?v=17';
+import{rememberBadges,loadBadgeCatalog}from'./badges.js?v=17';
+import{directIDs,directProvider}from'./direct.js?v=17';
+import {parseGreekFootball,normalizeSportsDB,sportsSeason}from'./feeds.js?v=17';
 const leagues={gbl:'4452',el:'4546',eurocup:'4547',cl:'4480',europa:'4481',conference:'5071'};
 let queue=Promise.resolve(),lastRequest=0;
 export function isConnected(id){return directIDs.includes(id)||id==='sl2'||id==='sl'||id==='elite'||!!leagues[id];}
