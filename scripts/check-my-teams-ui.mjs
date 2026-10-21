@@ -10,7 +10,7 @@ const browser=await chromium.launch();try{
  assert.equal(await page.locator('[data-follow-team="ΠΑΝΙΩΝΙΟΣ"]').getAttribute('aria-pressed'),'true');
  await page.reload();await loaded();await tab('Αγώνες').click();await loaded();await page.locator('#my-teams-mode').click();await loaded();await page.locator('#tv-date').fill('2026-10-21');await page.locator('#tv-date').dispatchEvent('change');
  const rows=await page.locator('.match').allTextContents();assert.ok(rows.length>=3,JSON.stringify(rows));assert.ok(rows.every(t=>/πανιωνιοσ/i.test(t.normalize('NFD').replace(/\p{M}/gu,'').replace(/ς/g,'σ'))),JSON.stringify(rows));
- assert.ok(await page.locator('#week-range').isVisible());assert.equal(await page.locator('.match .team-follow').count(),0);
+ assert.match(await page.locator('#week-range').textContent(),/19.*25/);assert.equal(await page.locator('.match .team-follow').count(),0);
  assert.ok(await page.locator('.match').evaluateAll(es=>new Set(es.map(e=>e.innerText)).size===es.length));
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth));
  const layout=await page.evaluate(()=>{const controls=document.querySelector('#match-controls').getBoundingClientRect(),first=document.querySelector('.match').getBoundingClientRect(),filters=document.querySelector('.filters').getBoundingClientRect();return {gap:first.top-controls.top,filtersHeight:filters.height,seasonVisible:document.querySelector('#season').getClientRects().length>0};});
