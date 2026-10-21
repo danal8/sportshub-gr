@@ -1,0 +1,24 @@
+// Runs in Actions, never in a private backend. Publish normalized match facts only.
+import{readFile,writeFile}from'node:fs/promises';
+import{directProvider}from'../dist/direct.js';
+import{loadNBA}from'../dist/nba.js';
+import{parseNova,novaURL}from'../dist/tv.js';
+import{parseMen}from'./refresh-pages.mjs';
+const root=new URL('../dist/snapshots/',import.meta.url);
+export async function refreshPublic(){
+ const reports=[];
+ try{const source='https://www.volleyleague.gr/index.php/season/2026-27/volley-league-2026-27',r=await fetch(source,{signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error('ESAP '+r.status);const matches=parseMen(await r.text()),old=JSON.parse(await readFile(new URL('volley-m-2026-27.json',root)));for(const m of matches){const previous=old.matches.find(g=>g.home===m.home&&g.away===m.away&&g.round===m.round);m.homeBadge=previous?.homeBadge;m.awayBadge=previous?.awayBadge;}await writeFile(new URL('volley-m-2026-27.json',root),JSON.stringify({...old,matches,retrievedAt:new Date().toISOString()}));reports.push({id:'volley-m',ok:true,matches:matches.length});}catch(e){reports.push({id:'volley-m',ok:false,error:e.message});}
+ await Promise.all(['sl','pl','bund','laliga','cl','europa','el','eurocup','volley-w','nba'].map(async id=>{try{
+  const p=id==='nba'?await loadNBA():await directProvider(id,'2026-27');
+  if(id==='volley-w'&&(p.matches.length!==132||new Set(p.matches.map(m=>m.round)).size!==22))throw Error('Ελλιπές πρόγραμμα γυναικών');
+  await writeFile(new URL(id+'-2026-27.json',root),JSON.stringify({...p,season:'2026-27'}));reports.push({id,ok:true,matches:p.matches.length});
+ }catch(e){reports.push({id,ok:false,error:e.message});}}));
+ const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Athens',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+ await Promise.all(Array.from({length:9},(_,i)=>i-1).map(async offset=>{const d=new Date(today+'T12:00:00Z');d.setUTCDate(d.getUTCDate()+offset);const date=d.toISOString().slice(0,10);try{
+  const r=await fetch(novaURL(date),{signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error('Nova '+r.status);
+  const p=parseNova(await r.text(),date);await writeFile(new URL('tv-'+date+'.json',root),JSON.stringify(p));reports.push({id:'tv-'+date,ok:true,matches:p.matches.length});
+ }catch(e){reports.push({id:'tv-'+date,ok:false,error:e.message});}}));
+ await writeFile(new URL('source-health.json',root),JSON.stringify({checkedAt:new Date().toISOString(),reports}));
+ console.log(reports);
+}
+await refreshPublic();

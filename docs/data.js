@@ -3,6 +3,7 @@ export const checkedAt='2026-10-20T13:28:31+03:00';
 export const eliteSchedule='https://www.eliteleague.gr/elite-league-to-analytiko-programma-tis-sezon-2026-2027/';
 export const eliteTV='https://www.eliteleague.gr/elite-league-to-tileoptiko-programma-ton-proton-trion-agonistikon/';
 export const competitions=[
+ {id:'nba',name:'NBA',sport:'basketball',url:'https://www.nba.com/standings',note:'Βαθμολογία NBA ανά περιφέρεια · ESPN.'},
  {id:'volley-w',name:'Volley League Γυναικών',sport:'volleyball',url:'https://volleyball.gr/volley-league-gynaikon-2026-2027/',note:'Επίσημο πρόγραμμα και βαθμολογία ΕΟΠΕ.'},
  {id:'volley-m',name:'Volley League Ανδρών',sport:'volleyball',url:'https://www.volleyleague.gr/index.php/season/2026-27/volley-league-2026-27',note:'Επίσημο πρόγραμμα 22 αγωνιστικών από την ΕΣΑΠ.'},
  {id:'sl2',name:'Super League 2',sport:'football',url:'https://www.sl2.gr/program',ranking:'https://www.sl2.gr/rating',note:'Επίσημη SL2: αυτόματη ανάκτηση 240 αγώνων σε 30 αγωνιστικές, βαθμολογία 16 ομάδων και δηλωμένες μεταδόσεις. Σκορ μόνο όταν παρέχονται από την πηγή.'},

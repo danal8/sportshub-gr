@@ -3,6 +3,7 @@ import {createHash} from 'node:crypto';
 import {directProvider} from '../dist/direct.js';
 import {teamKey} from '../dist/badges.js';
 const root=new URL('../dist/',import.meta.url),teams={},urls={};
+try{Object.assign(urls,JSON.parse(await readFile(new URL('badges/catalog.json',root))).urls);}catch{}
 const seed=process.argv.includes('--seed');
 function add(id,name,url,aliases=[]){if(!name||!url?.startsWith('https://'))return;const table=teams[id]||={};for(const n of [name,...aliases])table[teamKey(n)]=url;}
 function ingest(id,p){for(const m of p.matches||[])for(const side of ['home','away'])add(id,m[side],m[side+'Badge'],m[side+'Aliases']);}
@@ -15,7 +16,7 @@ const sl=[['ΑΕΚ','156284491142'],['Άρης','153009594452'],['Asteras Aktor'
 for(const [name,file]of sl)add('sl',name,`https://www.slgr.gr/img/uploads/big/${file}.png`);
 await mkdir(new URL('badges/',root),{recursive:true});
 const sources=[...new Set(Object.values(teams).flatMap(t=>Object.values(t)))];let cursor=0,downloaded=0;
-async function reader(){while(cursor<sources.length){const url=sources[cursor++];try{const r=await fetch(url,{signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error('HTTP '+r.status);const type=r.headers.get('content-type')?.split(';')[0],ext={'image/png':'png','image/jpeg':'jpg','image/svg+xml':'svg','image/webp':'webp','image/gif':'gif'}[type];if(!ext)throw Error('Not an image');const data=new Uint8Array(await r.arrayBuffer());if(data.length>2000000||data.length<20)throw Error('Invalid image size');const file=createHash('sha256').update(url).digest('hex').slice(0,24)+'.'+ext;await writeFile(new URL('badges/'+file,root),data);urls[url]='./badges/'+file;downloaded++;}catch(e){console.warn('Badge unavailable:',url,e.message);}}}
+async function reader(){while(cursor<sources.length){const url=sources[cursor++];try{if(urls[url]){await readFile(new URL(urls[url],root));downloaded++;continue;}const r=await fetch(url,{signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error('HTTP '+r.status);const data=new Uint8Array(await r.arrayBuffer());const declared=r.headers.get('content-type')?.split(';')[0],type=declared?.startsWith('image/')?declared:data[0]===137&&data[1]===80&&data[2]===78&&data[3]===71?'image/png':data[0]===255&&data[1]===216?'image/jpeg':null,ext={'image/png':'png','image/jpeg':'jpg','image/svg+xml':'svg','image/webp':'webp','image/gif':'gif'}[type];if(!ext)throw Error('Not an image');if(data.length>2000000||data.length<20)throw Error('Invalid image size');const file=createHash('sha256').update(url).digest('hex').slice(0,24)+'.'+ext;await writeFile(new URL('badges/'+file,root),data);urls[url]='./badges/'+file;downloaded++;}catch(e){console.warn('Badge unavailable:',url,e.message);}}}
 if(!seed)await Promise.all([reader(),reader(),reader(),reader()]);
 await writeFile(new URL('badges/catalog.json',root),JSON.stringify({retrievedAt:new Date().toISOString(),teams,urls}));
 console.log(`Badges: ${downloaded}/${sources.length} cached locally across ${Object.keys(teams).length} competitions`);

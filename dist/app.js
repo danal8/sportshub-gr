@@ -1,13 +1,13 @@
-import{badgeSources,loadBadgeCatalog,rememberBadges}from'./badges.js?v=17';
-import{resultLabel}from'./results.js?v=17';
-import{directIDs}from'./direct.js?v=17';
-import{swipeDirection}from'./gestures.js?v=17';
-import{navIcon}from'./icons.js?v=17';
-import{scheduleEntries,daySchedule}from'./schedule.js?v=17';
-import{loadNova}from'./tv.js?v=17';
-import {loadProvider,isConnected} from './providers.js?v=17';
-import {competitions,checkedAt,eliteSchedule,eliteTV,eliteMatches,broadcasts,currentTV,gblStandings} from './data.js?v=17';
-import {escapeHTML as e,normalizeFootball,calculateTable,athensDay,chooseRound,filterMatches,shiftDay} from './core.js?v=17';
+import{badgeSources,loadBadgeCatalog,rememberBadges}from'./badges.js?v=18';
+import{resultLabel}from'./results.js?v=18';
+import{directIDs}from'./direct.js?v=18';
+import{swipeDirection}from'./gestures.js?v=18';
+import{navIcon}from'./icons.js?v=18';
+import{scheduleEntries,daySchedule}from'./schedule.js?v=18';
+import{loadNova}from'./tv.js?v=18';
+import {loadProvider,isConnected} from './providers.js?v=18';
+import {competitions,checkedAt,eliteSchedule,eliteTV,eliteMatches,broadcasts,currentTV,gblStandings} from './data.js?v=18';
+import {escapeHTML as e,normalizeFootball,calculateTable,athensDay,chooseRound,filterMatches,shiftDay} from './core.js?v=18';
 const $=id=>document.getElementById(id);
 const shortLabels={volleyball:'Βόλεϊ',football:'Ποδ.',basketball:'Μπασκ.',tv:'TV',matches:'Αγώνες',standings:'Βαθμοί'};
 const nav=[['football','⚽','Ποδόσφαιρο'],['basketball','◉','Μπάσκετ'],['volleyball','','Βόλεϊ'],['tv','▣','Τηλεόραση'],['matches','▦','Αγώνες'],['standings','≡','Βαθμολογίες']];
@@ -39,7 +39,7 @@ async function loadDaily(request,force){
  async function reader(){while(cursor<list.length){const c=list[cursor++];try{let p;if(isConnected(c.id))p=await loadProvider(c.id,season,{force});else{const source=`https://raw.githubusercontent.com/openfootball/football.json/master/${season}/${c.file}.json`,r=await fetch(source,{cache:'no-store',signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error('HTTP '+r.status);p={matches:normalizeFootball(await r.json(),c.id),source,retrievedAt:new Date().toISOString()};}if(request!==state.request)return;if(p.fallback)state.dailyErrors.push(c.name);scheduleCache.set(season+'-'+c.id,{...p,entries:scheduleEntries(p,c)});}catch(error){if(request!==state.request)return;state.dailyErrors.push(c.name);}pending--;state.dailyPending=pending;show();}}
  await Promise.all([reader(),reader(),reader(),reader()]);
 }
-async function load(force=false){const request=++state.request,c=current(),season=state.season;state.matches=[];state.meta=null;state.loading=true;$('view').innerHTML=empty('Φόρτωση δεδομένων','Ελέγχεται η επιλεγμένη πηγή.');$('refresh').disabled=true;let message='';
+async function load(force=false){const request=++state.request,c=current(),season=state.season,tvDate=state.tvDate,tvKey=id=>season+'-'+id+(id==='nova'?'-'+tvDate:'');state.matches=[];state.meta=null;state.loading=true;$('view').innerHTML=empty('Φόρτωση δεδομένων','Ελέγχεται η επιλεγμένη πηγή.');$('refresh').disabled=true;let message='';
  try{
  if(state.tab==='matches'){await loadDaily(request,force);message=$('status').textContent;}else if(isConnected(c.id)&&state.tab!=='tv'){
  const payload=await loadProvider(c.id,season,{force});if(request!==state.request)return;state.matches=payload.matches;state.meta=payload;message=payload.fallback?'Προβάλλονται αποθηκευμένα στοιχεία.':payload.partial?'Μερικό πρόγραμμα.':'';
@@ -50,13 +50,13 @@ async function load(force=false){const request=++state.request,c=current(),seaso
   if(request!==state.request)return;state.meta=payload;
  }else if(season==='2026-27'){
   if(state.tab==='tv'){
-   state.tvErrors=[];const feeds=['elite','gbl','sl2','nova'].filter(id=>c.id==='all-tv'||id===c.id||id==='nova');
-   const show=()=>{if(request!==state.request)return;state.tvSources=feeds.map(id=>tvCache.get(season+'-'+id)).filter(Boolean);state.matches=state.tvSources.flatMap(p=>p.matches).filter(m=>m.live&&m.date&&m.time&&m.channel&&(c.id==='all-tv'||m.competition===c.id));render();};
+   state.tvErrors=[];const feeds=['elite','gbl','sl2','volley-w','volley-m','nova'].filter(id=>c.id==='all-tv'||id===c.id||id==='nova');
+   const show=()=>{if(request!==state.request)return;state.tvSources=feeds.map(id=>tvCache.get(tvKey(id))).filter(Boolean);state.matches=state.tvSources.flatMap(p=>p.matches).filter(m=>m.live&&m.date&&m.time&&m.channel&&(c.id==='all-tv'||m.competition===c.id));render();};
    show();notify('Ενημέρωση…');
-   await Promise.allSettled(feeds.map(async id=>{try{const p=await(id==='nova'?loadNova():loadProvider(id,season,{force}));if(request!==state.request)return;
-    const competition=competitions.find(x=>x.id===id);const matches=id==='nova'?p.matches:p.matches.filter(m=>m.date&&m.time&&m.channel).map(m=>({...m,id:'tv-'+m.id,competition:id,competitionLabel:competition.name,sportLabel:competition.sport==='football'?'Ποδόσφαιρο':'Μπάσκετ',live:true,source:m.source||p.source}));
-    rememberBadges(p,id);tvCache.set(season+'-'+id,{...p,matches});show();
-   }catch(error){if(request===state.request){state.tvErrors.push(id+': '+error.message);const old=tvCache.get(season+'-'+id);if(old)tvCache.set(season+'-'+id,{...old,fallback:error.message});}}}));
+   await Promise.allSettled(feeds.map(async id=>{try{const p=await(id==='nova'?loadNova(tvDate):loadProvider(id,season,{force}));if(request!==state.request)return;
+    const competition=competitions.find(x=>x.id===id);const matches=id==='nova'?p.matches:p.matches.filter(m=>m.date&&m.time&&m.channel).map(m=>({...m,id:'tv-'+m.id,competition:id,competitionLabel:competition.name,sportLabel:competition.sport==='football'?'Ποδόσφαιρο':competition.sport==='volleyball'?'Βόλεϊ':'Μπάσκετ',live:true,source:m.source||p.source}));
+    rememberBadges(p,id);tvCache.set(tvKey(id),{...p,matches});show();
+   }catch(error){if(request===state.request){state.tvErrors.push(id+': '+error.message);const old=tvCache.get(tvKey(id));if(old)tvCache.set(tvKey(id),{...old,fallback:error.message});}}}));
    if(request!==state.request)return;
   }
   else if(c.id==='elite')state.matches=eliteMatches;
@@ -88,11 +88,11 @@ function renderTable(c){
  if(!rows.length){$('view').innerHTML=empty('Δεν υπάρχει διαθέσιμη βαθμολογία',c.note||'Δεν έχει συνδεθεί πηγή για αυτή τη σεζόν.',c.ranking||c.url);return;}
  if(meta?.standingsSource)$('source-note').innerHTML+=`<br>${link(meta.standingsSource,'Πηγή κατάταξης')}`;
  const q=state.search.toLocaleLowerCase('el');rows=rows.filter(r=>r.team.toLocaleLowerCase('el').includes(q));
- const percent=['el','eurocup'].includes(c.id);
+ const percent=['el','eurocup','nba'].includes(c.id);
  const notice=computed?'Ενδεικτική βαθμολογία · Δεν περιλαμβάνει ποινές ή ειδικές ισοβαθμίες.':'';
  $('view').innerHTML=`${notice?`<div class="notice">${e(notice)}</div>`:''}<div class="table-scroll"><table><caption class="fine">${e(c.name)} · 2026–27</caption><thead><tr><th scope="col">#</th><th scope="col">Ομάδα</th><th scope="col">Αγ.</th><th scope="col">Ν</th>${football?'<th scope="col">Ι</th>':''}<th scope="col">Η</th><th scope="col">${percent?'% Ν':'Βαθ.'}</th></tr></thead><tbody>${rows.map((r,i)=>`${r.group&&r.group!==rows[i-1]?.group?`<tr><th colspan="${football?7:6}" scope="rowgroup">${e(r.group)}</th></tr>`:''}<tr><td>${r.rank}</td><td>${team(r.team,r.badge||state.matches.find(m=>m.home===r.team)?.homeBadge||state.matches.find(m=>m.away===r.team)?.awayBadge)}</td><td>${r.played}</td><td>${r.wins}</td>${football?`<td>${r.draws}</td>`:''}<td>${r.losses}</td><td>${percent?e(r.winRate||'—'):r.points}</td></tr>`).join('')}</tbody></table></div>`;
 }
-function showHelp(){const cards=competitions.map(c=>`<div><b>${e(c.name)}</b><p>${e(c.file?'Δωρεάν openfootball / CC0. Δοκιμάστηκε HTTP 200 και CORS *. Αυτόματη ανάκτηση όταν ανοίγεις τη διοργάνωση, με αποθηκευμένο αντίγραφο αν αποτύχει. Κοινοτικά στοιχεία, όχι επίσημη πιστοποίηση.':c.note)}</p>${link(c.url,'Επίσημη ιστοσελίδα')}</div>`).join('');$('help-content').innerHTML=`<h3>Εγκατάσταση σε Android</h3><p>Άνοιξε τον σύνδεσμο GitHub Pages με Chrome. Δεν απαιτείται σύνδεση. Πάτησε «Εγκατάσταση εφαρμογής» ή μενού ⋮ → «Προσθήκη στην αρχική οθόνη» → «Εγκατάσταση». Η επιλογή εξαρτάται από τον browser. Δεν απαιτείται app store.</p><h3>Εγκατάσταση σε PC</h3><p>Σε Chrome ή Edge, άνοιξε τον ίδιο σύνδεσμο και πάτησε το εικονίδιο εγκατάστασης στη γραμμή διευθύνσεων ή την επιλογή εγκατάστασης από το μενού. Τοπικά εκκινείται και από localhost μέσω του παρεχόμενου οδηγού.</p><h3>Offline & ιδιωτικότητα</h3><p>Μετά την πρώτη επιτυχή φόρτωση, το κέλυφος και τα αποθηκευμένα δεδομένα παραμένουν στη συσκευή. Τα αγαπημένα αποθηκεύονται τοπικά χωρίς συγχρονισμό. Οι εξωτερικές πηγές και η αρχική σύνδεση χρειάζονται internet. Οι πηγές ελέγχονται όταν ανοίγεις ή ανανεώνεις τη διοργάνωση. Χωρίς διαφημίσεις ή analytics στην εφαρμογή.</p><h3>Τι έχει ελεγχθεί</h3><p>Έλεγχος πηγών: 20/10/2026. Δεν χρησιμοποιούνται placeholders αγώνων, βαθμολογιών ή μεταδόσεων. Τα σήματα ομάδων προέρχονται από τις πηγές όπου παρέχονται. Το αρχικό screenshot δεν ήταν προσβάσιμο στη μεταφερμένη συνομιλία· η διάταξη ακολουθεί τη γραπτή περιγραφή.</p><div class="help-grid">${cards}</div><h3>Τηλεόραση</h3><p>Η ημερήσια λίστα ανανεώνεται από τις ρητές αναφορές μετάδοσης ΕΟΚ, ΕΣΑΚΕ και SL2, και από το δημοσιευμένο ημερήσιο πρόγραμμα Novasports που διαβάζεται απευθείας στον browser. Στη λίστα εμφανίζονται μόνο ρητά δηλωμένες ζωντανές μεταδόσεις. Οι επαναλήψεις και οι καταχωρίσεις χωρίς ένδειξη ζωντανής μετάδοσης αποκλείονται. Οι πηγές φορτώνονται παράλληλα και η λίστα εμφανίζεται σταδιακά, χωρίς να περιμένει την πιο αργή. Δεν δημοσιεύεται αρχείο EPG στο repository. Οι υπόλοιπες μεταδόσεις ελέγχονται στα επίσημα προγράμματα καναλιών. Δεν υπάρχει πλήρης δωρεάν ελληνικός EPG συνδεδεμένος. Δεν συμπεραίνουμε κανάλι από τα δικαιώματα μιας διοργάνωσης. Οι δοκιμές λανθασμένων URL COSMOTE / Nova επέστρεψαν 404 και αντικαταστάθηκαν με τους επίσημους συνδέσμους των προγραμμάτων.</p><p>${link('https://github.com/openfootball/football.json/blob/master/LICENSE.md','Άδεια openfootball CC0')} · ${link('https://www.football-data.org/coverage','Κάλυψη football-data.org')}</p>`;$('help-dialog').showModal();}
+function showHelp(){const cards=competitions.map(c=>`<div><b>${e(c.name)}</b><p>${e(c.file?'Δωρεάν openfootball / CC0. Δοκιμάστηκε HTTP 200 και CORS *. Αυτόματη ανάκτηση όταν ανοίγεις τη διοργάνωση, με αποθηκευμένο αντίγραφο αν αποτύχει. Κοινοτικά στοιχεία, όχι επίσημη πιστοποίηση.':c.note)}</p>${link(c.url,'Επίσημη ιστοσελίδα')}</div>`).join('');$('help-content').innerHTML=`<h3>Εγκατάσταση σε Android</h3><p>Άνοιξε τον σύνδεσμο GitHub Pages με Chrome. Δεν απαιτείται σύνδεση. Πάτησε «Εγκατάσταση εφαρμογής» ή μενού ⋮ → «Προσθήκη στην αρχική οθόνη» → «Εγκατάσταση». Η επιλογή εξαρτάται από τον browser. Δεν απαιτείται app store.</p><h3>Εγκατάσταση σε PC</h3><p>Σε Chrome ή Edge, άνοιξε τον ίδιο σύνδεσμο και πάτησε το εικονίδιο εγκατάστασης στη γραμμή διευθύνσεων ή την επιλογή εγκατάστασης από το μενού. Τοπικά εκκινείται και από localhost μέσω του παρεχόμενου οδηγού.</p><h3>Offline & ιδιωτικότητα</h3><p>Μετά την πρώτη επιτυχή φόρτωση, το κέλυφος και τα αποθηκευμένα δεδομένα παραμένουν στη συσκευή. Τα αγαπημένα αποθηκεύονται τοπικά χωρίς συγχρονισμό. Οι εξωτερικές πηγές και η αρχική σύνδεση χρειάζονται internet. Οι πηγές ελέγχονται όταν ανοίγεις ή ανανεώνεις τη διοργάνωση. Χωρίς διαφημίσεις ή analytics στην εφαρμογή.</p><h3>Τι έχει ελεγχθεί</h3><p>Έλεγχος πηγών: 20/10/2026. Δεν χρησιμοποιούνται placeholders αγώνων, βαθμολογιών ή μεταδόσεων. Τα σήματα ομάδων προέρχονται από τις πηγές όπου παρέχονται. Το αρχικό screenshot δεν ήταν προσβάσιμο στη μεταφερμένη συνομιλία· η διάταξη ακολουθεί τη γραπτή περιγραφή.</p><div class="help-grid">${cards}</div><h3>Τηλεόραση</h3><p>Η ημερήσια λίστα ανανεώνεται από τις ρητές αναφορές μετάδοσης ΕΟΚ, ΕΣΑΚΕ και SL2, και από το δημοσιευμένο ημερήσιο πρόγραμμα Novasports που διαβάζεται απευθείας στον browser. Στη λίστα εμφανίζονται μόνο ρητά δηλωμένες ζωντανές μεταδόσεις. Οι επαναλήψεις και οι καταχωρίσεις χωρίς ένδειξη ζωντανής μετάδοσης αποκλείονται. Οι πηγές φορτώνονται παράλληλα και η λίστα εμφανίζεται σταδιακά, χωρίς να περιμένει την πιο αργή. Διατίθεται επαληθευμένο αντίγραφο ζωντανών μεταδόσεων ανά ημερομηνία για περίπτωση αποτυχίας της πηγής. Οι υπόλοιπες μεταδόσεις ελέγχονται στα επίσημα προγράμματα καναλιών. Δεν υπάρχει πλήρης δωρεάν ελληνικός EPG συνδεδεμένος. Δεν συμπεραίνουμε κανάλι από τα δικαιώματα μιας διοργάνωσης. Οι δοκιμές λανθασμένων URL COSMOTE / Nova επέστρεψαν 404 και αντικαταστάθηκαν με τους επίσημους συνδέσμους των προγραμμάτων.</p><p>${link('https://github.com/openfootball/football.json/blob/master/LICENSE.md','Άδεια openfootball CC0')} · ${link('https://www.football-data.org/coverage','Κάλυψη football-data.org')}</p>`;$('help-dialog').showModal();}
 function selectTab(key){if(state.tab===key)return;state.tab=key;if(key==='tv')state.id='all-tv';if(key==='matches')state.id='all-matches';choices();load();}
 for(const id of ['side-nav','top-nav','bottom-nav'])$(id).addEventListener('click',event=>{const b=event.target.closest('[data-tab]');if(b)selectTab(b.dataset.tab);});
 $('competition').addEventListener('change',()=>{state.id=$('competition').value;load();});$('round').addEventListener('change',()=>{state.round=$('round').value;render();});$('search').addEventListener('input',()=>{state.search=$('search').value;render();});$('favorites').addEventListener('change',()=>{state.only=$('favorites').checked;render();});
@@ -110,15 +110,17 @@ window.addEventListener('appinstalled',()=>{installPrompt=null;save('sh-installe
 window.addEventListener('offline',()=>notify('Εκτός σύνδεσης · τα δεδομένα είναι αποθηκευμένα στιγμιότυπα. Οι εξωτερικές πηγές χρειάζονται internet.'));window.addEventListener('online',()=>load());
 $('today').textContent=new Intl.DateTimeFormat('el-GR',{weekday:'long',day:'numeric',month:'long',timeZone:'Europe/Athens'}).format(new Date());
 if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>notify('Δεν ενεργοποιήθηκε η offline λειτουργία. Άνοιξε την εφαρμογή μέσω HTTPS ή localhost.'));
-function changeDay(delta){state.tvDate=shiftDay(state.tvDate,delta);state.archive=false;$('tv-archive').checked=false;render();}
-$('tv-date').onchange=()=>{if($('tv-date').value){state.tvDate=$('tv-date').value;state.archive=false;render();}};
+function changeDay(delta){state.tvDate=shiftDay(state.tvDate,delta);state.archive=false;$('tv-archive').checked=false;if(state.tab==='tv')load();else render();}
+$('tv-date').onchange=()=>{if($('tv-date').value){state.tvDate=$('tv-date').value;state.archive=false;if(state.tab==='tv')load();else render();}};
 $('prev-day').onclick=()=>changeDay(-1);$('next-day').onclick=()=>changeDay(1);
-$('today-button').onclick=()=>{state.tvDate=athensDay();state.archive=false;render();};
+$('today-button').onclick=()=>{state.tvDate=athensDay();state.archive=false;if(state.tab==='tv')load();else render();};
 function installSwipe(element,onSwipe){let start; element.addEventListener('touchstart',event=>{if(event.touches.length!==1||event.target.closest('input,select,a,button,summary,.table-scroll')){start=null;return;}start={x:event.touches[0].clientX,y:event.touches[0].clientY};},{passive:true});element.addEventListener('touchend',event=>{if(!start||!event.changedTouches.length)return;const end={x:event.changedTouches[0].clientX,y:event.changedTouches[0].clientY};const direction=swipeDirection(start,end);start=null;if(direction)onSwipe(direction);},{passive:true});element.addEventListener('touchcancel',()=>{start=null;},{passive:true});}
 installSwipe($('view'),direction=>{if(['tv','matches'].includes(state.tab))changeDay(direction);else{const i=nav.findIndex(n=>n[0]===state.tab),next=nav[i+direction];if(next)selectTab(next[0]);}});
 document.addEventListener('keydown',event=>{if(!['tv','matches'].includes(state.tab)||event.target.closest('input,select,textarea,button,a,summary')||event.altKey||event.ctrlKey||event.metaKey)return;if(event.key==='ArrowLeft')changeDay(-1);if(event.key==='ArrowRight')changeDay(1);});
-setInterval(async()=>{if(document.hidden||state.loading||state.refreshing||!['matches','football','basketball','volleyball'].includes(state.tab))return;if(state.tab==='matches'&&state.tvDate!==athensDay())return;state.refreshing=true;const request=state.request;try{if(state.tab==='matches')await loadDaily(request,true);else if(isConnected(state.id)){const p=await loadProvider(state.id,state.season,{force:true});if(request===state.request){state.matches=p.matches;state.meta=p;render();}}}catch{}finally{state.refreshing=false;}},90000);
+setInterval(async()=>{if(document.hidden||state.loading||state.refreshing||!['matches','football','basketball','volleyball','tv'].includes(state.tab))return;if(state.tab==='matches'&&state.tvDate!==athensDay())return;state.refreshing=true;const request=state.request;try{if(state.tab==='tv')await load(true);else if(state.tab==='matches')await loadDaily(request,true);else if(isConnected(state.id)){const p=await loadProvider(state.id,state.season,{force:true});if(request===state.request){state.matches=p.matches;state.meta=p;render();}}}catch{}finally{state.refreshing=false;}},90000);
 choices();renderNav();load();
 
 // Expire a LIVE label even when the next network request fails.
 setInterval(()=>{if(!document.hidden&&state.matches.some(m=>m.scoreState==='live'))render();},30000);
+
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!state.loading&&!state.refreshing)load(true);});
