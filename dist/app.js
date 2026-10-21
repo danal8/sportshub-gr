@@ -1,17 +1,17 @@
-import{makeSelection,sanitizeSelections,selectionForTeam,addSelection,weekRange,weeklyMatches,selectedCompetitions,teamIdentity}from'./my-teams.js?v=22';
-import{teamMarkup}from'./team-view.js?v=22';
-import{loadTVDetails,applyTVDetails}from'./tv-details.js?v=22';
-import{defaultCompetition,orderedCompetitions}from'./competition-order.js?v=22';
-import{badgeSources,loadBadgeCatalog,rememberBadges}from'./badges.js?v=22';
-import{resultLabel}from'./results.js?v=22';
-import{directIDs}from'./direct.js?v=22';
-import{swipeDirection}from'./gestures.js?v=22';
-import{navIcon}from'./icons.js?v=22';
-import{scheduleEntries,daySchedule}from'./schedule.js?v=22';
-import{loadNova}from'./tv.js?v=22';
-import {loadProvider,isConnected} from './providers.js?v=22';
-import {competitions,checkedAt,eliteSchedule,eliteTV,eliteMatches,broadcasts,currentTV,gblStandings} from './data.js?v=22';
-import {escapeHTML as e,normalizeFootball,calculateTable,athensDay,chooseRound,filterMatches,shiftDay} from './core.js?v=22';
+import{makeSelection,sanitizeSelections,selectionForTeam,addSelection,weekRange,weeklyMatches,selectedCompetitions,teamIdentity}from'./my-teams.js?v=23';
+import{teamMarkup}from'./team-view.js?v=23';
+import{loadTVDetails,applyTVDetails}from'./tv-details.js?v=23';
+import{defaultCompetition,orderedCompetitions}from'./competition-order.js?v=23';
+import{badgeSources,loadBadgeCatalog,rememberBadges}from'./badges.js?v=23';
+import{resultLabel}from'./results.js?v=23';
+import{directIDs}from'./direct.js?v=23';
+import{swipeDirection}from'./gestures.js?v=23';
+import{navIcon}from'./icons.js?v=23';
+import{scheduleEntries,daySchedule}from'./schedule.js?v=23';
+import{loadNova}from'./tv.js?v=23';
+import {loadProvider,isConnected} from './providers.js?v=23';
+import {competitions,checkedAt,eliteSchedule,eliteTV,eliteMatches,broadcasts,currentTV,gblStandings} from './data.js?v=23';
+import {escapeHTML as e,normalizeFootball,calculateTable,athensDay,chooseRound,filterMatches,shiftDay} from './core.js?v=23';
 const $=id=>document.getElementById(id);
 const shortLabels={volleyball:'Βόλεϊ',football:'Ποδ.',basketball:'Μπασκ.',tv:'TV',matches:'Αγώνες',standings:'Βαθμοί'};
 const nav=[['football','⚽','Ποδόσφαιρο'],['basketball','◉','Μπάσκετ'],['volleyball','','Βόλεϊ'],['tv','▣','Τηλεόραση'],['matches','▦','Αγώνες'],['standings','≡','Βαθμολογίες']];
@@ -130,7 +130,7 @@ setInterval(async()=>{if(document.hidden||state.loading||state.refreshing||!['ma
 
 function shortDate(day){return new Intl.DateTimeFormat('el-GR',{day:'numeric',month:'short',timeZone:'Europe/Athens'}).format(new Date(day+'T12:00:00Z'));}
 function renderMyTeamsControls(){
- const active=state.tab==='matches';$('match-mode').hidden=!active;$('my-teams-settings').hidden=!active||!state.myTeams;
+ const active=state.tab==='matches';$('match-controls').hidden=!active;$('match-mode').hidden=!active;$('my-teams-settings').hidden=!active||!state.myTeams;
  $('all-matches-mode').setAttribute('aria-pressed',String(!state.myTeams));$('my-teams-mode').setAttribute('aria-pressed',String(state.myTeams));
  $('my-teams-mode').textContent='Οι ομάδες μου'+(followedTeams.length?' · '+followedTeams.length:'');
  const html=followedTeams.map(s=>'<div class="followed-item"><span>'+e(s.scope==='club'?s.clubLabel:s.team)+'<small>'+e(s.scope==='club'?'Όλα τα διαθέσιμα τμήματα':(competitions.find(c=>c.id===s.competition)?.name||s.sport))+'</small></span><button type="button" class="outline" data-remove-team="'+e(s.key)+'" aria-label="'+e('Αφαίρεση '+s.team)+'">×</button></div>').join('')+'<button type="button" class="outline" data-open-standings>Προσθήκη από τις βαθμολογίες</button>';
