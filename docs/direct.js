@@ -1,6 +1,6 @@
-import{refreshGreekScores}from'./scoreboard.js?v=19';
-import{sl2Score}from'./results.js?v=19';
-import{parseGreekFootball}from'./feeds.js?v=19';
+import{refreshGreekScores}from'./scoreboard.js?v=20';
+import{sl2Score}from'./results.js?v=20';
+import{parseGreekFootball}from'./feeds.js?v=20';
 const shortcuts={pl:'pl',bund:'bl1',laliga:'la1',cl:'ucl',europa:'uel2026'};
 export const directIDs=['sl','pl','bund','laliga','cl','europa','el','eurocup','volley-w','volley-m','sl2'];
 const pair=s=>Array.isArray(s)&&s.length===2&&s.every(n=>Number.isInteger(n)&&n>=0);

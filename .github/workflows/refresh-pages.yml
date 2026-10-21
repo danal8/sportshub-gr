@@ -17,6 +17,7 @@ jobs:
           node-version: '22'
       - run: node scripts/refresh-pages.mjs
       - run: node scripts/refresh-public.mjs
+      - run: node scripts/refresh-tv-details.mjs
       - run: node scripts/cache-badges.mjs
       - run: npm run build
       - run: node --test tests/*.test.mjs
