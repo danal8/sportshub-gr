@@ -37,3 +37,7 @@ Based exclusively on fresh main 5d883d86dfd78c078e2b1df685f869f1b8b5e025.
 - Default build now prepares docs/ for GitHub Pages. No private backend URL or /api fetch is used by the public provider. No worker hosting deployment is performed.
 - Scheduled refresh: every five minutes, subject to GitHub Actions scheduling delays; source updates are validated before committing. Tests and Pages build gate updates.
 - Verification: 47 Node tests, Pages build, JavaScript syntax checks, browser TV Friday / volleyball women / NBA standings / all 14 visible SL badges loaded; no browser console errors.
+
+## Competition and mobile refinements · 2026-10-21
+
+Defaults: SL2 / Elite League A2 / women volleyball / SL2 standings. Remaining choices sorted alphabetically. NBA now includes 1,200 published regular-season fixtures (30 teams, source ESPN), with Athens dates and times, a date selector and current-score refresh. Team schedules refresh daily; scoreboard and standings refresh on the existing schedule. Unannounced Cup fixtures are not invented. Serie A: 380 fixtures / 20-team ESPN table. Ligue 1: 306 fixtures / 18-team ESPN table. All 38 club crests verified as local files, including Greek TV aliases. TV uses compact mobile typography and a 174px desktop date control. Requested indicative-table notice removed. Validation: 52 tests, Pages build, browser NBA fixtures / A2 and SL2 defaults / Serie A table, and 399px mobile TV inspection.

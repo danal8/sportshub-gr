@@ -1,6 +1,6 @@
-import {aliases} from './team-aliases.js?v=18';
+import {aliases} from './team-aliases.js?v=19';
 export const teamKey=name=>String(name||'').normalize('NFD').replace(/\p{M}/gu,'').toLocaleLowerCase('el').replace(/[^\p{L}\p{N}]/gu,'');
-const sports={sl:'football',sl2:'football',pl:'football',bund:'football',laliga:'football',cl:'football',europa:'football',conference:'football',elite:'basketball',gbl:'basketball',el:'basketball',eurocup:'basketball',nba:'basketball','volley-m':'volleyball','volley-w':'volleyball'};
+const sports={seriea:'football',ligue1:'football',sl:'football',sl2:'football',pl:'football',bund:'football',laliga:'football',cl:'football',europa:'football',conference:'football',elite:'basketball',gbl:'basketball',el:'basketball',eurocup:'basketball',nba:'basketball','volley-m':'volleyball','volley-w':'volleyball'};
 let catalog={teams:{},urls:{}},pending;
 const https=url=>{try{return new URL(url).protocol==='https:';}catch{return false;}};
 export function setBadgeCatalog(value){catalog=value?.teams?value:{teams:{},urls:{}};}
