@@ -4,7 +4,7 @@ const server=createServer(async(req,res)=>{if(req.url.startsWith('/api/'))apiCal
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const origin='http://127.0.0.1:'+server.address().port,browser=await chromium.launch();
 try{
  // Browser-side requests prove CORS, rather than merely testing Node access.
- const sourcePage=await browser.newPage();sourcePage.on('requestfailed',r=>console.log('CORS REQUEST FAILURE',r.url(),r.failure()?.errorText));sourcePage.on('console',m=>{if(m.type()==='error')console.log('BROWSER SOURCE ERROR',m.text());});await sourcePage.goto(origin);
+ const sourcePage=await browser.newPage();sourcePage.on('requestfailed',r=>console.log('CORS REQUEST FAILURE',r.url(),r.failure()?.errorText));sourcePage.on('console',m=>{if(m.type()==='error')console.log('BROWSER SOURCE ERROR',m.text());});await sourcePage.route('https://danal8.github.io/sportshub-gr/live-source-check',r=>r.fulfill({contentType:'text/html',body:'<!doctype html><title>SportsHub source check</title>'}));await sourcePage.goto('https://danal8.github.io/sportshub-gr/live-source-check');
  const cors=await sourcePage.evaluate(async()=>{
  const urls=[
  'https://site.api.espn.com/apis/site/v2/sports/soccer/gre.1/scoreboard?dates=20261018',

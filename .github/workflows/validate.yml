@@ -1,7 +1,7 @@
 name: Validate SportsHub
 on:
   push:
-    branches: [main, feature/my-teams-weekly, feature/compact-matches-mobile, feature/realtime-scores]
+    branches: [main]
   pull_request:
 permissions:
   contents: read
