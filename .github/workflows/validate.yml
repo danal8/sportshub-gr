@@ -26,6 +26,7 @@ jobs:
       - run: node scripts/check-my-teams-ui.mjs
       - run: node scripts/check-live-ui.mjs
       - run: node scripts/check-compact-ui.mjs
+      - run: node scripts/check-score-sync-ui.mjs
       - run: node scripts/check-detail-ui.mjs
       - uses: actions/upload-artifact@v4
         if: always()

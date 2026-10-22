@@ -6,8 +6,7 @@ export function sl2Score(g){
 }
 // A failed refresh, offline copy or old snapshot must never claim to be live.
 export function safeResults(payload,now=Date.now()){
- const age=now-Date.parse(payload.retrievedAt),fresh=!payload.fallback&&Number.isFinite(age)&&age>=-60000&&age<120000;
- return {...payload,matches:payload.matches.map(m=>({...m,scoreState:m.scoreState==='live'&&!fresh?'current':m.scoreState,scoreCheckedAt:payload.retrievedAt}))};
+ return {...payload,matches:payload.matches.map(m=>{const checked=m.scoreCheckedAt||payload.retrievedAt,age=now-Date.parse(checked),fresh=!payload.fallback&&Number.isFinite(age)&&age>=-60000&&age<120000;return {...m,scoreState:m.scoreState==='live'&&!fresh?'current':m.scoreState,scoreCheckedAt:checked};})};
 }
 export function resultLabel(m,now=Date.now()){
  if(!validScore(m.score))return '';

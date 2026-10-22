@@ -1,6 +1,6 @@
-import{footballEvents}from'./football-events.js?v=39';
+import{footballEvents}from'./football-events.js?v=40';
 import{competitions}from'./data.js?v=26';
-import{aliases}from'./team-aliases.js?v=39';
+import{aliases}from'./team-aliases.js?v=40';
 import{teamKey}from'./badges.js?v=26';
 import{athensDay,normalizeFootball,shiftDay}from'./core.js?v=26';
 import{liveLeagues,sourceClock,parseEuroHeader}from'./live-scores.js?v=26';

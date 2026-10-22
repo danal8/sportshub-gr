@@ -1,3 +1,4 @@
+import{preserveConfirmedResults}from'../dist/result-reconciliation.js';
 import {readFile,writeFile} from 'node:fs/promises';
 import {normalizeSportsDB}from'../dist/feeds.js';
 import {loadSL2} from '../worker/sl2.mjs';
@@ -17,6 +18,6 @@ for(const id of ['sl2','elite','gbl','conference']){try{
   for(const round of rounds)for(const m of parseGBLRound(await text(`https://www.esake.gr/el/action/EsakeResults?idchampionship=184645B9&idteam=&idseason=00000001&series=${String(round).padStart(2,'0')}`),Number(round)))games.set(m.id,m);
   next={...old,matches:[...games.values()]};
  }
- await writeFile(file,JSON.stringify({...next,retrievedAt:new Date().toISOString()}));updated++;console.log(id,next.matches.filter(m=>m.score).length,'results');
+ await writeFile(file,JSON.stringify(preserveConfirmedResults({...next,retrievedAt:new Date().toISOString()},old,id)));updated++;console.log(id,next.matches.filter(m=>m.score).length,'results');
  }catch(e){console.warn(id,e.message);}}
 if(!updated)throw Error('No result source was available');

@@ -1,0 +1,20 @@
+import{chromium}from'playwright';import{createServer}from'node:http';import{readFile,mkdir}from'node:fs/promises';import path from'node:path';import assert from'node:assert/strict';
+const root=path.resolve('docs'),types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.svg':'image/svg+xml'};
+const server=createServer(async(req,res)=>{try{const u=new URL(req.url,'http://local'),file=path.resolve(root,'.'+(u.pathname==='/'?'/index.html':u.pathname));if(!file.startsWith(root+path.sep))throw Error();res.setHeader('Content-Type',types[path.extname(file)]||'application/octet-stream');res.end(await readFile(file));}catch{res.writeHead(404).end();}});
+await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin='http://127.0.0.1:'+server.address().port,browser=await chromium.launch();
+try{
+ const raw=JSON.parse(await readFile('tests/fixtures/details.json','utf8'))['soccer-summary'],g=raw.header.competitions[0];let step=0;
+ const match={id:'sync-test',competition:'sl',date:'2026-10-18',round:'1',time:'16:00',home:'Kalamata',away:'OFI Crete',score:[4,3],scoreState:'live'};
+ const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'block'}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.clock.install({time:new Date('2026-10-18T14:00:00Z')});
+ await context.route('**/*',route=>{const u=new URL(route.request().url()),json=p=>route.fulfill({json:p});
+ if(u.origin===origin){if(u.pathname==='/snapshots/sl-2026-27.json')return json({season:'2026-27',retrievedAt:'2026-10-18T14:00:00Z',matches:[match]});if(u.pathname==='/snapshots/highlights-2026-27.json')return json({season:'2026-27',videos:[]});return route.continue();}
+ if(u.pathname.includes('/soccer/gre.1/scoreboard'))return json({leagues:[{season:{year:2026}}],events:[{id:raw.header.id,date:g.date,competitions:[{...g,status:{displayClock:'67'+(step||''),type:{state:step===2?'post':'in',completed:step===2,name:step===2?'STATUS_FULL_TIME':'STATUS_IN_PROGRESS'}},competitors:g.competitors.map((c,i)=>({...c,score:String(i===0?(step?5:4):3)}))}]}]});
+ if(u.pathname.includes('/soccer/gre.1/summary'))return json({...raw,header:{...raw.header,competitions:[{...g,status:{displayClock:'60',type:{state:'in',completed:false}},competitors:g.competitors.map(c=>({...c,score:'0'}))}]}});
+ return route.abort();});
+ const loaded=()=>page.locator('#refresh:not([disabled])').waitFor(),football=async()=>{await loaded();await page.locator('#top-nav [data-tab="football"]').click();await loaded();await page.locator('#competition').selectOption('sl');await loaded();await page.locator('#round').selectOption('');};
+ await page.goto(origin);await football();await page.locator('.match-open').click();await page.locator('.detail-score strong').waitFor();assert.equal(await page.locator('.detail-score strong').textContent(),'4 – 3','A 0-0 summary must not replace the current card score');
+ step=1;await page.clock.fastForward(30000);await page.waitForFunction(()=>document.querySelector('.detail-score strong')?.textContent==='5 – 3');assert.deepEqual(await page.locator('.team-score').allTextContents(),['5','3']);
+ step=2;await page.clock.fastForward(30000);await page.locator('.detail-score span').filter({hasText:'Τελικό'}).waitFor();assert.equal(await page.locator('.detail-score strong').textContent(),'5 – 3');await page.keyboard.press('Escape');await page.locator('#detail-dialog:not([open])').waitFor({state:'attached'});
+ await page.reload();await football();assert.deepEqual(await page.locator('.team-score').allTextContents(),['5','3']);await page.locator('.match-open').click();await page.locator('.detail-score span').filter({hasText:'Τελικό'}).waitFor();assert.equal(await page.locator('.detail-score strong').textContent(),'5 – 3');assert.deepEqual(errors,[]);
+ console.log('Modal follows live card updates, ignores lagging 0-0 summaries, transitions to final and retains the final across reloads.');
+}finally{await browser.close();await new Promise(r=>server.close(r));}

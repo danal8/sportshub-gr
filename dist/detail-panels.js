@@ -1,11 +1,12 @@
-import{eventTimeline}from'./event-timeline.js?v=39';
-import{loadMatchHighlights}from'./highlights.js?v=39';
+import{sameResultMatch,synchronizeDetailScore}from'./result-reconciliation.js?v=40';
+import{eventTimeline}from'./event-timeline.js?v=40';
+import{loadMatchHighlights}from'./highlights.js?v=40';
 import{escapeHTML as e,athensDay}from'./core.js?v=26';
 import{competitions}from'./data.js?v=26';
-import{displayTeamName}from'./team-display.js?v=39';
+import{displayTeamName}from'./team-display.js?v=40';
 import{teamMarkup}from'./team-view.js?v=26';
 import{badgeSources}from'./badges.js?v=26';
-import{loadTeamOverview,loadTeamRoster,loadMatchDetails}from'./detail-data.js?v=39';
+import{loadTeamOverview,loadTeamRoster,loadMatchDetails}from'./detail-data.js?v=40';
 const $=id=>document.getElementById(id);
 const day=d=>d?new Intl.DateTimeFormat('el-GR',{day:'numeric',month:'short',year:'numeric',timeZone:'Europe/Athens'}).format(new Date(d+'T12:00:00Z')):'Δεν έχει οριστεί';
 const stamp=d=>{try{return new Intl.DateTimeFormat('el-GR',{dateStyle:'short',timeStyle:'short',timeZone:'Europe/Athens'}).format(new Date(d));}catch{return '—';}};
@@ -97,7 +98,7 @@ export function createDetailPanels({getSeed=()=>[]}={}){
  const m=card.match,d=card.data,c=card.competition;
  const teams='<div class="detail-match-teams"><button type="button" data-detail-team="'+e(m.home)+'" data-detail-competition="'+e(c.id)+'">'+visual(m.home,c,m.homeBadge)+'</button><span>–</span><button type="button" data-detail-team="'+e(m.away)+'" data-detail-competition="'+e(c.id)+'">'+visual(m.away,c,m.awayBadge)+'</button></div>';
  if(!d)return teams+highlightLink(card)+'<p class="detail-meta">'+e(day(m.date))+' · '+e(m.time||'Ώρα μη ορισμένη')+' · '+e(c.name)+'</p>'+blank(card.loading?'Φόρτωση αναλυτικών στατιστικών…':card.error||'Δεν υπάρχουν διαθέσιμα στοιχεία.')+(!card.loading?'<button type="button" class="outline" data-detail-retry>Δοκίμασε ξανά</button>':'');
- const age=Date.now()-Date.parse(d.checkedAt),live=d.scoreState==='live'&&age>=-60000&&age<90000;
+ const age=Date.now()-Date.parse(d.scoreCheckedAt||d.checkedAt),live=d.scoreState==='live'&&age>=-60000&&age<90000;
  const score=d.score?'<div class="detail-score"><strong>'+e(d.score.join(' – '))+'</strong><span>'+(d.scoreState==='final'?'Τελικό':live?'● LIVE'+(d.clock?' · '+e(d.clock):''):'Σκορ πηγής · αναμονή ενημέρωσης')+'</span></div>':'';
  const head=(card.error?'<p class="detail-empty" role="status">'+e(card.error)+' Τα προηγούμενα στοιχεία παραμένουν ορατά.</p>':'')+teams+score+highlightLink(card)+'<p class="detail-meta">'+e(day(m.date))+' · '+e(m.time||'Ώρα μη ορισμένη')+' · '+e(c.name)+(d.venue?' · '+e(d.venue):'')+'</p>';
  if(card.tab==='players')return head+playerTables(d);
@@ -113,7 +114,7 @@ export function createDetailPanels({getSeed=()=>[]}={}){
  }
  async function fetchCard(card,force=false){
  const gen=generation;card.loading=true;card.error='';render();if(card.type==='match')void highlights(card,force);
- try{if(card.type==='team')card.overview=await loadTeamOverview(card.team,card.competition,{seed:getSeed(),force});else card.data=await loadMatchDetails(card.match,{force});}
+ try{if(card.type==='team')card.overview=await loadTeamOverview(card.team,card.competition,{seed:getSeed(),force});else card.data=synchronizeDetailScore(await loadMatchDetails(card.match,{force}),card.match);}
  catch(err){card.error=err.message.startsWith('Δεν ')||err.message.startsWith('Τα ')?err.message:'Η πηγή δεν είναι διαθέσιμη αυτή τη στιγμή.';}
  finally{card.loading=false;if(current===card&&generation===gen){render();if(card.type==='team'&&card.tab==='roster')void roster(card,force);if(card.type==='match')void highlights(card);}}
  }
@@ -139,6 +140,10 @@ export function createDetailPanels({getSeed=()=>[]}={}){
  if(target.hasAttribute('data-more-events')){current.eventCount=(current.eventCount||40)+40;render();}
  });
  setInterval(()=>{if(document.hidden||!dialog.open||!current||current.type!=='match'||current.loading||current.data?.scoreState!=='live')return;void fetchCard(current,true);},30000);
- return{openTeam,openMatch};
+ function updateMatches(matches){
+  for(const card of [current,...history]){if(card?.type!=='match')continue;const hits=matches.filter(m=>sameResultMatch({...card.match,competition:card.competition.id},m));if(hits.length!==1)continue;card.match={...card.match,...hits[0]};card.data=synchronizeDetailScore(card.data,card.match);}
+  if(current?.type==='match')render();
+ }
+ return{openTeam,openMatch,updateMatches};
 }
 

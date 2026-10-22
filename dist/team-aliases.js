@@ -1,5 +1,13 @@
 // Explicit spelling aliases only; no fuzzy matching between different clubs.
 const rows=[
+['Everton FC','Everton'],['Chelsea FC','Chelsea'],['Brentford F.C.','Brentford'],['Fulham FC','Fulham'],['Newcastle United FC','Newcastle United'],['Tottenham Hotspur FC','Tottenham Hotspur'],
+['FC Valencia','Valencia','Valencia CF'],['FC Malaga','Málaga'],['FC Sevilla','Sevilla','Sevilla FC'],['FC Getafe','Getafe','Getafe CF'],['RSC Anderlecht','Anderlecht'],['Asteras Tripoli','Asteras Tripolis'],
+['FC Ararat-Armenia','Ararat-Armenia'],
+['SC União Torreense','Torreense'],
+['Union Saint-Gilloise','Union St.-Gilloise'],
+["Hapoel Beer Scheva","Hapoel Be'er"],
+['Sturm Graz','SK Sturm Graz'],
+['Lillestrøm SK','Lillestrom'],
 ['Ajax','Ajax Amsterdam','AFC Ajax','Άγιαξ'],['Philadelphia 76ers','76ers','Sixers','Φιλαδέλφεια Σίξερς'],
 ["BOSNA BH Telecom Sarajevo","BOSNA","Μπόσνα"],
 ["Bahcesehir College Istanbul","Bahcesehir","Μπαχτσεσεχίρ","Μπαχτσεσεχίρ"],

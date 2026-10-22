@@ -1,8 +1,9 @@
+import{mergeResultUpdates,sameResultMatch}from'./result-reconciliation.js?v=40';
 import{teamKey}from'./badges.js?v=24';
-import{aliases}from'./team-aliases.js?v=24';
+import{aliases}from'./team-aliases.js?v=40';
 import{athensDay,shiftDay}from'./core.js?v=24';
-import{openGames,euroGames}from'./direct.js?v=26';
-import{sl2Score}from'./results.js?v=26';
+import{openGames,euroGames}from'./direct.js?v=40';
+import{sl2Score}from'./results.js?v=40';
 export const LIVE_INTERVAL=30000,LIVE_TTL=90000;
 export const liveLeagues={sl:['soccer','gre.1'],pl:['soccer','eng.1'],bund:['soccer','ger.1'],laliga:['soccer','esp.1'],seriea:['soccer','ita.1'],ligue1:['soccer','fra.1'],cl:['soccer','uefa.champions'],europa:['soccer','uefa.europa'],conference:['soccer','uefa.europa.conf'],nba:['basketball','nba']};
 const names=(n,extra=[])=>new Set([n,...extra,...aliases[teamKey(n)]||[]].filter(Boolean).flatMap(x=>[x,...aliases[teamKey(x)]||[]]).filter(Boolean).map(teamKey));
@@ -26,7 +27,7 @@ export function parseLiveScoreboard(raw,id,checkedAt=new Date().toISOString()){
  const g=e.competitions?.[0],h=g?.competitors?.find(x=>x.homeAway==='home'),a=g?.competitors?.find(x=>x.homeAway==='away'),status=g?.status||e.status,d=new Date(e.date);
  if(!h?.team?.displayName||!a?.team?.displayName||!Number.isFinite(+d))return[];
  const s=[h.score,a.score].map(v=>v===null||v===undefined||v===''?NaN:Number(v?.value??v)),type=status?.type||{},valid=score(s)&&(type.completed===true||type.state==='in');
- return[{id:'espn-'+e.id,competition:id,date:athensDay(d),time:new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Athens',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(d),home:h.team.displayName,away:a.team.displayName,homeAliases:[h.team.shortDisplayName,h.team.name].filter(Boolean),awayAliases:[a.team.shortDisplayName,a.team.name].filter(Boolean),score:valid?s:null,scoreState:valid?(type.completed?'final':'live'):null,clock:valid?sourceClock(status,liveLeagues[id][0]):null,checkedAt,source:liveLeagues[id][0]==='soccer'?'https://www.espn.com/soccer/match/_/gameId/'+e.id:'https://www.espn.com/nba/game/_/gameId/'+e.id,provider:'ESPN'}];
+ return[{id:'espn-'+e.id,competition:id,date:athensDay(d),time:new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Athens',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(d),home:h.team.displayName,away:a.team.displayName,homeIDs:h.team.id?{espn:String(h.team.id)}:{},awayIDs:a.team.id?{espn:String(a.team.id)}:{},eventIDs:{espn:String(e.id)},homeAliases:[h.team.shortDisplayName,h.team.name].filter(Boolean),awayAliases:[a.team.shortDisplayName,a.team.name].filter(Boolean),score:valid?s:null,scoreState:valid?(type.completed?'final':'live'):null,clock:valid?sourceClock(status,liveLeagues[id][0]):null,checkedAt,source:liveLeagues[id][0]==='soccer'?'https://www.espn.com/soccer/match/_/gameId/'+e.id:'https://www.espn.com/nba/game/_/gameId/'+e.id,provider:'ESPN'}];
  });
 }
 export function parseEuroHeader(raw,m,checkedAt=new Date().toISOString(),pbp){
@@ -41,15 +42,7 @@ export function parseEuroHeader(raw,m,checkedAt=new Date().toISOString(),pbp){
  const clock=raw.Live===true&&/^\d{1,2}:\d{2}$/.test(remaining)?(q>0&&q<10?(q<=4?q+'η περ.':(q-4)+'η παρ.')+' · ':'Υπόλοιπο ')+remaining:null;
  return{...m,score:s,scoreState:final?'final':'live',clock,checkedAt,source:'https://live.euroleague.net/',provider:'Euroleague Basketball'};
 }
-export function applyLiveScores(matches,entries,now=Date.now()){
- return matches.map(m=>{
- const hits=entries.filter(x=>x.competition===m.competition&&x.date===m.date&&same(m.home,x.home,x.homeAliases)&&same(m.away,x.away,x.awayAliases));
- if(hits.length!==1)return m;const x=hits[0];if(!score(x.score))return m;
- const existing=Date.parse(m.scoreCheckedAt);if(score(m.score)&&Number.isFinite(existing)&&existing<=now+60000&&existing>Date.parse(x.checkedAt))return m;
- const age=now-Date.parse(x.checkedAt),fresh=Number.isFinite(age)&&age>=-60000&&age<LIVE_TTL;
- return {...m,time:m.time||x.time,score:x.score,scoreState:x.scoreState==='live'&&!fresh?'current':x.scoreState,scoreClock:x.scoreState==='live'&&fresh?x.clock:null,scoreCheckedAt:x.checkedAt,scoreSource:x.source,scoreProvider:x.provider};
- });
-}
+export function applyLiveScores(matches,entries,now=Date.now()){return mergeResultUpdates(matches,entries,now);}
 const cache=new Map(),inflight=new Map();
 export function isFreshLive(match,now=Date.now()){
  const age=now-Date.parse(match.scoreCheckedAt||match.checkedAt);
@@ -57,7 +50,7 @@ export function isFreshLive(match,now=Date.now()){
 }
 export function mergeLiveMatches(matches,entries,{date,competitionIDs}={}){
  const out=applyLiveScores(matches,entries),allowed=new Set(competitionIDs||matches.map(m=>m.competition));
- for(const x of entries){if(!allowed.has(x.competition)||x.date!==date||!isFreshLive(x)||out.some(m=>m.competition===x.competition&&m.date===x.date&&same(m.home,x.home,x.homeAliases)&&same(m.away,x.away,x.awayAliases)))continue;out.push({...x,scoreCheckedAt:x.checkedAt,scoreClock:x.clock,scoreSource:x.source});}
+ for(const x of entries){if(!allowed.has(x.competition)||x.date!==date||!(isFreshLive(x)||x.scoreState==='final'&&score(x.score))||out.some(m=>m.competition===x.competition&&m.date===x.date&&same(m.home,x.home,x.homeAliases)&&same(m.away,x.away,x.awayAliases)))continue;out.push({...x,scoreCheckedAt:x.checkedAt,scoreClock:x.clock,scoreSource:x.source});}
  return out;
 }
 async function requestJSON(url){const r=await fetch(url,{cache:'no-store',credentials:'omit',signal:AbortSignal.timeout(7000)});if(!r.ok)throw Error('HTTP '+r.status);return r.json();}
