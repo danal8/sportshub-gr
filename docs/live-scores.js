@@ -43,6 +43,7 @@ export function applyLiveScores(matches,entries,now=Date.now()){
  return matches.map(m=>{
  const hits=entries.filter(x=>x.competition===m.competition&&x.date===m.date&&same(m.home,x.home,x.homeAliases)&&same(m.away,x.away,x.awayAliases));
  if(hits.length!==1)return m;const x=hits[0];if(!score(x.score))return m;
+ const existing=Date.parse(m.scoreCheckedAt);if(score(m.score)&&Number.isFinite(existing)&&existing<=now+60000&&existing>Date.parse(x.checkedAt))return m;
  const age=now-Date.parse(x.checkedAt),fresh=Number.isFinite(age)&&age>=-60000&&age<LIVE_TTL;
  return {...m,time:m.time||x.time,score:x.score,scoreState:x.scoreState==='live'&&!fresh?'current':x.scoreState,scoreClock:x.scoreState==='live'&&fresh?x.clock:null,scoreCheckedAt:x.checkedAt,scoreSource:x.source,scoreProvider:x.provider};
  });
@@ -58,7 +59,7 @@ export async function loadLiveScores(matches,date,{force=false}={}){
  await Promise.all(ids.filter(id=>liveLeagues[id]).map(async id=>{
  try{const value=await requestFeed(id+'-'+date,async()=>{
  const [sport,league]=liveLeagues[id],days=id==='nba'?[date,shiftDay(date,-1)]:[date],out=[];
- for(const day of days){const url='https://site.api.espn.com/apis/site/v2/sports/'+sport+'/'+league+'/scoreboard?dates='+day.replaceAll('-','');const raw=await requestJSON(url);out.push(...parseLiveScoreboard(raw,id,new Date().toISOString()).filter(e=>e.date===date));}
+ for(const day of days){const url='https://site.web.api.espn.com/apis/site/v2/sports/'+sport+'/'+league+'/scoreboard?region=us&lang=en&contentorigin=espn&dates='+day.replaceAll('-','');const raw=await requestJSON(url);out.push(...parseLiveScoreboard(raw,id,new Date().toISOString()).filter(e=>e.date===date));}
  return[...new Map(out.map(e=>[e.id,e])).values()];},force);entries.push(...value);succeeded.push(id);sources.push('ESPN');
  }catch(e){errors.push({id,error:e.message});}
  }));
