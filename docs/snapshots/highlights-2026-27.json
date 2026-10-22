@@ -1,7 +1,7 @@
 {
   "season": "2026-27",
   "sourceVersion": 2,
-  "retrievedAt": "2026-10-22T15:44:05.950Z",
+  "retrievedAt": "2026-10-22T16:02:53.336Z",
   "sources": [
     {
       "name": "NBA",
@@ -81,15 +81,15 @@
         },
         {
           "seconds": 1360,
-          "label": "Player of the night"
+          "label": "Player of the Night"
         },
         {
           "seconds": 1448,
-          "label": "Top 10 Plays of the night"
+          "label": "Top 10 Plays of the Night"
         },
         {
           "seconds": 1586,
-          "label": "Best Sounds of the Night"
+          "label": "Sounds of the Night"
         }
       ]
     },
