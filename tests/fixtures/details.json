@@ -1,0 +1,2414 @@
+{
+  "nba-summary": {
+    "header": {
+      "id": "401909834",
+      "season": {
+        "year": 2027,
+        "current": true,
+        "type": 2
+      },
+      "league": {
+        "slug": "nba"
+      },
+      "competitions": [
+        {
+          "date": "2026-10-21T23:00Z",
+          "status": {
+            "type": {
+              "id": "3",
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "description": "Final",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "125",
+              "linescores": [
+                {
+                  "displayValue": "33"
+                },
+                {
+                  "displayValue": "29"
+                },
+                {
+                  "displayValue": "38"
+                },
+                {
+                  "displayValue": "25"
+                }
+              ],
+              "team": {
+                "id": "19",
+                "displayName": "Orlando Magic"
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "132",
+              "linescores": [
+                {
+                  "displayValue": "28"
+                },
+                {
+                  "displayValue": "44"
+                },
+                {
+                  "displayValue": "27"
+                },
+                {
+                  "displayValue": "33"
+                }
+              ],
+              "team": {
+                "id": "1",
+                "displayName": "Atlanta Hawks"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "boxscore": {
+      "teams": [
+        {
+          "team": {
+            "id": "1",
+            "displayName": "Atlanta Hawks"
+          },
+          "statistics": [
+            {
+              "name": "fieldGoalsMade-fieldGoalsAttempted",
+              "displayValue": "44-90",
+              "label": "FG"
+            },
+            {
+              "name": "fieldGoalPct",
+              "displayValue": "49",
+              "abbreviation": "FG%",
+              "label": "Field Goal %"
+            },
+            {
+              "name": "threePointFieldGoalsMade-threePointFieldGoalsAttempted",
+              "displayValue": "14-36",
+              "label": "3PT"
+            },
+            {
+              "name": "threePointFieldGoalPct",
+              "displayValue": "39",
+              "abbreviation": "3P%",
+              "label": "Three Point %"
+            },
+            {
+              "name": "freeThrowsMade-freeThrowsAttempted",
+              "displayValue": "30-36",
+              "label": "FT"
+            },
+            {
+              "name": "freeThrowPct",
+              "displayValue": "83",
+              "abbreviation": "FT%",
+              "label": "Free Throw %"
+            },
+            {
+              "name": "totalRebounds",
+              "displayValue": "42",
+              "abbreviation": "REB",
+              "label": "Rebounds"
+            },
+            {
+              "name": "offensiveRebounds",
+              "displayValue": "11",
+              "abbreviation": "OR",
+              "label": "Offensive Rebounds"
+            },
+            {
+              "name": "defensiveRebounds",
+              "displayValue": "31",
+              "abbreviation": "DR",
+              "label": "Defensive Rebounds"
+            },
+            {
+              "name": "assists",
+              "displayValue": "28",
+              "abbreviation": "AST",
+              "label": "Assists"
+            },
+            {
+              "name": "steals",
+              "displayValue": "9",
+              "abbreviation": "STL",
+              "label": "Steals"
+            },
+            {
+              "name": "blocks",
+              "displayValue": "3",
+              "abbreviation": "BLK",
+              "label": "Blocks"
+            },
+            {
+              "name": "turnovers",
+              "displayValue": "17",
+              "abbreviation": "TO",
+              "label": "Turnovers"
+            },
+            {
+              "name": "teamTurnovers",
+              "displayValue": "0",
+              "abbreviation": "TTO",
+              "label": "Team Turnovers"
+            },
+            {
+              "name": "totalTurnovers",
+              "displayValue": "17",
+              "abbreviation": "ToTO",
+              "label": "Total Turnovers"
+            },
+            {
+              "name": "technicalFouls",
+              "displayValue": "0",
+              "abbreviation": "TECH",
+              "label": "Technical Fouls"
+            },
+            {
+              "name": "totalTechnicalFouls",
+              "displayValue": "0",
+              "abbreviation": "TECH",
+              "label": "Total Technical Fouls"
+            },
+            {
+              "name": "flagrantFouls",
+              "displayValue": "0",
+              "abbreviation": "FLAG",
+              "label": "Flagrant Fouls"
+            },
+            {
+              "name": "turnoverPoints",
+              "displayValue": "18",
+              "abbreviation": "Points Conceded Off Turnovers",
+              "label": "Points Conceded Off Turnovers"
+            },
+            {
+              "name": "fastBreakPoints",
+              "displayValue": "18",
+              "abbreviation": "FBPs",
+              "label": "Fast Break Points"
+            },
+            {
+              "name": "pointsInPaint",
+              "displayValue": "60",
+              "abbreviation": "PIP",
+              "label": "Points in Paint"
+            },
+            {
+              "name": "fouls",
+              "displayValue": "30",
+              "abbreviation": "PF",
+              "label": "Fouls"
+            },
+            {
+              "name": "largestLead",
+              "displayValue": "14",
+              "abbreviation": "LL",
+              "label": "Largest Lead"
+            },
+            {
+              "name": "leadChanges",
+              "displayValue": "22",
+              "abbreviation": "LC",
+              "label": "Lead Changes"
+            },
+            {
+              "name": "leadPercentage",
+              "displayValue": "57",
+              "abbreviation": "LPCT",
+              "label": "Percent Led"
+            }
+          ]
+        },
+        {
+          "team": {
+            "id": "19",
+            "displayName": "Orlando Magic"
+          },
+          "statistics": [
+            {
+              "name": "fieldGoalsMade-fieldGoalsAttempted",
+              "displayValue": "41-85",
+              "label": "FG"
+            },
+            {
+              "name": "fieldGoalPct",
+              "displayValue": "48",
+              "abbreviation": "FG%",
+              "label": "Field Goal %"
+            },
+            {
+              "name": "threePointFieldGoalsMade-threePointFieldGoalsAttempted",
+              "displayValue": "13-40",
+              "label": "3PT"
+            },
+            {
+              "name": "threePointFieldGoalPct",
+              "displayValue": "32",
+              "abbreviation": "3P%",
+              "label": "Three Point %"
+            },
+            {
+              "name": "freeThrowsMade-freeThrowsAttempted",
+              "displayValue": "30-39",
+              "label": "FT"
+            },
+            {
+              "name": "freeThrowPct",
+              "displayValue": "77",
+              "abbreviation": "FT%",
+              "label": "Free Throw %"
+            },
+            {
+              "name": "totalRebounds",
+              "displayValue": "39",
+              "abbreviation": "REB",
+              "label": "Rebounds"
+            },
+            {
+              "name": "offensiveRebounds",
+              "displayValue": "9",
+              "abbreviation": "OR",
+              "label": "Offensive Rebounds"
+            },
+            {
+              "name": "defensiveRebounds",
+              "displayValue": "30",
+              "abbreviation": "DR",
+              "label": "Defensive Rebounds"
+            },
+            {
+              "name": "assists",
+              "displayValue": "30",
+              "abbreviation": "AST",
+              "label": "Assists"
+            },
+            {
+              "name": "steals",
+              "displayValue": "10",
+              "abbreviation": "STL",
+              "label": "Steals"
+            },
+            {
+              "name": "blocks",
+              "displayValue": "3",
+              "abbreviation": "BLK",
+              "label": "Blocks"
+            },
+            {
+              "name": "turnovers",
+              "displayValue": "20",
+              "abbreviation": "TO",
+              "label": "Turnovers"
+            },
+            {
+              "name": "teamTurnovers",
+              "displayValue": "0",
+              "abbreviation": "TTO",
+              "label": "Team Turnovers"
+            },
+            {
+              "name": "totalTurnovers",
+              "displayValue": "20",
+              "abbreviation": "ToTO",
+              "label": "Total Turnovers"
+            },
+            {
+              "name": "technicalFouls",
+              "displayValue": "0",
+              "abbreviation": "TECH",
+              "label": "Technical Fouls"
+            },
+            {
+              "name": "totalTechnicalFouls",
+              "displayValue": "0",
+              "abbreviation": "TECH",
+              "label": "Total Technical Fouls"
+            },
+            {
+              "name": "flagrantFouls",
+              "displayValue": "0",
+              "abbreviation": "FLAG",
+              "label": "Flagrant Fouls"
+            },
+            {
+              "name": "turnoverPoints",
+              "displayValue": "24",
+              "abbreviation": "Points Conceded Off Turnovers",
+              "label": "Points Conceded Off Turnovers"
+            },
+            {
+              "name": "fastBreakPoints",
+              "displayValue": "14",
+              "abbreviation": "FBPs",
+              "label": "Fast Break Points"
+            },
+            {
+              "name": "pointsInPaint",
+              "displayValue": "50",
+              "abbreviation": "PIP",
+              "label": "Points in Paint"
+            },
+            {
+              "name": "fouls",
+              "displayValue": "28",
+              "abbreviation": "PF",
+              "label": "Fouls"
+            },
+            {
+              "name": "largestLead",
+              "displayValue": "10",
+              "abbreviation": "LL",
+              "label": "Largest Lead"
+            },
+            {
+              "name": "leadChanges",
+              "displayValue": "22",
+              "abbreviation": "LC",
+              "label": "Lead Changes"
+            },
+            {
+              "name": "leadPercentage",
+              "displayValue": "38",
+              "abbreviation": "LPCT",
+              "label": "Percent Led"
+            }
+          ]
+        }
+      ],
+      "players": [
+        {
+          "team": {
+            "id": "1",
+            "displayName": "Atlanta Hawks"
+          },
+          "statistics": [
+            {
+              "labels": [
+                "MIN",
+                "PTS",
+                "FG",
+                "3PT",
+                "FT",
+                "REB",
+                "AST",
+                "TO",
+                "STL",
+                "BLK",
+                "OREB",
+                "DREB",
+                "PF",
+                "+/-"
+              ],
+              "athletes": [
+                {
+                  "athlete": {
+                    "displayName": "Onyeka Okongwu",
+                    "jersey": "17"
+                  },
+                  "starter": true,
+                  "stats": [
+                    "29",
+                    "8",
+                    "3-8",
+                    "0-4",
+                    "2-2",
+                    "5",
+                    "7",
+                    "2",
+                    "0",
+                    "0",
+                    "1",
+                    "4",
+                    "2",
+                    "+10"
+                  ]
+                },
+                {
+                  "athlete": {
+                    "displayName": "Jalen Johnson",
+                    "jersey": "1"
+                  },
+                  "starter": true,
+                  "stats": [
+                    "28",
+                    "20",
+                    "7-19",
+                    "0-4",
+                    "6-7",
+                    "14",
+                    "6",
+                    "2",
+                    "0",
+                    "0",
+                    "0",
+                    "14",
+                    "5",
+                    "+8"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "team": {
+            "id": "19",
+            "displayName": "Orlando Magic"
+          },
+          "statistics": [
+            {
+              "labels": [
+                "MIN",
+                "PTS",
+                "FG",
+                "3PT",
+                "FT",
+                "REB",
+                "AST",
+                "TO",
+                "STL",
+                "BLK",
+                "OREB",
+                "DREB",
+                "PF",
+                "+/-"
+              ],
+              "athletes": [
+                {
+                  "athlete": {
+                    "displayName": "Paolo Banchero",
+                    "jersey": "5"
+                  },
+                  "starter": true,
+                  "stats": [
+                    "41",
+                    "35",
+                    "10-12",
+                    "3-4",
+                    "12-16",
+                    "7",
+                    "10",
+                    "6",
+                    "1",
+                    "0",
+                    "1",
+                    "6",
+                    "2",
+                    "-9"
+                  ]
+                },
+                {
+                  "athlete": {
+                    "displayName": "Franz Wagner",
+                    "jersey": "22"
+                  },
+                  "starter": true,
+                  "stats": [
+                    "29",
+                    "22",
+                    "9-20",
+                    "2-8",
+                    "2-4",
+                    "6",
+                    "5",
+                    "3",
+                    "1",
+                    "0",
+                    "1",
+                    "5",
+                    "4",
+                    "-1"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "plays": [
+      {
+        "id": "4019098344",
+        "sequenceNumber": "4",
+        "type": {
+          "id": "615",
+          "text": "Jumpball"
+        },
+        "text": "Onyeka Okongwu vs. Wendell Carter Jr. (Jalen Suggs gains possession)",
+        "awayScore": 0,
+        "homeScore": 0,
+        "period": {
+          "number": 1,
+          "displayValue": "1st Quarter"
+        },
+        "clock": {
+          "displayValue": "12:00"
+        },
+        "scoringPlay": false,
+        "scoreValue": 0,
+        "team": {
+          "id": "19"
+        },
+        "participants": [
+          {
+            "athlete": {
+              "id": "4277847"
+            }
+          },
+          {
+            "athlete": {
+              "id": "4431680"
+            }
+          },
+          {
+            "athlete": {
+              "id": "4432165"
+            }
+          }
+        ],
+        "wallclock": "2026-10-21T23:14:07Z",
+        "shootingPlay": false,
+        "coordinate": {
+          "x": -214748340,
+          "y": -214748365
+        },
+        "pointsAttempted": 0,
+        "shortDescription": "Jump Ball"
+      },
+      {
+        "id": "4019098347",
+        "sequenceNumber": "7",
+        "type": {
+          "id": "62",
+          "text": "Bad Pass\nTurnover"
+        },
+        "text": "Franz Wagner bad pass\nturnover (Dyson Daniels steals)",
+        "awayScore": 0,
+        "homeScore": 0,
+        "period": {
+          "number": 1,
+          "displayValue": "1st Quarter"
+        },
+        "clock": {
+          "displayValue": "11:46"
+        },
+        "scoringPlay": false,
+        "scoreValue": 0,
+        "team": {
+          "id": "19"
+        },
+        "participants": [
+          {
+            "athlete": {
+              "id": "4566434"
+            }
+          },
+          {
+            "athlete": {
+              "id": "4869342"
+            }
+          }
+        ],
+        "wallclock": "2026-10-21T23:14:20Z",
+        "shootingPlay": false,
+        "coordinate": {
+          "x": 38,
+          "y": 26
+        },
+        "pointsAttempted": 0,
+        "shortDescription": "Turnover"
+      }
+    ],
+    "keyEvents": [],
+    "rosters": []
+  },
+  "soccer-summary": {
+    "header": {
+      "id": "401896817",
+      "season": {
+        "year": 2026,
+        "current": true,
+        "type": 14411,
+        "name": "2026-27 Greek Super League, Regular Season"
+      },
+      "league": {
+        "slug": "gre.1"
+      },
+      "competitions": [
+        {
+          "date": "2026-10-18T13:00Z",
+          "status": {
+            "type": {
+              "id": "28",
+              "name": "STATUS_FULL_TIME",
+              "state": "post",
+              "completed": true,
+              "description": "Full Time",
+              "detail": "FT",
+              "shortDetail": "FT"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "4",
+              "linescores": [
+                {
+                  "displayValue": "2"
+                },
+                {
+                  "displayValue": "2"
+                }
+              ],
+              "team": {
+                "id": "132429",
+                "displayName": "Kalamata",
+                "shortDisplayName": "Kalamata"
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "3",
+              "linescores": [
+                {
+                  "displayValue": "0"
+                },
+                {
+                  "displayValue": "3"
+                }
+              ],
+              "team": {
+                "id": "1010",
+                "displayName": "OFI Crete",
+                "shortDisplayName": "OFI Crete"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "boxscore": {
+      "teams": [
+        {
+          "team": {
+            "id": "132429",
+            "displayName": "Kalamata"
+          },
+          "statistics": [
+            {
+              "name": "foulsCommitted",
+              "displayValue": "17",
+              "label": "Fouls"
+            },
+            {
+              "name": "yellowCards",
+              "displayValue": "4",
+              "label": "Yellow Cards"
+            },
+            {
+              "name": "redCards",
+              "displayValue": "0",
+              "label": "Red Cards"
+            },
+            {
+              "name": "offsides",
+              "displayValue": "3",
+              "label": "Offsides"
+            },
+            {
+              "name": "wonCorners",
+              "displayValue": "1",
+              "label": "Corner Kicks"
+            },
+            {
+              "name": "saves",
+              "displayValue": "0",
+              "label": "Saves"
+            },
+            {
+              "name": "possessionPct",
+              "displayValue": "37.8",
+              "label": "Possession"
+            },
+            {
+              "name": "totalShots",
+              "displayValue": "13",
+              "label": "SHOTS"
+            },
+            {
+              "name": "shotsOnTarget",
+              "displayValue": "9",
+              "label": "ON GOAL"
+            },
+            {
+              "name": "shotPct",
+              "displayValue": "0.7",
+              "label": "On Target %"
+            },
+            {
+              "name": "penaltyKickGoals",
+              "displayValue": "0",
+              "label": "Penalty Goals"
+            },
+            {
+              "name": "penaltyKickShots",
+              "displayValue": "0",
+              "label": "Penalty Kicks Taken"
+            },
+            {
+              "name": "accuratePasses",
+              "displayValue": "243",
+              "label": "Accurate Passes"
+            },
+            {
+              "name": "totalPasses",
+              "displayValue": "318",
+              "label": "Passes"
+            },
+            {
+              "name": "passPct",
+              "displayValue": "0.8",
+              "label": "Pass Completion %"
+            },
+            {
+              "name": "accurateCrosses",
+              "displayValue": "0",
+              "label": "Accurate Crosses"
+            },
+            {
+              "name": "totalCrosses",
+              "displayValue": "0",
+              "label": "Crosses"
+            },
+            {
+              "name": "crossPct",
+              "displayValue": "0.0",
+              "label": "Cross %"
+            },
+            {
+              "name": "totalLongBalls",
+              "displayValue": "0",
+              "label": "Long Balls"
+            },
+            {
+              "name": "accurateLongBalls",
+              "displayValue": "0",
+              "label": "Accurate Long Balls"
+            },
+            {
+              "name": "longballPct",
+              "displayValue": "0.0",
+              "label": "Long Balls %"
+            },
+            {
+              "name": "blockedShots",
+              "displayValue": "0",
+              "label": "Blocked Shots"
+            },
+            {
+              "name": "effectiveTackles",
+              "displayValue": "10",
+              "label": "Effective Tackles"
+            },
+            {
+              "name": "totalTackles",
+              "displayValue": "22",
+              "label": "Tackles"
+            },
+            {
+              "name": "tacklePct",
+              "displayValue": "0.5",
+              "label": "Tackle %"
+            },
+            {
+              "name": "interceptions",
+              "displayValue": "0",
+              "label": "Interceptions"
+            },
+            {
+              "name": "effectiveClearance",
+              "displayValue": "0",
+              "label": "Effective Clearances"
+            },
+            {
+              "name": "totalClearance",
+              "displayValue": "30",
+              "label": "Clearances"
+            }
+          ]
+        },
+        {
+          "team": {
+            "id": "1010",
+            "displayName": "OFI Crete"
+          },
+          "statistics": [
+            {
+              "name": "foulsCommitted",
+              "displayValue": "9",
+              "label": "Fouls"
+            },
+            {
+              "name": "yellowCards",
+              "displayValue": "2",
+              "label": "Yellow Cards"
+            },
+            {
+              "name": "redCards",
+              "displayValue": "0",
+              "label": "Red Cards"
+            },
+            {
+              "name": "offsides",
+              "displayValue": "2",
+              "label": "Offsides"
+            },
+            {
+              "name": "wonCorners",
+              "displayValue": "6",
+              "label": "Corner Kicks"
+            },
+            {
+              "name": "saves",
+              "displayValue": "5",
+              "label": "Saves"
+            },
+            {
+              "name": "possessionPct",
+              "displayValue": "62.2",
+              "label": "Possession"
+            },
+            {
+              "name": "totalShots",
+              "displayValue": "8",
+              "label": "SHOTS"
+            },
+            {
+              "name": "shotsOnTarget",
+              "displayValue": "3",
+              "label": "ON GOAL"
+            },
+            {
+              "name": "shotPct",
+              "displayValue": "0.4",
+              "label": "On Target %"
+            },
+            {
+              "name": "penaltyKickGoals",
+              "displayValue": "0",
+              "label": "Penalty Goals"
+            },
+            {
+              "name": "penaltyKickShots",
+              "displayValue": "0",
+              "label": "Penalty Kicks Taken"
+            },
+            {
+              "name": "accuratePasses",
+              "displayValue": "415",
+              "label": "Accurate Passes"
+            },
+            {
+              "name": "totalPasses",
+              "displayValue": "510",
+              "label": "Passes"
+            },
+            {
+              "name": "passPct",
+              "displayValue": "0.8",
+              "label": "Pass Completion %"
+            },
+            {
+              "name": "accurateCrosses",
+              "displayValue": "0",
+              "label": "Accurate Crosses"
+            },
+            {
+              "name": "totalCrosses",
+              "displayValue": "0",
+              "label": "Crosses"
+            },
+            {
+              "name": "crossPct",
+              "displayValue": "0.0",
+              "label": "Cross %"
+            },
+            {
+              "name": "totalLongBalls",
+              "displayValue": "0",
+              "label": "Long Balls"
+            },
+            {
+              "name": "accurateLongBalls",
+              "displayValue": "0",
+              "label": "Accurate Long Balls"
+            },
+            {
+              "name": "longballPct",
+              "displayValue": "0.0",
+              "label": "Long Balls %"
+            },
+            {
+              "name": "blockedShots",
+              "displayValue": "1",
+              "label": "Blocked Shots"
+            },
+            {
+              "name": "effectiveTackles",
+              "displayValue": "9",
+              "label": "Effective Tackles"
+            },
+            {
+              "name": "totalTackles",
+              "displayValue": "11",
+              "label": "Tackles"
+            },
+            {
+              "name": "tacklePct",
+              "displayValue": "0.8",
+              "label": "Tackle %"
+            },
+            {
+              "name": "interceptions",
+              "displayValue": "0",
+              "label": "Interceptions"
+            },
+            {
+              "name": "effectiveClearance",
+              "displayValue": "0",
+              "label": "Effective Clearances"
+            },
+            {
+              "name": "totalClearance",
+              "displayValue": "19",
+              "label": "Clearances"
+            }
+          ]
+        }
+      ],
+      "players": []
+    },
+    "plays": [],
+    "keyEvents": [
+      {
+        "id": "53891674",
+        "type": {
+          "id": "70",
+          "text": "Goal",
+          "type": "goal"
+        },
+        "text": "Dawid Kurminowski (Kalamata) Goal at 14'",
+        "shortText": "Dawid Kurminowski Goal",
+        "period": {
+          "number": 1
+        },
+        "clock": {
+          "value": 793,
+          "displayValue": "14'"
+        },
+        "scoringPlay": true,
+        "team": {
+          "id": "132429",
+          "displayName": "Kalamata"
+        },
+        "participants": [
+          {
+            "athlete": {
+              "id": "306352",
+              "displayName": "Dawid Kurminowski"
+            }
+          }
+        ],
+        "source": {
+          "id": "38",
+          "description": "SA.ENVOY"
+        },
+        "wallclock": "2026-10-18T13:16:52Z",
+        "shootout": false
+      },
+      {
+        "id": "53891907",
+        "type": {
+          "id": "94",
+          "text": "Yellow Card",
+          "type": "yellow-card"
+        },
+        "text": "Djibril Diarra (Kalamata) Yellow Card at 15'",
+        "shortText": "Djibril Diarra Yellow Card",
+        "period": {
+          "number": 1
+        },
+        "clock": {
+          "value": 876,
+          "displayValue": "15'"
+        },
+        "scoringPlay": false,
+        "team": {
+          "id": "132429",
+          "displayName": "Kalamata"
+        },
+        "participants": [
+          {
+            "athlete": {
+              "id": "284388",
+              "displayName": "Djibril Diarra"
+            }
+          }
+        ],
+        "source": {
+          "id": "38",
+          "description": "SA.ENVOY"
+        },
+        "wallclock": "2026-10-18T13:18:16Z",
+        "shootout": false
+      },
+      {
+        "id": "53892305",
+        "type": {
+          "id": "70",
+          "text": "Goal",
+          "type": "goal"
+        },
+        "text": "Dawid Kurminowski (Kalamata) Goal at 18'",
+        "shortText": "Dawid Kurminowski Goal",
+        "period": {
+          "number": 1
+        },
+        "clock": {
+          "value": 1061,
+          "displayValue": "18'"
+        },
+        "scoringPlay": true,
+        "team": {
+          "id": "132429",
+          "displayName": "Kalamata"
+        },
+        "participants": [
+          {
+            "athlete": {
+              "id": "306352",
+              "displayName": "Dawid Kurminowski"
+            }
+          }
+        ],
+        "source": {
+          "id": "38",
+          "description": "SA.ENVOY"
+        },
+        "wallclock": "2026-10-18T13:21:21Z",
+        "shootout": false
+      }
+    ],
+    "rosters": [
+      {
+        "team": {
+          "id": "132429",
+          "displayName": "Kalamata"
+        },
+        "formation": "4-2-3-1",
+        "roster": [
+          {
+            "athlete": {
+              "displayName": "Nikola Vasilj"
+            },
+            "jersey": "40",
+            "starter": true,
+            "position": {
+              "name": "Goalkeeper",
+              "displayName": "Goalkeeper",
+              "abbreviation": "G"
+            },
+            "stats": [
+              {
+                "name": "appearances",
+                "displayName": "Appearances",
+                "shortDisplayName": "APP",
+                "description": "The number of times a player has made an appearance in a match.",
+                "abbreviation": "APP",
+                "value": 1,
+                "displayValue": "1"
+              },
+              {
+                "name": "foulsCommitted",
+                "displayName": "Fouls Committed",
+                "shortDisplayName": "FC",
+                "description": "The number of fouls comitted by a player or team.",
+                "abbreviation": "FC",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "foulsSuffered",
+                "displayName": "Fouls Suffered",
+                "shortDisplayName": "FA",
+                "description": "The number of fouls suffered by a player or team.",
+                "abbreviation": "FA",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "ownGoals",
+                "displayName": "Own Goals",
+                "shortDisplayName": "OG",
+                "description": "The number of own goals conceded.",
+                "abbreviation": "OG",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "redCards",
+                "displayName": "Red Cards",
+                "shortDisplayName": "RC",
+                "description": "The number of red cards that have been issued.",
+                "abbreviation": "RC",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "subIns",
+                "displayName": "Substitute Appearances",
+                "shortDisplayName": "SUBIN",
+                "description": "The number of times a player has come on a sub in a match.",
+                "abbreviation": "SUB",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "yellowCards",
+                "displayName": "Yellow Cards",
+                "shortDisplayName": "YC",
+                "description": "The number of yellow cards accumulated.",
+                "abbreviation": "YC",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "goalsConceded",
+                "displayName": "Goals Against",
+                "shortDisplayName": "GA",
+                "description": "The number of goals allowed by the goalkeeper.",
+                "abbreviation": "GA",
+                "value": 3,
+                "displayValue": "3"
+              },
+              {
+                "name": "saves",
+                "displayName": "Saves",
+                "shortDisplayName": "SV",
+                "description": "The number of times a goalkeeper makes a save.",
+                "abbreviation": "SV",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "shotsFaced",
+                "displayName": "Shots Faced",
+                "shortDisplayName": "SHF",
+                "description": "The number of shots on target a goalkeeper has faced.",
+                "abbreviation": "SHF",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "goalAssists",
+                "displayName": "Assists",
+                "shortDisplayName": "A",
+                "description": "The number of assists.",
+                "abbreviation": "A",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "shotsOnTarget",
+                "displayName": "Shots On Goal",
+                "shortDisplayName": "SOG",
+                "description": "The number of shots that are on goal.",
+                "abbreviation": "SOG",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "totalGoals",
+                "displayName": "Total Goals",
+                "shortDisplayName": "G",
+                "description": "The number of goals scored against the opposing team.",
+                "abbreviation": "G",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "totalShots",
+                "displayName": "Shots",
+                "shortDisplayName": "SHOT",
+                "description": "The number of shots attempted.",
+                "abbreviation": "SHOT",
+                "value": 0,
+                "displayValue": "0"
+              }
+            ]
+          },
+          {
+            "athlete": {
+              "displayName": "Rodrigues"
+            },
+            "jersey": "97",
+            "starter": true,
+            "position": {
+              "name": "Center Left Defender",
+              "displayName": "Center Left Defender",
+              "abbreviation": "CD-L"
+            },
+            "stats": [
+              {
+                "name": "appearances",
+                "displayName": "Appearances",
+                "shortDisplayName": "APP",
+                "description": "The number of times a player has made an appearance in a match.",
+                "abbreviation": "APP",
+                "value": 1,
+                "displayValue": "1"
+              },
+              {
+                "name": "foulsCommitted",
+                "displayName": "Fouls Committed",
+                "shortDisplayName": "FC",
+                "description": "The number of fouls comitted by a player or team.",
+                "abbreviation": "FC",
+                "value": 1,
+                "displayValue": "1"
+              },
+              {
+                "name": "foulsSuffered",
+                "displayName": "Fouls Suffered",
+                "shortDisplayName": "FA",
+                "description": "The number of fouls suffered by a player or team.",
+                "abbreviation": "FA",
+                "value": 1,
+                "displayValue": "1"
+              },
+              {
+                "name": "ownGoals",
+                "displayName": "Own Goals",
+                "shortDisplayName": "OG",
+                "description": "The number of own goals conceded.",
+                "abbreviation": "OG",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "redCards",
+                "displayName": "Red Cards",
+                "shortDisplayName": "RC",
+                "description": "The number of red cards that have been issued.",
+                "abbreviation": "RC",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "subIns",
+                "displayName": "Substitute Appearances",
+                "shortDisplayName": "SUBIN",
+                "description": "The number of times a player has come on a sub in a match.",
+                "abbreviation": "SUB",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "yellowCards",
+                "displayName": "Yellow Cards",
+                "shortDisplayName": "YC",
+                "description": "The number of yellow cards accumulated.",
+                "abbreviation": "YC",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "goalsConceded",
+                "displayName": "Goals Against",
+                "shortDisplayName": "GA",
+                "description": "The number of goals allowed by the goalkeeper.",
+                "abbreviation": "GA",
+                "value": 3,
+                "displayValue": "3"
+              },
+              {
+                "name": "shotsFaced",
+                "displayName": "Shots Faced",
+                "shortDisplayName": "SHF",
+                "description": "The number of shots on target a goalkeeper has faced.",
+                "abbreviation": "SHF",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "goalAssists",
+                "displayName": "Assists",
+                "shortDisplayName": "A",
+                "description": "The number of assists.",
+                "abbreviation": "A",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "offsides",
+                "displayName": "Offsides",
+                "shortDisplayName": "OF",
+                "description": "The number of times a player or team gets caught offside.",
+                "abbreviation": "OF",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "shotsOnTarget",
+                "displayName": "Shots On Goal",
+                "shortDisplayName": "SOG",
+                "description": "The number of shots that are on goal.",
+                "abbreviation": "SOG",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "totalGoals",
+                "displayName": "Total Goals",
+                "shortDisplayName": "G",
+                "description": "The number of goals scored against the opposing team.",
+                "abbreviation": "G",
+                "value": 0,
+                "displayValue": "0"
+              },
+              {
+                "name": "totalShots",
+                "displayName": "Shots",
+                "shortDisplayName": "SHOT",
+                "description": "The number of shots attempted.",
+                "abbreviation": "SHOT",
+                "value": 0,
+                "displayValue": "0"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "nba-roster": {
+    "team": {
+      "id": "2",
+      "displayName": "Boston Celtics"
+    },
+    "season": {
+      "year": 2027,
+      "displayName": "2026-27",
+      "type": 2,
+      "name": "Regular Season"
+    },
+    "coach": [
+      {
+        "id": "2232684",
+        "firstName": "Joe",
+        "lastName": "Mazzulla",
+        "experience": 4
+      }
+    ],
+    "athletes": [
+      {
+        "id": "4433188",
+        "displayName": "Devin Carter",
+        "jersey": "99",
+        "age": 24,
+        "position": {
+          "id": "3",
+          "name": "Guard",
+          "displayName": "Guard",
+          "abbreviation": "G",
+          "leaf": false
+        }
+      }
+    ]
+  },
+  "soccer-roster": {
+    "team": {
+      "id": "435",
+      "displayName": "Olympiacos"
+    },
+    "season": {
+      "year": 2026,
+      "displayName": "2026-27 Greek Super League",
+      "type": 14411,
+      "name": "Regular Season"
+    },
+    "athletes": [
+      {
+        "id": "151855",
+        "displayName": "Stefan Ortega",
+        "jersey": "1",
+        "age": 33,
+        "position": {
+          "id": "1",
+          "name": "Goalkeeper",
+          "displayName": "Goalkeeper",
+          "abbreviation": "G",
+          "leaf": false
+        },
+        "citizenship": "Germany"
+      }
+    ]
+  },
+  "euro-boxscore": {
+    "Live": false,
+    "Referees": "PERUGA, CARLOS, BAENA, ALBERTO, GIOVANNETTI, GUIDO",
+    "Attendance": "16420",
+    "ByQuarter": [
+      {
+        "Team": "CRVENA ZVEZDA MERIDIANBET BELGRADE",
+        "Quarter1": 21,
+        "Quarter2": 24,
+        "Quarter3": 12,
+        "Quarter4": 20
+      },
+      {
+        "Team": "ZALGIRIS KAUNAS",
+        "Quarter1": 28,
+        "Quarter2": 15,
+        "Quarter3": 16,
+        "Quarter4": 24
+      }
+    ],
+    "EndOfQuarter": [
+      {
+        "Team": "CRVENA ZVEZDA MERIDIANBET BELGRADE",
+        "Quarter1": 21,
+        "Quarter2": 45,
+        "Quarter3": 57,
+        "Quarter4": 77
+      },
+      {
+        "Team": "ZALGIRIS KAUNAS",
+        "Quarter1": 28,
+        "Quarter2": 43,
+        "Quarter3": 59,
+        "Quarter4": 83
+      }
+    ],
+    "Stats": [
+      {
+        "Team": "CRVENA ZVEZDA MERIDIANBET BELGRADE",
+        "Coach": "NAVARRO, IBON",
+        "PlayersStats": [
+          {
+            "Player_ID": "P011157   ",
+            "IsStarter": 1,
+            "IsPlaying": 0,
+            "Team": "RED",
+            "Dorsal": "0",
+            "Player": "MOTLEY, JOHNATHAN",
+            "Minutes": "14:08",
+            "Points": 2,
+            "FieldGoalsMade2": 1,
+            "FieldGoalsAttempted2": 5,
+            "FieldGoalsMade3": 0,
+            "FieldGoalsAttempted3": 2,
+            "FreeThrowsMade": 0,
+            "FreeThrowsAttempted": 0,
+            "OffensiveRebounds": 0,
+            "DefensiveRebounds": 0,
+            "TotalRebounds": 0,
+            "Assistances": 2,
+            "Steals": 0,
+            "Turnovers": 6,
+            "BlocksFavour": 0,
+            "BlocksAgainst": 0,
+            "FoulsCommited": 5,
+            "FoulsReceived": 0,
+            "Valuation": -13,
+            "Plusminus": -19
+          },
+          {
+            "Player_ID": "P010568   ",
+            "IsStarter": 1,
+            "IsPlaying": 1,
+            "Team": "RED",
+            "Dorsal": "1",
+            "Player": "JONES, CHRIS",
+            "Minutes": "18:44",
+            "Points": 15,
+            "FieldGoalsMade2": 5,
+            "FieldGoalsAttempted2": 6,
+            "FieldGoalsMade3": 1,
+            "FieldGoalsAttempted3": 2,
+            "FreeThrowsMade": 2,
+            "FreeThrowsAttempted": 2,
+            "OffensiveRebounds": 1,
+            "DefensiveRebounds": 1,
+            "TotalRebounds": 2,
+            "Assistances": 8,
+            "Steals": 2,
+            "Turnovers": 0,
+            "BlocksFavour": 0,
+            "BlocksAgainst": 0,
+            "FoulsCommited": 1,
+            "FoulsReceived": 1,
+            "Valuation": 25,
+            "Plusminus": 3
+          },
+          {
+            "Player_ID": "P014094   ",
+            "IsStarter": 0,
+            "IsPlaying": 0,
+            "Team": "RED",
+            "Dorsal": "2",
+            "Player": "MILJENOVIC, STEFAN",
+            "Minutes": "00:20",
+            "Points": 0,
+            "FieldGoalsMade2": 0,
+            "FieldGoalsAttempted2": 0,
+            "FieldGoalsMade3": 0,
+            "FieldGoalsAttempted3": 0,
+            "FreeThrowsMade": 0,
+            "FreeThrowsAttempted": 0,
+            "OffensiveRebounds": 0,
+            "DefensiveRebounds": 0,
+            "TotalRebounds": 0,
+            "Assistances": 0,
+            "Steals": 0,
+            "Turnovers": 0,
+            "BlocksFavour": 0,
+            "BlocksAgainst": 0,
+            "FoulsCommited": 1,
+            "FoulsReceived": 0,
+            "Valuation": -1,
+            "Plusminus": 0
+          },
+          {
+            "Player_ID": "P010391   ",
+            "IsStarter": 0,
+            "IsPlaying": 0,
+            "Team": "RED",
+            "Dorsal": "3",
+            "Player": "WEILER-BABB, NICK",
+            "Minutes": "21:16",
+            "Points": 0,
+            "FieldGoalsMade2": 0,
+            "FieldGoalsAttempted2": 3,
+            "FieldGoalsMade3": 0,
+            "FieldGoalsAttempted3": 1,
+            "FreeThrowsMade": 0,
+            "FreeThrowsAttempted": 0,
+            "OffensiveRebounds": 1,
+            "DefensiveRebounds": 2,
+            "TotalRebounds": 3,
+            "Assistances": 3,
+            "Steals": 1,
+            "Turnovers": 4,
+            "BlocksFavour": 0,
+            "BlocksAgainst": 2,
+            "FoulsCommited": 2,
+            "FoulsReceived": 1,
+            "Valuation": -4,
+            "Plusminus": -9
+          },
+          {
+            "Player_ID": "P014163   ",
+            "IsStarter": 0,
+            "IsPlaying": 0,
+            "Team": "RED",
+            "Dorsal": "6",
+            "Player": "BUTLER, JARED",
+            "Minutes": "17:13",
+            "Points": 11,
+            "FieldGoalsMade2": 1,
+            "FieldGoalsAttempted2": 4,
+            "FieldGoalsMade3": 3,
+            "FieldGoalsAttempted3": 7,
+            "FreeThrowsMade": 0,
+            "FreeThrowsAttempted": 0,
+            "OffensiveRebounds": 1,
+            "DefensiveRebounds": 1,
+            "TotalRebounds": 2,
+            "Assistances": 4,
+            "Steals": 0,
+            "Turnovers": 1,
+            "BlocksFavour": 1,
+            "BlocksAgainst": 0,
+            "FoulsCommited": 1,
+            "FoulsReceived": 2,
+            "Valuation": 11,
+            "Plusminus": 2
+          },
+          {
+            "Player_ID": "P011305   ",
+            "IsStarter": 1,
+            "IsPlaying": 0,
+            "Team": "RED",
+            "Dorsal": "11",
+            "Player": "CARTER, TYSON",
+            "Minutes": "16:09",
+            "Points": 3,
+            "FieldGoalsMade2": 0,
+            "FieldGoalsAttempted2": 1,
+            "FieldGoalsMade3": 1,
+            "FieldGoalsAttempted3": 3,
+            "FreeThrowsMade": 0,
+            "FreeThrowsAttempted": 0,
+            "OffensiveRebounds": 0,
+            "DefensiveRebounds": 3,
+            "TotalRebounds": 3,
+            "Assistances": 0,
+            "Steals": 1,
+            "Turnovers": 1,
+            "BlocksFavour": 0,
+            "BlocksAgainst": 1,
+            "FoulsCommited": 1,
+            "FoulsReceived": 2,
+            "Valuation": 3,
+            "Plusminus": -13
+          },
+          {
+            "Player_ID": "P004007   ",
+            "IsStarter": 0,
+            "IsPlaying": 0,
+            "Team": "RED",
+            "Dorsal": "13",
+            "Player": "DOBRIC, OGNJEN",
+            "Minutes": "04:45",
+            "Points": 0,
+            "FieldGoalsMade2": 0,
+            "FieldGoalsAttempted2": 0,
+            "FieldGoalsMade3": 0,
+            "FieldGoalsAttempted3": 1,
+            "FreeThrowsMade": 0,
+            "FreeThrowsAttempted": 0,
+            "OffensiveRebounds": 1,
+            "DefensiveRebounds": 0,
+            "TotalRebounds": 1,
+            "Assistances": 0,
+            "Steals": 0,
+            "Turnovers": 0,
+            "BlocksFavour": 0,
+            "BlocksAgainst": 0,
+            "FoulsCommited": 1,
+            "FoulsReceived": 0,
+            "Valuation": -1,
+            "Plusminus": 7
+          },
+          {
+            "Player_ID": "P014029   ",
+            "IsStarter": 0,
+            "IsPlaying": 0,
+            "Team": "RED",
+            "Dorsal": "15",
+            "Player": "IZUNDU, EBUKA",
+            "Minutes": "15:22",
+            "Points": 7,
+            "FieldGoalsMade2": 2,
+            "FieldGoalsAttempted2": 6,
+            "FieldGoalsMade3": 0,
+            "FieldGoalsAttempted3": 0,
+            "FreeThrowsMade": 3,
+            "FreeThrowsAttempted": 4,
+            "OffensiveRebounds": 4,
+            "DefensiveRebounds": 0,
+            "TotalRebounds": 4,
+            "Assistances": 0,
+            "Steals": 2,
+            "Turnovers": 0,
+            "BlocksFavour": 1,
+            "BlocksAgainst": 0,
+            "FoulsCommited": 3,
+            "FoulsReceived": 3,
+            "Valuation": 9,
+            "Plusminus": 3
+          },
+          {
+            "Player_ID": "P013363   ",
+            "IsStarter": 1,
+            "IsPlaying": 1,
+            "Team": "RED",
+            "Dorsal": "33",
+            "Player": "NWORA, JORDAN",
+            "Minutes": "22:02",
+            "Points": 10,
+            "FieldGoalsMade2": 3,
+            "FieldGoalsAttempted2": 8,
+            "FieldGoalsMade3": 0,
+            "FieldGoalsAttempted3": 1,
+            "FreeThrowsMade": 4,
+            "FreeThrowsAttempted": 6,
+            "OffensiveRebounds": 1,
+            "DefensiveRebounds": 4,
+            "TotalRebounds": 5,
+            "Assistances": 1,
+            "Steals": 0,
+            "Turnovers": 1,
+            "BlocksFavour": 0,
+            "BlocksAgainst": 2,
+            "FoulsCommited": 2,
+            "FoulsReceived": 4,
+            "Valuation": 7,
+            "Plusminus": -5
+          },
+          {
+            "Player_ID": "P011982   ",
+            "IsStarter": 1,
+            "IsPlaying": 1,
+            "Team": "RED",
+            "Dorsal": "37",
+            "Player": "OJELEYE, SEMI",
+            "Minutes": "24:35",
+            "Points": 9,
+            "FieldGoalsMade2": 1,
+            "FieldGoalsAttempted2": 4,
+            "FieldGoalsMade3": 2,
+            "FieldGoalsAttempted3": 3,
+            "FreeThrowsMade": 1,
+            "FreeThrowsAttempted": 3,
+            "OffensiveRebounds": 2,
+            "DefensiveRebounds": 5,
+            "TotalRebounds": 7,
+            "Assistances": 1,
+            "Steals": 0,
+            "Turnovers": 1,
+            "BlocksFavour": 0,
+            "BlocksAgainst": 1,
+            "FoulsCommited": 4,
+            "FoulsReceived": 4,
+            "Valuation": 9,
+            "Plusminus": 1
+          },
+          {
+            "Player_ID": "P006482   ",
+            "IsStarter": 0,
+            "IsPlaying": 1,
+            "Team": "RED",
+            "Dorsal": "44",
+            "Player": "KRAMER, DAVID",
+            "Minutes": "19:39",
+            "Points": 11,
+            "FieldGoalsMade2": 0,
+            "FieldGoalsAttempted2": 2,
+            "FieldGoalsMade3": 3,
+            "FieldGoalsAttempted3": 5,
+            "FreeThrowsMade": 2,
+            "FreeThrowsAttempted": 2,
+            "OffensiveRebounds": 0,
+            "DefensiveRebounds": 4,
+            "TotalRebounds": 4,
+            "Assistances": 1,
+            "Steals": 1,
+            "Turnovers": 0,
+            "BlocksFavour": 0,
+            "BlocksAgainst": 0,
+            "FoulsCommited": 4,
+            "FoulsReceived": 1,
+            "Valuation": 10,
+            "Plusminus": -3
+          },
+          {
+            "Player_ID": "P012201   ",
+            "IsStarter": 0,
+            "IsPlaying": 1,
+            "Team": "RED",
+            "Dorsal": "95",
+            "Player": "MONEKE, CHIMA",
+            "Minutes": "25:47",
+            "Points": 9,
+            "FieldGoalsMade2": 4,
+            "FieldGoalsAttempted2": 5,
+            "FieldGoalsMade3": 0,
+            "FieldGoalsAttempted3": 4,
+            "FreeThrowsMade": 1,
+            "FreeThrowsAttempted": 2,
+            "OffensiveRebounds": 3,
+            "DefensiveRebounds": 0,
+            "TotalRebounds": 3,
+            "Assistances": 1,
+            "Steals": 0,
+            "Turnovers": 0,
+            "BlocksFavour": 1,
+            "BlocksAgainst": 0,
+            "FoulsCommited": 2,
+            "FoulsReceived": 4,
+            "Valuation": 10,
+            "Plusminus": 3
+          }
+        ],
+        "tmr": {
+          "Player_ID": "          ",
+          "IsStarter": 0,
+          "IsPlaying": 0,
+          "Team": "RED",
+          "Dorsal": "",
+          "Player": "",
+          "Minutes": null,
+          "Points": 0,
+          "FieldGoalsMade2": 0,
+          "FieldGoalsAttempted2": 0,
+          "FieldGoalsMade3": 0,
+          "FieldGoalsAttempted3": 0,
+          "FreeThrowsMade": 0,
+          "FreeThrowsAttempted": 0,
+          "OffensiveRebounds": 1,
+          "DefensiveRebounds": 4,
+          "TotalRebounds": 5,
+          "Assistances": 0,
+          "Steals": 0,
+          "Turnovers": 0,
+          "BlocksFavour": 0,
+          "BlocksAgainst": 0,
+          "FoulsCommited": 0,
+          "FoulsReceived": 0,
+          "Valuation": 5,
+          "Plusminus": null
+        },
+        "totr": {
+          "Minutes": "200:00",
+          "Points": 77,
+          "FieldGoalsMade2": 17,
+          "FieldGoalsAttempted2": 44,
+          "FieldGoalsMade3": 10,
+          "FieldGoalsAttempted3": 29,
+          "FreeThrowsMade": 13,
+          "FreeThrowsAttempted": 19,
+          "OffensiveRebounds": 15,
+          "DefensiveRebounds": 24,
+          "TotalRebounds": 39,
+          "Assistances": 21,
+          "Steals": 7,
+          "Turnovers": 14,
+          "BlocksFavour": 3,
+          "BlocksAgainst": 6,
+          "FoulsCommited": 27,
+          "FoulsReceived": 22,
+          "Valuation": 70
+        }
+      },
+      {
+        "Team": "ZALGIRIS KAUNAS",
+        "Coach": "MASIULIS, TOMAS",
+        "PlayersStats": [
+          {
+            "Player_ID": "P012720   ",
+            "IsStarter": 0,
+            "IsPlaying": 1,
+            "Team": "ZAL",
+            "Dorsal": "0",
+            "Player": "BROWN, STERLING",
+            "Minutes": "16:19",
+            "Points": 10,
+            "FieldGoalsMade2": 0,
+            "FieldGoalsAttempted2": 0,
+            "FieldGoalsMade3": 2,
+            "FieldGoalsAttempted3": 3,
+            "FreeThrowsMade": 4,
+            "FreeThrowsAttempted": 4,
+            "OffensiveRebounds": 0,
+            "DefensiveRebounds": 2,
+            "TotalRebounds": 2,
+            "Assistances": 0,
+            "Steals": 0,
+            "Turnovers": 0,
+            "BlocksFavour": 1,
+            "BlocksAgainst": 0,
+            "FoulsCommited": 3,
+            "FoulsReceived": 2,
+            "Valuation": 11,
+            "Plusminus": 4
+          },
+          {
+            "Player_ID": "P007982   ",
+            "IsStarter": 1,
+            "IsPlaying": 0,
+            "Team": "ZAL",
+            "Dorsal": "1",
+            "Player": "WILLIAMS-GOSS, NIGEL",
+            "Minutes": "25:20",
+            "Points": 14,
+            "FieldGoalsMade2": 5,
+            "FieldGoalsAttempted2": 11,
+            "FieldGoalsMade3": 1,
+            "FieldGoalsAttempted3": 2,
+            "FreeThrowsMade": 1,
+            "FreeThrowsAttempted": 1,
+            "OffensiveRebounds": 0,
+            "DefensiveRebounds": 2,
+            "TotalRebounds": 2,
+            "Assistances": 6,
+            "Steals": 2,
+            "Turnovers": 3,
+            "BlocksFavour": 0,
+            "BlocksAgainst": 1,
+            "FoulsCommited": 1,
+            "FoulsReceived": 2,
+            "Valuation": 14,
+            "Plusminus": -1
+          },
+          {
+            "Player_ID": "P011987   ",
+            "IsStarter": 1,
+            "IsPlaying": 1,
+            "Team": "ZAL",
+            "Dorsal": "3",
+            "Player": "EDWARDS, CARSEN",
+            "Minutes": "15:34",
+            "Points": 13,
+            "FieldGoalsMade2": 2,
+            "FieldGoalsAttempted2": 5,
+            "FieldGoalsMade3": 2,
+            "FieldGoalsAttempted3": 6,
+            "FreeThrowsMade": 3,
+            "FreeThrowsAttempted": 3,
+            "OffensiveRebounds": 0,
+            "DefensiveRebounds": 0,
+            "TotalRebounds": 0,
+            "Assistances": 0,
+            "Steals": 2,
+            "Turnovers": 1,
+            "BlocksFavour": 0,
+            "BlocksAgainst": 1,
+            "FoulsCommited": 3,
+            "FoulsReceived": 1,
+            "Valuation": 4,
+            "Plusminus": 3
+          },
+          {
+            "Player_ID": "P007513   ",
+            "IsStarter": 0,
+            "IsPlaying": 0,
+            "Team": "ZAL",
+            "Dorsal": "9",
+            "Player": "GIEDRAITIS, DOVYDAS",
+            "Minutes": "02:05",
+            "Points": 0,
+            "FieldGoalsMade2": 0,
+            "FieldGoalsAttempted2": 0,
+            "FieldGoalsMade3": 0,
+            "FieldGoalsAttempted3": 0,
+            "FreeThrowsMade": 0,
+            "FreeThrowsAttempted": 0,
+            "OffensiveRebounds": 0,
+            "DefensiveRebounds": 0,
+            "TotalRebounds": 0,
+            "Assistances": 0,
+            "Steals": 0,
+            "Turnovers": 1,
+            "BlocksFavour": 0,
+            "BlocksAgainst": 0,
+            "FoulsCommited": 0,
+            "FoulsReceived": 1,
+            "Valuation": 0,
+            "Plusminus": 2
+          },
+          {
+            "Player_ID": "P008192   ",
+            "IsStarter": 1,
+            "IsPlaying": 1,
+            "Team": "ZAL",
+            "Dorsal": "10",
+            "Player": "TUBELIS, AZUOLAS",
+            "Minutes": "27:16",
+            "Points": 10,
+            "FieldGoalsMade2": 4,
+            "FieldGoalsAttempted2": 8,
+            "FieldGoalsMade3": 0,
+            "FieldGoalsAttempted3": 2,
+            "FreeThrowsMade": 2,
+            "FreeThrowsAttempted": 4,
+            "OffensiveRebounds": 3,
+            "DefensiveRebounds": 9,
+            "TotalRebounds": 12,
+            "Assistances": 4,
+            "Steals": 1,
+            "Turnovers": 1,
+            "BlocksFavour": 1,
+            "BlocksAgainst": 0,
+            "FoulsCommited": 0,
+            "FoulsReceived": 4,
+            "Valuation": 23,
+            "Plusminus": 4
+          },
+          {
+            "Player_ID": "P007032   ",
+            "IsStarter": 0,
+            "IsPlaying": 0,
+            "Team": "ZAL",
+            "Dorsal": "12",
+            "Player": "LO, MAODO",
+            "Minutes": "11:46",
+            "Points": 3,
+            "FieldGoalsMade2": 0,
+            "FieldGoalsAttempted2": 1,
+            "FieldGoalsMade3": 1,
+            "FieldGoalsAttempted3": 2,
+            "FreeThrowsMade": 0,
+            "FreeThrowsAttempted": 0,
+            "OffensiveRebounds": 0,
+            "DefensiveRebounds": 4,
+            "TotalRebounds": 4,
+            "Assistances": 3,
+            "Steals": 0,
+            "Turnovers": 3,
+            "BlocksFavour": 0,
+            "BlocksAgainst": 1,
+            "FoulsCommited": 1,
+            "FoulsReceived": 1,
+            "Valuation": 4,
+            "Plusminus": 4
+          },
+          {
+            "Player_ID": "P011927   ",
+            "IsStarter": 0,
+            "IsPlaying": 0,
+            "Team": "ZAL",
+            "Dorsal": "14",
+            "Player": "SLEVA, DUSTIN",
+            "Minutes": "14:00",
+            "Points": 7,
+            "FieldGoalsMade2": 0,
+            "FieldGoalsAttempted2": 0,
+            "FieldGoalsMade3": 2,
+            "FieldGoalsAttempted3": 3,
+            "FreeThrowsMade": 1,
+            "FreeThrowsAttempted": 4,
+            "OffensiveRebounds": 2,
+            "DefensiveRebounds": 1,
+            "TotalRebounds": 3,
+            "Assistances": 0,
+            "Steals": 1,
+            "Turnovers": 0,
+            "BlocksFavour": 0,
+            "BlocksAgainst": 0,
+            "FoulsCommited": 4,
+            "FoulsReceived": 2,
+            "Valuation": 5,
+            "Plusminus": 0
+          },
+          {
+            "Player_ID": "P000898   ",
+            "IsStarter": 1,
+            "IsPlaying": 0,
+            "Team": "ZAL",
+            "Dorsal": "17",
+            "Player": "VALANCIUNAS, JONAS",
+            "Minutes": "21:37",
+            "Points": 13,
+            "FieldGoalsMade2": 6,
+            "FieldGoalsAttempted2": 9,
+            "FieldGoalsMade3": 0,
+            "FieldGoalsAttempted3": 0,
+            "FreeThrowsMade": 1,
+            "FreeThrowsAttempted": 1,
+            "OffensiveRebounds": 1,
+            "DefensiveRebounds": 7,
+            "TotalRebounds": 8,
+            "Assistances": 2,
+            "Steals": 0,
+            "Turnovers": 1,
+            "BlocksFavour": 3,
+            "BlocksAgainst": 0,
+            "FoulsCommited": 1,
+            "FoulsReceived": 3,
+            "Valuation": 24,
+            "Plusminus": 7
+          },
+          {
+            "Player_ID": "P008186   ",
+            "IsStarter": 0,
+            "IsPlaying": 0,
+            "Team": "ZAL",
+            "Dorsal": "22",
+            "Player": "BLAZEVIC, MAREK",
+            "Minutes": "12:59",
+            "Points": 5,
+            "FieldGoalsMade2": 2,
+            "FieldGoalsAttempted2": 4,
+            "FieldGoalsMade3": 0,
+            "FieldGoalsAttempted3": 0,
+            "FreeThrowsMade": 1,
+            "FreeThrowsAttempted": 2,
+            "OffensiveRebounds": 0,
+            "DefensiveRebounds": 2,
+            "TotalRebounds": 2,
+            "Assistances": 0,
+            "Steals": 0,
+            "Turnovers": 3,
+            "BlocksFavour": 0,
+            "BlocksAgainst": 0,
+            "FoulsCommited": 3,
+            "FoulsReceived": 2,
+            "Valuation": 0,
+            "Plusminus": -1
+          },
+          {
+            "Player_ID": "P002328   ",
+            "IsStarter": 0,
+            "IsPlaying": 0,
+            "Team": "ZAL",
+            "Dorsal": "40",
+            "Player": "GRIGONIS, MARIUS",
+            "Minutes": "12:21",
+            "Points": 2,
+            "FieldGoalsMade2": 1,
+            "FieldGoalsAttempted2": 4,
+            "FieldGoalsMade3": 0,
+            "FieldGoalsAttempted3": 1,
+            "FreeThrowsMade": 0,
+            "FreeThrowsAttempted": 0,
+            "OffensiveRebounds": 0,
+            "DefensiveRebounds": 0,
+            "TotalRebounds": 0,
+            "Assistances": 2,
+            "Steals": 0,
+            "Turnovers": 1,
+            "BlocksFavour": 1,
+            "BlocksAgainst": 0,
+            "FoulsCommited": 1,
+            "FoulsReceived": 1,
+            "Valuation": 0,
+            "Plusminus": 9
+          },
+          {
+            "Player_ID": "P002676   ",
+            "IsStarter": 1,
+            "IsPlaying": 1,
+            "Team": "ZAL",
+            "Dorsal": "51",
+            "Player": "BUTKEVICIUS, ARNAS",
+            "Minutes": "24:23",
+            "Points": 0,
+            "FieldGoalsMade2": 0,
+            "FieldGoalsAttempted2": 0,
+            "FieldGoalsMade3": 0,
+            "FieldGoalsAttempted3": 0,
+            "FreeThrowsMade": 0,
+            "FreeThrowsAttempted": 0,
+            "OffensiveRebounds": 4,
+            "DefensiveRebounds": 2,
+            "TotalRebounds": 6,
+            "Assistances": 1,
+            "Steals": 2,
+            "Turnovers": 0,
+            "BlocksFavour": 0,
+            "BlocksAgainst": 0,
+            "FoulsCommited": 4,
+            "FoulsReceived": 1,
+            "Valuation": 6,
+            "Plusminus": 6
+          },
+          {
+            "Player_ID": "P002329   ",
+            "IsStarter": 0,
+            "IsPlaying": 1,
+            "Team": "ZAL",
+            "Dorsal": "92",
+            "Player": "ULANOVAS, EDGARAS",
+            "Minutes": "16:20",
+            "Points": 6,
+            "FieldGoalsMade2": 0,
+            "FieldGoalsAttempted2": 1,
+            "FieldGoalsMade3": 0,
+            "FieldGoalsAttempted3": 1,
+            "FreeThrowsMade": 6,
+            "FreeThrowsAttempted": 8,
+            "OffensiveRebounds": 0,
+            "DefensiveRebounds": 1,
+            "TotalRebounds": 1,
+            "Assistances": 0,
+            "Steals": 0,
+            "Turnovers": 1,
+            "BlocksFavour": 0,
+            "BlocksAgainst": 0,
+            "FoulsCommited": 1,
+            "FoulsReceived": 6,
+            "Valuation": 7,
+            "Plusminus": -7
+          }
+        ],
+        "tmr": {
+          "Player_ID": "          ",
+          "IsStarter": 0,
+          "IsPlaying": 0,
+          "Team": "ZAL",
+          "Dorsal": "",
+          "Player": "",
+          "Minutes": null,
+          "Points": 0,
+          "FieldGoalsMade2": 0,
+          "FieldGoalsAttempted2": 0,
+          "FieldGoalsMade3": 0,
+          "FieldGoalsAttempted3": 0,
+          "FreeThrowsMade": 0,
+          "FreeThrowsAttempted": 0,
+          "OffensiveRebounds": 3,
+          "DefensiveRebounds": 3,
+          "TotalRebounds": 6,
+          "Assistances": 0,
+          "Steals": 0,
+          "Turnovers": 1,
+          "BlocksFavour": 0,
+          "BlocksAgainst": 0,
+          "FoulsCommited": 0,
+          "FoulsReceived": 0,
+          "Valuation": 5,
+          "Plusminus": null
+        },
+        "totr": {
+          "Minutes": "200:00",
+          "Points": 83,
+          "FieldGoalsMade2": 20,
+          "FieldGoalsAttempted2": 43,
+          "FieldGoalsMade3": 8,
+          "FieldGoalsAttempted3": 20,
+          "FreeThrowsMade": 19,
+          "FreeThrowsAttempted": 27,
+          "OffensiveRebounds": 13,
+          "DefensiveRebounds": 33,
+          "TotalRebounds": 46,
+          "Assistances": 18,
+          "Steals": 8,
+          "Turnovers": 16,
+          "BlocksFavour": 6,
+          "BlocksAgainst": 3,
+          "FoulsCommited": 22,
+          "FoulsReceived": 26,
+          "Valuation": 103
+        }
+      }
+    ]
+  },
+  "euro-roster": [
+    {
+      "person": {
+        "code": "007374",
+        "name": "IZQUIERDO, JOSE",
+        "alias": "IZQUIERDO, JOSE MARIA",
+        "aliasRaw": "IZQUIERDO, JOSE MARIA",
+        "passportName": "JOSE MARIA",
+        "passportSurname": "IZQUIERDO IBANEZ",
+        "jerseyName": "",
+        "abbreviatedName": "Izquierdo, JM.",
+        "country": {
+          "code": "ESP",
+          "name": "Spain"
+        },
+        "height": 0,
+        "weight": 0,
+        "birthDate": "1967-05-15T00:00:00",
+        "birthCountry": {
+          "code": "ESP",
+          "name": "Spain"
+        },
+        "twitterAccount": "",
+        "instagramAccount": null,
+        "facebookAccount": null,
+        "isReferee": false,
+        "images": {}
+      },
+      "type": "A",
+      "typeName": "Assitant coach",
+      "active": true,
+      "startDate": "2026-09-07T10:39:26.655",
+      "endDate": "2027-06-30T00:00:00",
+      "order": 6,
+      "dorsal": "",
+      "dorsalRaw": "",
+      "position": 0,
+      "positionName": null,
+      "lastTeam": "",
+      "externalId": 55792,
+      "images": {},
+      "club": {
+        "code": "PAN",
+        "name": "Panathinaikos AKTOR Athens",
+        "abbreviatedName": "Panathinaikos",
+        "editorialName": "Panathinaikos",
+        "tvCode": "PAO",
+        "isVirtual": false,
+        "images": {
+          "crest": "https://media-cdn.incrowdsports.com/e3dff28a-9ec6-4faf-9d96-ecbc68f75780.png"
+        }
+      },
+      "season": {
+        "name": "EuroLeague 2026-27",
+        "code": "E2026",
+        "alias": "2026-27",
+        "competitionCode": "E",
+        "year": 2026,
+        "startDate": "2026-07-01T00:00:00"
+      }
+    },
+    {
+      "person": {
+        "code": "008084",
+        "name": "MANTZOUKAS, ELEFTHERIOS",
+        "alias": "MANTZOUKAS, ELEFTHERIOS",
+        "aliasRaw": "MANTZOUKAS, ELEFTHERIOS",
+        "passportName": "ELEFTHERIOS",
+        "passportSurname": "MANTZOUKAS",
+        "jerseyName": "MANTZOUKAS",
+        "abbreviatedName": "Mantzoukas, E.",
+        "country": {
+          "code": "GRE",
+          "name": "Greece"
+        },
+        "height": 207,
+        "weight": 100,
+        "birthDate": "2003-07-08T00:00:00",
+        "birthCountry": {
+          "code": "GRE",
+          "name": "Greece"
+        },
+        "twitterAccount": "",
+        "instagramAccount": "",
+        "facebookAccount": "",
+        "isReferee": false,
+        "images": {}
+      },
+      "type": "J",
+      "typeName": "Player",
+      "active": true,
+      "startDate": "2026-09-23T15:20:57.285",
+      "endDate": "2027-06-30T00:00:00",
+      "order": 0,
+      "dorsal": "72",
+      "dorsalRaw": "72",
+      "position": 2,
+      "positionName": "Forward",
+      "lastTeam": "PANATHINAIKOS BSA",
+      "externalId": 56991,
+      "images": {
+        "headshot": "https://media-cdn.cortextech.io/1dU3kpCqReRp93/1BSdBWIjCjnONz/7800be8a-37bf-41af-88c2-3b9bc954454d.png",
+        "action": "https://media-cdn.cortextech.io/1dU3kpCqReRp93/1BSdBWIjCjnONz/7800be8a-37bf-41af-88c2-3b9bc954454d.png"
+      },
+      "club": {
+        "code": "PAN",
+        "name": "Panathinaikos AKTOR Athens",
+        "abbreviatedName": "Panathinaikos",
+        "editorialName": "Panathinaikos",
+        "tvCode": "PAO",
+        "isVirtual": false,
+        "images": {
+          "crest": "https://media-cdn.incrowdsports.com/e3dff28a-9ec6-4faf-9d96-ecbc68f75780.png"
+        }
+      },
+      "season": {
+        "name": "EuroLeague 2026-27",
+        "code": "E2026",
+        "alias": "2026-27",
+        "competitionCode": "E",
+        "year": 2026,
+        "startDate": "2026-07-01T00:00:00"
+      }
+    }
+  ]
+}
