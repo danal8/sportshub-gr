@@ -1,13 +1,13 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-22T16:06:33.700Z",
+  "checkedAt": "2026-10-22T17:25:10.420Z",
   "competitions": [
     {
       "id": "seriea",
       "name": "Serie A",
       "teams": 38,
       "rosters": 38,
-      "players": 1194,
+      "players": 1195,
       "photos": 50,
       "missing": []
     },
@@ -16,7 +16,7 @@
       "name": "Ligue 1",
       "teams": 33,
       "rosters": 33,
-      "players": 945,
+      "players": 947,
       "photos": 38,
       "missing": []
     },
@@ -33,56 +33,12 @@
       "id": "volley-w",
       "name": "Volley League Γυναικών",
       "teams": 12,
-      "rosters": 0,
-      "players": 0,
+      "rosters": 11,
+      "players": 159,
       "photos": 0,
       "missing": [
         {
           "team": "Π.Α.Ο.Κ. F&U",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "Α.Σ. Άρης",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "Α.Ο. Μαρκοπούλου Revoil",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "Ολυμπιακός Σ.Φ.Π.",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "Α.Ο. Θήρας",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "Πανιώνιος Betsson",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "Ζ.Α.Ο.Ν.",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "A.E.K.",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "Ο.Φ.Α. Απολλώνιος",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "Α.Σ.Π. Θέτις",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "Παναθηναϊκός Α.Ο.",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "Α.Σ. Ελπίς",
           "error": "No verified seasonal roster provider"
         }
       ]
@@ -91,32 +47,16 @@
       "id": "volley-m",
       "name": "Volley League Ανδρών",
       "teams": 12,
-      "rosters": 0,
-      "players": 0,
-      "photos": 0,
+      "rosters": 6,
+      "players": 86,
+      "photos": 31,
       "missing": [
-        {
-          "team": "Α.Ο.Π. Κηφισιάς",
-          "error": "No verified seasonal roster provider"
-        },
         {
           "team": "Πανιώνιος Betsson",
           "error": "No verified seasonal roster provider"
         },
         {
-          "team": "Ο.Φ.Η.",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "Π.Α.Ο.Κ.",
-          "error": "No verified seasonal roster provider"
-        },
-        {
           "team": "Α.Ο.Καλαμάτα Affidea V.C",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "Παναθηναϊκός Α.Ο.",
           "error": "No verified seasonal roster provider"
         },
         {
@@ -133,14 +73,6 @@
         },
         {
           "team": "Α.Ο.Φλοίσβος Members Paron",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "Α.Ο.Φοίνικας Σύρου",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "Α.Ο.Ν.Σ. Μίλων",
           "error": "No verified seasonal roster provider"
         }
       ]
@@ -311,16 +243,12 @@
       "id": "gbl",
       "name": "Greek Basket League",
       "teams": 14,
-      "rosters": 4,
-      "players": 68,
-      "photos": 65,
+      "rosters": 8,
+      "players": 119,
+      "photos": 119,
       "missing": [
         {
           "team": "ΜΥΚΟΝΟΣ Betsson BC",
-          "error": "No unique official Euroleague club identity"
-        },
-        {
-          "team": "ΚΟΛΟΣΣΟΣ H HOTELS COLLECTION",
           "error": "No unique official Euroleague club identity"
         },
         {
@@ -340,19 +268,7 @@
           "error": "No unique official Euroleague club identity"
         },
         {
-          "team": "ΠΕΡΙΣΤΕΡΙ Betsson",
-          "error": "No unique official Euroleague club identity"
-        },
-        {
-          "team": "ΚΑΡΔΙΤΣΑ ΙΑΠΩΝΙΚΗ",
-          "error": "No unique official Euroleague club identity"
-        },
-        {
           "team": "VIKOS ΦALCONS",
-          "error": "No unique official Euroleague club identity"
-        },
-        {
-          "team": "ΗΡΑΚΛΗΣ",
           "error": "No unique official Euroleague club identity"
         }
       ]
@@ -379,69 +295,27 @@
       "id": "pl",
       "name": "Premier League",
       "teams": 20,
-      "rosters": 14,
-      "players": 423,
-      "photos": 28,
-      "missing": [
-        {
-          "team": "Everton FC",
-          "error": "No unique seasonal team identity"
-        },
-        {
-          "team": "Brentford F.C.",
-          "error": "No unique seasonal team identity"
-        },
-        {
-          "team": "Tottenham Hotspur FC",
-          "error": "No unique seasonal team identity"
-        },
-        {
-          "team": "Newcastle United FC",
-          "error": "No unique seasonal team identity"
-        },
-        {
-          "team": "Fulham FC",
-          "error": "No unique seasonal team identity"
-        },
-        {
-          "team": "Chelsea FC",
-          "error": "No unique seasonal team identity"
-        }
-      ]
+      "rosters": 20,
+      "players": 596,
+      "photos": 38,
+      "missing": []
     },
     {
       "id": "laliga",
       "name": "La Liga",
       "teams": 20,
-      "rosters": 16,
-      "players": 476,
-      "photos": 15,
-      "missing": [
-        {
-          "team": "FC Getafe",
-          "error": "No unique seasonal team identity"
-        },
-        {
-          "team": "FC Sevilla",
-          "error": "No unique seasonal team identity"
-        },
-        {
-          "team": "FC Malaga",
-          "error": "No unique seasonal team identity"
-        },
-        {
-          "team": "FC Valencia",
-          "error": "No unique seasonal team identity"
-        }
-      ]
+      "rosters": 20,
+      "players": 607,
+      "photos": 17,
+      "missing": []
     },
     {
       "id": "bund",
       "name": "Bundesliga",
       "teams": 18,
-      "rosters": 14,
-      "players": 411,
-      "photos": 15,
+      "rosters": 16,
+      "players": 468,
+      "photos": 18,
       "missing": [
         {
           "team": "1. FC Köln",
@@ -450,14 +324,6 @@
         {
           "team": "SV 07 Elversberg",
           "error": "No unique seasonal team identity"
-        },
-        {
-          "team": "Hamburger SV",
-          "error": "Το ρόστερ δεν αντιστοιχεί στην ομάδα και στη σεζόν"
-        },
-        {
-          "team": "FC Schalke 04",
-          "error": "No unique seasonal team identity"
         }
       ]
     },
@@ -465,28 +331,19 @@
       "id": "cl",
       "name": "UEFA Champions League",
       "teams": 36,
-      "rosters": 35,
-      "players": 1111,
+      "rosters": 36,
+      "players": 1143,
       "photos": 85,
-      "missing": [
-        {
-          "team": "Sabah",
-          "error": "Το ρόστερ δεν αντιστοιχεί στην ομάδα και στη σεζόν"
-        }
-      ]
+      "missing": []
     },
     {
       "id": "europa",
       "name": "UEFA Europa League",
       "teams": 36,
-      "rosters": 29,
-      "players": 915,
+      "rosters": 31,
+      "players": 979,
       "photos": 119,
       "missing": [
-        {
-          "team": "FC Ararat-Armenia",
-          "error": "No unique seasonal team identity"
-        },
         {
           "team": "Hapoel Beer Scheva",
           "error": "No unique seasonal team identity"
@@ -494,10 +351,6 @@
         {
           "team": "RSC Anderlecht",
           "error": "No unique seasonal team identity"
-        },
-        {
-          "team": "Sturm Graz",
-          "error": "Το ρόστερ δεν αντιστοιχεί στην ομάδα και στη σεζόν"
         },
         {
           "team": "Union Saint-Gilloise",
@@ -643,5 +496,6 @@
         }
       ]
     }
-  ]
+  ],
+  "photoCheckedAt": "2026-10-22T17:26:37.485Z"
 }
