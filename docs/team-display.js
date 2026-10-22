@@ -1,6 +1,19 @@
 // Display names only: raw provider names remain unchanged for scores and favourites.
 const key=s=>String(s).normalize('NFD').replace(/\p{M}/gu,'').toLocaleLowerCase('el').replace(/[^\p{L}\p{N}]/gu,'');
 const names=[
+["FC Liverpool","Liverpool"],
+["Panathinaikos","Παναθηναϊκός"],
+["PAOK Thessaloniki","ΠΑΟΚ"],
+["Aris Thessaloniki","Άρης"],
+["Asteras Tripolis","Αστέρας Τρίπολης"],
+["Atromitos","Ατρόμητος"],
+["Volos NFC","Βόλος"],
+["Volos","Βόλος"],
+["Iraklis 1908","Ηρακλής"],
+["Kalamata","Καλαμάτα"],
+["Kifisia","Κηφισιά"],
+["Levadiakos","Λεβαδειακός"],
+["Panetolikos","Παναιτωλικός"],
 ["AEK","ΑΕΚ"],
 ["AEK Athen","ΑΕΚ"],
 ["AEK Athens","ΑΕΚ"],
