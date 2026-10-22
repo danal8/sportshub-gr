@@ -182,3 +182,9 @@ body .compact-match .match-highlights{display:inline-flex;padding:3px 8px;border
 
 .event-icon .goal-ball{display:block;width:18px;height:18px}.fixture-team-row .team-open{width:100%;justify-self:start}.event-row .event-person{font-size:13px}.event-row .event-person small{font-size:11px}
 @media(max-width:700px){body .match.compact-match,body[data-tab=tv] .match.compact-match{grid-template-columns:60px minmax(0,1fr);gap:7px}.fixture-team-row .team-open .team-lead{max-width:100%;white-space:normal;overflow-wrap:anywhere}.event-row .event-person{font-size:12px}}
+
+/* TV keeps time, fixture and channel aligned without score rows. */
+body[data-tab=tv] .match .match-info .fixture-title{display:block;text-align:left;max-width:none;width:auto}body[data-tab=tv] .match .match-info .broadcast-meta,body[data-tab=tv] .match .match-info .broadcast-channel{text-align:left}body[data-tab=tv] .match .match-info{justify-self:stretch}body[data-tab=tv] .match .match-time{align-self:start}.event-icon .goal-ball{width:18px;height:18px;color:#f2f5fb;flex:none}
+
+/* Kickoff and result status sit above each fixture. */
+body .match.compact-match,body[data-tab=tv] .match{display:block}body .compact-match .match-time{display:flex;align-items:center;justify-content:flex-start;gap:12px;width:100%;font-size:12px;line-height:1.5;margin:0 0 7px;text-align:left}body .compact-match .match-status{font-size:11px}body[data-tab=tv] .match .match-time{display:block;font-size:12px;line-height:1.5;margin-bottom:7px}body .compact-match .match-info{width:100%;min-width:0}
