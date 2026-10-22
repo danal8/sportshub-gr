@@ -1,0 +1,335 @@
+{
+  "season": "2026-27",
+  "checkedAt": "2026-10-22T19:20:29.543Z",
+  "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
+  "competitions": [
+    {
+      "competition": "bund",
+      "unmatchedResults": [],
+      "awaitingResults": [],
+      "sourceError": null,
+      "finals": 54
+    },
+    {
+      "competition": "cl",
+      "unmatchedResults": [],
+      "awaitingResults": [],
+      "sourceError": null,
+      "finals": 54
+    },
+    {
+      "competition": "conference",
+      "unmatchedResults": [],
+      "awaitingResults": [
+        {
+          "id": "espn-401915844",
+          "competition": "conference",
+          "date": "2026-10-22",
+          "home": "FC Nordsjælland",
+          "away": "CSKA Sofia"
+        },
+        {
+          "id": "espn-401915837",
+          "competition": "conference",
+          "date": "2026-10-22",
+          "home": "Ajax Amsterdam",
+          "away": "Atalanta"
+        },
+        {
+          "id": "espn-401915836",
+          "competition": "conference",
+          "date": "2026-10-22",
+          "home": "AS Monaco",
+          "away": "SC Freiburg"
+        },
+        {
+          "id": "espn-401915743",
+          "competition": "conference",
+          "date": "2026-10-22",
+          "home": "Borac Banja Luka",
+          "away": "KuPS Kuopio"
+        },
+        {
+          "id": "espn-401915832",
+          "competition": "conference",
+          "date": "2026-10-22",
+          "home": "Braga",
+          "away": "KAA Gent"
+        },
+        {
+          "id": "espn-401915835",
+          "competition": "conference",
+          "date": "2026-10-22",
+          "home": "FC Midtjylland",
+          "away": "Sint-Truidense"
+        },
+        {
+          "id": "espn-401915834",
+          "competition": "conference",
+          "date": "2026-10-22",
+          "home": "FC Thun",
+          "away": "Hajduk Split"
+        },
+        {
+          "id": "espn-401915833",
+          "competition": "conference",
+          "date": "2026-10-22",
+          "home": "Lincoln Red Imps",
+          "away": "FC Twente"
+        }
+      ],
+      "sourceError": null,
+      "finals": 24
+    },
+    {
+      "competition": "el",
+      "unmatchedResults": [],
+      "awaitingResults": [
+        {
+          "id": "E-66",
+          "competition": "el",
+          "date": "2026-10-22",
+          "home": "Partizan Mozzart Bet Belgrade",
+          "away": "Crvena Zvezda Meridianbet Belgrade"
+        },
+        {
+          "id": "E-63",
+          "competition": "el",
+          "date": "2026-10-22",
+          "home": "Armani Olimpia Milan",
+          "away": "FC Barcelona"
+        },
+        {
+          "id": "E-67",
+          "competition": "el",
+          "date": "2026-10-22",
+          "home": "Panathinaikos AKTOR Athens",
+          "away": "Kosner Baskonia Vitoria-Gasteiz"
+        },
+        {
+          "id": "E-62",
+          "competition": "el",
+          "date": "2026-10-22",
+          "home": "Maccabi Rapyd Tel Aviv",
+          "away": "Real Madrid"
+        },
+        {
+          "id": "E-65",
+          "competition": "el",
+          "date": "2026-10-22",
+          "home": "FC Bayern Munich",
+          "away": "Dubai Basketball"
+        },
+        {
+          "id": "E-64",
+          "competition": "el",
+          "date": "2026-10-22",
+          "home": "Anadolu Efes Istanbul",
+          "away": "Besiktas Istanbul"
+        }
+      ],
+      "sourceError": null,
+      "finals": 61
+    },
+    {
+      "competition": "elite",
+      "unmatchedResults": [],
+      "awaitingResults": [],
+      "sourceError": null,
+      "finals": 32
+    },
+    {
+      "competition": "eurocup",
+      "unmatchedResults": [],
+      "awaitingResults": [],
+      "sourceError": null,
+      "finals": 64
+    },
+    {
+      "competition": "europa",
+      "unmatchedResults": [],
+      "awaitingResults": [
+        {
+          "id": "europa-87746",
+          "competition": "europa",
+          "date": "2026-10-22",
+          "home": "TSG Hoffenheim",
+          "away": "Olympique Lyon"
+        },
+        {
+          "id": "europa-87813",
+          "competition": "europa",
+          "date": "2026-10-22",
+          "home": "AFC Bournemouth",
+          "away": "AC Mailand"
+        },
+        {
+          "id": "europa-87814",
+          "competition": "europa",
+          "date": "2026-10-22",
+          "home": "Besiktas Istanbul",
+          "away": "Crystal Palace FC"
+        },
+        {
+          "id": "europa-87815",
+          "competition": "europa",
+          "date": "2026-10-22",
+          "home": "Celtic Glasgow",
+          "away": "Celta Vigo"
+        },
+        {
+          "id": "europa-87816",
+          "competition": "europa",
+          "date": "2026-10-22",
+          "home": "Viktoria Pilsen",
+          "away": "Levski Sofia"
+        },
+        {
+          "id": "europa-87817",
+          "competition": "europa",
+          "date": "2026-10-22",
+          "home": "Jagiellonia Bialystok",
+          "away": "RSC Anderlecht"
+        },
+        {
+          "id": "europa-87818",
+          "competition": "europa",
+          "date": "2026-10-22",
+          "home": "Lillestrøm SK",
+          "away": "Real Sociedad"
+        },
+        {
+          "id": "europa-87819",
+          "competition": "europa",
+          "date": "2026-10-22",
+          "home": "NK Celje",
+          "away": "RB Salzburg"
+        },
+        {
+          "id": "europa-87820",
+          "competition": "europa",
+          "date": "2026-10-22",
+          "home": "Olympiakos Piräus",
+          "away": "Sparta Prag"
+        },
+        {
+          "id": "europa-87821",
+          "competition": "europa",
+          "date": "2026-10-22",
+          "home": "Omonia Nikosia",
+          "away": "Benfica Lissabon"
+        }
+      ],
+      "sourceError": null,
+      "finals": 44
+    },
+    {
+      "competition": "gbl",
+      "unmatchedResults": [],
+      "awaitingResults": [
+        {
+          "id": "gbl-3690EC22",
+          "competition": "gbl",
+          "date": "2026-09-17",
+          "home": "ΜΥΚΟΝΟΣ Betsson BC",
+          "away": "ΠΡΟΜΗΘΕΑΣ ΠΑΤΡΑΣ ΒΙΚΟΣ COLA"
+        }
+      ],
+      "sourceError": null,
+      "finals": 21
+    },
+    {
+      "competition": "laliga",
+      "unmatchedResults": [],
+      "awaitingResults": [],
+      "sourceError": null,
+      "finals": 89
+    },
+    {
+      "competition": "ligue1",
+      "unmatchedResults": [],
+      "awaitingResults": [],
+      "sourceError": null,
+      "finals": 63
+    },
+    {
+      "competition": "nba",
+      "unmatchedResults": [],
+      "awaitingResults": [],
+      "sourceError": null,
+      "finals": 14
+    },
+    {
+      "competition": "pl",
+      "unmatchedResults": [],
+      "awaitingResults": [],
+      "sourceError": null,
+      "finals": 70
+    },
+    {
+      "competition": "seriea",
+      "unmatchedResults": [],
+      "awaitingResults": [],
+      "sourceError": null,
+      "finals": 70
+    },
+    {
+      "competition": "sl",
+      "unmatchedResults": [],
+      "awaitingResults": [
+        {
+          "id": "sl-2026-10-17-Atromitos-AEK",
+          "competition": "sl",
+          "date": "2026-10-17",
+          "home": "Atromitos",
+          "away": "AEK"
+        }
+      ],
+      "sourceError": null,
+      "finals": 48
+    },
+    {
+      "competition": "sl2",
+      "unmatchedResults": [],
+      "awaitingResults": [],
+      "sourceError": null,
+      "finals": 56
+    },
+    {
+      "competition": "volley-m",
+      "unmatchedResults": [],
+      "awaitingResults": [],
+      "sourceError": null,
+      "finals": 0
+    },
+    {
+      "competition": "volley-w",
+      "unmatchedResults": [],
+      "awaitingResults": [
+        {
+          "id": "volley-88158",
+          "competition": "volley-w",
+          "date": "2026-10-17",
+          "home": "Α.Ο. Θήρας",
+          "away": "Ολυμπιακός Σ.Φ.Π."
+        },
+        {
+          "id": "volley-88157",
+          "competition": "volley-w",
+          "date": "2026-10-17",
+          "home": "Α.Ο. Μαρκοπούλου Revoil",
+          "away": "Α.Σ. Άρης"
+        },
+        {
+          "id": "volley-88160",
+          "competition": "volley-w",
+          "date": "2026-10-17",
+          "home": "Ζ.Α.Ο.Ν.",
+          "away": "Ο.Φ.Α. Απολλώνιος"
+        }
+      ],
+      "sourceError": null,
+      "finals": 3
+    }
+  ]
+}
