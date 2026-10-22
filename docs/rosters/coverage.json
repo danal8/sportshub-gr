@@ -1,13 +1,13 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-22T17:25:10.420Z",
+  "checkedAt": "2026-10-22T17:30:34.011Z",
   "competitions": [
     {
       "id": "seriea",
       "name": "Serie A",
       "teams": 38,
       "rosters": 38,
-      "players": 1195,
+      "players": 1196,
       "photos": 50,
       "missing": []
     },
@@ -16,7 +16,7 @@
       "name": "Ligue 1",
       "teams": 33,
       "rosters": 33,
-      "players": 947,
+      "players": 949,
       "photos": 38,
       "missing": []
     },
@@ -47,32 +47,16 @@
       "id": "volley-m",
       "name": "Volley League Ανδρών",
       "teams": 12,
-      "rosters": 6,
-      "players": 86,
-      "photos": 31,
+      "rosters": 10,
+      "players": 147,
+      "photos": 49,
       "missing": [
-        {
-          "team": "Πανιώνιος Betsson",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "Α.Ο.Καλαμάτα Affidea V.C",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "Ν.Ο.Π.Ε.Ρεθύμνου",
-          "error": "No verified seasonal roster provider"
-        },
         {
           "team": "Ολυμπιακός Σ.Φ.Π. ΟΝΕΧ",
           "error": "No verified seasonal roster provider"
         },
         {
           "team": "Α.Σ.Άρης",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "Α.Ο.Φλοίσβος Members Paron",
           "error": "No verified seasonal roster provider"
         }
       ]
@@ -81,75 +65,10 @@
       "id": "sl2",
       "name": "Super League 2",
       "teams": 16,
-      "rosters": 0,
-      "players": 0,
-      "photos": 0,
-      "missing": [
-        {
-          "team": "ΠΑΝΘΡΑΚΙΚΟΣ",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "ΠΥΡΓΟΣ",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "ΝΕΣΤΟΣ ΧΡΥΣΟΥΠΟΛΗΣ",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "ΖΑΚΥΝΘΟΣ",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "ΠΑΝΙΩΝΙΟΣ",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "ASTERAS AKTOR Β'",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "ΑΕΛ NOVIBET",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "ΑΝΑΓ. ΚΑΡΔΙΤΣΑΣ",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "ΜΑΡΚΟ",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "ΠΑΝΣΕΡΡΑΪΚΟΣ",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "ATHENS KALLITHEA",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "ΝΙΚΗ ΒΟΛΟΥ",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "ΕΛΛΑΣ ΣΥΡΟΥ",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "ΑΠΟΛΛΩΝ ΚΑΛΑΜΑΡΙΑΣ",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "ΠΑΟΚ Β'",
-          "error": "No verified seasonal roster provider"
-        },
-        {
-          "team": "ΟΛΥΜΠΙΑΚΟΣ Β'",
-          "error": "No verified seasonal roster provider"
-        }
-      ]
+      "rosters": 16,
+      "players": 642,
+      "photos": 434,
+      "missing": []
     },
     {
       "id": "sl",
@@ -243,35 +162,10 @@
       "id": "gbl",
       "name": "Greek Basket League",
       "teams": 14,
-      "rosters": 8,
-      "players": 119,
+      "rosters": 14,
+      "players": 210,
       "photos": 119,
-      "missing": [
-        {
-          "team": "ΜΥΚΟΝΟΣ Betsson BC",
-          "error": "No unique official Euroleague club identity"
-        },
-        {
-          "team": "ΔΟΞΑ ΛΕΥΚΑΔΑΣ ELABET",
-          "error": "No unique official Euroleague club identity"
-        },
-        {
-          "team": "ΑΕΚ",
-          "error": "No unique official Euroleague club identity"
-        },
-        {
-          "team": "ΜΑΡΟΥΣΙ",
-          "error": "No unique official Euroleague club identity"
-        },
-        {
-          "team": "ΠΡΟΜΗΘΕΑΣ ΠΑΤΡΑΣ ΒΙΚΟΣ COLA",
-          "error": "No unique official Euroleague club identity"
-        },
-        {
-          "team": "VIKOS ΦALCONS",
-          "error": "No unique official Euroleague club identity"
-        }
-      ]
+      "missing": []
     },
     {
       "id": "el",
@@ -296,7 +190,7 @@
       "name": "Premier League",
       "teams": 20,
       "rosters": 20,
-      "players": 596,
+      "players": 598,
       "photos": 38,
       "missing": []
     },
@@ -314,7 +208,7 @@
       "name": "Bundesliga",
       "teams": 18,
       "rosters": 16,
-      "players": 468,
+      "players": 470,
       "photos": 18,
       "missing": [
         {
@@ -341,7 +235,7 @@
       "name": "UEFA Europa League",
       "teams": 36,
       "rosters": 31,
-      "players": 979,
+      "players": 985,
       "photos": 119,
       "missing": [
         {
@@ -496,6 +390,5 @@
         }
       ]
     }
-  ],
-  "photoCheckedAt": "2026-10-22T17:26:37.485Z"
+  ]
 }
