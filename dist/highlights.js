@@ -53,6 +53,10 @@ function nbaDate(m){
  const start=new Date(m.date+'T'+m.time+':00'+(part||'+00:00'));if(!Number.isFinite(+start))return null;
  return new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(start);
 }
+// normalizeFootball exposes score.ft as score and marks the record non-provisional.
+export function highlightMatch(m){
+ return m.scoreState==null&&m.provisional===false&&Array.isArray(m.score)&&m.score.length===2&&m.score.every(n=>Number.isInteger(n)&&n>=0)?{...m,scoreState:'final'}:m;
+}
 export function selectHighlights(videos,m,{now=Date.now()}={}){
  if(m.scoreState!=='final'||!Array.isArray(m.score)||m.score.length!==2||!m.score.every(n=>Number.isInteger(n)&&n>=0)||!/^\d{4}-\d{2}-\d{2}$/.test(m.date||'')||m.date>athensDay(new Date(now)))return null;
  const home=choices(m.home,m.homeAliases,m.competition==='nba'),away=choices(m.away,m.awayAliases,m.competition==='nba'),hits=[];

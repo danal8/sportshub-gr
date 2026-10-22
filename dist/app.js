@@ -1,4 +1,4 @@
-import{loadHighlightsIndex,selectHighlights}from'./highlights.js?v=30';
+import{loadHighlightsIndex,selectHighlights,highlightMatch}from'./highlights.js?v=30';
 import{displayTeamName}from'./team-display.js?v=26';
 import{loadLiveScores,applyLiveScores,LIVE_INTERVAL}from'./live-scores.js?v=26';
 import{makeSelection,sanitizeSelections,selectionForTeam,addSelection,weekRange,weeklyMatches,selectedCompetitions,teamIdentity}from'./my-teams.js?v=26';
@@ -38,10 +38,10 @@ function link(url,text){return `<a href="${e(url)}" target="_blank" rel="noopene
 let renderedTab,renderedMatches=[];
 let detailPromise,cardHighlights=null,cardHighlightsPending=false,cardHighlightsCheckedAt=0;
 function cardHighlight(m){
- const h=cardHighlights&&selectHighlights(cardHighlights,m);return h?'<a class="match-highlights" href="'+e(h.url)+'" target="_blank" rel="noopener noreferrer" aria-label="'+e('Highlights: '+m.home+' – '+m.away+' · '+h.provider)+'" title="'+e(h.provider)+'">▶ Highlights</a>':'';
+ const h=cardHighlights&&selectHighlights(cardHighlights,highlightMatch(m));return h?'<a class="match-highlights" href="'+e(h.url)+'" target="_blank" rel="noopener noreferrer" aria-label="'+e('Highlights: '+m.home+' – '+m.away+' · '+h.provider)+'" title="'+e(h.provider)+'">▶ Highlights</a>':'';
 }
 async function refreshCardHighlights(force=false){
- if(cardHighlightsPending||!renderedMatches.some(m=>m.scoreState==='final')||!force&&Date.now()-cardHighlightsCheckedAt<120000)return;
+ if(cardHighlightsPending||!renderedMatches.some(m=>highlightMatch(m).scoreState==='final')||!force&&Date.now()-cardHighlightsCheckedAt<120000)return;
  cardHighlightsPending=true;cardHighlightsCheckedAt=Date.now();
  try{cardHighlights=await loadHighlightsIndex({force});if(!state.loading&&state.tab!=='standings')render();}catch{}finally{cardHighlightsPending=false;}
 }
