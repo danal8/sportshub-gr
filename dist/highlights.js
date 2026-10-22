@@ -4,14 +4,15 @@ import{athensDay,shiftDay}from'./core.js?v=26';
 export const publishers=[
  {id:'nba',label:'NBA',channel:'UCWJ2lWNubArHWmf3FIHbfcQ'},
  {id:'el',label:'EuroLeague',channel:'UCGr3nR_XH9r6E5b09ZJAT9w'},
- {id:'nova',label:'Novasports',channel:'UCEIbXco8hU9oDHXGo1kwIlA'}
+ {id:'nova',label:'Novasports',channel:'UCEIbXco8hU9oDHXGo1kwIlA'},
+ {id:'magenta',label:'Magenta Sport',channel:'UCgMUmr7uLDalwVk63Sf6pBw'}
 ];
 const norm=s=>String(s||'').normalize('NFD').replace(/\p{M}/gu,'').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
 const decode=s=>String(s||'').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,'$1').replace(/&#(x[\da-f]+|\d+);/gi,(_,n)=>{const v=n[0].toLowerCase()==='x'?parseInt(n.slice(1),16):Number(n);return v>0&&v<=0x10ffff?String.fromCodePoint(v):'';}).replace(/&(?:amp|lt|gt|quot|apos);/g,s=>({'&amp;':'&','&lt;':'<','&gt;':'>','&quot;':'"','&apos;':"'"}[s]));
 const field=(xml,key)=>decode(xml.match(new RegExp('<'+key+'>([\\s\\S]*?)</'+key+'>'))?.[1]);
 function namedDate(text){const english=text.match(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),?\s+(20\d{2})\b/i);if(english){const d=new Date(english[0]+' 12:00 UTC');return Number.isFinite(+d)?d.toISOString().slice(0,10):null;}const d=text.match(/\b(\d{1,2})\/(\d{1,2})\/(20\d{2})\b/);return d?d[3]+'-'+d[2].padStart(2,'0')+'-'+d[1].padStart(2,'0'):null;}
 function novaCompetition(text){
- const s=norm(text);if(/γυναικ|women/.test(s))return null;
+ const s=norm(text);if(/γυναικ|women|youth|u19|basketball champions league/.test(s))return null;
  for(const [id,re]of[['eurocup',/eurocup|γιουροκαπ/],['el',/euroleague|ευρωλιγκα/],['sl2',/super league 2|superleague 2|super league ii/],['sl',/super league|superleague/],['pl',/premier league/],['bund',/bundesliga/],['laliga',/laliga|la liga/],['seriea',/serie a/],['ligue1',/ligue 1/],['cl',/champions league/],['europa',/europa league/],['conference',/conference league/],['gbl',/basket league|gbl/],['elite',/elite league/]])if(re.test(s))return id;return null;
 }
 export function parsePublisherFeed(xml,publisher){
@@ -32,8 +33,8 @@ export function parsePublisherFeed(xml,publisher){
   const r=title.match(/\bR(?:ound\s*)?(\d+)\b/i),season=title.match(/\b(20\d{2})[-–](\d{2})\b/);
   if(r&&season&&/highlights/i.test(title)&&!/player highlights|last \d+ meetings|preview/i.test(title))videos.push({...base,competition:'el',round:Number(r[1]),season:season[1]+'-'+season[2],kind:'game'});
  }else{
-  const intro=description.split(/\n\s*\n/)[0]?.slice(0,350)||'',competition=novaCompetition(title+' '+intro);
-  if(competition&&gameDate&&/highlights|στιγμι[οό]τυπ/i.test(title+' '+intro)&&!/preview|pre game|pregame|δηλ[ωώ]σεις|συν[εέ]ντευξη/i.test(title))videos.push({...base,competition,gameDate,kind:'game'});
+  const intro=description.slice(0,650),competition=novaCompetition(title+' '+intro),broadcastDate=gameDate||namedDate(intro);
+  if(competition&&broadcastDate&&/highlights|στιγμι[οό]τυπ/i.test(title+' '+intro)&&!/preview|pre game|pregame|δηλ[ωώ]σεις|συν[εέ]ντευξη/i.test(title))videos.push({...base,competition,gameDate:broadcastDate,kind:'game'});
  }
  }
  return videos;
@@ -42,6 +43,7 @@ function choices(name,extra=[],nba=false){
  const all=[name,...extra].filter(n=>typeof n==='string').flatMap(n=>[n,...aliases[teamKey(n)]||[]]);
  if(nba){const english=all.find(n=>/^[A-Za-z0-9 .]+$/.test(n));if(english)all.push(english.endsWith('Trail Blazers')?'Trail Blazers':english.split(' ').at(-1));}
  if(all.some(n=>/ulm/i.test(n)))all.push('Ουλμ');
+ for(const row of [['Club Brugge','Club Brugge KV','Μπριζ'],['Sporting CP','Sporting Lisbon','Σπόρτινγκ'],['LASK Linz','LASK','ΛΑΣΚ Λιντζ']])if(all.some(n=>row.some(a=>teamKey(a)===teamKey(n))))all.push(...row);
  return [...new Set(all.map(norm).filter(n=>n.length>=4||n==='ulm'||n==='ουλμ'))];
 }
 function mentions(text,names){const s=' '+norm(text)+' ';return names.some(n=>s.includes(' '+n+' '));}
