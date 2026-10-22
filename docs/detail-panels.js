@@ -42,7 +42,7 @@ export function createDetailPanels({getSeed=()=>[]}={}){
  },true);
  function headers(){
  $('detail-back').hidden=!history.length;$('detail-refresh').disabled=!!current?.loading||!!current?.rosterLoading;
- $('detail-title').textContent=current?.type==='team'?name(current.team):name(current?.match.home||'')+' – '+name(current?.match.away||'');
+ if(current?.type==='team')$('detail-title').innerHTML=visual(current.team,current.competition);else $('detail-title').textContent=name(current?.match.home||'')+' – '+name(current?.match.away||'');
  const tabs=current?.type==='team'?[['overview','Σύνοψη'],['roster','Ρόστερ'],['games','Αγώνες']]:[['overview','Στατιστικά'],['players',current?.competition.sport==='football'?'Συνθέσεις':'Παίκτες'],['events','Εξέλιξη']];
  $('detail-tabs').innerHTML=tabs.map(([key,label])=>'<button type="button" data-detail-tab="'+key+'" aria-pressed="'+(current.tab===key)+'">'+label+'</button>').join('');
  }

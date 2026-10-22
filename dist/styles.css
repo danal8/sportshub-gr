@@ -130,3 +130,8 @@ body.detail-open{overflow:hidden}
 .detail-lineups{display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}.detail-lineups>div{display:flex;gap:8px;align-items:start;padding:9px 0;border-bottom:1px solid #293448;font-size:12px}.detail-jersey{color:#aebbd0;width:22px;flex:none}
 .detail-events{list-style:none;padding:0;margin:0}.detail-events li{display:grid;grid-template-columns:78px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid #293448;font-size:12px}.detail-events li>span{color:#aebbd0;font-size:11px}.detail-events p{margin:0;line-height:1.5}
 @media(max-width:600px){.detail-dialog{width:calc(100% - 16px);max-height:92dvh;border-radius:12px}.detail-dialog .detail-header{padding:12px;gap:7px}.detail-header h2{font-size:16px}.detail-body{padding:12px}.detail-tabs{padding:8px 12px}.detail-tabs button{font-size:12px;padding:7px 10px}.detail-source{padding:9px 12px}.detail-match-teams{gap:7px}.detail-match-teams button{font-size:14px}.detail-lineups{grid-template-columns:1fr}.detail-game{font-size:12px;padding:10px}.detail-dialog th,.detail-dialog td{padding:8px 5px}.detail-events li{grid-template-columns:62px 1fr}.detail-roster td:nth-child(3){font-size:11px}}
+
+@media(min-width:901px){.detail-dialog{width:min(1040px,calc(100% - 48px));max-width:1040px;max-height:94dvh}}
+
+.detail-header .team-badge{width:30px;height:30px;flex:none}.detail-header .team-lead{gap:9px}
+@media(max-width:600px){.detail-header .team-badge{width:26px;height:26px}}
