@@ -24,7 +24,7 @@ jobs:
       - name: Check published assets match tested sources
         run: git diff --exit-code -- docs
       - run: npm install --no-save --package-lock=false playwright
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install chromium
         timeout-minutes: 3
       - run: node scripts/check-my-teams-ui.mjs
       - run: node scripts/check-live-ui.mjs

@@ -2,7 +2,7 @@ import{aliases}from'./team-aliases.js?v=31';
 import{teamKey}from'./badges.js?v=26';
 import{athensDay,shiftDay}from'./core.js?v=26';
 export const publishers=[
- {id:'nba',label:'NBA',channel:'UCWJ2lWNubArHWmf3FIHbfcQ',playlists:['PLmlpqJ_fjNIiioJQQTmpyOSMg78S6B1ty']},
+ {id:'nba',label:'NBA',channel:'UCWJ2lWNubArHWmf3FIHbfcQ'},
  {id:'el',label:'EuroLeague',channel:'UCGr3nR_XH9r6E5b09ZJAT9w'},
  {id:'ec',label:'EuroCup',channel:'UCpFqOv5z4WKps64GlQS4ytw'},
  {id:'nova',label:'Novasports',channel:'UCEIbXco8hU9oDHXGo1kwIlA'},
@@ -93,11 +93,12 @@ export async function loadMatchHighlights(m,{force=false}={}){
  }catch{return null;}
 }
 
-export function parsePublisherVideoPage(html,publisher,videoId){
- const source=publishers.find(p=>p.id===publisher);if(!source||!/^[\w-]{11}$/.test(videoId))throw Error('Unknown publisher or video');
- const json=String(html).match(/ytInitialPlayerResponse\s*=\s*(\{[\s\S]*?\});/)?.[1];if(!json)throw Error('Missing publisher video metadata');
- const p=JSON.parse(json),v=p.videoDetails,m=p.microformat?.playerMicroformatRenderer;
- if(v?.videoId!==videoId||v.channelId!==source.channel||!m?.publishDate||Array.isArray(m.availableCountries)&&!m.availableCountries.includes('GR'))throw Error('Unverified publisher video '+JSON.stringify({video:v?.videoId,channel:v?.channelId,title:v?.title,date:m?.publishDate,greece:m?.availableCountries?.includes('GR'),status:p.playabilityStatus?.status,reason:p.playabilityStatus?.reason}));
- const publishedAt=new Date(m.publishDate).toISOString(),xml=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
- return parsePublisherFeed('<feed><entry><yt:channelId>'+source.channel+'</yt:channelId><yt:videoId>'+videoId+'</yt:videoId><title>'+xml(v.title)+'</title><published>'+publishedAt+'</published><media:description>'+xml(v.shortDescription||'')+'</media:description></entry></feed>',publisher);
+
+export function parseRecapPlaylists(html){
+ const raw=String(html).match(/ytInitialData\s*=\s*(\{[\s\S]*?\});/)?.[1];if(!raw)return[];
+ const found=new Set(),walk=v=>{if(!v||typeof v!=='object')return;
+ for(const type of ['playlistRenderer','gridPlaylistRenderer','lockupViewModel']){const r=v[type];if(!r)continue;const title=r.title?.simpleText||r.title?.runs?.map(t=>t.text).join('')||r.metadata?.lockupMetadataViewModel?.title?.content||'';const id=r.playlistId||r.contentId;
+ if(/nightly recap/i.test(title)&&/^PL[\w-]+$/.test(id||''))found.add(id);}
+ for(const child of Object.values(v)){if(Array.isArray(child))child.forEach(walk);else if(child&&typeof child==='object')walk(child);}
+ };walk(JSON.parse(raw));return[...found].slice(0,3);
 }
