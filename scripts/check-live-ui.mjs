@@ -4,7 +4,7 @@ const server=createServer(async(req,res)=>{if(req.url.startsWith('/api/'))apiCal
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const origin='http://127.0.0.1:'+server.address().port,browser=await chromium.launch();
 try{
  // Browser-side requests prove CORS, rather than merely testing Node access.
- const sourcePage=await browser.newPage();await sourcePage.goto(origin);
+ const sourcePage=await browser.newPage();sourcePage.on('requestfailed',r=>console.log('CORS REQUEST FAILURE',r.url(),r.failure()?.errorText));sourcePage.on('console',m=>{if(m.type()==='error')console.log('BROWSER SOURCE ERROR',m.text());});await sourcePage.goto(origin);
  const cors=await sourcePage.evaluate(async()=>{
  const urls=[
  'https://site.api.espn.com/apis/site/v2/sports/soccer/gre.1/scoreboard?dates=20261018',
@@ -12,9 +12,9 @@ try{
  'https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=20261021',
  'https://live.euroleague.net/api/Header?gamecode=1&seasoncode=E2026'
  ];
- return Promise.all(urls.map(async url=>{const r=await fetch(url,{credentials:'omit',signal:AbortSignal.timeout(15000)});const p=await r.json();return{url,status:r.status,valid:!!(p.events||p.CompetitionReducedName),sample:p.status?.displayClock};}));
+ return Promise.all(urls.map(async url=>{try{const r=await fetch(url,{credentials:'omit',signal:AbortSignal.timeout(15000)});const p=await r.json();return{url,status:r.status,valid:!!(p.events||p.CompetitionReducedName)};}catch(e){return{url,error:e.message};}}));
  });
- assert.ok(cors.every(p=>p.status===200&&p.valid),JSON.stringify(cors));console.log('REAL BROWSER CORS',JSON.stringify(cors));await sourcePage.close();
+ console.log('REAL BROWSER CORS',JSON.stringify(cors));assert.ok(cors.every(p=>p.status===200&&p.valid),JSON.stringify(cors));await sourcePage.close();
  const payload=JSON.parse(await readFile('docs/snapshots/europa-2026-27.json','utf8')),fixture=payload.matches.find(m=>m.date==='2026-10-22');assert.ok(fixture,'Published Europa fixture on test date');
  const context=await browser.newContext({viewport:{width:1280,height:900},serviceWorkers:'block'}),page=await context.newPage(),errors=[];
  await page.clock.install({time:new Date('2026-10-22T18:00:00Z')});
