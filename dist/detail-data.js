@@ -54,7 +54,16 @@ async function eventID(m,{force=false}={}){
  for(const day of days)events.push(...await scoreboard(m.competition,day,{force}));
  return resolveEvent([...new Map(events.map(e=>[e.id,e])).values()],m);
 }
-async function resolveTeam(team,c,overview,options){
+export async function resolveTeam(team,c,overview,options){
+ // Resolve identity from the league directory, independently of fixture dates.
+ if(liveLeagues[c.id]){
+  const [sport,league]=liveLeagues[c.id];
+  try{const p=await detailJSON(web+sport+'/'+league+'/teams?'+query+'&limit=1000',{ttl:3600000,...options});
+   const teams=(p.sports||[]).flatMap(s=>(s.leagues||[]).filter(l=>l.slug===league||l.abbreviation===league||!l.slug).flatMap(l=>(l.teams||[]).map(t=>t.team||t)));
+   const hits=[...new Map(teams.filter(t=>sameTeam(team,t.displayName,[t.shortDisplayName,t.name,t.abbreviation])).map(t=>[String(t.id),t])).values()];
+   if(hits.length===1&&/^\d+$/.test(String(hits[0].id)))return{team:hits[0],competition:c.id};
+  }catch{}
+ }
  const candidates=(overview?.matches||[]).filter(m=>liveLeagues[m.competition]).sort((a,b)=>Number(b.competition===c.id)-Number(a.competition===c.id)||Math.abs(Date.parse(a.date)-Date.parse(athensDay()))-Math.abs(Date.parse(b.date)-Date.parse(athensDay())));
  const dates=[...new Map(candidates.map(m=>[m.competition+'-'+m.date,m])).values()].slice(0,3);
  for(const m of dates){try{const days=m.competition==='nba'?[m.date,shiftDay(m.date,-1)]:[m.date],teams=[];

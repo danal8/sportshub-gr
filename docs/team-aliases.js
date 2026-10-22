@@ -1,5 +1,15 @@
 // Explicit spelling aliases only; no fuzzy matching between different clubs.
 const rows=[
+["BOSNA BH Telecom Sarajevo","BOSNA","Μπόσνα"],
+["Bahcesehir College Istanbul","Bahcesehir","Μπαχτσεσεχίρ","Μπαχτσεσεχίρ"],
+["Tofas Bursa","Tofas","Τόφας"],
+["Cedevita Olimpija Ljubljana","Cedevita Olimpija","Τσεντεβίτα"],
+["Le Mans Sarthe Basket","Le Mans Sarthe","Le Mans","Λε Μαν"],
+["AEK","AEK Athen","AEK Athens","ΑΕΚ"],
+["Paris Saint-Germain","Paris St. Germain","Παρί Σεν Ζερμέν"],
+["Fenerbahçe","Fenerbahçe SK","Fenerbahce","Fenerbahce Tarfin Istanbul"],
+["Slavia Praha","Slavia Prag"],
+["Bodø/Glimt","FK Bodö/Glimt","Bodo/Glimt"],
 ["Inter","Inter Mailand","FC Internazionale Milano","Internazionale","Inter Milan","Ίντερ"],
 ["Club Brugge","FC Brügge","Club Brugge KV","Μπριζ","Κλαμπ Μπριζ"],
 ["Arsenal","FC Arsenal","Άρσεναλ"],

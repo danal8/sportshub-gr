@@ -1,6 +1,22 @@
 // Display names only: raw provider names remain unchanged for scores and favourites.
 const key=s=>String(s).normalize('NFD').replace(/\p{M}/gu,'').toLocaleLowerCase('el').replace(/[^\p{L}\p{N}]/gu,'');
 const names=[
+["AEK","ΑΕΚ"],
+["AEK Athen","ΑΕΚ"],
+["AEK Athens","ΑΕΚ"],
+["ΑΕΚ","ΑΕΚ"],
+["Paris Saint-Germain","Paris Saint-Germain"],
+["Paris St. Germain","Paris Saint-Germain"],
+["Παρί Σεν Ζερμέν","Paris Saint-Germain"],
+["Fenerbahçe","Fenerbahçe"],
+["Fenerbahçe SK","Fenerbahçe"],
+["Fenerbahce","Fenerbahçe"],
+["Fenerbahce Tarfin Istanbul","Fenerbahçe"],
+["Slavia Praha","Slavia Praha"],
+["Slavia Prag","Slavia Praha"],
+["Bodø/Glimt","Bodø/Glimt"],
+["FK Bodö/Glimt","Bodø/Glimt"],
+["Bodo/Glimt","Bodø/Glimt"],
 ["Inter","Inter"],
 ["Inter Mailand","Inter"],
 ["FC Internazionale Milano","Inter"],
