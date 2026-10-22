@@ -1,10 +1,10 @@
-import{loadMatchHighlights}from'./highlights.js?v=31';
+import{loadMatchHighlights}from'./highlights.js?v=32';
 import{escapeHTML as e,athensDay}from'./core.js?v=26';
 import{competitions}from'./data.js?v=26';
-import{displayTeamName}from'./team-display.js?v=31';
+import{displayTeamName}from'./team-display.js?v=32';
 import{teamMarkup}from'./team-view.js?v=26';
 import{badgeSources}from'./badges.js?v=26';
-import{loadTeamOverview,loadTeamRoster,loadMatchDetails}from'./detail-data.js?v=31';
+import{loadTeamOverview,loadTeamRoster,loadMatchDetails}from'./detail-data.js?v=32';
 const $=id=>document.getElementById(id);
 const day=d=>d?new Intl.DateTimeFormat('el-GR',{day:'numeric',month:'short',year:'numeric',timeZone:'Europe/Athens'}).format(new Date(d+'T12:00:00Z')):'Δεν έχει οριστεί';
 const stamp=d=>{try{return new Intl.DateTimeFormat('el-GR',{dateStyle:'short',timeStyle:'short',timeZone:'Europe/Athens'}).format(new Date(d));}catch{return '—';}};
@@ -14,13 +14,14 @@ const value=v=>v===null||v===undefined||v===''?'—':e(v);
 const name=n=>displayTeamName(n);
 const visual=(n,c,badge)=>teamMarkup(name(n),badgeSources(n,badge,c.id,c.sport));
 function playerAvatar(player){
+ const photos=[...new Set([player.photo,...player.photos||[]].filter(Boolean))];
  const initials=String(player.name).replace(/,/g,' ').trim().split(/\s+/).filter(Boolean).slice(0,2).map(s=>[...s][0]).join('').toLocaleUpperCase('el');
- return '<span class="player-avatar" aria-hidden="true"><span class="player-initials">'+e(initials)+'</span>'+(player.photo?'<img class="player-photo" src="'+e(player.photo)+'" alt="" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer">':'')+'</span>';
+ return '<span class="player-avatar" aria-hidden="true"><span class="player-initials">'+e(initials)+'</span>'+(photos.length?'<img class="player-photo" data-photo-fallbacks="'+e(JSON.stringify(photos.slice(1)))+'" src="'+e(photos[0])+'" alt="" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer">':'')+'</span>';
 }
 const position=(p,sport)=>({Goalkeeper:'Τερματοφύλακας',Defender:'Αμυντικός',Midfielder:'Μέσος',Forward:sport==='football'?'Επιθετικός':'Φόργουορντ',Guard:'Γκαρντ',Center:'Σέντερ','Guard-Forward':'Γκαρντ / Φόργουορντ','Forward-Center':'Φόργουορντ / Σέντερ'})[p]||p;
 export function createDetailPanels({getSeed=()=>[]}={}){
  const dialog=$('detail-dialog'),body=$('detail-body');
- dialog.addEventListener('error',event=>{const img=event.target;if(img?.classList?.contains('player-photo'))img.hidden=true;},true);let current=null,history=[],generation=0,games=[];
+ dialog.addEventListener('error',event=>{const img=event.target;if(!img?.classList?.contains('player-photo'))return;let next=[];try{next=JSON.parse(img.dataset.photoFallbacks||'[]');}catch{}const url=next.shift();img.dataset.photoFallbacks=JSON.stringify(next);if(url)img.src=url;else img.hidden=true;},true);let current=null,history=[],generation=0,games=[];
  // One browser entry for the whole modal, including nested team/match navigation.
  let browserToken=null,backPending=false;
  const ownsEntry=()=>browserToken&&window.history.state?.sportshubDetail===browserToken;

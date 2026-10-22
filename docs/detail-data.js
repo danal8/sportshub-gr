@@ -1,5 +1,5 @@
 import{competitions}from'./data.js?v=26';
-import{aliases}from'./team-aliases.js?v=31';
+import{aliases}from'./team-aliases.js?v=32';
 import{teamKey}from'./badges.js?v=26';
 import{athensDay,normalizeFootball,shiftDay}from'./core.js?v=26';
 import{liveLeagues,sourceClock,parseEuroHeader}from'./live-scores.js?v=26';
@@ -76,26 +76,45 @@ export async function resolveTeam(team,c,overview,options){
  }catch{}}
  throw Error('Δεν βρέθηκε επαληθευμένο αναγνωριστικό ομάδας');
 }
+export function photoCandidates(...values){return [...new Set(values.flat(Infinity).map(v=>playerPhoto(typeof v==='string'?v:v?.href||v?.url)).filter(Boolean))];}
 export function playerPhoto(url){
  try{const u=new URL(url);return u.protocol==='https:'&&!u.username&&!u.password&&['a.espncdn.com','media-cdn.cortextech.io','media-cdn.incrowdsports.com','images.euroleague.net','ftpserver.euroleague.net'].includes(u.hostname)?u.href:null;}catch{return null;}
 }
 export function parseRoster(raw,team,id,c){
  if(raw.season?.year!==(c.id==='nba'?2027:2026)||String(raw.team?.id)!==String(id)||!sameTeam(team,raw.team?.displayName))throw Error('Το ρόστερ δεν αντιστοιχεί στην ομάδα και στη σεζόν');
- const items=(raw.athletes||[]).flatMap(a=>a.items||[a]),players=items.filter(a=>a?.displayName).map(a=>({id:String(a.id),name:a.displayName,jersey:a.jersey||'',position:a.position?.displayName||a.position?.name||'',age:Number.isFinite(a.age)?a.age:null,country:a.citizenship||a.birthPlace?.country||'',photo:playerPhoto(a.headshot?.href)}));
+ const items=(raw.athletes||[]).flatMap(a=>a.items||[a]),players=items.filter(a=>a?.displayName).map(a=>({id:String(a.id),name:a.displayName,jersey:a.jersey||'',position:a.position?.displayName||a.position?.name||'',age:Number.isFinite(a.age)?a.age:null,country:a.citizenship||a.birthPlace?.country||'',photo:photoCandidates(a.headshot,a.headshots,a.images?.headshot,a.images?.photo)[0]||null,photos:photoCandidates(a.headshot,a.headshots,a.images?.headshot,a.images?.photo)}));
  const staff=(raw.coach||[]).map(a=>({name:a.displayName||[a.firstName,a.lastName].filter(Boolean).join(' '),role:'Προπονητής'})).filter(a=>a.name);
  return{players,staff,season:raw.season.displayName||'2026–27',team:raw.team.displayName,provider:'ESPN',source:c.id==='nba'?'https://www.espn.com/nba/team/roster/_/id/'+id:'https://www.espn.com/soccer/team/squad/_/id/'+id,checkedAt:new Date().toISOString()};
 }
 export function parseEuroRoster(raw,team,club,code,today=athensDay()){
  if(!Array.isArray(raw)||!raw.length||raw.some(r=>r.season?.code!==code+'2026'||r.club?.code!==club))throw Error('Άλλο τμήμα ή σεζόν ρόστερ');
- const active=raw.filter(r=>r.active===true&&(!r.startDate||r.startDate.slice(0,10)<=today)&&(!r.endDate||r.endDate.slice(0,10)>=today));if(!active.some(r=>sameTeam(team,r.club.name)))throw Error('Άλλη ομάδα ρόστερ');
- const players=active.filter(r=>r.type==='J'||r.typeName==='Player').map(r=>({id:r.person.code,name:r.person.name,jersey:r.dorsal||'',position:r.positionName||'',age:null,country:r.person.country?.name||'',photo:playerPhoto(r.images?.headshot||r.person.images?.headshot)}));
+ const active=raw.filter(r=>r.active===true&&(!r.startDate||r.startDate.slice(0,10)<=today)&&(!r.endDate||r.endDate.slice(0,10)>=today));if(!active.some(r=>sameTeam(team,r.club.name,[r.club.abbreviatedName,r.club.editorialName,r.club.code])))throw Error('Άλλη ομάδα ρόστερ');
+ const players=active.filter(r=>r.type==='J'||r.typeName==='Player').map(r=>({id:r.person.code,name:r.person.name,jersey:r.dorsal||'',position:r.positionName||'',age:null,country:r.person.country?.name||'',photo:photoCandidates(r.images?.headshot,r.person.images?.headshot,r.images?.action,r.person.images?.action)[0]||null,photos:photoCandidates(r.images?.headshot,r.person.images?.headshot,r.images?.action,r.person.images?.action)}));
  const staff=active.filter(r=>/coach/i.test(r.typeName||'')).map(r=>({name:r.person.name,role:r.typeName}));
  return{players,staff,season:'2026–27',team,provider:'Euroleague Basketball',source:'https://www.euroleaguebasketball.net/'+(code==='E'?'euroleague':'eurocup')+'/',checkedAt:new Date().toISOString()};
 }
 export async function loadTeamRoster(team,c,overview,{force=false}={}){
  if(c.sport==='basketball'&&c.id!=='nba'){
- for(const id of ['el','eurocup']){const p=overview.records?.find(r=>r.competition.id===id)?.payload;if(!p)continue;for(const m of p.matches||[]){const side=sameTeam(team,m.home,m.homeAliases)?'home':sameTeam(team,m.away,m.awayAliases)?'away':null;if(!side)continue;const club=(m[side+'Aliases']||[]).find(s=>/^[A-Z]{3}$/.test(s));if(!club)continue;const code=id==='el'?'E':'U';return parseEuroRoster(await detailJSON('https://api-live.euroleague.net/v2/competitions/'+code+'/seasons/'+code+'2026/clubs/'+club+'/people',{ttl:3600000,force}),team,club,code);}
+
+ const ids=['el','eurocup'].sort((a,b)=>Number(b===c.id)-Number(a===c.id));let failure;
+ for(const id of ids){const code=id==='el'?'E':'U',base='https://api-live.euroleague.net/v2/competitions/'+code+'/seasons/'+code+'2026';
+ try{
+ const raw=await detailJSON(base+'/clubs',{ttl:3600000,force}),clubs=Array.isArray(raw)?raw:raw.data;
+ if(!Array.isArray(clubs)||!Array.isArray(raw)&&raw.total!==undefined&&raw.total!==clubs.length)throw Error('Μη πλήρης κατάλογος ομάδων');
+ const hits=clubs.filter(t=>!t.isVirtual&&sameTeam(team,t.name,[t.abbreviatedName,t.editorialName,t.clubPermanentName,t.clubPermanentAlias,t.code]));
+ if(hits.length>1)throw Error('Αμφίσημη ταυτότητα ομάδας');if(!hits.length)continue;
+ const club=hits[0],rows=await detailJSON(base+'/clubs/'+encodeURIComponent(club.code)+'/people',{ttl:300000,force});
+ const roster=parseEuroRoster(rows,club.name,club.code,code);
+ roster.team=team;
+ // Only reuse a portrait when the source's permanent person code is identical.
+ if(roster.players.some(p=>!p.photo))try{
+ const old=await detailJSON(base.replace(code+'2026',code+'2025')+'/clubs/'+encodeURIComponent(club.code)+'/people',{ttl:3600000,force});
+ for(const player of roster.players){if(player.photo)continue;const row=Array.isArray(old)&&old.find(r=>r.person?.code===player.id&&r.type==='J');if(row){player.photos=photoCandidates(row.images?.headshot,row.person.images?.headshot,row.images?.action);player.photo=player.photos[0]||null;}}
+ }catch{}
+ return roster;
+ }catch(error){failure=error;}
  }
+ if(failure)throw failure;
  throw Error('Δεν υπάρχει συνδεδεμένη πηγή ρόστερ για αυτή την ομάδα');
  }
  if(!liveLeagues[c.id])throw Error('Δεν υπάρχει συνδεδεμένη πηγή ρόστερ για αυτή τη διοργάνωση');
