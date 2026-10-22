@@ -64,16 +64,19 @@ async function resolveTeam(team,c,overview,options){
  }catch{}}
  throw Error('Δεν βρέθηκε επαληθευμένο αναγνωριστικό ομάδας');
 }
+export function playerPhoto(url){
+ try{const u=new URL(url);return u.protocol==='https:'&&!u.username&&!u.password&&['a.espncdn.com','media-cdn.cortextech.io','media-cdn.incrowdsports.com','images.euroleague.net','ftpserver.euroleague.net'].includes(u.hostname)?u.href:null;}catch{return null;}
+}
 export function parseRoster(raw,team,id,c){
  if(raw.season?.year!==(c.id==='nba'?2027:2026)||String(raw.team?.id)!==String(id)||!sameTeam(team,raw.team?.displayName))throw Error('Το ρόστερ δεν αντιστοιχεί στην ομάδα και στη σεζόν');
- const items=(raw.athletes||[]).flatMap(a=>a.items||[a]),players=items.filter(a=>a?.displayName).map(a=>({id:String(a.id),name:a.displayName,jersey:a.jersey||'',position:a.position?.displayName||a.position?.name||'',age:Number.isFinite(a.age)?a.age:null,country:a.citizenship||a.birthPlace?.country||''}));
+ const items=(raw.athletes||[]).flatMap(a=>a.items||[a]),players=items.filter(a=>a?.displayName).map(a=>({id:String(a.id),name:a.displayName,jersey:a.jersey||'',position:a.position?.displayName||a.position?.name||'',age:Number.isFinite(a.age)?a.age:null,country:a.citizenship||a.birthPlace?.country||'',photo:playerPhoto(a.headshot?.href)}));
  const staff=(raw.coach||[]).map(a=>({name:a.displayName||[a.firstName,a.lastName].filter(Boolean).join(' '),role:'Προπονητής'})).filter(a=>a.name);
  return{players,staff,season:raw.season.displayName||'2026–27',team:raw.team.displayName,provider:'ESPN',source:c.id==='nba'?'https://www.espn.com/nba/team/roster/_/id/'+id:'https://www.espn.com/soccer/team/squad/_/id/'+id,checkedAt:new Date().toISOString()};
 }
 export function parseEuroRoster(raw,team,club,code,today=athensDay()){
  if(!Array.isArray(raw)||!raw.length||raw.some(r=>r.season?.code!==code+'2026'||r.club?.code!==club))throw Error('Άλλο τμήμα ή σεζόν ρόστερ');
  const active=raw.filter(r=>r.active===true&&(!r.startDate||r.startDate.slice(0,10)<=today)&&(!r.endDate||r.endDate.slice(0,10)>=today));if(!active.some(r=>sameTeam(team,r.club.name)))throw Error('Άλλη ομάδα ρόστερ');
- const players=active.filter(r=>r.type==='J'||r.typeName==='Player').map(r=>({id:r.person.code,name:r.person.name,jersey:r.dorsal||'',position:r.positionName||'',age:null,country:r.person.country?.name||''}));
+ const players=active.filter(r=>r.type==='J'||r.typeName==='Player').map(r=>({id:r.person.code,name:r.person.name,jersey:r.dorsal||'',position:r.positionName||'',age:null,country:r.person.country?.name||'',photo:playerPhoto(r.images?.headshot||r.person.images?.headshot)}));
  const staff=active.filter(r=>/coach/i.test(r.typeName||'')).map(r=>({name:r.person.name,role:r.typeName}));
  return{players,staff,season:'2026–27',team,provider:'Euroleague Basketball',source:'https://www.euroleaguebasketball.net/'+(code==='E'?'euroleague':'eurocup')+'/',checkedAt:new Date().toISOString()};
 }

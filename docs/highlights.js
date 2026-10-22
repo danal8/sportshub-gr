@@ -53,6 +53,10 @@ function nbaDate(m){
  const start=new Date(m.date+'T'+m.time+':00'+(part||'+00:00'));if(!Number.isFinite(+start))return null;
  return new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(start);
 }
+// normalizeFootball exposes score.ft as score and marks the record non-provisional.
+export function highlightMatch(m){
+ return m.scoreState==null&&m.provisional===false&&Array.isArray(m.score)&&m.score.length===2&&m.score.every(n=>Number.isInteger(n)&&n>=0)?{...m,scoreState:'final'}:m;
+}
 export function selectHighlights(videos,m,{now=Date.now()}={}){
  if(m.scoreState!=='final'||!Array.isArray(m.score)||m.score.length!==2||!m.score.every(n=>Number.isInteger(n)&&n>=0)||!/^\d{4}-\d{2}-\d{2}$/.test(m.date||'')||m.date>athensDay(new Date(now)))return null;
  const home=choices(m.home,m.homeAliases,m.competition==='nba'),away=choices(m.away,m.awayAliases,m.competition==='nba'),hits=[];
@@ -74,11 +78,14 @@ export function selectHighlights(videos,m,{now=Date.now()}={}){
  hits.sort((a,b)=>a.rank-b.rank||Date.parse(b.publishedAt)-Date.parse(a.publishedAt));return hits[0]||null;
 }
 let cached=null,pending=null,loadedAt=0;
+export async function loadHighlightsIndex({force=false}={}){
+ if(!pending&&(force||!cached||Date.now()-loadedAt>120000))pending=fetch('./snapshots/highlights-2026-27.json',{cache:'no-store',credentials:'omit',signal:AbortSignal.timeout(6000)}).then(async r=>{if(!r.ok)throw Error('Highlights unavailable');const p=await r.json();if(p.season!=='2026-27'||!Array.isArray(p.videos))throw Error('Wrong highlights season');cached=p.videos;loadedAt=Date.now();}).finally(()=>pending=null);
+ if(pending)await pending;return cached;
+}
 export async function loadMatchHighlights(m,{force=false}={}){
  if(m.scoreState!=='final')return null;
  try{
- if(!pending&&(force||!cached||Date.now()-loadedAt>120000))pending=fetch('./snapshots/highlights-2026-27.json',{cache:'no-store',credentials:'omit',signal:AbortSignal.timeout(6000)}).then(async r=>{if(!r.ok)throw Error('Highlights unavailable');const p=await r.json();if(p.season!=='2026-27'||!Array.isArray(p.videos))throw Error('Wrong highlights season');cached=p.videos;loadedAt=Date.now();}).finally(()=>pending=null);
- if(pending)await pending;
+ await loadHighlightsIndex({force});
  let ref=m;
  if(m.competition==='el'&&!m.round){try{const r=await fetch('./snapshots/el-2026-27.json',{signal:AbortSignal.timeout(6000)}),p=await r.json();const matches=(p.matches||[]).filter(x=>x.date===m.date&&mentions(x.home,choices(m.home,m.homeAliases))&&mentions(x.away,choices(m.away,m.awayAliases)));if(p.season==='2026-27'&&matches.length===1)ref={...matches[0],...m,round:matches[0].round};}catch{}}
  return selectHighlights(cached,ref);
