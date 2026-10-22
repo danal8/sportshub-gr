@@ -1,5 +1,5 @@
 import{competitions}from'./data.js?v=26';
-import{aliases}from'./team-aliases.js?v=26';
+import{aliases}from'./team-aliases.js?v=31';
 import{teamKey}from'./badges.js?v=26';
 import{athensDay,normalizeFootball,shiftDay}from'./core.js?v=26';
 import{liveLeagues,sourceClock,parseEuroHeader}from'./live-scores.js?v=26';
@@ -54,16 +54,19 @@ async function eventID(m,{force=false}={}){
  for(const day of days)events.push(...await scoreboard(m.competition,day,{force}));
  return resolveEvent([...new Map(events.map(e=>[e.id,e])).values()],m);
 }
+export function catalogTeamID(catalog,team,c){
+ const keys=names(team),ids=new Set();
+ // The published badge catalogue retains exact ESPN team IDs. The roster response
+ // must still validate both club name and season before any player is displayed.
+ const groups=[c.id,...competitions.filter(x=>x.sport===c.sport&&x.id!==c.id).map(x=>x.id)];
+ for(const group of groups){for(const [name,url]of Object.entries(catalog?.teams?.[group]||{})){
+  if(!keys.has(teamKey(name)))continue;
+  try{const u=new URL(url),m=u.pathname.match(c.sport==='basketball'?/^\/i\/teamlogos\/nba\/500\/(\d+)\.png$/:/^\/i\/teamlogos\/soccer\/500\/(\d+)\.png$/);if(u.protocol==='https:'&&u.hostname==='a.espncdn.com'&&m)ids.add(m[1]);}catch{}
+ }if(group===c.id&&ids.size)break;}
+ return ids.size===1?[...ids][0]:null;
+}
 export async function resolveTeam(team,c,overview,options){
- // Resolve identity from the league directory, independently of fixture dates.
- if(liveLeagues[c.id]){
-  const [sport,league]=liveLeagues[c.id];
-  try{const p=await detailJSON(web+sport+'/'+league+'/teams?'+query+'&limit=1000',{ttl:3600000,...options});
-   const teams=(p.sports||[]).flatMap(s=>(s.leagues||[]).filter(l=>l.slug===league||l.abbreviation===league||!l.slug).flatMap(l=>(l.teams||[]).map(t=>t.team||t)));
-   const hits=[...new Map(teams.filter(t=>sameTeam(team,t.displayName,[t.shortDisplayName,t.name,t.abbreviation])).map(t=>[String(t.id),t])).values()];
-   if(hits.length===1&&/^\d+$/.test(String(hits[0].id)))return{team:hits[0],competition:c.id};
-  }catch{}
- }
+ try{const catalog=await detailJSON('./badges/catalog.json',{ttl:3600000,...options}),id=catalogTeamID(catalog,team,c);if(id)return{team:{id,displayName:team},competition:c.id};}catch{}
  const candidates=(overview?.matches||[]).filter(m=>liveLeagues[m.competition]).sort((a,b)=>Number(b.competition===c.id)-Number(a.competition===c.id)||Math.abs(Date.parse(a.date)-Date.parse(athensDay()))-Math.abs(Date.parse(b.date)-Date.parse(athensDay())));
  const dates=[...new Map(candidates.map(m=>[m.competition+'-'+m.date,m])).values()].slice(0,3);
  for(const m of dates){try{const days=m.competition==='nba'?[m.date,shiftDay(m.date,-1)]:[m.date],teams=[];

@@ -1,9 +1,10 @@
-import{aliases}from'./team-aliases.js?v=26';
+import{aliases}from'./team-aliases.js?v=31';
 import{teamKey}from'./badges.js?v=26';
 import{athensDay,shiftDay}from'./core.js?v=26';
 export const publishers=[
  {id:'nba',label:'NBA',channel:'UCWJ2lWNubArHWmf3FIHbfcQ'},
  {id:'el',label:'EuroLeague',channel:'UCGr3nR_XH9r6E5b09ZJAT9w'},
+ {id:'ec',label:'EuroCup',channel:'UCpFqOv5z4WKps64GlQS4ytw'},
  {id:'nova',label:'Novasports',channel:'UCEIbXco8hU9oDHXGo1kwIlA'},
  {id:'magenta',label:'Magenta Sport',channel:'UCgMUmr7uLDalwVk63Sf6pBw'}
 ];
@@ -29,9 +30,9 @@ export function parsePublisherFeed(xml,publisher){
    const chapters=description.split(/\r?\n/).map(line=>{const m=line.match(/^(?:(\d+):)?(\d{1,2}):(\d{2})\s+(.+?\s+at\s+.+?)\s*$/i);return m?{seconds:Number(m[1]||0)*3600+Number(m[2])*60+Number(m[3]),label:m[4]}:null;}).filter(Boolean);
    if(chapters.length)videos.push({...base,competition:'nba',gameDate,kind:'chapters',chapters});
   }
- }else if(publisher==='el'){
+ }else if(publisher==='el'||publisher==='ec'){
   const r=title.match(/\bR(?:ound\s*)?(\d+)\b/i),season=title.match(/\b(20\d{2})[-–](\d{2})\b/);
-  if(r&&season&&/highlights/i.test(title)&&!/player highlights|last \d+ meetings|preview/i.test(title))videos.push({...base,competition:'el',round:Number(r[1]),season:season[1]+'-'+season[2],kind:'game'});
+  if(r&&season&&/highlights/i.test(title+' '+description)&&!/player highlights|last \d+ meetings|preview/i.test(title))videos.push({...base,competition:publisher==='ec'?'eurocup':'el',round:Number(r[1]),season:season[1]+'-'+season[2],kind:'game'});
  }else{
   const intro=description.slice(0,650),competition=novaCompetition(title+' '+intro),broadcastDate=gameDate||namedDate(intro);
   if(competition&&broadcastDate&&/highlights|στιγμι[οό]τυπ/i.test(title+' '+intro)&&!/preview|pre game|pregame|δηλ[ωώ]σεις|συν[εέ]ντευξη/i.test(title))videos.push({...base,competition,gameDate:broadcastDate,kind:'game'});
@@ -64,7 +65,7 @@ export function selectHighlights(videos,m,{now=Date.now()}={}){
  const pub=publishers.find(p=>p.id===v.publisher&&p.channel===v.channelId),published=Date.parse(v.publishedAt);
  if(!pub||v.competition!==m.competition||!/^[\w-]{11}$/.test(v.videoId)||!Number.isFinite(published)||published>now+300000||athensDay(new Date(published))<m.date||athensDay(new Date(published))>shiftDay(m.date,1))continue;
  if(m.competition==='nba'){if(v.publisher!=='nba'||v.gameDate!==nbaDate(m))continue;}
- else if(v.publisher==='el'){if(v.season!=='2026-27'||!Number.isInteger(v.round)||v.round!==Number(m.round))continue;}
+ else if(v.publisher==='el'||v.publisher==='ec'){if(v.season!=='2026-27'||!Number.isInteger(v.round)||v.round!==Number(m.round))continue;}
  else if(v.gameDate!==m.date)continue;
  let text=v.title,seconds=null;
  if(v.kind==='chapters'){
@@ -87,7 +88,7 @@ export async function loadMatchHighlights(m,{force=false}={}){
  try{
  await loadHighlightsIndex({force});
  let ref=m;
- if(m.competition==='el'&&!m.round){try{const r=await fetch('./snapshots/el-2026-27.json',{signal:AbortSignal.timeout(6000)}),p=await r.json();const matches=(p.matches||[]).filter(x=>x.date===m.date&&mentions(x.home,choices(m.home,m.homeAliases))&&mentions(x.away,choices(m.away,m.awayAliases)));if(p.season==='2026-27'&&matches.length===1)ref={...matches[0],...m,round:matches[0].round};}catch{}}
+ if(['el','eurocup'].includes(m.competition)&&!m.round){try{const r=await fetch('./snapshots/'+m.competition+'-2026-27.json',{signal:AbortSignal.timeout(6000)}),p=await r.json();const matches=(p.matches||[]).filter(x=>x.date===m.date&&mentions(x.home,choices(m.home,m.homeAliases))&&mentions(x.away,choices(m.away,m.awayAliases)));if(p.season==='2026-27'&&matches.length===1)ref={...matches[0],...m,round:matches[0].round};}catch{}}
  return selectHighlights(cached,ref);
  }catch{return null;}
 }
