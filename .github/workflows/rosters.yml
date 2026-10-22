@@ -20,7 +20,13 @@ jobs:
           node-version: '22'
       - run: node scripts/refresh-rosters.mjs
       - run: node scripts/enrich-roster-photos.mjs
+        id: photos
         continue-on-error: true
+      - name: Record photo refresh coverage
+        env:
+          PHOTO_OUTCOME: ${{ steps.photos.outcome }}
+        run: |
+          node --input-type=module -e "import fs from 'node:fs';const file='dist/rosters/coverage.json',p=JSON.parse(fs.readFileSync(file));p.photoRefreshStatus=process.env.PHOTO_OUTCOME;p.photoRefreshNote=p.photoRefreshStatus==='success'?'Available source portraits matched by player ID':'Photo enrichment incomplete; existing portraits retained';fs.writeFileSync(file,JSON.stringify(p,null,2)+'\n');"
       - run: node scripts/build-pages.mjs
       - run: node --test tests/*.test.mjs
       - name: Save verified seasonal rosters
