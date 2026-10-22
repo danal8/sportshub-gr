@@ -1,6 +1,6 @@
-import{loadHighlightsIndex,selectHighlights,highlightMatch}from'./highlights.js?v=38';
-import{displayTeamName}from'./team-display.js?v=38';
-import{loadLiveScores,applyLiveScores,mergeLiveMatches,isFreshLive,LIVE_INTERVAL}from'./live-scores.js?v=38';
+import{loadHighlightsIndex,selectHighlights,highlightMatch}from'./highlights.js?v=39';
+import{displayTeamName}from'./team-display.js?v=39';
+import{loadLiveScores,applyLiveScores,mergeLiveMatches,isFreshLive,LIVE_INTERVAL}from'./live-scores.js?v=39';
 import{makeSelection,sanitizeSelections,selectionForTeam,addSelection,weekRange,weeklyMatches,selectedCompetitions,teamIdentity}from'./my-teams.js?v=26';
 import{teamMarkup}from'./team-view.js?v=26';
 import{loadTVDetails,applyTVDetails}from'./tv-details.js?v=26';
@@ -31,13 +31,7 @@ const allTV={id:'all-tv',name:'Όλες οι διοργανώσεις',sport:'al
 function current(){return state.id==='all-matches'?allMatches:state.id==='all-tv'?allTV:competitions.find(c=>c.id===state.id);}
 function dateLabel(d){return new Intl.DateTimeFormat('el-GR',{weekday:'long',day:'numeric',month:'long',year:'numeric',timeZone:'Europe/Athens'}).format(new Date(d+'T12:00:00+03:00'));}
 function timestamp(d){return new Intl.DateTimeFormat('el-GR',{dateStyle:'short',timeStyle:'short',timeZone:'Europe/Athens'}).format(new Date(d));}
-function team(name,badge,id=state.id,sport){
- const visual=teamMarkup(displayTeamName(name),badgeSources(name,badge,id,sport));if(!competitions.some(c=>c.id===id))return visual;
- const open='<button type="button" class="team-open" data-open-team="'+e(name)+'" data-open-competition="'+e(id)+'" aria-label="'+e('Λεπτομέρειες ομάδας '+displayTeamName(name))+'">';
- if(state.tab==='standings')return open+visual+'</button>';
- const img=visual.match(/<img[^>]*>/)?.[0],crest=open+(img||'<span class="team-crest-placeholder" aria-hidden="true">◯</span>')+'</button>';
- return '<span class="fixture-team">'+(img?visual.replace(img,crest):visual.replace('<span class="team-lead">','<span class="team-lead">'+crest))+'</span>';
-}
+function team(name,badge,id=state.id,sport){const visual=teamMarkup(displayTeamName(name),badgeSources(name,badge,id,sport));return competitions.some(c=>c.id===id)?'<button type="button" class="team-open" data-open-team="'+e(name)+'" data-open-competition="'+e(id)+'" aria-label="'+e('Λεπτομέρειες ομάδας '+displayTeamName(name))+'">'+visual+'</button>':visual;}
 
 loadBadgeCatalog().then(()=>{if(!state.loading)render();});
 document.addEventListener('error',event=>{const img=event.target;if(!img?.classList?.contains('team-badge'))return;const fallback=img.dataset.fallback;if(fallback&&img.src!==fallback){img.dataset.fallback='';img.src=fallback;}else img.hidden=true;},true);
@@ -52,7 +46,7 @@ async function refreshCardHighlights(force=false){
  cardHighlightsPending=true;cardHighlightsCheckedAt=Date.now();
  try{cardHighlights=await loadHighlightsIndex({force});if(!state.loading&&state.tab!=='standings')render();}catch{}finally{cardHighlightsPending=false;}
 }
-function details(){return detailPromise??=import('./detail-panels.js?v=38').then(m=>m.createDetailPanels({getSeed:()=>{const records=competitions.map(c=>({competition:c,payload:scheduleCache.get(state.season+'-'+c.id)})).filter(r=>r.payload);if(state.meta?.matches&&competitions.some(c=>c.id===state.id))records.push({competition:current(),payload:{...state.meta,matches:state.matches}});return records;}})).catch(error=>{detailPromise=null;notify('Δεν άνοιξαν τα στοιχεία. Δοκίμασε ξανά.');throw error;});}
+function details(){return detailPromise??=import('./detail-panels.js?v=39').then(m=>m.createDetailPanels({getSeed:()=>{const records=competitions.map(c=>({competition:c,payload:scheduleCache.get(state.season+'-'+c.id)})).filter(r=>r.payload);if(state.meta?.matches&&competitions.some(c=>c.id===state.id))records.push({competition:current(),payload:{...state.meta,matches:state.matches}});return records;}})).catch(error=>{detailPromise=null;notify('Δεν άνοιξαν τα στοιχεία. Δοκίμασε ξανά.');throw error;});}
 document.addEventListener('click',async event=>{const t=event.target.closest('[data-open-team]');if(t){const name=t.dataset.openTeam,id=t.dataset.openCompetition;try{(await details()).openTeam(name,id);}catch{}return;}const target=event.target.closest('[data-open-match-index]');if(!target||target.tagName==='ARTICLE'&&event.target.closest('a,button,input,select,summary'))return;const match=renderedMatches[Number(target.dataset.openMatchIndex)];if(match)try{(await details()).openMatch({...match});}catch{}});
 function renderNav(){if(renderedTab===state.tab)return;renderedTab=state.tab;for(const id of ['side-nav','top-nav','bottom-nav']){$(id).innerHTML=nav.map(([key,icon,label])=>`<button type="button" data-tab="${key}" aria-label="${label}" class="${state.tab===key?'active':''}" ${state.tab===key?'aria-current="page"':''}><span class="nav-icon" aria-hidden="true">${navIcon(key)}</span><span class="full-label">${label}</span><span class="short-label" aria-hidden="true">${shortLabels[key]}</span></button>`).join('');}}
 function choices(){const allowed=state.tab==='matches'?[allMatches,...orderedCompetitions(competitions,state.tab)]:state.tab==='tv'?[allTV,...orderedCompetitions(competitions,state.tab)]:orderedCompetitions(competitions,state.tab);if(!allowed.some(c=>c.id===state.id))state.id=allowed[0].id;$('competition').innerHTML=allowed.map(c=>`<option value="${c.id}" ${c.id===state.id?'selected':''}>${c.name}</option>`).join('');}

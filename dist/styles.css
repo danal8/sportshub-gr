@@ -190,3 +190,6 @@ body[data-tab=tv] .match .match-info .fixture-title{display:block;text-align:lef
 body .match.compact-match,body[data-tab=tv] .match{display:block}body .compact-match .match-time{display:flex;align-items:center;justify-content:flex-start;gap:12px;width:100%;font-size:12px;line-height:1.5;margin:0 0 7px;text-align:left}body .compact-match .match-status{font-size:11px}body[data-tab=tv] .match .match-time{display:block;font-size:12px;line-height:1.5;margin-bottom:7px}body .compact-match .match-info{width:100%;min-width:0}
 
 .fixture-team{min-width:0;overflow-wrap:anywhere}.fixture-team .team-open,body .fixture-team-row .fixture-team .team-open{display:inline-flex;vertical-align:middle;align-items:center;justify-content:center;min-width:32px;width:32px;min-height:32px;padding:3px;margin-inline-end:4px;border-radius:6px}.fixture-team .team-open .team-badge{margin:0;width:24px;height:24px}.fixture-team .team-open:hover{background:#294568}.team-crest-placeholder{font-size:20px;color:#9fb8da}
+
+/* Only the visible crest and name open a team, never the empty team column. */
+body .fixture-team-row .team-open{width:fit-content;max-width:100%;min-width:0;justify-self:start}body[data-tab=tv] .fixture-title .team-open{width:fit-content;max-width:100%}
