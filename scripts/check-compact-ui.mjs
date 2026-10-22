@@ -1,0 +1,23 @@
+import{chromium}from'playwright';import{createServer}from'node:http';import{readFile,mkdir}from'node:fs/promises';import path from'node:path';import assert from'node:assert/strict';
+const root=path.resolve('docs'),types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.svg':'image/svg+xml'};
+const server=createServer(async(req,res)=>{try{const u=new URL(req.url,'http://local'),file=path.resolve(root,'.'+(u.pathname==='/'?'/index.html':u.pathname));if(!file.startsWith(root+path.sep))throw Error();res.setHeader('Content-Type',types[path.extname(file)]||'application/octet-stream');res.end(await readFile(file));}catch{res.writeHead(404).end();}});
+await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin='http://127.0.0.1:'+server.address().port,browser=await chromium.launch();
+try{
+ const raw=JSON.parse(await readFile('tests/fixtures/details.json','utf8'))['soccer-summary'],g=raw.header.competitions[0];
+ raw.plays=[{id:'away-sub',type:{text:'Substitution'},team:{id:'1010'},clock:{displayValue:"63'"},period:{number:2},participants:[{type:'replacement',athlete:{displayName:'Incoming Player'}},{type:'replaced',athlete:{displayName:'Outgoing Player'}}],text:'Long commentary must be omitted'}];
+ const match={id:'compact-test',date:'2026-10-18',round:'1',time:'16:00',home:'Kalamata',away:'OFI Crete',score:[4,3],scoreState:'final'},payload={season:'2026-27',source:'https://www.espn.com/soccer/',retrievedAt:new Date().toISOString(),matches:[match]};
+ const context=await browser.newContext({viewport:{width:1280,height:900},serviceWorkers:'block'}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await context.route('**/*',route=>{const url=route.request().url(),u=new URL(url),json=p=>route.fulfill({json:p});
+  if(url.startsWith(origin)){if(u.pathname==='/snapshots/sl-2026-27.json')return json(payload);if(u.pathname==='/snapshots/highlights-2026-27.json')return json({season:'2026-27',videos:[]});return route.continue();}
+  if(u.pathname.includes('/soccer/gre.1/scoreboard'))return json({leagues:[{season:{year:2026}}],events:[{id:raw.header.id,date:g.date,competitions:[g]}]});
+  if(u.pathname.includes('/soccer/gre.1/summary'))return json(raw);
+  return route.abort();
+ });
+ await page.goto(origin);const loaded=()=>page.locator('#refresh:not([disabled])').waitFor();await loaded();await page.locator('#top-nav [data-tab="football"]').click();await loaded();await page.locator('#competition').selectOption('sl');await loaded();await page.locator('#round').selectOption('');
+ assert.deepEqual(await page.locator('.match .team-score').allTextContents(),['4','3']);await page.locator('.match-open').click();await page.locator('.event-timeline').waitFor();assert.equal(await page.locator('.event-row').count(),4);assert.equal(await page.locator('.event-side-home').count(),3);assert.equal(await page.locator('.event-side-away').count(),1);assert.equal(await page.getByText('Long commentary must be omitted').count(),0);assert.ok((await page.locator('.event-side-away').textContent()).includes('Outgoing Player'));
+ await mkdir('test-artifacts',{recursive:true});await page.screenshot({path:'test-artifacts/timeline-desktop.png'});
+ for(const width of [390,320]){await page.setViewportSize({width,height:844});assert.ok(await page.locator('#detail-dialog').evaluate(el=>el.scrollWidth<=el.clientWidth));const home=await page.locator('.event-side-home .event-home').first().boundingBox(),away=await page.locator('.event-side-away .event-away').first().boundingBox();assert.ok(home.x+home.width<away.x);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth));}
+ await page.screenshot({path:'test-artifacts/timeline-mobile.png'});await page.keyboard.press('Escape');await page.locator('#detail-dialog:not([open])').waitFor({state:'attached'});
+ await page.locator('#bottom-nav [data-tab="matches"]').click();await loaded();assert.ok(await page.locator('#tv-day #live-only').isVisible());const pos=await page.locator('#live-only').boundingBox(),date=await page.locator('#tv-date').boundingBox();assert.ok(Math.abs(pos.y-date.y)<20,'LIVE filter shares the date row');assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth));await page.screenshot({path:'test-artifacts/compact-list-mobile.png',fullPage:true});assert.deepEqual(errors,[]);
+ console.log('Compact home/away score rows, team-aligned incident timeline, omitted commentary and LIVE beside date pass at desktop, 390px and 320px.');
+}finally{await browser.close();await new Promise(r=>server.close(r));}

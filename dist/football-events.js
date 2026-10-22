@@ -1,5 +1,6 @@
 const list=value=>Array.isArray(value)?value:[];
 export function footballEvents(raw){
+ const competitors=raw.header?.competitions?.[0]?.competitors||[];
  const sources=[...list(raw.keyEvents),...list(raw.plays),...list(raw.header?.competitions?.[0]?.details),...list(raw.commentary).map(c=>({...c.play,text:c.play?.text||c.text}))],events=new Map();
  for(const p of sources){
   const type=String(p.type?.text||p.type?.name||p.type?.description||''),text=String(p.text||p.shortText||''),names=list(p.participants).map(x=>({name:x.athlete?.displayName||x.athlete?.fullName||'',role:x.type||x.role||''})).filter(x=>x.name);
@@ -10,7 +11,9 @@ export function footballEvents(raw){
   const players=names.map(n=>(/replaced|out/i.test(n.role)?'Βγήκε: ':/replacement|in/i.test(n.role)?'Μπήκε: ':'')+n.name).join(' · ');
   const key=p.id?kind+'|'+p.id:[kind,clock,players||text].join('|');
   const previous=events.get(key);if(previous&&previous.text.length>=text.length+players.length)continue;
-  events.set(key,{kind,label,clock,order,period:p.period?.number||null,players,team:p.team?.displayName||p.team?.name||'',text:[players,text].filter(Boolean).join(' — ')});
+  const teamID=String(p.team?.id||''),competitor=competitors.find(c=>teamID&&String(c.team?.id)===teamID),team=p.team?.displayName||p.team?.name||competitor?.team?.displayName||'';
+  const named=competitors.filter(c=>team&&[c.team?.displayName,c.team?.name,c.team?.shortDisplayName].includes(team)),side=competitor?.homeAway||(named.length===1?named[0].homeAway:null);
+  events.set(key,{kind,label,clock,order,side,teamId:teamID,participants:names,period:p.period?.number||null,players,team,text:[players,text].filter(Boolean).join(' — ')});
  }
  return [...events.values()].sort((a,b)=>b.order-a.order);
 }
