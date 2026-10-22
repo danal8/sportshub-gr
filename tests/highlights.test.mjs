@@ -23,3 +23,5 @@ test('official EuroCup feed uses competition season and round rather than guessi
 
 
 test('NBA recap playlist discovery reads only titled playlist renderers',()=>{const p={contents:[{gridPlaylistRenderer:{playlistId:'PLactual_archive',title:{simpleText:"NBA's Nightly Recap | 2026-27 Season"}}},{gridPlaylistRenderer:{playlistId:'PLother',title:{simpleText:'Top 10 Plays'}}},{lockupViewModel:{contentId:'PLnew_archive',metadata:{lockupMetadataViewModel:{title:{content:'NBA Nightly Recap'}}}}}]};assert.deepEqual(parseRecapPlaylists('var ytInitialData = '+JSON.stringify(p)+';'),['PLactual_archive','PLnew_archive']);assert.deepEqual(parseRecapPlaylists('<html>unavailable</html>'),[]);});
+
+test('NBA chapter punctuation and separators do not discard verified fixture labels',()=>{const x=xml('nba',"NBA's Nightly Recap | October 21, 2026",'00:00 - Atlanta Hawks @ Orlando Magic');const parsed=parsePublisherFeed(x,'nba');assert.equal(selectHighlights(parsed,m,options)?.chapter,0);});

@@ -1,5 +1,6 @@
 // Explicit spelling aliases only; no fuzzy matching between different clubs.
 const rows=[
+['Ajax','Ajax Amsterdam','AFC Ajax','Άγιαξ'],['Philadelphia 76ers','76ers','Sixers','Φιλαδέλφεια Σίξερς'],
 ["BOSNA BH Telecom Sarajevo","BOSNA","Μπόσνα"],
 ["Bahcesehir College Istanbul","Bahcesehir","Μπαχτσεσεχίρ","Μπαχτσεσεχίρ"],
 ["Tofas Bursa","Tofas","Τόφας"],

@@ -1,6 +1,7 @@
 // Display names only: raw provider names remain unchanged for scores and favourites.
 const key=s=>String(s).normalize('NFD').replace(/\p{M}/gu,'').toLocaleLowerCase('el').replace(/[^\p{L}\p{N}]/gu,'');
 const names=[
+['Ajax Amsterdam','Ajax'],
 ["FC Liverpool","Liverpool"],
 ["Panathinaikos","Παναθηναϊκός"],
 ["PAOK Thessaloniki","ΠΑΟΚ"],

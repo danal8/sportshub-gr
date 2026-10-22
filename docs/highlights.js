@@ -27,7 +27,7 @@ export function parsePublisherFeed(xml,publisher){
   if(!gameDate)continue;
   if(/full game highlights/i.test(title))videos.push({...base,competition:'nba',gameDate,kind:'game'});
   else if(/nightly recap/i.test(title)){
-   const chapters=description.split(/\r?\n/).map(line=>{const m=line.match(/^(?:(\d+):)?(\d{1,2}):(\d{2})\s+(.+?\s+at\s+.+?)\s*$/i);return m?{seconds:Number(m[1]||0)*3600+Number(m[2])*60+Number(m[3]),label:m[4]}:null;}).filter(Boolean);
+   const chapters=description.split(/\r?\n/).map(line=>{const m=line.match(/^(?:(\d+):)?(\d{1,2}):(\d{2})\s*(?:[-–|]\s*)?(.+?)\s*$/i);return m?{seconds:Number(m[1]||0)*3600+Number(m[2])*60+Number(m[3]),label:m[4]}:null;}).filter(Boolean);
    if(chapters.length)videos.push({...base,competition:'nba',gameDate,kind:'chapters',chapters});
   }
  }else if(publisher==='el'||publisher==='ec'){
