@@ -8,4 +8,4 @@ await Promise.all([
  get('euro','https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/games',p=>({keys:Object.keys(p),games:p.data?.filter(g=>g.utcDate?.startsWith('2026-10-22')).map(g=>({code:g.gameCode,status:g.gameStatus,keys:Object.keys(g),local:g.local,road:g.road})),sample:p.data?.find(g=>g.gameCode===1)})),
  get('euro-header','https://live.euroleague.net/api/Header?gamecode=1&seasoncode=E2026',p=>p),
  get('euro-pbp','https://live.euroleague.net/api/PlaybyPlay?gamecode=1&seasoncode=E2026',p=>({keys:Object.keys(p),one:Object.entries(p).map(([k,v])=>[k,Array.isArray(v)?v.slice(-2):v])}))
-]);await mkdir('test-artifacts',{recursive:true});await writeFile('test-artifacts/live-source-probe.json',JSON.stringify(rows,null,2));console.log(JSON.stringify(rows,null,2));
+]);await mkdir('test-artifacts',{recursive:true});await writeFile('test-artifacts/live-source-probe.json',JSON.stringify(rows,null,2));console.log(JSON.stringify(Object.fromEntries(Object.entries(rows).map(([k,v])=>[k,{status:v.status,cors:v.cors,error:v.error}]))));
