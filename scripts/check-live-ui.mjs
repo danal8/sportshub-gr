@@ -7,9 +7,9 @@ try{
  const sourcePage=await browser.newPage();sourcePage.on('requestfailed',r=>console.log('CORS REQUEST FAILURE',r.url(),r.failure()?.errorText));sourcePage.on('console',m=>{if(m.type()==='error')console.log('BROWSER SOURCE ERROR',m.text());});await sourcePage.route('https://danal8.github.io/sportshub-gr/live-source-check',r=>r.fulfill({contentType:'text/html',body:'<!doctype html><title>SportsHub source check</title>'}));await sourcePage.goto('https://danal8.github.io/sportshub-gr/live-source-check');
  const cors=await sourcePage.evaluate(async()=>{
  const urls=[
- 'https://site.api.espn.com/apis/site/v2/sports/soccer/gre.1/scoreboard?dates=20261018',
- 'https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261022',
- 'https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=20261021',
+ 'https://site.web.api.espn.com/apis/site/v2/sports/soccer/gre.1/scoreboard?region=us&lang=en&contentorigin=espn&dates=20261018',
+ 'https://site.web.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?region=us&lang=en&contentorigin=espn&dates=20261022',
+ 'https://site.web.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?region=us&lang=en&contentorigin=espn&dates=20261021',
  'https://live.euroleague.net/api/Header?gamecode=1&seasoncode=E2026'
  ];
  return Promise.all(urls.map(async url=>{try{const r=await fetch(url,{credentials:'omit',signal:AbortSignal.timeout(15000)});const p=await r.json();return{url,status:r.status,valid:!!(p.events||p.CompetitionReducedName)};}catch(e){return{url,error:e.message};}}));
