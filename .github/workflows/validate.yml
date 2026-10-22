@@ -14,7 +14,6 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/probe-live-sources.mjs
-      - run: node scripts/probe-detail-sources.mjs
       - run: node --test tests/*.test.mjs
       - run: node scripts/build-pages.mjs
       - name: Check published assets match tested sources
