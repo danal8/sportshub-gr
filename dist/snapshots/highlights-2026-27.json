@@ -1,7 +1,7 @@
 {
   "season": "2026-27",
   "sourceVersion": 2,
-  "retrievedAt": "2026-10-22T17:24:48.786Z",
+  "retrievedAt": "2026-10-22T17:52:12.756Z",
   "sources": [
     {
       "name": "NBA",
@@ -25,6 +25,16 @@
     }
   ],
   "videos": [
+    {
+      "videoId": "OoNoPGuvrJs",
+      "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
+      "title": "Καϊράτ Αλμάτι - Παναθηναϊκός 1 - 5 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "publishedAt": "2026-10-22T17:39:59+00:00",
+      "publisher": "magenta",
+      "competition": "conference",
+      "gameDate": "2026-10-22",
+      "kind": "game"
+    },
     {
       "videoId": "KABX-E-SRwA",
       "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
