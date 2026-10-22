@@ -44,7 +44,7 @@ function choices(name,extra=[],nba=false){
  if(nba){const english=all.find(n=>/^[A-Za-z0-9 .]+$/.test(n));if(english)all.push(english.endsWith('Trail Blazers')?'Trail Blazers':english.split(' ').at(-1));}
  if(all.some(n=>/ulm/i.test(n)))all.push('Ουλμ');
  for(const row of [['Club Brugge','Club Brugge KV','Μπριζ'],['Sporting CP','Sporting Lisbon','Σπόρτινγκ'],['LASK Linz','LASK','ΛΑΣΚ Λιντζ']])if(all.some(n=>row.some(a=>teamKey(a)===teamKey(n))))all.push(...row);
- return [...new Set(all.map(norm).filter(n=>n.length>=4||n==='ulm'||n==='ουλμ'))];
+ return [...new Set(all.map(norm).filter(n=>n.length>=3||n==='ulm'||n==='ουλμ'))];
 }
 function mentions(text,names){const s=' '+norm(text)+' ';return names.some(n=>s.includes(' '+n+' '));}
 function nbaDate(m){
