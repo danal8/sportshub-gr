@@ -1,0 +1,143 @@
+{
+  "season": "2026-27",
+  "retrievedAt": "2026-10-22T13:01:33.613Z",
+  "videos": [
+    {
+      "videoId": "KABX-E-SRwA",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "NBA's Nightly Recap | October 21, 2026",
+      "publishedAt": "2026-10-22T06:33:27+00:00",
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-21",
+      "kind": "chapters",
+      "chapters": [
+        {
+          "seconds": 0,
+          "label": "Timberwolves at Heat"
+        },
+        {
+          "seconds": 163,
+          "label": "Pacers at Pelicans"
+        },
+        {
+          "seconds": 286,
+          "label": "Hawks at Magic"
+        },
+        {
+          "seconds": 423,
+          "label": "Warriors at Lakers"
+        },
+        {
+          "seconds": 552,
+          "label": "Bucks at Wizards"
+        },
+        {
+          "seconds": 674,
+          "label": "Hornets at Nets"
+        },
+        {
+          "seconds": 782,
+          "label": "Jazz at Grizzlies"
+        },
+        {
+          "seconds": 912,
+          "label": "Mavericks at Rockets"
+        },
+        {
+          "seconds": 1034,
+          "label": "Bulls at Raptors"
+        },
+        {
+          "seconds": 1141,
+          "label": "Suns at Trail Blazers"
+        },
+        {
+          "seconds": 1259,
+          "label": "Kings at Clippers"
+        }
+      ]
+    },
+    {
+      "videoId": "qEepDtX5qLM",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "KINGS at CLIPPERS | FULL GAME HIGHLIGHTS | October 21, 2026",
+      "publishedAt": "2026-10-22T05:23:22+00:00",
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-21",
+      "kind": "game"
+    },
+    {
+      "videoId": "GU4e--bCuwQ",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "WARRIORS at LAKERS | FULL GAME HIGHLIGHTS | October 21, 2026",
+      "publishedAt": "2026-10-22T05:07:54+00:00",
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-21",
+      "kind": "game"
+    },
+    {
+      "videoId": "EC_WSF7sPuI",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "SUNS at TRAIL BLAZERS | FULL GAME HIGHLIGHTS | October 21, 2026",
+      "publishedAt": "2026-10-22T04:45:17+00:00",
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-21",
+      "kind": "game"
+    },
+    {
+      "videoId": "OLsqMzh1BlU",
+      "channelId": "UCGr3nR_XH9r6E5b09ZJAT9w",
+      "title": "Hapoel IBI Tel Aviv - Virtus Bologna | R7 Basketball Highlights 2026-27",
+      "publishedAt": "2026-10-21T19:35:54+00:00",
+      "publisher": "el",
+      "competition": "el",
+      "round": 7,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "BpWyPwPLKQw",
+      "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
+      "title": "Νάπολι - Τόφας: 105-101 παρ. (MD 4, 21/10/2026)",
+      "publishedAt": "2026-10-21T21:13:45+00:00",
+      "publisher": "nova",
+      "competition": "eurocup",
+      "gameDate": "2026-10-21",
+      "kind": "game"
+    },
+    {
+      "videoId": "jrr9ELP-S1w",
+      "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
+      "title": "Μπόσνα - Μπαχτσεσεχίρ: 86-77 (MD 4, 21/10/2026)",
+      "publishedAt": "2026-10-21T20:56:11+00:00",
+      "publisher": "nova",
+      "competition": "eurocup",
+      "gameDate": "2026-10-21",
+      "kind": "game"
+    },
+    {
+      "videoId": "ObifCPdYuvo",
+      "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
+      "title": "ΠΑΟΚ - Ουλμ: 87-78 (MD 4, 21/10/2026)",
+      "publishedAt": "2026-10-21T19:58:46+00:00",
+      "publisher": "nova",
+      "competition": "eurocup",
+      "gameDate": "2026-10-21",
+      "kind": "game"
+    },
+    {
+      "videoId": "KXSfH8SWZx0",
+      "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
+      "title": "Τσεντεβίτα - Λε Μαν: 66-84 (MD 4, 21/10/2026)",
+      "publishedAt": "2026-10-21T19:11:08+00:00",
+      "publisher": "nova",
+      "competition": "eurocup",
+      "gameDate": "2026-10-21",
+      "kind": "game"
+    }
+  ]
+}

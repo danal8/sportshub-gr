@@ -1,3 +1,4 @@
+import{loadMatchHighlights}from'./highlights.js?v=29';
 import{escapeHTML as e,athensDay}from'./core.js?v=26';
 import{competitions}from'./data.js?v=26';
 import{displayTeamName}from'./team-display.js?v=26';
@@ -73,13 +74,25 @@ export function createDetailPanels({getSeed=()=>[]}={}){
  if(d.players.length)return d.players.map(t=>'<section><h3>'+e(name(t.team))+'</h3><div class="detail-boxscroll" tabindex="0" aria-label="Στατιστικά παικτών '+e(name(t.team))+'"><table class="detail-box"><thead><tr><th>Παίκτης</th>'+t.labels.map(l=>'<th>'+e(l)+'</th>').join('')+'</tr></thead><tbody>'+t.rows.map(p=>'<tr><td>'+e(name(p.name))+(p.starter?' <small>Βασικός</small>':'')+'</td>'+p.values.map(v=>'<td>'+value(p.dnp?null:v)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div></section>').join('');
  return blank('Δεν έχουν δημοσιευτεί διαθέσιμες συνθέσεις ή στατιστικά παικτών από την πηγή.');
  }
+ function highlightLink(card){
+ const final=card.data?card.data.scoreState==='final':card.match.scoreState==='final',h=card.highlight;
+ if(!final||!h)return '';
+ return '<div class="detail-highlight"><a href="'+e(h.url)+'" target="_blank" rel="noopener noreferrer" aria-label="'+e('Highlights: '+name(card.match.home)+' – '+name(card.match.away)+' · '+h.provider)+'">▶ Highlights <span aria-hidden="true">↗</span></a><small>'+e(h.provider)+(h.chapter!==null?' · Στο σημείο του συγκεκριμένου αγώνα':'')+'</small></div>';
+ }
+ async function highlights(card,force=false){
+ if(card.hlPending||card.hlLoaded&&!force)return;
+ const m={...card.match,...(card.data?{scoreState:card.data.scoreState,score:card.data.score}:{})};
+ if(m.scoreState!=='final')return;
+ card.hlPending=true;card.hlLoaded=true;const gen=generation;
+ try{card.highlight=await loadMatchHighlights(m,{force});}finally{card.hlPending=false;if(current===card&&generation===gen)render();}
+ }
  function matchBody(card){
  const m=card.match,d=card.data,c=card.competition;
  const teams='<div class="detail-match-teams"><button type="button" data-detail-team="'+e(m.home)+'" data-detail-competition="'+e(c.id)+'">'+visual(m.home,c,m.homeBadge)+'</button><span>–</span><button type="button" data-detail-team="'+e(m.away)+'" data-detail-competition="'+e(c.id)+'">'+visual(m.away,c,m.awayBadge)+'</button></div>';
- if(!d)return teams+'<p class="detail-meta">'+e(day(m.date))+' · '+e(m.time||'Ώρα μη ορισμένη')+' · '+e(c.name)+'</p>'+blank(card.loading?'Φόρτωση αναλυτικών στατιστικών…':card.error||'Δεν υπάρχουν διαθέσιμα στοιχεία.')+(!card.loading?'<button type="button" class="outline" data-detail-retry>Δοκίμασε ξανά</button>':'');
+ if(!d)return teams+highlightLink(card)+'<p class="detail-meta">'+e(day(m.date))+' · '+e(m.time||'Ώρα μη ορισμένη')+' · '+e(c.name)+'</p>'+blank(card.loading?'Φόρτωση αναλυτικών στατιστικών…':card.error||'Δεν υπάρχουν διαθέσιμα στοιχεία.')+(!card.loading?'<button type="button" class="outline" data-detail-retry>Δοκίμασε ξανά</button>':'');
  const age=Date.now()-Date.parse(d.checkedAt),live=d.scoreState==='live'&&age>=-60000&&age<90000;
  const score=d.score?'<div class="detail-score"><strong>'+e(d.score.join(' – '))+'</strong><span>'+(d.scoreState==='final'?'Τελικό':live?'● LIVE'+(d.clock?' · '+e(d.clock):''):'Σκορ πηγής · αναμονή ενημέρωσης')+'</span></div>':'';
- const head=(card.error?'<p class="detail-empty" role="status">'+e(card.error)+' Τα προηγούμενα στοιχεία παραμένουν ορατά.</p>':'')+teams+score+'<p class="detail-meta">'+e(day(m.date))+' · '+e(m.time||'Ώρα μη ορισμένη')+' · '+e(c.name)+(d.venue?' · '+e(d.venue):'')+'</p>';
+ const head=(card.error?'<p class="detail-empty" role="status">'+e(card.error)+' Τα προηγούμενα στοιχεία παραμένουν ορατά.</p>':'')+teams+score+highlightLink(card)+'<p class="detail-meta">'+e(day(m.date))+' · '+e(m.time||'Ώρα μη ορισμένη')+' · '+e(c.name)+(d.venue?' · '+e(d.venue):'')+'</p>';
  if(card.tab==='players')return head+playerTables(d);
  if(card.tab==='events')return head+(d.events.length?'<ol class="detail-events">'+d.events.slice(0,card.eventCount||40).map(p=>'<li><span>'+e([p.period?p.period+'η περ.':'',p.clock].filter(Boolean).join(' · '))+'</span><p>'+e(p.text)+'</p></li>').join('')+'</ol>'+(d.events.length>(card.eventCount||40)?'<button type="button" class="outline" data-more-events>Περισσότερες φάσεις</button>':''):blank('Δεν έχει δημοσιευτεί διαθέσιμη εξέλιξη φάσεων.'));
  const periods=d.periods.length?'<section><h3>Ανά περίοδο</h3><div class="detail-periods">'+d.periods.map(p=>'<div><span>'+e(p.label)+'</span><strong>'+value(p.home)+' – '+value(p.away)+'</strong></div>').join('')+'</div></section>':'';
@@ -91,10 +104,10 @@ export function createDetailPanels({getSeed=()=>[]}={}){
  try{card.roster=await loadTeamRoster(card.team,card.competition,card.overview,{force});}catch(err){card.rosterError=err.message.startsWith('Δεν ')?err.message:'Η πηγή ρόστερ δεν είναι διαθέσιμη αυτή τη στιγμή.';}finally{card.rosterLoading=false;if(current===card&&generation===gen)render();}
  }
  async function fetchCard(card,force=false){
- const gen=generation;card.loading=true;card.error='';render();
+ const gen=generation;card.loading=true;card.error='';render();if(card.type==='match')void highlights(card,force);
  try{if(card.type==='team')card.overview=await loadTeamOverview(card.team,card.competition,{seed:getSeed(),force});else card.data=await loadMatchDetails(card.match,{force});}
  catch(err){card.error=err.message.startsWith('Δεν ')||err.message.startsWith('Τα ')?err.message:'Η πηγή δεν είναι διαθέσιμη αυτή τη στιγμή.';}
- finally{card.loading=false;if(current===card&&generation===gen){render();if(card.type==='team'&&card.tab==='roster')void roster(card,force);}}
+ finally{card.loading=false;if(current===card&&generation===gen){render();if(card.type==='team'&&card.tab==='roster')void roster(card,force);if(card.type==='match')void highlights(card);}}
  }
  function show(card,push=true){if(current&&push)history.push(current);current=card;generation++;openDialog();body.scrollTop=0;render();if(!card.overview&&!card.data)void fetchCard(card);}
  function openTeam(team,competition){const c=competitions.find(c=>c.id===competition);if(!c)return;show({type:'team',team,competition:c,tab:'overview'});}

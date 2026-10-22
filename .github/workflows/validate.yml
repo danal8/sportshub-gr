@@ -1,5 +1,7 @@
 name: Validate SportsHub
 on:
+  push:
+    branches: [main]
   pull_request:
 permissions:
   contents: read
@@ -11,4 +13,20 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node scripts/probe-highlights.mjs
+      - run: node scripts/probe-live-sources.mjs
+      - run: node scripts/refresh-highlights.mjs --force --dry-run
+      - run: node --test tests/*.test.mjs
+      - run: node scripts/build-pages.mjs
+      - name: Check published assets match tested sources
+        run: git diff --exit-code -- docs
+      - run: npm install --no-save --package-lock=false playwright
+      - run: npx playwright install --with-deps chromium
+      - run: node scripts/check-my-teams-ui.mjs
+      - run: node scripts/check-live-ui.mjs
+      - run: node scripts/check-detail-ui.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: my-teams-ui
+          path: test-artifacts/
+          if-no-files-found: ignore
