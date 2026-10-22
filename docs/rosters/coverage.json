@@ -1,0 +1,647 @@
+{
+  "season": "2026-27",
+  "checkedAt": "2026-10-22T16:06:33.700Z",
+  "competitions": [
+    {
+      "id": "seriea",
+      "name": "Serie A",
+      "teams": 38,
+      "rosters": 38,
+      "players": 1194,
+      "photos": 50,
+      "missing": []
+    },
+    {
+      "id": "ligue1",
+      "name": "Ligue 1",
+      "teams": 33,
+      "rosters": 33,
+      "players": 945,
+      "photos": 38,
+      "missing": []
+    },
+    {
+      "id": "nba",
+      "name": "NBA",
+      "teams": 30,
+      "rosters": 30,
+      "players": 519,
+      "photos": 517,
+      "missing": []
+    },
+    {
+      "id": "volley-w",
+      "name": "Volley League Γυναικών",
+      "teams": 12,
+      "rosters": 0,
+      "players": 0,
+      "photos": 0,
+      "missing": [
+        {
+          "team": "Π.Α.Ο.Κ. F&U",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Α.Σ. Άρης",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Α.Ο. Μαρκοπούλου Revoil",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Ολυμπιακός Σ.Φ.Π.",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Α.Ο. Θήρας",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Πανιώνιος Betsson",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Ζ.Α.Ο.Ν.",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "A.E.K.",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Ο.Φ.Α. Απολλώνιος",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Α.Σ.Π. Θέτις",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Παναθηναϊκός Α.Ο.",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Α.Σ. Ελπίς",
+          "error": "No verified seasonal roster provider"
+        }
+      ]
+    },
+    {
+      "id": "volley-m",
+      "name": "Volley League Ανδρών",
+      "teams": 12,
+      "rosters": 0,
+      "players": 0,
+      "photos": 0,
+      "missing": [
+        {
+          "team": "Α.Ο.Π. Κηφισιάς",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Πανιώνιος Betsson",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Ο.Φ.Η.",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Π.Α.Ο.Κ.",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Α.Ο.Καλαμάτα Affidea V.C",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Παναθηναϊκός Α.Ο.",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Ν.Ο.Π.Ε.Ρεθύμνου",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Ολυμπιακός Σ.Φ.Π. ΟΝΕΧ",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Α.Σ.Άρης",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Α.Ο.Φλοίσβος Members Paron",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Α.Ο.Φοίνικας Σύρου",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "Α.Ο.Ν.Σ. Μίλων",
+          "error": "No verified seasonal roster provider"
+        }
+      ]
+    },
+    {
+      "id": "sl2",
+      "name": "Super League 2",
+      "teams": 16,
+      "rosters": 0,
+      "players": 0,
+      "photos": 0,
+      "missing": [
+        {
+          "team": "ΠΑΝΘΡΑΚΙΚΟΣ",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "ΠΥΡΓΟΣ",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "ΝΕΣΤΟΣ ΧΡΥΣΟΥΠΟΛΗΣ",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "ΖΑΚΥΝΘΟΣ",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "ΠΑΝΙΩΝΙΟΣ",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "ASTERAS AKTOR Β'",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "ΑΕΛ NOVIBET",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "ΑΝΑΓ. ΚΑΡΔΙΤΣΑΣ",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "ΜΑΡΚΟ",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "ΠΑΝΣΕΡΡΑΪΚΟΣ",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "ATHENS KALLITHEA",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "ΝΙΚΗ ΒΟΛΟΥ",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "ΕΛΛΑΣ ΣΥΡΟΥ",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "ΑΠΟΛΛΩΝ ΚΑΛΑΜΑΡΙΑΣ",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "ΠΑΟΚ Β'",
+          "error": "No verified seasonal roster provider"
+        },
+        {
+          "team": "ΟΛΥΜΠΙΑΚΟΣ Β'",
+          "error": "No verified seasonal roster provider"
+        }
+      ]
+    },
+    {
+      "id": "sl",
+      "name": "Super League",
+      "teams": 14,
+      "rosters": 13,
+      "players": 427,
+      "photos": 46,
+      "missing": [
+        {
+          "team": "Asteras Tripolis",
+          "error": "No unique seasonal team identity"
+        }
+      ]
+    },
+    {
+      "id": "elite",
+      "name": "Elite League · Α2 Ανδρών",
+      "teams": 16,
+      "rosters": 0,
+      "players": 0,
+      "photos": 0,
+      "missing": [
+        {
+          "team": "ΓΣ ΛΑΥΡΙΟΥ - AΦΟΙ ΛΙΟΣΑΤΟΥ",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "ΑΕ ΨΥΧΙΚΟΥ",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "ΜΕΓΑΡΑ ΟΝΕΧ BC",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "ΑΣΑ ΚΟΡΟΙΒΟΣ",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "ΓΣ ΣΟΦΑΔΩΝ ΒΙΚΟΣ COLA",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "ΑΟ ΑΜΥΝΤΑΣ",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "KERAKOLL ΑΓΕΧ",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "ΑΕΠΣ ΜΑΧΗΤΕΣ ΠΕΙΡΑΜΑΤΙΚΟ",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "EVERTECH ΠΑΠΑΓΟΥ",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "ΠΑΝΕΡΥΘΡΑΙΚΟΣ ΑΣ",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "INTERPLAST ΓΑΣ ΚΟΜΟΤΗΝΗΣ",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "ΑΕΟ ΠΡΩΤΕΑΣ ΒΟΥΛΑΣ",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "ΑΣΑ ΑΝΑΓΕΝΝΗΣΗ",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "Α.Ε. ΓΛΑΥΚΟΥ ΕΣΠΕΡΟΥ",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "KRONOS BC PLASIS",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "ΠΑΝΙΩΝΙΟΣ COSMORAMA TRAVEL",
+          "error": "No unique official Euroleague club identity"
+        }
+      ]
+    },
+    {
+      "id": "gbl",
+      "name": "Greek Basket League",
+      "teams": 14,
+      "rosters": 4,
+      "players": 68,
+      "photos": 65,
+      "missing": [
+        {
+          "team": "ΜΥΚΟΝΟΣ Betsson BC",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "ΚΟΛΟΣΣΟΣ H HOTELS COLLECTION",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "ΔΟΞΑ ΛΕΥΚΑΔΑΣ ELABET",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "ΑΕΚ",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "ΜΑΡΟΥΣΙ",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "ΠΡΟΜΗΘΕΑΣ ΠΑΤΡΑΣ ΒΙΚΟΣ COLA",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "ΠΕΡΙΣΤΕΡΙ Betsson",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "ΚΑΡΔΙΤΣΑ ΙΑΠΩΝΙΚΗ",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "VIKOS ΦALCONS",
+          "error": "No unique official Euroleague club identity"
+        },
+        {
+          "team": "ΗΡΑΚΛΗΣ",
+          "error": "No unique official Euroleague club identity"
+        }
+      ]
+    },
+    {
+      "id": "el",
+      "name": "EuroLeague",
+      "teams": 20,
+      "rosters": 20,
+      "players": 325,
+      "photos": 308,
+      "missing": []
+    },
+    {
+      "id": "eurocup",
+      "name": "EuroCup",
+      "teams": 32,
+      "rosters": 32,
+      "players": 482,
+      "photos": 447,
+      "missing": []
+    },
+    {
+      "id": "pl",
+      "name": "Premier League",
+      "teams": 20,
+      "rosters": 14,
+      "players": 423,
+      "photos": 28,
+      "missing": [
+        {
+          "team": "Everton FC",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Brentford F.C.",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Tottenham Hotspur FC",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Newcastle United FC",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Fulham FC",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Chelsea FC",
+          "error": "No unique seasonal team identity"
+        }
+      ]
+    },
+    {
+      "id": "laliga",
+      "name": "La Liga",
+      "teams": 20,
+      "rosters": 16,
+      "players": 476,
+      "photos": 15,
+      "missing": [
+        {
+          "team": "FC Getafe",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "FC Sevilla",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "FC Malaga",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "FC Valencia",
+          "error": "No unique seasonal team identity"
+        }
+      ]
+    },
+    {
+      "id": "bund",
+      "name": "Bundesliga",
+      "teams": 18,
+      "rosters": 14,
+      "players": 411,
+      "photos": 15,
+      "missing": [
+        {
+          "team": "1. FC Köln",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "SV 07 Elversberg",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Hamburger SV",
+          "error": "Το ρόστερ δεν αντιστοιχεί στην ομάδα και στη σεζόν"
+        },
+        {
+          "team": "FC Schalke 04",
+          "error": "No unique seasonal team identity"
+        }
+      ]
+    },
+    {
+      "id": "cl",
+      "name": "UEFA Champions League",
+      "teams": 36,
+      "rosters": 35,
+      "players": 1111,
+      "photos": 85,
+      "missing": [
+        {
+          "team": "Sabah",
+          "error": "Το ρόστερ δεν αντιστοιχεί στην ομάδα και στη σεζόν"
+        }
+      ]
+    },
+    {
+      "id": "europa",
+      "name": "UEFA Europa League",
+      "teams": 36,
+      "rosters": 29,
+      "players": 915,
+      "photos": 119,
+      "missing": [
+        {
+          "team": "FC Ararat-Armenia",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Hapoel Beer Scheva",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "RSC Anderlecht",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Sturm Graz",
+          "error": "Το ρόστερ δεν αντιστοιχεί στην ομάδα και στη σεζόν"
+        },
+        {
+          "team": "Union Saint-Gilloise",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Lillestrøm SK",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "SC União Torreense",
+          "error": "No unique seasonal team identity"
+        }
+      ]
+    },
+    {
+      "id": "conference",
+      "name": "UEFA Conference League",
+      "teams": 30,
+      "rosters": 0,
+      "players": 0,
+      "photos": 0,
+      "missing": [
+        {
+          "team": "UNA Strassen",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "La Fiorita",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Elbasani",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "BATE Borisov",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Connah's Quay Nomads",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Ballkani",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Zirə",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Torpedo Kutaisi",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Differdange 03",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Ilves",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Caernarfon Town",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Levadia Tallinn",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Dinamo Minsk",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Sileks",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Alashkert",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Elimai Semey",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Nõmme Kalju",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Linfield",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "FK Sarajevo",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Inter Turku",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "NSÍ Runavík",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Ħamrun Spartans",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Mondorf-les-Bains",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Dinamo Tbilisi",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Pen-y-Bont",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "FC Santa Coloma",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Dinamo City",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Astana",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Vllaznia Shkodër",
+          "error": "No unique seasonal team identity"
+        },
+        {
+          "team": "Malisheva",
+          "error": "No unique seasonal team identity"
+        }
+      ]
+    }
+  ]
+}
