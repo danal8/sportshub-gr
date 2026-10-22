@@ -79,7 +79,7 @@ export async function resolveTeam(team,c,overview,options){
 }
 export function photoCandidates(...values){return [...new Set(values.flat(Infinity).map(v=>playerPhoto(typeof v==='string'?v:v?.href||v?.url)).filter(Boolean))];}
 export function playerPhoto(url){
- try{const u=new URL(url);return u.protocol==='https:'&&!u.username&&!u.password&&['a.espncdn.com','media-cdn.cortextech.io','media-cdn.incrowdsports.com','images.euroleague.net','ftpserver.euroleague.net','www.olympiacos.org','www.esake.gr','esake.gr','volleyball.gr','www.volleyball.gr','www.volleyleague.gr','r2.thesportsdb.com','www.thesportsdb.com'].includes(u.hostname)?u.href:null;}catch{return null;}
+ try{const u=new URL(url);return u.protocol==='https:'&&!u.username&&!u.password&&['a.espncdn.com','media-cdn.cortextech.io','media-cdn.incrowdsports.com','images.euroleague.net','ftpserver.euroleague.net','www.olympiacos.org','www.sl2.gr','sl2-backend.sportsdata.gr','www.esake.gr','esake.gr','volleyball.gr','www.volleyball.gr','www.volleyleague.gr','r2.thesportsdb.com','www.thesportsdb.com'].includes(u.hostname)?u.href:null;}catch{return null;}
 }
 
 export function applyRosterPhotos(roster,catalog,teamID){
@@ -184,4 +184,5 @@ export async function loadMatchDetails(m,{force=false}={}){
  }
  throw Error('Δεν υπάρχει συνδεδεμένη πηγή αναλυτικών στατιστικών για αυτή τη διοργάνωση');
 }
+
 

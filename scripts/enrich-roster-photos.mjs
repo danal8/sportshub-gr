@@ -4,8 +4,8 @@ const root=new URL('../dist/rosters/',import.meta.url),base='https://www.thespor
 let next=0,requests=0;
 async function request(path){const wait=Math.max(0,next-Date.now());if(wait)await new Promise(r=>setTimeout(r,wait));next=Date.now()+2300;requests++;const r=await fetch(base+path,{signal:AbortSignal.timeout(12000)});if(r.status===429)throw Error('Rate limit: stopping enrichment');if(!r.ok)throw Error('HTTP '+r.status);return r.json();}
 const leagueNames={seriea:['Italian Serie A'],ligue1:['French Ligue 1'],nba:['NBA'],sl:['Greek Super League 1'],pl:['English Premier League'],laliga:['Spanish La Liga'],bund:['German Bundesliga'],cl:['UEFA Champions League'],europa:['UEFA Europa League'],conference:['UEFA Conference League','UEFA Europa Conference League']};
-const all=await request('all_leagues.php'),directories=new Map(),seen=new Map();
-for(const [id,names]of Object.entries(leagueNames)){const leagues=(all.leagues||[]).filter(l=>names.includes(l.strLeague));const teams=[];for(const l of leagues)try{teams.push(...(await request('lookup_all_teams.php?id='+encodeURIComponent(l.idLeague))).teams||[]);}catch(error){if(error.message.startsWith('Rate limit'))throw error;console.log(id+': '+error.message);}directories.set(id,teams);}
+const directories=new Map(),seen=new Map();
+for(const [id,names]of Object.entries(leagueNames)){const teams=[];for(const name of names)try{teams.push(...(await request('search_all_teams.php?l='+encodeURIComponent(name))).teams||[]);}catch(error){if(error.message.startsWith('Rate limit'))throw error;console.log(id+': '+error.message);}directories.set(id,[...new Map(teams.map(t=>[t.idTeam,t])).values()]);}
 for(const file of (await readdir(root)).filter(f=>f.endsWith('.json')&&f!=='coverage.json')){
  const payload=JSON.parse(await readFile(new URL(file,root)));
  for(const roster of payload.teams){

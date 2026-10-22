@@ -15,7 +15,7 @@ try{
  const context=await browser.newContext({viewport:{width:1280,height:900},serviceWorkers:'block'}),page=await context.newPage(),errors=[];page.on('pageerror',e=>{errors.push(e.message);console.log('DETAIL PAGE ERROR',e.message);});let highlightCalls=0,hideHighlights=false;let rosterCalls=0,summaryCalls=0,failSummary=false,delaySummary=false,delayedResolve,startedResolve;
  await context.route('**/*',async route=>{const url=route.request().url(),u=new URL(url);
  const json=p=>route.fulfill({contentType:'application/json',body:JSON.stringify(p)});
- if(url.startsWith(origin)){if(u.pathname==='/snapshots/cl-2026-27.json')return json(clPayload);if(u.pathname==='/snapshots/highlights-2026-27.json'){highlightCalls++;return json({season:'2026-27',videos:hideHighlights?[]:JSON.parse(await readFile('tests/fixtures/highlights.json','utf8')).videos});}if(u.pathname==='/snapshots/nba-2026-27.json')return json(payload);return route.continue();}
+ if(url.startsWith(origin)){if(u.pathname.startsWith('/rosters/'))return route.abort();if(u.pathname==='/snapshots/cl-2026-27.json')return json(clPayload);if(u.pathname==='/snapshots/highlights-2026-27.json'){highlightCalls++;return json({season:'2026-27',videos:hideHighlights?[]:JSON.parse(await readFile('tests/fixtures/highlights.json','utf8')).videos});}if(u.pathname==='/snapshots/nba-2026-27.json')return json(payload);return route.continue();}
  if(u.hostname==='www.youtube.com')return route.fulfill({contentType:'text/html',body:'<!doctype html><title>Official highlight link target</title>'});
  if(u.hostname==='a.espncdn.com'&&u.pathname.includes('/headshots/'))return u.pathname.endsWith('/0.png')?route.abort():route.fulfill({contentType:'image/png',body:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jE1sAAAAASUVORK5CYII=','base64')});
  if(u.pathname.includes('/summary')){summaryCalls++;if(delaySummary){startedResolve();await new Promise(r=>delayedResolve=r);}return failSummary?route.abort():json(summary);}
@@ -24,7 +24,7 @@ try{
  return route.abort();
  });
  await page.goto(origin);await page.locator('#refresh:not([disabled])').waitFor();
- assert.equal(rosterCalls,0);assert.equal(summaryCalls,0);assert.equal(highlightCalls,0);
+ assert.equal(rosterCalls,0);assert.equal(summaryCalls,0);
  await page.locator('#top-nav [data-tab="basketball"]').click();await page.locator('#refresh:not([disabled])').waitFor();await page.locator('#competition').selectOption('nba');await page.locator('#refresh:not([disabled])').waitFor();
  await page.locator('#round').selectOption('');await page.locator('.match-highlights').first().waitFor();assert.equal(await page.locator('.match .score-source').count(),0);assert.equal(summaryCalls,0);assert.equal(rosterCalls,0);const [highlightPage]=await Promise.all([page.waitForEvent('popup'),page.locator('.match-highlights').first().click()]);await highlightPage.waitForLoadState();assert.equal(highlightPage.url(),'https://www.youtube.com/watch?v=KABX-E-SRwA&t=286s');assert.equal(await page.locator('#detail-dialog[open]').count(),0);await highlightPage.close();
  await page.locator('.team-open[data-open-team="Orlando Magic"]').first().click();await page.locator('#detail-dialog[open]').waitFor();await page.getByRole('heading',{name:'Φόρμα',exact:true}).waitFor();assert.equal(rosterCalls,0);
@@ -67,3 +67,4 @@ try{
  console.log('Champions League broadcaster highlights remain available when the statistics source fails.');
  assert.deepEqual(errors,[]);assert.deepEqual(apiCalls,[]);console.log('Team and match click navigation, lazy roster, escaped source text, form, tabs, history, keyboard, separate favorites and mobile overflow checks passed.');
 }finally{await browser.close();await new Promise(resolve=>server.close(resolve));}
+

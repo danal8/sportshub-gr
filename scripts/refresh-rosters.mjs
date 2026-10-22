@@ -3,7 +3,7 @@ import {competitions} from '../dist/data.js';
 import {liveLeagues} from '../dist/live-scores.js';
 import {parseRoster,parseEuroRoster,sameTeam,applyRosterPhotos} from '../dist/detail-data.js';
 import {teamKey} from '../dist/badges.js';
-import {greekRosters} from './roster-sources.mjs';
+import {greekRosters,sameGreekTeam} from './roster-sources.mjs';
 const nativeFetch=globalThis.fetch;
 const root=new URL('../dist/',import.meta.url),out=new URL('rosters/',root),checkedAt=new Date().toISOString();
 await mkdir(out,{recursive:true});
@@ -17,7 +17,7 @@ for(const c of competitions){
  let payload;try{payload=JSON.parse(await readFile(new URL('snapshots/'+c.id+'-2026-27.json',root)));}catch{payload={matches:[]};}
  const teams=[...new Set([...(payload.matches||[]).flatMap(m=>[m.home,m.away]),...(payload.standings||[]).map(r=>r.team)])].filter(Boolean),records=[],missing=[];
  let sourceTeams=[],euro=[];
- let greek=[];if(['gbl','volley-w','volley-m'].includes(c.id))try{greek=await greekRosters(c.id,json,text);}catch(error){console.log(c.id+' official directory: '+error.message);}
+ let greek=[];if(['sl2','gbl','volley-w','volley-m'].includes(c.id))try{greek=await greekRosters(c.id,json,text);}catch(error){console.log(c.id+' official directory: '+error.message);}
  if(liveLeagues[c.id])try{
   const [sport,league]=liveLeagues[c.id],raw=await json('https://site.api.espn.com/apis/site/v2/sports/'+sport+'/'+league+'/teams?limit=1000');
   sourceTeams=(raw.sports||[]).flatMap(s=>(s.leagues||[]).flatMap(l=>(l.teams||[]).map(t=>t.team))).filter(Boolean);
@@ -28,7 +28,7 @@ for(const c of competitions){
  }catch{}
  await pool(teams,async team=>{
   try{let roster;
-   const official=greek.filter(r=>sameTeam(team,r.team));
+   const official=greek.filter(r=>sameGreekTeam(team,r.team));
    if(official.length===1)roster=official[0];
    else if(liveLeagues[c.id]){
     const hits=sourceTeams.filter(t=>sameTeam(team,t.displayName,[t.shortDisplayName,t.name,t.abbreviation])||[t.displayName,t.shortDisplayName,t.name].some(n=>n&&footballKey(n)===footballKey(team)));

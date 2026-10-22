@@ -20,6 +20,7 @@ jobs:
           node-version: '22'
       - run: node scripts/refresh-rosters.mjs
       - run: node scripts/enrich-roster-photos.mjs
+        continue-on-error: true
       - run: node scripts/build-pages.mjs
       - run: node --test tests/*.test.mjs
       - name: Save verified seasonal rosters

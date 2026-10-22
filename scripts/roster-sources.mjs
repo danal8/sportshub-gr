@@ -2,13 +2,16 @@ import {sameTeam} from '../dist/detail-data.js';
 import {teamKey} from '../dist/badges.js';
 const clean=s=>String(s||'').replace(/<[^>]*>/g,' ').replace(/&nbsp;|&#160;/g,' ').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim();
 const base=(team,source,provider,players)=>({team,source,provider,season:'2026–27',checkedAt:new Date().toISOString(),staff:[],players});
+const variants=[['ΠΑΣ ΠΥΡΓΟΣ','ΠΥΡΓΟΣ'],['ΑΝΑΓ. ΚΑΡΔΙΤΣΑΣ 1904 - 2025','ΑΝΑΓ. ΚΑΡΔΙΤΣΑΣ'],['ΝΙΚΗ ΒΟΛΟΥ Γ.Σ.','ΝΙΚΗ ΒΟΛΟΥ'],['Γ.Σ. ΜΑΡΚΟ','ΜΑΡΚΟ'],['ATHENS KALLITHEA F.C.','ATHENS KALLITHEA'],['ΠΑΝΙΩΝΙΟΣ Ι.Γ.Σ.Σ.','ΠΑΝΙΩΝΙΟΣ'],['ΠΑΟΚ Β','ΠΑΟΚ Β\''],['ΟΛΥΜΠΙΑΚΟΣ Β','ΟΛΥΜΠΙΑΚΟΣ Β\''],['ΑΟ Καλαμάτα 80','Α.Ο.Καλαμάτα Affidea V.C'],['Ν.Ο.Π. Ρέθυμνο','Ν.Ο.Π.Ε.Ρεθύμνου'],['Floisvos Palaiou Falirou','Α.Ο.Φλοίσβος Members Paron'],['Πανιώνιος ΓΣΣ Betsson','Πανιώνιος Betsson'],['Α.Ο.Π.Κηφισιάς','Α.Ο.Π. Κηφισιάς']].map(g=>g.map(teamKey));
+export function sameGreekTeam(a,b){return sameTeam(a,b)||variants.some(g=>g.includes(teamKey(a))&&g.includes(teamKey(b)));}
 export function parseEsakeRoster(html,source){
  const team=clean(html.match(/<td[^>]*>\s*ΟΜΑΔΑ\s*<\/td>\s*<td[^>]*>([\s\S]*?)<\/td>/i)?.[1]);
  if(!team||!source.includes('idchampionship=184645B9'))throw Error('Missing verified GBL season or team');
  const players=[];
- for(const m of html.matchAll(/background:url\(['"]([^'"]*\/dat\/esakeplayer\/([^/]+)\/[^'"]+)['"]\)[\s\S]*?<div class="player-title">([\s\S]*?)<div class="player-details/gi)){
-  const title=m[3],name=clean(title.match(/player-title-name[^>]*>([\s\S]*?)<div class="player-title-post/si)?.[1]),position=clean(title.match(/player-title-post[^>]*>([\s\S]*?)<\/div>/i)?.[1]),jersey=clean(title.match(/player-dash[^>]*>[^<]*<\/span>([^<]*)/i)?.[1]);
-  if(name)players.push({id:m[2],name,position,jersey,age:null,country:'',photo:new URL(m[1],source).href.replace(/^http:/,'https:'),photos:[]});
+ for(const m of html.matchAll(/<div class="player-title">([\s\S]*?)<div class="player-details/gi)){
+  const title=m[1],id=title.match(/idplayer=([A-F0-9]+)/i)?.[1],name=clean(title.match(/player-title-name[^>]*>([\s\S]*?)<div class="player-title-post/si)?.[1]),position=clean(title.match(/player-title-post[^>]*>([\s\S]*?)<\/div>/i)?.[1]),jersey=clean(title.match(/player-dash[^>]*>[^<]*<\/span>([^<]*)/i)?.[1]);
+  if(!id||!name)continue;const before=html.slice(Math.max(0,m.index-1500),m.index),image=before.match(new RegExp("url\\(['\"]([^'\"]*/dat/esakeplayer/"+id+"/[^'\"]+)['\"]\\)",'i'))?.[1],photo=image?new URL(image,source).href.replace(/^http:/,'https:'):null;
+  players.push({id,name,position,jersey,age:null,country:'',photo,photos:photo?[photo]:[]});
  }
  const unique=[...new Map(players.map(p=>[p.id,p])).values()];if(!unique.length)throw Error('Empty GBL roster');return base(team,source,'ΕΣΑΚΕ',unique);
 }
@@ -26,6 +29,10 @@ export function parseMenRoster(html,team,source){
 }
 export async function greekRosters(id,fetchJSON,fetchText){
  const records=[];
+ if(id==='sl2'){
+  const root='https://www.sl2.gr/api/sportsdata/v1/competitions/sl2-2627/',teams=await fetchJSON(root+'teams');if(!Array.isArray(teams)||teams.length!==16)throw Error('Incomplete SL2 team directory');
+  for(const t of teams){const source=root+'teams/'+encodeURIComponent(t.id)+'/roster';try{const rows=await fetchJSON(source);if(!Array.isArray(rows)||!rows.length)throw Error('Empty SL2 roster');const players=rows.filter(p=>p.id&&(p.last_name_el||p.last_name_en)).map(p=>({id:String(p.id),name:[p.first_name_el||p.first_name_en,p.last_name_el||p.last_name_en].filter(Boolean).join(' '),jersey:String(p.jersey_number??''),position:p.position||'',age:null,country:'',photo:p.media_image_styles?.height_660px||p.media_image||null,photos:[]}));records.push(base(t.name_el,source,'Super League 2',players));}catch(error){console.log('SL2 '+t.name_el+': '+error.message);}}
+ }
  if(id==='gbl'){
   const directory=await fetchText('https://www.esake.gr/el/action/EsakeTeams');
   const ids=[...new Set([...directory.matchAll(/EsaketeamView\?idteam=([A-F0-9]+)&mode=1&idchampionship=184645B9/g)].map(m=>m[1]))];
