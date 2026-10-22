@@ -12,6 +12,6 @@ export function safeResults(payload,now=Date.now()){
 export function resultLabel(m,now=Date.now()){
  if(!validScore(m.score))return '';
  if(m.scoreState==='final')return m.sportLabel==='Βόλεϊ'?'Τελικό · σετ':'Τελικό';
- if(m.scoreState==='live'&&now-Date.parse(m.scoreCheckedAt)<120000)return '● LIVE';
+ const age=now-Date.parse(m.scoreCheckedAt);if(m.scoreState==='live'&&age>=-60000&&age<(m.scoreProvider?90000:120000))return '● LIVE'+(m.scoreClock?' · '+m.scoreClock:'');
  return 'Σκορ πηγής';
 }

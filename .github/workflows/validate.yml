@@ -1,7 +1,7 @@
 name: Validate SportsHub
 on:
   push:
-    branches: [main, feature/my-teams-weekly, feature/compact-matches-mobile]
+    branches: [main]
   pull_request:
 permissions:
   contents: read
@@ -13,6 +13,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: node scripts/probe-live-sources.mjs
       - run: node --test tests/*.test.mjs
       - run: node scripts/build-pages.mjs
       - name: Check published assets match tested sources
@@ -20,6 +21,7 @@ jobs:
       - run: npm install --no-save --package-lock=false playwright
       - run: npx playwright install --with-deps chromium
       - run: node scripts/check-my-teams-ui.mjs
+      - run: node scripts/check-live-ui.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
