@@ -1,5 +1,6 @@
 import{escapeHTML as e}from'./core.js?v=26';
-const icons={goal:'⚽',yellow:'▰',red:'▰',substitution:'⇄'};
+const ball='<svg class="goal-ball" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#f1f4f8" stroke="#101a2b" stroke-width="1.4"/><path fill="#101a2b" d="m12 7 4.8 3.5-1.8 5.6H9l-1.8-5.6zM3 7l3-3 3 1-2 4-4 1zm12-3 3 1 3 4-4 1-3-4zM3 14l4 1 2 4-2 2-3-3zm14 1 4-1-1 4-3 3-2-2zM10 21h4l-1 1h-2z"/><path d="m8 11-3-3m11 3 3-3M9 16l-2 4m8-4 2 4M12 7V3" fill="none" stroke="#101a2b" stroke-width="1"/></svg>';
+const icons={goal:ball,yellow:'▰',red:'▰',substitution:'⇄'};
 export function eventTimeline(events){
  const rows=events.filter(p=>icons[p.kind]).slice().sort((a,b)=>a.order-b.order);
  if(!rows.length)return '<p class="detail-empty">Δεν έχουν δημοσιευτεί γκολ, κάρτες ή αλλαγές.</p>';

@@ -149,10 +149,10 @@ body .match.compact-match{grid-template-columns:100px minmax(0,1fr);align-items:
 body .compact-match .match-time{align-self:center;display:grid;gap:6px;font-size:15px;text-align:center;justify-items:center;white-space:normal;min-width:0}
 body .compact-match .match-status{font-size:10px;font-weight:500;line-height:1.5;color:var(--muted);overflow-wrap:anywhere}
 body .compact-match.is-live .match-status,body .compact-match.is-live .team-score{color:#78d6b1}
-body .compact-match .match-info .fixture-title{display:grid;gap:5px;text-align:left;justify-content:stretch}
-.fixture-team-row{display:flex;align-items:center;justify-content:space-between;gap:14px;min-width:0;min-height:28px}
+body .compact-match .match-info .fixture-title{display:grid;gap:5px;text-align:left;justify-content:stretch;width:100%;max-width:360px}
+.fixture-team-row{display:grid;grid-template-columns:minmax(0,1fr) 46px;align-items:center;gap:12px;min-width:0;min-height:30px}
 .fixture-team-row .team-open{min-width:0;text-align:left;overflow-wrap:anywhere}
-.fixture-team-row .team-score{flex:none;width:35px;text-align:center;font-size:18px;font-variant-numeric:tabular-nums}
+.fixture-team-row .team-score{display:block;width:46px;min-width:46px;line-height:30px;text-align:center;font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;color:#f2f5fb;background:#1d2b42;border-radius:5px}
 body .compact-match .match-info .broadcast-meta{text-align:left;margin-top:5px;font-size:10px}
 body .compact-match .match-info .match-score{display:flex;justify-content:flex-start;text-align:left;margin:5px 0 0}
 body .compact-match .match-info .match-score:empty{display:none}
@@ -171,7 +171,7 @@ body .compact-match .match-highlights{display:inline-flex;padding:3px 8px;border
 .event-side-unknown .event-away{grid-column:1/-1;justify-content:center}.event-side-unknown .event-home{display:none}.event-side-unknown time{grid-column:1/-1}
 @media(max-width:700px){
  body .match.compact-match,body[data-tab=tv] .match.compact-match{grid-template-columns:70px minmax(0,1fr);gap:8px;padding:10px 9px}
- body .compact-match .match-time{font-size:13px;letter-spacing:0}.fixture-team-row{gap:6px;min-height:25px}.fixture-team-row .team-score{width:24px;font-size:16px}
+ body .compact-match .match-time{font-size:13px;letter-spacing:0}.fixture-team-row{gap:8px;min-height:30px}.fixture-team-row .team-score{width:46px;min-width:46px;font-size:19px}
  .day-bar #live-only{font-size:11px;padding:7px 9px;min-height:35px;margin-inline-start:auto}
  body[data-tab=matches] .day-bar>label:not(.check){flex:1 1 125px;max-width:155px}
  body[data-tab=matches] .day-bar{gap:4px;flex-wrap:nowrap}body[data-tab=matches] .day-bar>button{padding:6px;min-width:28px}body[data-tab=matches] #today-button{min-width:44px;font-size:11px}
@@ -179,3 +179,6 @@ body .compact-match .match-highlights{display:inline-flex;padding:3px 8px;border
  .event-row{grid-template-columns:minmax(0,1fr) 42px minmax(0,1fr);font-size:12px;gap:5px}.event-home,.event-away{gap:5px}.event-person small{font-size:10px}
 }
 @media(max-width:360px){body[data-tab=matches] #today-button{display:none}}
+
+.event-icon .goal-ball{display:block;width:18px;height:18px}.fixture-team-row .team-open{width:100%;justify-self:start}.event-row .event-person{font-size:13px}.event-row .event-person small{font-size:11px}
+@media(max-width:700px){body .match.compact-match,body[data-tab=tv] .match.compact-match{grid-template-columns:60px minmax(0,1fr);gap:7px}.fixture-team-row .team-open .team-lead{max-width:100%;white-space:normal;overflow-wrap:anywhere}.event-row .event-person{font-size:12px}}
