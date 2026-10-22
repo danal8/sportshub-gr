@@ -30,5 +30,25 @@ try{
  await page.setViewportSize({width:390,height:844});await page.locator('[data-detail-tab="players"]').click();assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth));assert.ok(await page.locator('#detail-dialog').evaluate(e=>e.scrollWidth<=e.clientWidth));assert.ok(await page.locator('.detail-boxscroll').first().evaluate(e=>e.scrollWidth>e.clientWidth));await page.screenshot({path:'test-artifacts/details-mobile.png'});
  const pending=new Promise(r=>startedResolve=r);delaySummary=true;await page.locator('#detail-refresh').click();await pending;await page.keyboard.press('Escape');await page.locator('.team-open[data-open-team="Orlando Magic"]').first().click();await page.locator('[data-detail-tab="overview"][aria-pressed="true"]').waitFor();delayedResolve();delaySummary=false;await page.waitForTimeout(100);assert.equal(await page.locator('.detail-score').count(),0);assert.ok((await page.locator('#detail-title').textContent()).includes('Orlando'));await page.keyboard.press('Escape');
  await page.setViewportSize({width:1280,height:900});await page.locator('#top-nav [data-tab="standings"]').click();await page.locator('#refresh:not([disabled])').waitFor();await page.locator('#competition').selectOption('nba');await page.locator('#refresh:not([disabled])').waitFor();await page.locator('.team-open').first().click();await page.getByRole('heading',{name:'Φόρμα',exact:true}).waitFor();await page.keyboard.press('Escape');await page.locator('.team-follow').first().click();await page.locator('#team-picker[open]').waitFor();await page.keyboard.press('Escape');
+
+ // Android's Back uses the same session-history traversal as browser Back.
+ await page.locator('#team-picker:not([open])').waitFor({state:'attached'});
+ await page.setViewportSize({width:390,height:844});
+ await page.evaluate(()=>{history.replaceState({test:'before'},'',location.pathname+'?before');history.pushState({test:'schedule'},'',location.pathname);});
+ const closed=()=>page.locator('#detail-dialog:not([open])').waitFor({state:'attached'});
+ const schedule=async()=>{await closed();assert.equal(await page.evaluate(()=>history.state?.test),'schedule');assert.equal(await page.locator('#competition').inputValue(),'nba');assert.equal(await page.evaluate(()=>document.body.classList.contains('detail-open')),false);};
+ for(const kind of ['team','match']){
+  if(kind==='match'){await page.setViewportSize({width:1280,height:900});await page.locator('#top-nav [data-tab="basketball"]').click();await page.locator('#refresh:not([disabled])').waitFor();await page.locator('#competition').selectOption('nba');await page.locator('#refresh:not([disabled])').waitFor();await page.locator('#round').selectOption('');await page.setViewportSize({width:390,height:844});}
+  const opener=()=>page.locator(kind==='team'?'.team-open':'.match-open').first();
+  await opener().click();await page.locator('#detail-dialog[open]').waitFor();await page.goBack();await schedule();
+  await opener().click();await page.locator('#detail-dialog[open]').waitFor();await page.keyboard.press('Escape');await schedule();
+  await opener().click();await page.locator('#detail-dialog[open]').waitFor();await page.locator('#detail-close').click();await schedule();
+ }
+ // Nested cards share a single browser entry; Back closes the entire overlay.
+ await page.locator('.match-open').first().click();await page.locator('[data-detail-team]').first().click();await page.getByRole('heading',{name:'Φόρμα',exact:true}).waitFor();await page.goBack();await schedule();
+ // A second Back now reaches the actual previous page instead of a stale modal entry.
+ await page.goBack();assert.equal(await page.evaluate(()=>history.state?.test),'before');assert.ok(page.url().endsWith('?before'));await page.goForward();assert.equal(await page.evaluate(()=>history.state?.test),'schedule');
+ await page.locator('.team-open').first().click();await page.locator('#detail-dialog[open]').waitFor();await page.locator('#detail-dialog').dispatchEvent('cancel',{cancelable:true});await schedule();
+ console.log('Escape, browser/Android Back, native cancel, close button, repeated reopening, nested cards and history cleanup passed.');
  assert.deepEqual(errors,[]);assert.deepEqual(apiCalls,[]);console.log('Team and match click navigation, lazy roster, escaped source text, form, tabs, history, keyboard, separate favorites and mobile overflow checks passed.');
 }finally{await browser.close();await new Promise(resolve=>server.close(resolve));}

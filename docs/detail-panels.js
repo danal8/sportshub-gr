@@ -15,7 +15,31 @@ const visual=(n,c,badge)=>teamMarkup(name(n),badgeSources(n,badge,c.id,c.sport))
 const position=(p,sport)=>({Goalkeeper:'Τερματοφύλακας',Defender:'Αμυντικός',Midfielder:'Μέσος',Forward:sport==='football'?'Επιθετικός':'Φόργουορντ',Guard:'Γκαρντ',Center:'Σέντερ','Guard-Forward':'Γκαρντ / Φόργουορντ','Forward-Center':'Φόργουορντ / Σέντερ'})[p]||p;
 export function createDetailPanels({getSeed=()=>[]}={}){
  const dialog=$('detail-dialog'),body=$('detail-body');let current=null,history=[],generation=0,games=[];
- function openDialog(){if(!dialog.open)dialog.showModal();document.body.classList.add('detail-open');}
+ // One browser entry for the whole modal, including nested team/match navigation.
+ let browserToken=null,backPending=false;
+ const ownsEntry=()=>browserToken&&window.history.state?.sportshubDetail===browserToken;
+ function closeDetails(){
+  if(!dialog.open||backPending)return;
+  if(ownsEntry()){backPending=true;window.history.back();}
+  else dialog.close();
+ }
+ function openDialog(){
+  if(!dialog.open){
+   browserToken=Date.now().toString(36)+'-'+Math.random().toString(36).slice(2);
+   window.history.pushState({...window.history.state,sportshubDetail:browserToken},'',window.location.href);
+   backPending=false;dialog.showModal();
+  }
+  document.body.classList.add('detail-open');
+ }
+ window.addEventListener('popstate',()=>{
+  if(!dialog.open||ownsEntry())return;
+  browserToken=null;backPending=false;dialog.close();
+ });
+ dialog.addEventListener('cancel',event=>{event.preventDefault();closeDetails();});
+ document.addEventListener('keydown',event=>{
+  if(event.key!=='Escape'||!dialog.open)return;
+  event.preventDefault();event.stopImmediatePropagation();closeDetails();
+ },true);
  function headers(){
  $('detail-back').hidden=!history.length;$('detail-refresh').disabled=!!current?.loading||!!current?.rosterLoading;
  $('detail-title').textContent=current?.type==='team'?name(current.team):name(current?.match.home||'')+' – '+name(current?.match.away||'');
@@ -75,9 +99,15 @@ export function createDetailPanels({getSeed=()=>[]}={}){
  function show(card,push=true){if(current&&push)history.push(current);current=card;generation++;openDialog();body.scrollTop=0;render();if(!card.overview&&!card.data)void fetchCard(card);}
  function openTeam(team,competition){const c=competitions.find(c=>c.id===competition);if(!c)return;show({type:'team',team,competition:c,tab:'overview'});}
  function openMatch(match){const c=competitions.find(c=>c.id===match.competition)||{id:match.competition,name:match.competitionLabel||'Αγώνας',sport:match.sportLabel==='Μπάσκετ'?'basketball':match.sportLabel==='Ποδόσφαιρο'?'football':'other',url:match.source||''};show({type:'match',match,competition:c,tab:'overview'});}
- $('detail-close').onclick=()=>dialog.close();$('detail-back').onclick=()=>{const prior=history.pop();if(prior)show(prior,false);};
+ $('detail-close').onclick=closeDetails;$('detail-back').onclick=()=>{const prior=history.pop();if(prior)show(prior,false);};
  $('detail-refresh').onclick=()=>{if(!current)return;if(current.type==='team'&&current.tab==='roster')void roster(current,true);else void fetchCard(current,true);};
- dialog.addEventListener('close',()=>{generation++;current=null;history=[];document.body.classList.remove('detail-open');});
+ dialog.addEventListener('close',()=>{
+  if(dialog.open)return;
+  generation++;current=null;history=[];document.body.classList.remove('detail-open');
+  // Also consume our entry if another caller closes the native dialog.
+  if(ownsEntry()&&!backPending){backPending=true;window.history.back();}
+  browserToken=null;
+ });
  dialog.addEventListener('click',event=>{
  const target=event.target.closest('button');if(!target)return;
  if(target.dataset.detailTab){current.tab=target.dataset.detailTab;render();if(current.type==='team'&&current.tab==='roster'&&!current.roster&&!current.rosterError)void roster(current);return;}
