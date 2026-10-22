@@ -1,6 +1,24 @@
 {
   "season": "2026-27",
-  "retrievedAt": "2026-10-22T13:01:33.613Z",
+  "retrievedAt": "2026-10-22T13:38:32.491Z",
+  "sources": [
+    {
+      "name": "NBA",
+      "url": "https://www.youtube.com/channel/UCWJ2lWNubArHWmf3FIHbfcQ"
+    },
+    {
+      "name": "EuroLeague",
+      "url": "https://www.youtube.com/channel/UCGr3nR_XH9r6E5b09ZJAT9w"
+    },
+    {
+      "name": "Novasports",
+      "url": "https://www.youtube.com/channel/UCEIbXco8hU9oDHXGo1kwIlA"
+    },
+    {
+      "name": "Magenta Sport",
+      "url": "https://www.youtube.com/channel/UCgMUmr7uLDalwVk63Sf6pBw"
+    }
+  ],
   "videos": [
     {
       "videoId": "KABX-E-SRwA",
@@ -89,57 +107,6 @@
       "kind": "game"
     },
     {
-      "videoId": "OLsqMzh1BlU",
-      "channelId": "UCGr3nR_XH9r6E5b09ZJAT9w",
-      "title": "Hapoel IBI Tel Aviv - Virtus Bologna | R7 Basketball Highlights 2026-27",
-      "publishedAt": "2026-10-21T19:35:54+00:00",
-      "publisher": "el",
-      "competition": "el",
-      "round": 7,
-      "season": "2026-27",
-      "kind": "game"
-    },
-    {
-      "videoId": "BpWyPwPLKQw",
-      "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
-      "title": "Νάπολι - Τόφας: 105-101 παρ. (MD 4, 21/10/2026)",
-      "publishedAt": "2026-10-21T21:13:45+00:00",
-      "publisher": "nova",
-      "competition": "eurocup",
-      "gameDate": "2026-10-21",
-      "kind": "game"
-    },
-    {
-      "videoId": "jrr9ELP-S1w",
-      "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
-      "title": "Μπόσνα - Μπαχτσεσεχίρ: 86-77 (MD 4, 21/10/2026)",
-      "publishedAt": "2026-10-21T20:56:11+00:00",
-      "publisher": "nova",
-      "competition": "eurocup",
-      "gameDate": "2026-10-21",
-      "kind": "game"
-    },
-    {
-      "videoId": "ObifCPdYuvo",
-      "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
-      "title": "ΠΑΟΚ - Ουλμ: 87-78 (MD 4, 21/10/2026)",
-      "publishedAt": "2026-10-21T19:58:46+00:00",
-      "publisher": "nova",
-      "competition": "eurocup",
-      "gameDate": "2026-10-21",
-      "kind": "game"
-    },
-    {
-      "videoId": "KXSfH8SWZx0",
-      "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
-      "title": "Τσεντεβίτα - Λε Μαν: 66-84 (MD 4, 21/10/2026)",
-      "publishedAt": "2026-10-21T19:11:08+00:00",
-      "publisher": "nova",
-      "competition": "eurocup",
-      "gameDate": "2026-10-21",
-      "kind": "game"
-    },
-    {
       "videoId": "UJbGG04MijM",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
       "title": "Μπριζ - Λανς 3 - 0 | Highlights - UEFA Champions League 2026/27 - 21/10/2026 | MagentaTV",
@@ -210,6 +177,36 @@
       "kind": "game"
     },
     {
+      "videoId": "BpWyPwPLKQw",
+      "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
+      "title": "Νάπολι - Τόφας: 105-101 παρ. (MD 4, 21/10/2026)",
+      "publishedAt": "2026-10-21T21:13:45+00:00",
+      "publisher": "nova",
+      "competition": "eurocup",
+      "gameDate": "2026-10-21",
+      "kind": "game"
+    },
+    {
+      "videoId": "jrr9ELP-S1w",
+      "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
+      "title": "Μπόσνα - Μπαχτσεσεχίρ: 86-77 (MD 4, 21/10/2026)",
+      "publishedAt": "2026-10-21T20:56:11+00:00",
+      "publisher": "nova",
+      "competition": "eurocup",
+      "gameDate": "2026-10-21",
+      "kind": "game"
+    },
+    {
+      "videoId": "ObifCPdYuvo",
+      "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
+      "title": "ΠΑΟΚ - Ουλμ: 87-78 (MD 4, 21/10/2026)",
+      "publishedAt": "2026-10-21T19:58:46+00:00",
+      "publisher": "nova",
+      "competition": "eurocup",
+      "gameDate": "2026-10-21",
+      "kind": "game"
+    },
+    {
       "videoId": "J8BJu-mTGBg",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
       "title": "Λιλ - Γαλατασαράι 2 - 4 | Highlights - UEFA Champions League 2026/27 - 21/10/2026 | MagentaTV",
@@ -226,6 +223,37 @@
       "publishedAt": "2026-10-21T19:50:21+00:00",
       "publisher": "magenta",
       "competition": "cl",
+      "gameDate": "2026-10-21",
+      "kind": "game"
+    },
+    {
+      "videoId": "OLsqMzh1BlU",
+      "channelId": "UCGr3nR_XH9r6E5b09ZJAT9w",
+      "title": "Hapoel IBI Tel Aviv - Virtus Bologna | R7 Basketball Highlights 2026-27",
+      "publishedAt": "2026-10-21T19:35:54+00:00",
+      "publisher": "el",
+      "competition": "el",
+      "round": 7,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "KXSfH8SWZx0",
+      "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
+      "title": "Τσεντεβίτα - Λε Μαν: 66-84 (MD 4, 21/10/2026)",
+      "publishedAt": "2026-10-21T19:11:08+00:00",
+      "publisher": "nova",
+      "competition": "eurocup",
+      "gameDate": "2026-10-21",
+      "kind": "game"
+    },
+    {
+      "videoId": "RckAKUQgMuo",
+      "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
+      "title": "Χάποελ Τελ Αβίβ - Βίρτους Μπολόνια: 90-81 (MD 7, 21/10/2026)",
+      "publishedAt": "2026-10-21T18:53:48+00:00",
+      "publisher": "nova",
+      "competition": "el",
       "gameDate": "2026-10-21",
       "kind": "game"
     },
