@@ -74,11 +74,14 @@ export function selectHighlights(videos,m,{now=Date.now()}={}){
  hits.sort((a,b)=>a.rank-b.rank||Date.parse(b.publishedAt)-Date.parse(a.publishedAt));return hits[0]||null;
 }
 let cached=null,pending=null,loadedAt=0;
+export async function loadHighlightsIndex({force=false}={}){
+ if(!pending&&(force||!cached||Date.now()-loadedAt>120000))pending=fetch('./snapshots/highlights-2026-27.json',{cache:'no-store',credentials:'omit',signal:AbortSignal.timeout(6000)}).then(async r=>{if(!r.ok)throw Error('Highlights unavailable');const p=await r.json();if(p.season!=='2026-27'||!Array.isArray(p.videos))throw Error('Wrong highlights season');cached=p.videos;loadedAt=Date.now();}).finally(()=>pending=null);
+ if(pending)await pending;return cached;
+}
 export async function loadMatchHighlights(m,{force=false}={}){
  if(m.scoreState!=='final')return null;
  try{
- if(!pending&&(force||!cached||Date.now()-loadedAt>120000))pending=fetch('./snapshots/highlights-2026-27.json',{cache:'no-store',credentials:'omit',signal:AbortSignal.timeout(6000)}).then(async r=>{if(!r.ok)throw Error('Highlights unavailable');const p=await r.json();if(p.season!=='2026-27'||!Array.isArray(p.videos))throw Error('Wrong highlights season');cached=p.videos;loadedAt=Date.now();}).finally(()=>pending=null);
- if(pending)await pending;
+ await loadHighlightsIndex({force});
  let ref=m;
  if(m.competition==='el'&&!m.round){try{const r=await fetch('./snapshots/el-2026-27.json',{signal:AbortSignal.timeout(6000)}),p=await r.json();const matches=(p.matches||[]).filter(x=>x.date===m.date&&mentions(x.home,choices(m.home,m.homeAliases))&&mentions(x.away,choices(m.away,m.awayAliases)));if(p.season==='2026-27'&&matches.length===1)ref={...matches[0],...m,round:matches[0].round};}catch{}}
  return selectHighlights(cached,ref);
