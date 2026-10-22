@@ -135,3 +135,5 @@ body.detail-open{overflow:hidden}
 
 .detail-header .team-badge{width:30px;height:30px;flex:none}.detail-header .team-lead{gap:9px}
 @media(max-width:600px){.detail-header .team-badge{width:26px;height:26px}}
+
+.detail-highlight{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:14px 0}.detail-highlight a{display:inline-flex;align-items:center;gap:9px;padding:8px 13px;background:#22354e;border:1px solid #365376;border-radius:8px;color:#c4ddff;text-decoration:none;font-size:12px;font-weight:600}.detail-highlight a:hover{background:#2c4564}.detail-highlight a:focus-visible{outline:2px solid #91b9ff;outline-offset:3px}.detail-highlight small{font-size:11px;color:#aebbd0}
