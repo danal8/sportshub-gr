@@ -1,6 +1,7 @@
 import{teamKey}from'./badges.js?v=24';
 import{aliases}from'./team-aliases.js?v=24';
 import{athensDay,shiftDay}from'./core.js?v=24';
+import{openGames}from'./direct.js?v=26';
 export const LIVE_INTERVAL=30000,LIVE_TTL=90000;
 export const liveLeagues={sl:['soccer','gre.1'],pl:['soccer','eng.1'],bund:['soccer','ger.1'],laliga:['soccer','esp.1'],seriea:['soccer','ita.1'],ligue1:['soccer','fra.1'],cl:['soccer','uefa.champions'],europa:['soccer','uefa.europa'],conference:['soccer','uefa.europa.conf'],nba:['basketball','nba']};
 const names=(n,extra=[])=>new Set([n,...extra,...aliases[teamKey(n)]||[]].filter(Boolean).flatMap(x=>[x,...aliases[teamKey(x)]||[]]).filter(Boolean).map(teamKey));
@@ -71,6 +72,12 @@ export async function loadLiveScores(matches,date,{force=false,competitionIDs}={
  for(const day of days){const url='https://site.web.api.espn.com/apis/site/v2/sports/'+sport+'/'+league+'/scoreboard?region=us&lang=en&contentorigin=espn&limit=1000&dates='+day.replaceAll('-','');const raw=await requestJSON(url);out.push(...parseLiveScoreboard(raw,id,new Date().toISOString()).filter(e=>e.date===date));}
  return[...new Map(out.map(e=>[e.id,e])).values()];},force);entries.push(...value);succeeded.push(id);sources.push('ESPN');
  }catch(e){errors.push({id,error:e.message});}
+ }));
+ const openLeagues={pl:'pl',bund:'bl1',laliga:'la1',cl:'ucl',europa:'uel2026'};
+ await Promise.all(ids.filter(id=>openLeagues[id]&&matches.some(m=>m.competition===id&&m.date===date&&!entries.some(x=>x.competition===id&&same(m.home,x.home,x.homeAliases)&&same(m.away,x.away,x.awayAliases)))).map(async id=>{
+  try{const value=await requestFeed('open-live-'+id+'-'+date,async()=>{const url='https://api.openligadb.de/getmatchdata/'+openLeagues[id]+'/2026',raw=await requestJSON(url),checkedAt=new Date().toISOString();return openGames(raw,id,2026).filter(m=>m.date===date&&['live','final'].includes(m.scoreState)).map(m=>({...m,competition:id,checkedAt,source:url,provider:'OpenLigaDB'}));},force);
+   for(const x of value)if(!entries.some(m=>m.competition===id&&same(m.home,x.home,x.homeAliases)&&same(m.away,x.away,x.awayAliases)))entries.push(x);if(value.length)sources.push('OpenLigaDB');
+  }catch(e){errors.push({id:'open-'+id,error:e.message});}
  }));
  const euroMatches=matches.filter(m=>m.date===date&&['el','eurocup'].includes(m.competition));
  const euroRefs=[];

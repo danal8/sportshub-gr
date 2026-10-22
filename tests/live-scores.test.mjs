@@ -34,7 +34,7 @@ test('Source names are formatted only for display, preserving acronyms and favou
 });
 test('Score requests deduplicate in-flight calls and surface failed feeds without fake updates',async()=>{
  const original=globalThis.fetch;let calls=0;globalThis.fetch=async()=>{calls++;return{ok:true,json:async()=>raw()};};
- try{const list=[match];const [a,b]=await Promise.all([loadLiveScores(list,'2026-10-22',{force:true}),loadLiveScores(list,'2026-10-22',{force:true})]);assert.equal(calls,1);assert.equal(a.entries.length,1);assert.equal(b.errors.length,0);globalThis.fetch=async()=>{throw Error('CORS')};const failed=await loadLiveScores(list,'2026-10-22',{force:true});assert.equal(failed.errors.length,1);assert.equal(failed.entries.length,0);assert.equal(failed.succeeded.length,0);
+ try{const list=[match];const [a,b]=await Promise.all([loadLiveScores(list,'2026-10-22',{force:true}),loadLiveScores(list,'2026-10-22',{force:true})]);assert.equal(calls,1);assert.equal(a.entries.length,1);assert.equal(b.errors.length,0);globalThis.fetch=async()=>{throw Error('CORS')};const failed=await loadLiveScores(list,'2026-10-22',{force:true});assert.equal(failed.errors.length,2);assert.equal(failed.entries.length,0);assert.equal(failed.succeeded.length,0);
  }finally{globalThis.fetch=original;}
 });
 
@@ -42,3 +42,5 @@ test('An older live response never replaces a more recent score from the same pu
  const old=parseLiveScoreboard(raw(),'europa',at),m={...match,score:[3,2],scoreCheckedAt:'2026-10-22T17:00:30Z',scoreState:'live',scoreProvider:'ESPN'};
  assert.deepEqual(applyLiveScores([m],old,now+30000)[0].score,[3,2]);
 });
+
+
