@@ -1,7 +1,8 @@
 import{teamKey}from'./badges.js?v=24';
 import{aliases}from'./team-aliases.js?v=24';
 import{athensDay,shiftDay}from'./core.js?v=24';
-import{openGames}from'./direct.js?v=26';
+import{openGames,euroGames}from'./direct.js?v=26';
+import{sl2Score}from'./results.js?v=26';
 export const LIVE_INTERVAL=30000,LIVE_TTL=90000;
 export const liveLeagues={sl:['soccer','gre.1'],pl:['soccer','eng.1'],bund:['soccer','ger.1'],laliga:['soccer','esp.1'],seriea:['soccer','ita.1'],ligue1:['soccer','fra.1'],cl:['soccer','uefa.champions'],europa:['soccer','uefa.europa'],conference:['soccer','uefa.europa.conf'],nba:['basketball','nba']};
 const names=(n,extra=[])=>new Set([n,...extra,...aliases[teamKey(n)]||[]].filter(Boolean).flatMap(x=>[x,...aliases[teamKey(x)]||[]]).filter(Boolean).map(teamKey));
@@ -73,6 +74,9 @@ export async function loadLiveScores(matches,date,{force=false,competitionIDs}={
  return[...new Map(out.map(e=>[e.id,e])).values()];},force);entries.push(...value);succeeded.push(id);sources.push('ESPN');
  }catch(e){errors.push({id,error:e.message});}
  }));
+ if(ids.includes('sl2'))try{
+  const value=await requestFeed('sl2-live-'+date,async()=>{const source='https://www.sl2.gr/api/sportsdata/v1/competitions/sl2-2627/matches',raw=await requestJSON(source),checkedAt=new Date().toISOString();if(!Array.isArray(raw)||raw.some(g=>g.competition_slug!=='sl2-2627'))throw Error('Wrong SL2 competition');return raw.filter(g=>g.date===date).map(g=>({id:'sl2-'+g.id,competition:'sl2',date:g.date,time:g.time?.slice(0,5),home:g.home_team.name_el,away:g.away_team.name_el,homeBadge:g.home_team.logo?.small,awayBadge:g.away_team.logo?.small,...sl2Score(g),checkedAt,source,provider:'Super League 2',clock:g.status==='halftime'?'Ημίχρονο':null}));},force);entries.push(...value.filter(m=>score(m.score)));succeeded.push('sl2');sources.push('Super League 2');
+ }catch(e){errors.push({id:'sl2',error:e.message});}
  const openLeagues={pl:'pl',bund:'bl1',laliga:'la1',cl:'ucl',europa:'uel2026'};
  await Promise.all(ids.filter(id=>openLeagues[id]&&matches.some(m=>m.competition===id&&m.date===date&&!entries.some(x=>x.competition===id&&same(m.home,x.home,x.homeAliases)&&same(m.away,x.away,x.awayAliases)))).map(async id=>{
   try{const value=await requestFeed('open-live-'+id+'-'+date,async()=>{const url='https://api.openligadb.de/getmatchdata/'+openLeagues[id]+'/2026',raw=await requestJSON(url),checkedAt=new Date().toISOString();return openGames(raw,id,2026).filter(m=>m.date===date&&['live','final'].includes(m.scoreState)).map(m=>({...m,competition:id,checkedAt,source:url,provider:'OpenLigaDB'}));},force);
@@ -93,6 +97,10 @@ export async function loadLiveScores(matches,date,{force=false,competitionIDs}={
  if(value)entries.push(value);succeeded.push(key);sources.push('Euroleague Basketball');
  }catch(e){errors.push({id:key,error:e.message});}
  }));
+ await Promise.all(ids.filter(id=>['el','eurocup'].includes(id)).map(async id=>{try{
+  const code=id==='el'?'E':'U',value=await requestFeed('euro-games-live-'+id+'-'+date,async()=>{const source='https://api-live.euroleague.net/v2/competitions/'+code+'/seasons/'+code+'2026/games',raw=await requestJSON(source),checkedAt=new Date().toISOString();return euroGames(raw,code,'2026').filter(m=>m.date===date&&['live','final'].includes(m.scoreState)).map(m=>({...m,competition:id,checkedAt,source,provider:'Euroleague Basketball'}));},force);
+  for(const x of value)if(!entries.some(m=>m.competition===id&&same(m.home,x.home,x.homeAliases)&&same(m.away,x.away,x.awayAliases)))entries.push(x);succeeded.push('official-'+id);if(value.length)sources.push('Euroleague Basketball');
+ }catch(e){errors.push({id:'official-'+id,error:e.message});}}));
  return{date,entries,succeeded,errors,sources:[...new Set(sources)],checkedAt:new Date().toISOString()};
 }
 
