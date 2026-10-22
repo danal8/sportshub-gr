@@ -2,7 +2,7 @@ import{aliases}from'./team-aliases.js?v=31';
 import{teamKey}from'./badges.js?v=26';
 import{athensDay,shiftDay}from'./core.js?v=26';
 export const publishers=[
- {id:'nba',label:'NBA',channel:'UCWJ2lWNubArHWmf3FIHbfcQ'},
+ {id:'nba',label:'NBA',channel:'UCWJ2lWNubArHWmf3FIHbfcQ',playlists:['PLmlpqJ_fjNIiioJQQTmpyOSMg78S6B1ty']},
  {id:'el',label:'EuroLeague',channel:'UCGr3nR_XH9r6E5b09ZJAT9w'},
  {id:'ec',label:'EuroCup',channel:'UCpFqOv5z4WKps64GlQS4ytw'},
  {id:'nova',label:'Novasports',channel:'UCEIbXco8hU9oDHXGo1kwIlA'},
@@ -32,7 +32,7 @@ export function parsePublisherFeed(xml,publisher){
   }
  }else if(publisher==='el'||publisher==='ec'){
   const r=title.match(/\bR(?:ound\s*)?(\d+)\b/i),season=title.match(/\b(20\d{2})[-–](\d{2})\b/);
-  if(r&&season&&/highlights/i.test(title+' '+description)&&!/player highlights|last \d+ meetings|preview/i.test(title))videos.push({...base,competition:publisher==='ec'?'eurocup':'el',round:Number(r[1]),season:season[1]+'-'+season[2],kind:'game'});
+  if(r&&season&&(/highlights/i.test(title+' '+description)||publisher==='ec'&&/\s[-–]\s/.test(title)&&/\|\s*BKT EuroCup Basketball\s+20\d{2}[-–]\d{2}/i.test(title))&&!/player highlights|last \d+ meetings|preview|full game|live stream|press conference/i.test(title))videos.push({...base,competition:publisher==='ec'?'eurocup':'el',round:Number(r[1]),season:season[1]+'-'+season[2],kind:'game'});
  }else{
   const intro=description.slice(0,650),competition=novaCompetition(title+' '+intro),broadcastDate=gameDate||namedDate(intro);
   if(competition&&broadcastDate&&/highlights|στιγμι[οό]τυπ/i.test(title+' '+intro)&&!/preview|pre game|pregame|δηλ[ωώ]σεις|συν[εέ]ντευξη/i.test(title))videos.push({...base,competition,gameDate:broadcastDate,kind:'game'});
