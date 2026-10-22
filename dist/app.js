@@ -1,23 +1,23 @@
-import{displayTeamName}from'./team-display.js?v=24';
-import{loadLiveScores,applyLiveScores,LIVE_INTERVAL}from'./live-scores.js?v=24';
-import{makeSelection,sanitizeSelections,selectionForTeam,addSelection,weekRange,weeklyMatches,selectedCompetitions,teamIdentity}from'./my-teams.js?v=24';
-import{teamMarkup}from'./team-view.js?v=24';
-import{loadTVDetails,applyTVDetails}from'./tv-details.js?v=24';
-import{defaultCompetition,orderedCompetitions}from'./competition-order.js?v=24';
-import{badgeSources,loadBadgeCatalog,rememberBadges}from'./badges.js?v=24';
-import{resultLabel}from'./results.js?v=24';
-import{directIDs}from'./direct.js?v=24';
-import{swipeDirection}from'./gestures.js?v=24';
-import{navIcon}from'./icons.js?v=24';
-import{scheduleEntries,daySchedule}from'./schedule.js?v=24';
-import{loadNova}from'./tv.js?v=24';
-import {loadProvider,isConnected} from './providers.js?v=24';
-import {competitions,checkedAt,eliteSchedule,eliteTV,eliteMatches,broadcasts,currentTV,gblStandings} from './data.js?v=24';
-import {escapeHTML as e,normalizeFootball,calculateTable,athensDay,chooseRound,filterMatches,shiftDay} from './core.js?v=24';
+import{displayTeamName}from'./team-display.js?v=25';
+import{loadLiveScores,applyLiveScores,LIVE_INTERVAL}from'./live-scores.js?v=25';
+import{makeSelection,sanitizeSelections,selectionForTeam,addSelection,weekRange,weeklyMatches,selectedCompetitions,teamIdentity}from'./my-teams.js?v=25';
+import{teamMarkup}from'./team-view.js?v=25';
+import{loadTVDetails,applyTVDetails}from'./tv-details.js?v=25';
+import{defaultCompetition,orderedCompetitions}from'./competition-order.js?v=25';
+import{badgeSources,loadBadgeCatalog,rememberBadges}from'./badges.js?v=25';
+import{resultLabel}from'./results.js?v=25';
+import{directIDs}from'./direct.js?v=25';
+import{swipeDirection}from'./gestures.js?v=25';
+import{navIcon}from'./icons.js?v=25';
+import{scheduleEntries,daySchedule}from'./schedule.js?v=25';
+import{loadNova}from'./tv.js?v=25';
+import {loadProvider,isConnected} from './providers.js?v=25';
+import {competitions,checkedAt,eliteSchedule,eliteTV,eliteMatches,broadcasts,currentTV,gblStandings} from './data.js?v=25';
+import {escapeHTML as e,normalizeFootball,calculateTable,athensDay,chooseRound,filterMatches,shiftDay} from './core.js?v=25';
 const $=id=>document.getElementById(id);
 const shortLabels={volleyball:'Βόλεϊ',football:'Ποδ.',basketball:'Μπασκ.',tv:'TV',matches:'Αγώνες',standings:'Βαθμοί'};
 const nav=[['football','⚽','Ποδόσφαιρο'],['basketball','◉','Μπάσκετ'],['volleyball','','Βόλεϊ'],['tv','▣','Τηλεόραση'],['matches','▦','Αγώνες'],['standings','≡','Βαθμολογίες']];
-const state={tab:'tv',id:'all-tv',season:'2026-27',matches:[],round:'',search:'',request:0,meta:null,tvDate:athensDay(),archive:false,myTeams:read('sh-my-teams-mode',false)===true};
+const state={tab:'tv',id:'all-tv',season:'2026-27',matches:[],round:'',search:'',request:0,meta:null,tvDate:athensDay(),archive:false,myTeams:false};
 
 function read(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback;}catch{return fallback;}}
 function save(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true;}catch{return false;}}
@@ -108,7 +108,7 @@ function renderTable(c){
  $('view').innerHTML=`${notice?`<div class="notice">${e(notice)}</div>`:''}<div class="table-scroll"><table><caption class="fine">${e(c.name)} · 2026–27</caption><thead><tr><th scope="col">#</th><th scope="col">Ομάδα</th><th scope="col">Αγ.</th><th scope="col">Ν</th>${football?'<th scope="col">Ι</th>':''}<th scope="col">Η</th><th scope="col">${percent?'% Ν':'Βαθ.'}</th></tr></thead><tbody>${rows.map((r,i)=>`${r.group&&r.group!==rows[i-1]?.group?`<tr><th colspan="${football?7:6}" scope="rowgroup">${e(r.group)}</th></tr>`:''}<tr><td>${r.rank}</td><td><span class="standing-team"><button type="button" class="team-follow${selectionForTeam(followedTeams,r.team,c.id,c.sport)?' selected':''}" data-follow-team="${e(r.team)}" aria-pressed="${!!selectionForTeam(followedTeams,r.team,c.id,c.sport)}" aria-label="${e('Οι ομάδες μου: '+r.team)}">${selectionForTeam(followedTeams,r.team,c.id,c.sport)?'★':'☆'}</button><span>${team(r.team,r.badge||state.matches.find(m=>m.home===r.team)?.homeBadge||state.matches.find(m=>m.away===r.team)?.awayBadge)}</span></span></td><td>${r.played}</td><td>${r.wins}</td>${football?`<td>${r.draws}</td>`:''}<td>${r.losses}</td><td>${percent?e(r.winRate||'—'):r.points}</td></tr>`).join('')}</tbody></table></div>`;
 }
 function showHelp(){const cards=competitions.map(c=>`<div><b>${e(c.name)}</b><p>${e(c.file?'Δωρεάν openfootball / CC0. Δοκιμάστηκε HTTP 200 και CORS *. Αυτόματη ανάκτηση όταν ανοίγεις τη διοργάνωση, με αποθηκευμένο αντίγραφο αν αποτύχει. Κοινοτικά στοιχεία, όχι επίσημη πιστοποίηση.':c.note)}</p>${link(c.url,'Επίσημη ιστοσελίδα')}</div>`).join('');$('help-content').innerHTML=`<h3>Εγκατάσταση σε Android</h3><p>Άνοιξε τον σύνδεσμο GitHub Pages με Chrome. Δεν απαιτείται σύνδεση. Πάτησε «Εγκατάσταση εφαρμογής» ή μενού ⋮ → «Προσθήκη στην αρχική οθόνη» → «Εγκατάσταση». Η επιλογή εξαρτάται από τον browser. Δεν απαιτείται app store.</p><h3>Εγκατάσταση σε PC</h3><p>Σε Chrome ή Edge, άνοιξε τον ίδιο σύνδεσμο και πάτησε το εικονίδιο εγκατάστασης στη γραμμή διευθύνσεων ή την επιλογή εγκατάστασης από το μενού. Τοπικά εκκινείται και από localhost μέσω του παρεχόμενου οδηγού.</p><h3>Offline & ιδιωτικότητα</h3><p>Μετά την πρώτη επιτυχή φόρτωση, το κέλυφος και τα αποθηκευμένα δεδομένα παραμένουν στη συσκευή.  Οι εξωτερικές πηγές και η αρχική σύνδεση χρειάζονται internet. Οι πηγές ελέγχονται όταν ανοίγεις ή ανανεώνεις τη διοργάνωση. Χωρίς διαφημίσεις ή analytics στην εφαρμογή.</p><h3>Τι έχει ελεγχθεί</h3><p>Έλεγχος πηγών: 20/10/2026. Δεν χρησιμοποιούνται placeholders αγώνων, βαθμολογιών ή μεταδόσεων. Τα σήματα ομάδων προέρχονται από τις πηγές όπου παρέχονται. Το αρχικό screenshot δεν ήταν προσβάσιμο στη μεταφερμένη συνομιλία· η διάταξη ακολουθεί τη γραπτή περιγραφή.</p><div class="help-grid">${cards}</div><h3>Τηλεόραση</h3><p>Η ημερήσια λίστα ανανεώνεται από τις ρητές αναφορές μετάδοσης ΕΟΚ, ΕΣΑΚΕ και SL2, και από το δημοσιευμένο ημερήσιο πρόγραμμα Novasports που διαβάζεται απευθείας στον browser. Στη λίστα εμφανίζονται μόνο ρητά δηλωμένες ζωντανές μεταδόσεις. Οι επαναλήψεις και οι καταχωρίσεις χωρίς ένδειξη ζωντανής μετάδοσης αποκλείονται. Οι πηγές φορτώνονται παράλληλα και η λίστα εμφανίζεται σταδιακά, χωρίς να περιμένει την πιο αργή. Διατίθεται επαληθευμένο αντίγραφο ζωντανών μεταδόσεων ανά ημερομηνία για περίπτωση αποτυχίας της πηγής. Οι υπόλοιπες μεταδόσεις ελέγχονται στα επίσημα προγράμματα καναλιών. Δεν υπάρχει πλήρης δωρεάν ελληνικός EPG συνδεδεμένος. Δεν συμπεραίνουμε κανάλι από τα δικαιώματα μιας διοργάνωσης. Οι δοκιμές λανθασμένων URL COSMOTE / Nova επέστρεψαν 404 και αντικαταστάθηκαν με τους επίσημους συνδέσμους των προγραμμάτων.</p><p>${link('https://github.com/openfootball/football.json/blob/master/LICENSE.md','Άδεια openfootball CC0')} · ${link('https://www.football-data.org/coverage','Κάλυψη football-data.org')}</p>`;$('help-dialog').showModal();}
-function selectTab(key){if(state.tab===key)return;state.tab=key;state.id=defaultCompetition[key];choices();load();}
+function selectTab(key){if(state.tab===key&&!(key==='matches'&&state.myTeams))return;state.tab=key;if(key==='matches')state.myTeams=false;state.id=defaultCompetition[key];choices();load();}
 for(const id of ['side-nav','top-nav','bottom-nav'])$(id).addEventListener('click',event=>{const b=event.target.closest('[data-tab]');if(b)selectTab(b.dataset.tab);});
 $('competition').addEventListener('change',()=>{state.id=$('competition').value;load();});$('round').addEventListener('change',()=>{state.round=$('round').value;render();});$('search').addEventListener('input',()=>{state.search=$('search').value;render();});
 $('refresh').addEventListener('click',()=>load(true));$('help').onclick=showHelp;$('data-help').onclick=showHelp;$('close-help').onclick=()=>$('help-dialog').close();
@@ -185,7 +185,7 @@ $('remove-followed').onclick=()=>{
  if(selected)persistTeams(followedTeams.filter(s=>s.key!==selected.key));$('team-picker').close();pendingTeam=null;
 };
 function switchMatchMode(value){
- if(state.myTeams===value)return;state.myTeams=value;save('sh-my-teams-mode',value);load();
+ if(state.myTeams===value)return;state.myTeams=value;load();
 }
 $('all-matches-mode').onclick=()=>switchMatchMode(false);$('my-teams-mode').onclick=()=>switchMatchMode(true);
 document.addEventListener('click',event=>{
