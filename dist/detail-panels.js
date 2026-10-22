@@ -1,10 +1,10 @@
-import{loadMatchHighlights}from'./highlights.js?v=32';
+import{loadMatchHighlights}from'./highlights.js?v=33';
 import{escapeHTML as e,athensDay}from'./core.js?v=26';
 import{competitions}from'./data.js?v=26';
-import{displayTeamName}from'./team-display.js?v=32';
+import{displayTeamName}from'./team-display.js?v=33';
 import{teamMarkup}from'./team-view.js?v=26';
 import{badgeSources}from'./badges.js?v=26';
-import{loadTeamOverview,loadTeamRoster,loadMatchDetails}from'./detail-data.js?v=32';
+import{loadTeamOverview,loadTeamRoster,loadMatchDetails}from'./detail-data.js?v=33';
 const $=id=>document.getElementById(id);
 const day=d=>d?new Intl.DateTimeFormat('el-GR',{day:'numeric',month:'short',year:'numeric',timeZone:'Europe/Athens'}).format(new Date(d+'T12:00:00Z')):'Δεν έχει οριστεί';
 const stamp=d=>{try{return new Intl.DateTimeFormat('el-GR',{dateStyle:'short',timeStyle:'short',timeZone:'Europe/Athens'}).format(new Date(d));}catch{return '—';}};
@@ -68,7 +68,7 @@ export function createDetailPanels({getSeed=()=>[]}={}){
  if(card.rosterLoading)return blank('Φόρτωση επαληθευμένου ρόστερ…');
  if(card.rosterError)return blank(card.rosterError)+'<button type="button" class="outline" data-detail-retry>Δοκίμασε ξανά</button>';
  const roster=card.roster;if(!roster)return blank('Άνοιξε ξανά το ρόστερ για ενημέρωση.');
- return '<p class="detail-meta">'+e(roster.season)+' · '+e(roster.provider)+' · '+e(stamp(roster.checkedAt))+'</p>'+(roster.staff.length?'<p class="detail-meta">'+roster.staff.map(p=>e(name(p.name))+' <span class="muted">('+e(p.role)+')</span>').join(' · ')+'</p>':'')+(roster.players.length?'<div class="detail-roster"><table><caption>'+e(name(card.team))+' · Ρόστερ πηγής</caption><thead><tr><th>#</th><th>Παίκτης</th><th>Θέση</th><th>Ηλικία</th></tr></thead><tbody>'+roster.players.map(p=>'<tr><td>'+value(p.jersey)+'</td><td><div class="roster-person">'+playerAvatar(p)+'<div class="roster-name">'+e(name(p.name))+(p.country?'<small>'+e(p.country)+'</small>':'')+'</div></div></td><td>'+e(position(p.position,c.sport))+'</td><td>'+value(p.age)+'</td></tr>').join('')+'</tbody></table></div>':blank('Η πηγή δεν επέστρεψε παίκτες.'))+'<p class="detail-meta">'+sourceLink(roster.source,roster.provider)+'</p>';
+ return '<p class="detail-meta">'+e(roster.season)+' · '+e(roster.provider)+' · '+e(stamp(roster.checkedAt))+'</p>'+(roster.staff.length?'<p class="detail-meta">'+roster.staff.map(p=>e(name(p.name))+' <span class="muted">('+e(p.role)+')</span>').join(' · ')+'</p>':'')+(roster.players.length?'<div class="detail-roster"><table><caption>'+e(name(card.team))+' · Ρόστερ πηγής</caption><thead><tr><th>#</th><th>Παίκτης</th><th>Θέση</th><th>Ηλικία</th></tr></thead><tbody>'+roster.players.map(p=>'<tr><td>'+value(p.jersey)+'</td><td><div class="roster-person">'+playerAvatar(p)+'<div class="roster-name">'+e(name(p.name))+(p.country?'<small>'+e(p.country)+'</small>':'')+'</div></div></td><td>'+e(position(p.position,c.sport))+'</td><td>'+value(p.age)+'</td></tr>').join('')+'</tbody></table></div>':blank('Η πηγή δεν επέστρεψε παίκτες.'))+'<p class="detail-meta">'+sourceLink(roster.source,roster.provider)+(roster.photoSource?' · Φωτογραφίες: '+sourceLink(roster.photoSource,'Επίσημη ομάδα'):'')+'</p>';
  }
  if(card.tab==='games')return gameList(d.recent.slice(0,15),'Πρόσφατα αποτελέσματα')+gameList(d.upcoming.slice(0,15),'Επόμενοι αγώνες')+(d.undated?blank(d.undated+' αγώνες δεν έχουν ακόμα ορισμένη ημερομηνία.'):'');
  const form=d.form.length?'<div class="team-form" aria-label="Φόρμα τελευταίων αγώνων">'+d.form.map(m=>'<span class="form-'+m.outcome+'" title="'+e(day(m.date)+' · '+m.home+' – '+m.away+' '+m.score.join('–'))+'">'+({W:'Ν',D:'Ι',L:'Η'})[m.outcome]+'</span>').join('')+'</div><p class="detail-meta">Τελευταίοι 5 διαθέσιμοι τελικοί αγώνες · Πιο πρόσφατος πρώτος.</p>':blank('Δεν υπάρχουν ακόμα επιβεβαιωμένα τελικά αποτελέσματα για φόρμα.');

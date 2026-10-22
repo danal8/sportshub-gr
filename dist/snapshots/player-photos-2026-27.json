@@ -1,0 +1,192 @@
+{
+  "season": "2026-27",
+  "teams": {
+    "435": {
+      "team": "Olympiacos",
+      "source": "https://www.olympiacos.org/en/team/",
+      "checkedAt": "2026-10-22T15:50:18.165Z",
+      "players": [
+        {
+          "id": "151855",
+          "name": "Stefan Ortega",
+          "officialName": "Stefan Ortega",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2026/07/29/Ortega-Stefan-F.png"
+        },
+        {
+          "id": "308834",
+          "name": "Dimitrios Stournaras",
+          "officialName": "Dimitris Stournaras",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2026/06/10/Stournaras-F.png"
+        },
+        {
+          "id": "379510",
+          "name": "Balsa Popovic",
+          "officialName": "Balša Popović",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2026/07/22/Popovic-F.png"
+        },
+        {
+          "id": "129285",
+          "name": "Marcus Holmgren Pedersen",
+          "officialName": "Marcus Pedersen",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2026/08/29/Pedersen-F.png"
+        },
+        {
+          "id": "202696",
+          "name": "Manolis Saliakas",
+          "officialName": "Manolis Saliakas",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2014/09/24/Saliakas-F.png"
+        },
+        {
+          "id": "233973",
+          "name": "Panagiotis Retsos",
+          "officialName": "Panagiotis Retsos",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2022/08/22/Retsos-F.png"
+        },
+        {
+          "id": "236301",
+          "name": "David Carmo",
+          "officialName": "David Carmo",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2024/01/10/Carmo-F.png"
+        },
+        {
+          "id": "266070",
+          "name": "Nayair Tiknizyan",
+          "officialName": "Nair Tiknizyan",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2026/08/18/Tiknizyan-F.png"
+        },
+        {
+          "id": "290069",
+          "name": "Lorenzo Pirola",
+          "officialName": "Lorenzo Pirola",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2024/07/10/Pirola-F.png"
+        },
+        {
+          "id": "347628",
+          "name": "Bruno Onyemaechi",
+          "officialName": "Bruno Onyemaechi",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2025/01/22/Onyemaechi-F.png"
+        },
+        {
+          "id": "365771",
+          "name": "Zinedin Smajlovic",
+          "officialName": "Zinedin Smajlović",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2026/07/22/Smajlovic-F.png"
+        },
+        {
+          "id": "152600",
+          "name": "Remo Freuler",
+          "officialName": "Remo Freuler",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2026/08/17/Freuler-F.png"
+        },
+        {
+          "id": "160020",
+          "name": "Kostas Fortounis",
+          "officialName": "Kostas Fortounis",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2014/07/10/Fortounis-F.png"
+        },
+        {
+          "id": "215319",
+          "name": "Gelson Martins",
+          "officialName": "Gelson Martins",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2024/01/10/Martins-F.png"
+        },
+        {
+          "id": "275935",
+          "name": "Chiquinho",
+          "officialName": "Chiquinho",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2024/01/10/Chiquinho-F.png"
+        },
+        {
+          "id": "290539",
+          "name": "Santiago Hezze",
+          "officialName": "Santiago Hezze",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2023/08/10/Hezze-F.png"
+        },
+        {
+          "id": "333232",
+          "name": "Joel Roca",
+          "officialName": "Joel Roca",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2026/07/18/Roca-F.png"
+        },
+        {
+          "id": "340198",
+          "name": "Lorenzo Scipioni",
+          "officialName": "Lorenzo Scipioni",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2025/07/10/Scipioni-F.png"
+        },
+        {
+          "id": "341736",
+          "name": "Gustavo Puerta",
+          "officialName": "Gustavo Puerta",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2026/09/02/Puerta-F.png"
+        },
+        {
+          "id": "347406",
+          "name": "Gustavo Sá",
+          "officialName": "Gustavo Sá",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2026/07/30/Gustavo-Sa-F.png"
+        },
+        {
+          "id": "387654",
+          "name": "Theofanis Bakoulas",
+          "officialName": "Theofanis Bakoulas",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2026/09/04/Bakoulas-F.png"
+        },
+        {
+          "id": "3102535",
+          "name": "Christos Filis",
+          "officialName": "Christos Filis",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2026/09/04/Filis-F.png"
+        },
+        {
+          "id": "219543",
+          "name": "Roman Yaremchuk",
+          "officialName": "Roman Yaremchuk",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2024/07/22/Yaremchuk-F.png"
+        },
+        {
+          "id": "224809",
+          "name": "Leon Bailey",
+          "officialName": "Leon Bailey",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2026/09/04/Bailey-F.png"
+        },
+        {
+          "id": "236158",
+          "name": "Yusuf Yazici",
+          "officialName": "Yusuf Yazıcı",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2024/09/10/Yazici-F.png"
+        },
+        {
+          "id": "269562",
+          "name": "Ayoub El Kaabi",
+          "officialName": "Ayoub El Kaabi",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2023/08/04/EL-KAABI-F.png"
+        },
+        {
+          "id": "276831",
+          "name": "Marius Mouandilmadji",
+          "officialName": "Marius Mouandilmadji",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2026/09/17/Marius-F.png"
+        },
+        {
+          "id": "301209",
+          "name": "Clayton",
+          "officialName": "Clayton",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2026/02/10/Clayton-F.png"
+        },
+        {
+          "id": "344692",
+          "name": "Jota Silva",
+          "officialName": "Jota Silva",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2026/07/22/Jota-Silva-F.png"
+        },
+        {
+          "id": "376110",
+          "name": "Armando González",
+          "officialName": "Armando González",
+          "photo": "https://www.olympiacos.org/wp-content/uploads/2026/08/22/Gonzales-F.png"
+        }
+      ]
+    }
+  }
+}

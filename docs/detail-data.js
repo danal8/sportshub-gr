@@ -1,5 +1,5 @@
 import{competitions}from'./data.js?v=26';
-import{aliases}from'./team-aliases.js?v=32';
+import{aliases}from'./team-aliases.js?v=33';
 import{teamKey}from'./badges.js?v=26';
 import{athensDay,normalizeFootball,shiftDay}from'./core.js?v=26';
 import{liveLeagues,sourceClock,parseEuroHeader}from'./live-scores.js?v=26';
@@ -78,8 +78,21 @@ export async function resolveTeam(team,c,overview,options){
 }
 export function photoCandidates(...values){return [...new Set(values.flat(Infinity).map(v=>playerPhoto(typeof v==='string'?v:v?.href||v?.url)).filter(Boolean))];}
 export function playerPhoto(url){
- try{const u=new URL(url);return u.protocol==='https:'&&!u.username&&!u.password&&['a.espncdn.com','media-cdn.cortextech.io','media-cdn.incrowdsports.com','images.euroleague.net','ftpserver.euroleague.net'].includes(u.hostname)?u.href:null;}catch{return null;}
+ try{const u=new URL(url);return u.protocol==='https:'&&!u.username&&!u.password&&['a.espncdn.com','media-cdn.cortextech.io','media-cdn.incrowdsports.com','images.euroleague.net','ftpserver.euroleague.net','www.olympiacos.org'].includes(u.hostname)?u.href:null;}catch{return null;}
 }
+
+export function applyRosterPhotos(roster,catalog,teamID){
+ const team=catalog?.season==='2026-27'&&catalog.teams?.[String(teamID)];
+ if(!team||!sameTeam(roster.team,team.team))return roster;
+ const players=roster.players.map(p=>{
+ const entries=(team.players||[]).filter(row=>String(row.id)===p.id&&teamKey(row.name)===teamKey(p.name));
+ if(entries.length!==1)return p;
+ const photos=photoCandidates(entries[0].photo,p.photo,p.photos);
+ return{...p,photo:photos[0]||null,photos};
+ });
+ return{...roster,players,photoSource:team.source};
+}
+
 export function parseRoster(raw,team,id,c){
  if(raw.season?.year!==(c.id==='nba'?2027:2026)||String(raw.team?.id)!==String(id)||!sameTeam(team,raw.team?.displayName))throw Error('Το ρόστερ δεν αντιστοιχεί στην ομάδα και στη σεζόν');
  const items=(raw.athletes||[]).flatMap(a=>a.items||[a]),players=items.filter(a=>a?.displayName).map(a=>({id:String(a.id),name:a.displayName,jersey:a.jersey||'',position:a.position?.displayName||a.position?.name||'',age:Number.isFinite(a.age)?a.age:null,country:a.citizenship||a.birthPlace?.country||'',photo:photoCandidates(a.headshot,a.headshots,a.images?.headshot,a.images?.photo)[0]||null,photos:photoCandidates(a.headshot,a.headshots,a.images?.headshot,a.images?.photo)}));
@@ -119,7 +132,7 @@ export async function loadTeamRoster(team,c,overview,{force=false}={}){
  }
  if(!liveLeagues[c.id])throw Error('Δεν υπάρχει συνδεδεμένη πηγή ρόστερ για αυτή τη διοργάνωση');
  const resolved=await resolveTeam(team,c,overview,{force}),[sport,league]=liveLeagues[resolved.competition],actual=competitions.find(x=>x.id===resolved.competition);
- const p=await detailJSON(web+sport+'/'+league+'/teams/'+resolved.team.id+'/roster?'+query+'&season='+(c.id==='nba'?2027:2026),{ttl:3600000,force});return parseRoster(p,team,resolved.team.id,actual);
+ const p=await detailJSON(web+sport+'/'+league+'/teams/'+resolved.team.id+'/roster?'+query+'&season='+(c.id==='nba'?2027:2026),{ttl:3600000,force});let roster=parseRoster(p,team,resolved.team.id,actual);if(c.sport==='football')try{roster=applyRosterPhotos(roster,await detailJSON('./snapshots/player-photos-2026-27.json',{ttl:300000,force}),resolved.team.id);}catch{}return roster;
 }
 const labels={foulsCommitted:'Φάουλ',yellowCards:'Κίτρινες κάρτες',redCards:'Κόκκινες κάρτες',offsides:'Οφσάιντ',wonCorners:'Κόρνερ',possessionPct:'Κατοχή %',shotsOnTarget:'Εντός εστίας',totalShots:'Τελικές',saves:'Αποκρούσεις',goalAssists:'Ασίστ',totalGoals:'Γκολ',appearances:'Συμμετοχές',points:'Πόντοι',rebounds:'Ριμπάουντ',totalRebounds:'Ριμπάουντ',assists:'Ασίστ',turnovers:'Λάθη',steals:'Κλεψίματα',blocks:'Τάπες',fieldGoalPct:'Εντός πεδιάς %',threePointFieldGoalPct:'Τρίποντα %',freeThrowPct:'Βολές %',offensiveRebounds:'Επιθετικά ριμπ.',defensiveRebounds:'Αμυντικά ριμπ.',fouls:'Φάουλ','fieldGoalsMade-fieldGoalsAttempted':'Εντός πεδιάς','threePointFieldGoalsMade-threePointFieldGoalsAttempted':'Τρίποντα','freeThrowsMade-freeThrowsAttempted':'Βολές'};
 const val=v=>v===null||v===undefined||v===''?null:String(v);
