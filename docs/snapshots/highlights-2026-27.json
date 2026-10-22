@@ -1,6 +1,7 @@
 {
   "season": "2026-27",
-  "retrievedAt": "2026-10-22T14:36:44.000Z",
+  "sourceVersion": 2,
+  "retrievedAt": "2026-10-22T15:44:05.950Z",
   "sources": [
     {
       "name": "NBA",
@@ -11,16 +12,16 @@
       "url": "https://www.youtube.com/channel/UCGr3nR_XH9r6E5b09ZJAT9w"
     },
     {
+      "name": "EuroCup",
+      "url": "https://www.youtube.com/channel/UCpFqOv5z4WKps64GlQS4ytw"
+    },
+    {
       "name": "Novasports",
       "url": "https://www.youtube.com/channel/UCEIbXco8hU9oDHXGo1kwIlA"
     },
     {
       "name": "Magenta Sport",
       "url": "https://www.youtube.com/channel/UCgMUmr7uLDalwVk63Sf6pBw"
-    },
-    {
-      "name": "EuroCup",
-      "url": "https://www.youtube.com/channel/UCpFqOv5z4WKps64GlQS4ytw"
     }
   ],
   "videos": [
@@ -85,6 +86,10 @@
         {
           "seconds": 1448,
           "label": "Top 10 Plays of the night"
+        },
+        {
+          "seconds": 1586,
+          "label": "Best Sounds of the Night"
         }
       ]
     },
@@ -454,6 +459,5 @@
       "season": "2026-27",
       "kind": "game"
     }
-  ],
-  "sourceVersion": 2
+  ]
 }
