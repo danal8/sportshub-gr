@@ -91,7 +91,7 @@ const labels={foulsCommitted:'Φάουλ',yellowCards:'Κίτρινες κάρτ
 const val=v=>v===null||v===undefined||v===''?null:String(v);
 export function parseMatchSummary(raw,m){
  const header=raw.header,g=header?.competitions?.[0],home=g?.competitors?.find(t=>t.homeAway==='home'),away=g?.competitors?.find(t=>t.homeAway==='away'),[sport,league]=liveLeagues[m.competition]||[];
- if(!sport||!home||!away||header.season?.year!==(m.competition==='nba'?2027:2026)||header.league?.slug!==league||athensDay(new Date(g.date))!==m.date||!sameTeam(m.home,home.team.displayName,[home.team.shortDisplayName])||!sameTeam(m.away,away.team.displayName,[away.team.shortDisplayName]))throw Error('Τα στατιστικά δεν αντιστοιχούν στον αγώνα');
+ if(!sport||!home||!away||header.season?.year!==(m.competition==='nba'?2027:2026)||header.league?.slug!==league||!Number.isFinite(Date.parse(g.date))||athensDay(new Date(g.date))!==m.date||!sameTeam(m.home,home.team.displayName,[home.team.shortDisplayName])||!sameTeam(m.away,away.team.displayName,[away.team.shortDisplayName]))throw Error('Τα στατιστικά δεν αντιστοιχούν στον αγώνα');
  const byID=id=>String(id)===String(home.team.id)?'home':String(id)===String(away.team.id)?'away':null;
  const status=g.status||{},s=[home.score,away.score].map(v=>v===null||v===undefined||v===''?NaN:Number(v)),valid=validScore(s)&&(status.type?.completed||status.type?.state==='in');
  const stats=new Map();for(const t of raw.boxscore?.teams||[]){const side=byID(t.team?.id);if(!side)continue;for(const r of t.statistics||[]){if(!r.name||val(r.displayValue)===null)continue;const item=stats.get(r.name)||{name:r.name,label:labels[r.name]||r.label||r.name,home:null,away:null};item[side]=val(r.displayValue);stats.set(r.name,item);}}
