@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-22T19:20:29.543Z",
+  "checkedAt": "2026-10-22T20:01:05.967Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -21,13 +21,6 @@
       "competition": "conference",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "espn-401915844",
-          "competition": "conference",
-          "date": "2026-10-22",
-          "home": "FC Nordsjælland",
-          "away": "CSKA Sofia"
-        },
         {
           "id": "espn-401915837",
           "competition": "conference",
@@ -76,10 +69,17 @@
           "date": "2026-10-22",
           "home": "Lincoln Red Imps",
           "away": "FC Twente"
+        },
+        {
+          "id": "espn-401915744",
+          "competition": "conference",
+          "date": "2026-10-22",
+          "home": "AGF",
+          "away": "Egnatia"
         }
       ],
       "sourceError": null,
-      "finals": 24
+      "finals": 25
     },
     {
       "competition": "el",
@@ -112,24 +112,10 @@
           "date": "2026-10-22",
           "home": "Maccabi Rapyd Tel Aviv",
           "away": "Real Madrid"
-        },
-        {
-          "id": "E-65",
-          "competition": "el",
-          "date": "2026-10-22",
-          "home": "FC Bayern Munich",
-          "away": "Dubai Basketball"
-        },
-        {
-          "id": "E-64",
-          "competition": "el",
-          "date": "2026-10-22",
-          "home": "Anadolu Efes Istanbul",
-          "away": "Besiktas Istanbul"
         }
       ],
       "sourceError": null,
-      "finals": 61
+      "finals": 63
     },
     {
       "competition": "elite",
