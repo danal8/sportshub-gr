@@ -92,3 +92,12 @@ export async function loadMatchHighlights(m,{force=false}={}){
  return selectHighlights(cached,ref);
  }catch{return null;}
 }
+
+export function parsePublisherVideoPage(html,publisher,videoId){
+ const source=publishers.find(p=>p.id===publisher);if(!source||!/^[\w-]{11}$/.test(videoId))throw Error('Unknown publisher or video');
+ const json=String(html).match(/ytInitialPlayerResponse\s*=\s*(\{[\s\S]*?\});/)?.[1];if(!json)throw Error('Missing publisher video metadata');
+ const p=JSON.parse(json),v=p.videoDetails,m=p.microformat?.playerMicroformatRenderer;
+ if(v?.videoId!==videoId||v.channelId!==source.channel||!m?.publishDate||Array.isArray(m.availableCountries)&&!m.availableCountries.includes('GR'))throw Error('Unverified publisher video');
+ const publishedAt=new Date(m.publishDate).toISOString(),xml=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+ return parsePublisherFeed('<feed><entry><yt:channelId>'+source.channel+'</yt:channelId><yt:videoId>'+videoId+'</yt:videoId><title>'+xml(v.title)+'</title><published>'+publishedAt+'</published><media:description>'+xml(v.shortDescription||'')+'</media:description></entry></feed>',publisher);
+}
