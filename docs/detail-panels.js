@@ -21,7 +21,7 @@ export function createDetailPanels({getSeed=()=>[]}={}){
  function closeDetails(){
   if(!dialog.open||backPending)return;
   if(ownsEntry()){backPending=true;window.history.back();}
-  else dialog.close();
+  else{resetCard();dialog.close();}
  }
  function openDialog(){
   if(!dialog.open){
@@ -33,7 +33,7 @@ export function createDetailPanels({getSeed=()=>[]}={}){
  }
  window.addEventListener('popstate',()=>{
   if(!dialog.open||ownsEntry())return;
-  browserToken=null;backPending=false;dialog.close();
+  browserToken=null;backPending=false;resetCard();dialog.close();
  });
  dialog.addEventListener('cancel',event=>{event.preventDefault();closeDetails();});
  document.addEventListener('keydown',event=>{
@@ -101,9 +101,10 @@ export function createDetailPanels({getSeed=()=>[]}={}){
  function openMatch(match){const c=competitions.find(c=>c.id===match.competition)||{id:match.competition,name:match.competitionLabel||'Αγώνας',sport:match.sportLabel==='Μπάσκετ'?'basketball':match.sportLabel==='Ποδόσφαιρο'?'football':'other',url:match.source||''};show({type:'match',match,competition:c,tab:'overview'});}
  $('detail-close').onclick=closeDetails;$('detail-back').onclick=()=>{const prior=history.pop();if(prior)show(prior,false);};
  $('detail-refresh').onclick=()=>{if(!current)return;if(current.type==='team'&&current.tab==='roster')void roster(current,true);else void fetchCard(current,true);};
+ function resetCard(){generation++;current=null;history=[];document.body.classList.remove('detail-open');}
  dialog.addEventListener('close',()=>{
   if(dialog.open)return;
-  generation++;current=null;history=[];document.body.classList.remove('detail-open');
+  resetCard();
   // Also consume our entry if another caller closes the native dialog.
   if(ownsEntry()&&!backPending){backPending=true;window.history.back();}
   browserToken=null;
