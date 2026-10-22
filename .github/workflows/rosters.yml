@@ -1,7 +1,7 @@
 name: Refresh season rosters
 on:
   push:
-    paths: ['scripts/refresh-rosters.mjs']
+    paths: ['scripts/refresh-rosters.mjs', 'scripts/roster-sources.mjs', 'scripts/enrich-roster-photos.mjs']
   workflow_dispatch:
 permissions:
   contents: write
@@ -19,6 +19,7 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/refresh-rosters.mjs
+      - run: node scripts/enrich-roster-photos.mjs
       - run: node scripts/build-pages.mjs
       - run: node --test tests/*.test.mjs
       - name: Save verified seasonal rosters

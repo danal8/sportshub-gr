@@ -6,7 +6,7 @@ const fixture=JSON.parse(await readFile(new URL('./fixtures/details.json',import
 test('European roster resolves from official clubs without fixture aliases or overview records',async()=>{
  const old=globalThis.fetch,urls=[],rows=fixture['euro-roster'],club=rows[0].club;
  globalThis.fetch=async url=>{urls.push(url);return {ok:true,json:async()=>url.endsWith('/clubs')?{data:[club],total:1}:url.includes('2025')?[]:rows};};
- try{const r=await loadTeamRoster(club.name,{id:'el',sport:'basketball'},{records:[]},{force:true});assert.ok(r.players.length);assert.ok(urls[0].endsWith('/E2026/clubs'));assert.ok(urls.some(u=>u.includes('/clubs/'+club.code+'/people')));assert.ok(r.players.every(p=>rows.some(x=>x.active&&x.person.code===p.id)));}finally{globalThis.fetch=old;}
+ try{const r=await loadTeamRoster(club.name,{id:'el',sport:'basketball'},{records:[]},{force:true});assert.ok(r.players.length);assert.ok(urls.some(url=>url.endsWith('/E2026/clubs')));assert.ok(urls.some(u=>u.includes('/clubs/'+club.code+'/people')));assert.ok(r.players.every(p=>rows.some(x=>x.active&&x.person.code===p.id)));}finally{globalThis.fetch=old;}
 });
 test('portrait alternatives skip unsafe primary and retain valid source images',()=>{
  const a='https://images.euroleague.net/a.png',b='https://media-cdn.cortextech.io/b.png';
@@ -26,3 +26,4 @@ test('daily list is committed once after delayed providers complete',async()=>{
  const task=load(1,false);await new Promise(resolve=>setImmediate(resolve));assert.equal(cache.size,1);assert.equal(renders.length,0);
  finishSlow();await task;assert.deepEqual(renders,[['fast','slow']]);
 });
+

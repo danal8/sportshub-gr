@@ -1,5 +1,6 @@
+import{footballEvents}from'./football-events.js?v=34';
 import{competitions}from'./data.js?v=26';
-import{aliases}from'./team-aliases.js?v=33';
+import{aliases}from'./team-aliases.js?v=34';
 import{teamKey}from'./badges.js?v=26';
 import{athensDay,normalizeFootball,shiftDay}from'./core.js?v=26';
 import{liveLeagues,sourceClock,parseEuroHeader}from'./live-scores.js?v=26';
@@ -78,7 +79,7 @@ export async function resolveTeam(team,c,overview,options){
 }
 export function photoCandidates(...values){return [...new Set(values.flat(Infinity).map(v=>playerPhoto(typeof v==='string'?v:v?.href||v?.url)).filter(Boolean))];}
 export function playerPhoto(url){
- try{const u=new URL(url);return u.protocol==='https:'&&!u.username&&!u.password&&['a.espncdn.com','media-cdn.cortextech.io','media-cdn.incrowdsports.com','images.euroleague.net','ftpserver.euroleague.net','www.olympiacos.org'].includes(u.hostname)?u.href:null;}catch{return null;}
+ try{const u=new URL(url);return u.protocol==='https:'&&!u.username&&!u.password&&['a.espncdn.com','media-cdn.cortextech.io','media-cdn.incrowdsports.com','images.euroleague.net','ftpserver.euroleague.net','www.olympiacos.org','www.esake.gr','esake.gr','volleyball.gr','www.volleyball.gr','www.volleyleague.gr','r2.thesportsdb.com','www.thesportsdb.com'].includes(u.hostname)?u.href:null;}catch{return null;}
 }
 
 export function applyRosterPhotos(roster,catalog,teamID){
@@ -106,7 +107,16 @@ export function parseEuroRoster(raw,team,club,code,today=athensDay()){
  const staff=active.filter(r=>/coach/i.test(r.typeName||'')).map(r=>({name:r.person.name,role:r.typeName}));
  return{players,staff,season:'2026–27',team,provider:'Euroleague Basketball',source:'https://www.euroleaguebasketball.net/'+(code==='E'?'euroleague':'eurocup')+'/',checkedAt:new Date().toISOString()};
 }
+export function catalogRoster(raw,team,c){
+ if(raw?.season!=='2026-27'||raw.competition!==c.id||raw.sport!==c.sport||!Array.isArray(raw.teams))return null;
+ const matches=raw.teams.filter(t=>t.competition===c.id&&t.sport===c.sport&&sameTeam(team,t.team));
+ if(matches.length!==1)return null;const roster=matches[0];
+ if(!Array.isArray(roster.players)||!roster.players.length||!Number.isFinite(Date.parse(roster.checkedAt)))return null;
+ if(roster.players.some(p=>!p.id||!p.name)||new Set(roster.players.map(p=>p.id)).size!==roster.players.length)return null;
+ return{...roster,team,players:roster.players.map(p=>{const photos=photoCandidates(p.photo,p.photos);return{...p,photos,photo:photos[0]||null};}),staff:Array.isArray(roster.staff)?roster.staff:[]};
+}
 export async function loadTeamRoster(team,c,overview,{force=false}={}){
+ try{const saved=catalogRoster(await detailJSON('./rosters/'+c.id+'.json',{ttl:300000,force}),team,c);if(saved)return saved;}catch{}
  if(c.sport==='basketball'&&c.id!=='nba'){
 
  const ids=['el','eurocup'].sort((a,b)=>Number(b===c.id)-Number(a===c.id));let failure;
@@ -144,7 +154,7 @@ export function parseMatchSummary(raw,m){
  const stats=new Map();for(const t of raw.boxscore?.teams||[]){const side=byID(t.team?.id);if(!side)continue;for(const r of t.statistics||[]){if(!r.name||val(r.displayValue)===null)continue;const item=stats.get(r.name)||{name:r.name,label:labels[r.name]||r.label||r.name,home:null,away:null};item[side]=val(r.displayValue);stats.set(r.name,item);}}
  const players=[];for(const t of raw.boxscore?.players||[]){const side=byID(t.team?.id);if(!side)continue;for(const block of t.statistics||[])if(Array.isArray(block.labels))players.push({side,team:t.team.displayName,labels:block.labels,rows:(block.athletes||[]).filter(a=>a.athlete?.displayName).map(a=>({name:a.athlete.displayName,jersey:a.athlete.jersey||'',starter:!!a.starter,dnp:!!a.didNotPlay,values:block.labels.map((_,i)=>val(a.stats?.[i]))}))});}
  const lineups=[];for(const t of raw.rosters||[]){const side=byID(t.team?.id);if(!side)continue;lineups.push({side,team:t.team.displayName,formation:t.formation||'',rows:(t.roster||[]).filter(a=>a.athlete?.displayName).map(a=>({name:a.athlete.displayName,jersey:a.jersey||'',position:a.position?.displayName||'',starter:!!a.starter,subbedIn:!!a.subbedIn,subbedOut:!!a.subbedOut,stats:(a.stats||[]).filter(s=>['totalGoals','goalAssists','shotsOnTarget','totalShots','saves'].includes(s.name)).map(s=>({label:labels[s.name]||s.displayName,value:val(s.displayValue)}))}))});}
- const events=(raw.keyEvents?.length?raw.keyEvents:raw.plays?.length?raw.plays:g.details||[]).map(p=>({clock:p.clock?.displayValue||'',period:p.period?.number||null,text:p.text||p.shortText||[p.type?.text|| (p.scoringPlay?'Γκολ':p.redCard?'Κόκκινη κάρτα':''),...(p.participants||[]).map(p=>p.athlete?.displayName).filter(Boolean)].filter(Boolean).join(' · ')})).filter(p=>p.text).reverse();
+ const events=sport==='soccer'?footballEvents(raw):(raw.keyEvents?.length?raw.keyEvents:raw.plays?.length?raw.plays:g.details||[]).map(p=>({clock:p.clock?.displayValue||'',period:p.period?.number||null,text:p.text||p.shortText||''})).filter(p=>p.text).reverse();
  const periods=sport==='basketball'?Array.from({length:Math.max(home.linescores?.length||0,away.linescores?.length||0)},(_,i)=>({label:i<4?(i+1)+'η περ.':(i-3)+'η παρ.',home:val(home.linescores?.[i]?.displayValue),away:val(away.linescores?.[i]?.displayValue)})):[];
  return{match:m,score:valid?s:null,scoreState:valid?(status.type.completed?'final':'live'):null,clock:sourceClock(status,sport),stats:[...stats.values()],players,lineups,events,periods,venue:raw.gameInfo?.venue?.fullName||'',provider:'ESPN',source:sport==='basketball'?'https://www.espn.com/nba/game/_/gameId/'+header.id:'https://www.espn.com/soccer/match/_/gameId/'+header.id,checkedAt:new Date().toISOString()};
 }
@@ -174,3 +184,4 @@ export async function loadMatchDetails(m,{force=false}={}){
  }
  throw Error('Δεν υπάρχει συνδεδεμένη πηγή αναλυτικών στατιστικών για αυτή τη διοργάνωση');
 }
+

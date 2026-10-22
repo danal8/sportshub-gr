@@ -1,5 +1,5 @@
-const CACHE='sportshub-shell-v33';
-const ASSETS=['./','./index.html','./styles.css','./styles.css?v=33','./app.js','./app.js?v=33','./tv.js','./tv-meta.js','./icons.js','./schedule.js','./gestures.js','./core.js','./feeds.js','./providers.js','./direct.js','./data.js','./badges.js','./team-aliases.js','./results.js','./nba.js','./scoreboard.js','./competition-order.js','./football-leagues.js','./team-view.js','./tv-details.js','./my-teams.js','./team-display.js','./live-scores.js','./detail-data.js','./detail-data.js?v=33','./highlights.js','./highlights.js?v=33','./detail-panels.js','./detail-panels.js?v=33','./badges/catalog.json','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
+const CACHE='sportshub-shell-v34';
+const ASSETS=['./football-events.js','./football-events.js?v=34','./','./index.html','./styles.css','./styles.css?v=34','./app.js','./app.js?v=34','./tv.js','./tv-meta.js','./icons.js','./schedule.js','./gestures.js','./core.js','./feeds.js','./providers.js','./direct.js','./data.js','./badges.js','./team-aliases.js','./results.js','./nba.js','./scoreboard.js','./competition-order.js','./football-leagues.js','./team-view.js','./tv-details.js','./my-teams.js','./team-display.js','./live-scores.js','./detail-data.js','./detail-data.js?v=34','./highlights.js','./highlights.js?v=34','./detail-panels.js','./detail-panels.js?v=34','./badges/catalog.json','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 ASSETS.push(...ASSETS.filter(a=>a.endsWith('.js')).map(a=>a+'?v=26'));
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('sportshub-shell-')&&k!==CACHE).map(k=>caches.delete(k)))),self.clients.claim()])));
@@ -8,4 +8,5 @@ self.addEventListener('fetch',event=>{const u=new URL(event.request.url);if(even
  // No authentication responses, API results, or external pages enter the shell cache.
  event.respondWith(fetch(event.request).then(async r=>{if(r.ok&&r.type!=='opaqueredirect'&&!r.redirected){const type=r.headers.get('content-type')||'';if(event.request.mode!=='navigate'||type.includes('text/html')){const cache=await caches.open(CACHE);await cache.put(event.request,r.clone());}}return r;}).catch(async()=>await caches.match(event.request)|| (event.request.mode==='navigate'?await caches.match('./index.html'):Response.error())));
 });
+
 

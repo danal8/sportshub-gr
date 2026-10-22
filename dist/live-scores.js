@@ -49,17 +49,26 @@ export function applyLiveScores(matches,entries,now=Date.now()){
  });
 }
 const cache=new Map(),inflight=new Map();
+export function isFreshLive(match,now=Date.now()){
+ const age=now-Date.parse(match.scoreCheckedAt||match.checkedAt);
+ return match.scoreState==='live'&&score(match.score)&&Number.isFinite(age)&&age>=-60000&&age<LIVE_TTL;
+}
+export function mergeLiveMatches(matches,entries,{date,competitionIDs}={}){
+ const out=applyLiveScores(matches,entries),allowed=new Set(competitionIDs||matches.map(m=>m.competition));
+ for(const x of entries){if(!allowed.has(x.competition)||x.date!==date||!isFreshLive(x)||out.some(m=>m.competition===x.competition&&m.date===x.date&&same(m.home,x.home,x.homeAliases)&&same(m.away,x.away,x.awayAliases)))continue;out.push({...x,scoreCheckedAt:x.checkedAt,scoreClock:x.clock,scoreSource:x.source});}
+ return out;
+}
 async function requestJSON(url){const r=await fetch(url,{cache:'no-store',credentials:'omit',signal:AbortSignal.timeout(7000)});if(!r.ok)throw Error('HTTP '+r.status);return r.json();}
 async function requestFeed(key,run,force){
  if(inflight.has(key))return inflight.get(key);const old=cache.get(key);if(!force&&old&&Date.now()-old.at<25000)return old.value;
  const task=run().then(value=>{cache.set(key,{at:Date.now(),value});return value;}).finally(()=>inflight.delete(key));inflight.set(key,task);return task;
 }
-export async function loadLiveScores(matches,date,{force=false}={}){
- const entries=[],errors=[],sources=[],succeeded=[];const ids=[...new Set(matches.filter(m=>m.date===date).map(m=>m.competition))];
+export async function loadLiveScores(matches,date,{force=false,competitionIDs}={}){
+ const entries=[],errors=[],sources=[],succeeded=[];const ids=[...new Set(competitionIDs||matches.filter(m=>m.date===date).map(m=>m.competition))];
  await Promise.all(ids.filter(id=>liveLeagues[id]).map(async id=>{
  try{const value=await requestFeed(id+'-'+date,async()=>{
  const [sport,league]=liveLeagues[id],days=id==='nba'?[date,shiftDay(date,-1)]:[date],out=[];
- for(const day of days){const url='https://site.web.api.espn.com/apis/site/v2/sports/'+sport+'/'+league+'/scoreboard?region=us&lang=en&contentorigin=espn&dates='+day.replaceAll('-','');const raw=await requestJSON(url);out.push(...parseLiveScoreboard(raw,id,new Date().toISOString()).filter(e=>e.date===date));}
+ for(const day of days){const url='https://site.web.api.espn.com/apis/site/v2/sports/'+sport+'/'+league+'/scoreboard?region=us&lang=en&contentorigin=espn&limit=1000&dates='+day.replaceAll('-','');const raw=await requestJSON(url);out.push(...parseLiveScoreboard(raw,id,new Date().toISOString()).filter(e=>e.date===date));}
  return[...new Map(out.map(e=>[e.id,e])).values()];},force);entries.push(...value);succeeded.push(id);sources.push('ESPN');
  }catch(e){errors.push({id,error:e.message});}
  }));
@@ -79,3 +88,4 @@ export async function loadLiveScores(matches,date,{force=false}={}){
  }));
  return{date,entries,succeeded,errors,sources:[...new Set(sources)],checkedAt:new Date().toISOString()};
 }
+
