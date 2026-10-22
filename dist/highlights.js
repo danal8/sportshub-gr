@@ -1,9 +1,10 @@
-import{aliases}from'./team-aliases.js?v=26';
+import{aliases}from'./team-aliases.js?v=31';
 import{teamKey}from'./badges.js?v=26';
 import{athensDay,shiftDay}from'./core.js?v=26';
 export const publishers=[
  {id:'nba',label:'NBA',channel:'UCWJ2lWNubArHWmf3FIHbfcQ'},
  {id:'el',label:'EuroLeague',channel:'UCGr3nR_XH9r6E5b09ZJAT9w'},
+ {id:'ec',label:'EuroCup',channel:'UCpFqOv5z4WKps64GlQS4ytw'},
  {id:'nova',label:'Novasports',channel:'UCEIbXco8hU9oDHXGo1kwIlA'},
  {id:'magenta',label:'Magenta Sport',channel:'UCgMUmr7uLDalwVk63Sf6pBw'}
 ];
@@ -26,12 +27,12 @@ export function parsePublisherFeed(xml,publisher){
   if(!gameDate)continue;
   if(/full game highlights/i.test(title))videos.push({...base,competition:'nba',gameDate,kind:'game'});
   else if(/nightly recap/i.test(title)){
-   const chapters=description.split(/\r?\n/).map(line=>{const m=line.match(/^(?:(\d+):)?(\d{1,2}):(\d{2})\s+(.+?\s+at\s+.+?)\s*$/i);return m?{seconds:Number(m[1]||0)*3600+Number(m[2])*60+Number(m[3]),label:m[4]}:null;}).filter(Boolean);
+   const chapters=description.split(/\r?\n/).map(line=>{const m=line.match(/^(?:(\d+):)?(\d{1,2}):(\d{2})\s*(?:[-–|]\s*)?(.+?)\s*$/i);return m?{seconds:Number(m[1]||0)*3600+Number(m[2])*60+Number(m[3]),label:m[4]}:null;}).filter(Boolean);
    if(chapters.length)videos.push({...base,competition:'nba',gameDate,kind:'chapters',chapters});
   }
- }else if(publisher==='el'){
+ }else if(publisher==='el'||publisher==='ec'){
   const r=title.match(/\bR(?:ound\s*)?(\d+)\b/i),season=title.match(/\b(20\d{2})[-–](\d{2})\b/);
-  if(r&&season&&/highlights/i.test(title)&&!/player highlights|last \d+ meetings|preview/i.test(title))videos.push({...base,competition:'el',round:Number(r[1]),season:season[1]+'-'+season[2],kind:'game'});
+  if(r&&season&&(/highlights/i.test(title+' '+description)||publisher==='ec'&&/\s[-–]\s/.test(title)&&/\|\s*BKT EuroCup Basketball\s+20\d{2}[-–]\d{2}/i.test(title))&&!/player highlights|last \d+ meetings|preview|full game|live stream|press conference/i.test(title))videos.push({...base,competition:publisher==='ec'?'eurocup':'el',round:Number(r[1]),season:season[1]+'-'+season[2],kind:'game'});
  }else{
   const intro=description.slice(0,650),competition=novaCompetition(title+' '+intro),broadcastDate=gameDate||namedDate(intro);
   if(competition&&broadcastDate&&/highlights|στιγμι[οό]τυπ/i.test(title+' '+intro)&&!/preview|pre game|pregame|δηλ[ωώ]σεις|συν[εέ]ντευξη/i.test(title))videos.push({...base,competition,gameDate:broadcastDate,kind:'game'});
@@ -44,7 +45,7 @@ function choices(name,extra=[],nba=false){
  if(nba){const english=all.find(n=>/^[A-Za-z0-9 .]+$/.test(n));if(english)all.push(english.endsWith('Trail Blazers')?'Trail Blazers':english.split(' ').at(-1));}
  if(all.some(n=>/ulm/i.test(n)))all.push('Ουλμ');
  for(const row of [['Club Brugge','Club Brugge KV','Μπριζ'],['Sporting CP','Sporting Lisbon','Σπόρτινγκ'],['LASK Linz','LASK','ΛΑΣΚ Λιντζ']])if(all.some(n=>row.some(a=>teamKey(a)===teamKey(n))))all.push(...row);
- return [...new Set(all.map(norm).filter(n=>n.length>=4||n==='ulm'||n==='ουλμ'))];
+ return [...new Set(all.map(norm).filter(n=>n.length>=3||n==='ulm'||n==='ουλμ'))];
 }
 function mentions(text,names){const s=' '+norm(text)+' ';return names.some(n=>s.includes(' '+n+' '));}
 function nbaDate(m){
@@ -64,7 +65,7 @@ export function selectHighlights(videos,m,{now=Date.now()}={}){
  const pub=publishers.find(p=>p.id===v.publisher&&p.channel===v.channelId),published=Date.parse(v.publishedAt);
  if(!pub||v.competition!==m.competition||!/^[\w-]{11}$/.test(v.videoId)||!Number.isFinite(published)||published>now+300000||athensDay(new Date(published))<m.date||athensDay(new Date(published))>shiftDay(m.date,1))continue;
  if(m.competition==='nba'){if(v.publisher!=='nba'||v.gameDate!==nbaDate(m))continue;}
- else if(v.publisher==='el'){if(v.season!=='2026-27'||!Number.isInteger(v.round)||v.round!==Number(m.round))continue;}
+ else if(v.publisher==='el'||v.publisher==='ec'){if(v.season!=='2026-27'||!Number.isInteger(v.round)||v.round!==Number(m.round))continue;}
  else if(v.gameDate!==m.date)continue;
  let text=v.title,seconds=null;
  if(v.kind==='chapters'){
@@ -87,7 +88,17 @@ export async function loadMatchHighlights(m,{force=false}={}){
  try{
  await loadHighlightsIndex({force});
  let ref=m;
- if(m.competition==='el'&&!m.round){try{const r=await fetch('./snapshots/el-2026-27.json',{signal:AbortSignal.timeout(6000)}),p=await r.json();const matches=(p.matches||[]).filter(x=>x.date===m.date&&mentions(x.home,choices(m.home,m.homeAliases))&&mentions(x.away,choices(m.away,m.awayAliases)));if(p.season==='2026-27'&&matches.length===1)ref={...matches[0],...m,round:matches[0].round};}catch{}}
+ if(['el','eurocup'].includes(m.competition)&&!m.round){try{const r=await fetch('./snapshots/'+m.competition+'-2026-27.json',{signal:AbortSignal.timeout(6000)}),p=await r.json();const matches=(p.matches||[]).filter(x=>x.date===m.date&&mentions(x.home,choices(m.home,m.homeAliases))&&mentions(x.away,choices(m.away,m.awayAliases)));if(p.season==='2026-27'&&matches.length===1)ref={...matches[0],...m,round:matches[0].round};}catch{}}
  return selectHighlights(cached,ref);
  }catch{return null;}
+}
+
+
+export function parseRecapPlaylists(html){
+ const raw=String(html).match(/ytInitialData\s*=\s*(\{[\s\S]*?\});/)?.[1];if(!raw)return[];
+ const found=new Set(),walk=v=>{if(!v||typeof v!=='object')return;
+ for(const type of ['playlistRenderer','gridPlaylistRenderer','lockupViewModel']){const r=v[type];if(!r)continue;const title=r.title?.simpleText||r.title?.runs?.map(t=>t.text).join('')||r.metadata?.lockupMetadataViewModel?.title?.content||'';const id=r.playlistId||r.contentId;
+ if(/nightly recap/i.test(title)&&/^PL[\w-]+$/.test(id||''))found.add(id);}
+ for(const child of Object.values(v)){if(Array.isArray(child))child.forEach(walk);else if(child&&typeof child==='object')walk(child);}
+ };walk(JSON.parse(raw));return[...found].slice(0,3);
 }
