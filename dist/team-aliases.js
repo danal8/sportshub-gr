@@ -14,7 +14,7 @@ const rows=[
 ['AGF','AGF Aarhus','Άαρχους','Άαρχους'],['Egnatia','Εγκνάτια'],
 
 ['Levski Sofia','Λέφσκι Σόφιας','Λεφσκι Σοφιας'],
-['Lillestrøm SK','Lillestrom','Λίλεστρομ'],['Real Sociedad','Ρεάλ Σοσιεδάδ'],
+['Lillestrøm SK','Lillestrøm','Lillestrom','Λίλεστρομ'],['Real Sociedad','Ρεάλ Σοσιεδάδ'],
 ['NK Celje','Celje','Τσέλιε'],['RB Salzburg','Salzburg','Σάλτσμπουργκ'],
 ['Besiktas Istanbul','Beşiktaş','Besiktas','Μπεσίκτας'],['Crystal Palace FC','Crystal Palace','Κρίσταλ Πάλας'],
 ['Jagiellonia Bialystok','Jagiellonia','Γιαγκελόνια','Γιαγκελόνια Μπιάλιστοκ'],['RSC Anderlecht','Anderlecht','Άντερλεχτ'],
