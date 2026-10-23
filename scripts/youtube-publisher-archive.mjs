@@ -4,6 +4,15 @@ export function assignedJSON(html,name){const marker=new RegExp('(?:var\\s+)?'+n
 export function uploadPage(data){const videos=new Map(),tokens=new Set();function walk(v){if(!v||typeof v!=='object')return;const r=v.videoRenderer||v.playlistVideoRenderer;if(r?.videoId)videos.set(r.videoId,{id:r.videoId,title:r.title?.runs?.map(x=>x.text).join('')||r.title?.simpleText||''});const l=v.lockupViewModel;if(l?.contentType==='LOCKUP_CONTENT_TYPE_VIDEO'&&l.contentId)videos.set(l.contentId,{id:l.contentId,title:l.metadata?.lockupMetadataViewModel?.title?.content||''});const t=v.continuationItemRenderer?.continuationEndpoint?.continuationCommand?.token;if(t)tokens.add(t);for(const child of Object.values(v))if(Array.isArray(child))child.forEach(walk);else if(child&&typeof child==='object')walk(child);}walk(data);return{videos:[...videos.values()],continuation:[...tokens][0]};}
 const xmlEscape=s=>String(s||'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 export function publisherVideo(player,publisher){const p=publishers.find(p=>p.id===publisher),v=player?.videoDetails,f=player?.microformat?.playerMicroformatRenderer;if(!p||v?.channelId!==p.channel||!/^[-\w]{11}$/.test(v.videoId||''))return[];const date=f?.publishDate||f?.uploadDate;if(!date||!/^\d{4}-\d{2}-\d{2}/.test(date))return[];const publishedAt=date.includes('T')?date:date+'T00:00:00Z';return parsePublisherFeed('<feed><entry><yt:channelId>'+p.channel+'</yt:channelId><yt:videoId>'+v.videoId+'</yt:videoId><title>'+xmlEscape(v.title)+'</title><published>'+publishedAt+'</published><media:description>'+xmlEscape(v.shortDescription)+'</media:description></entry></feed>',publisher);}
+
+export function publisherOEmbed(metadata,videoId,publisher,verifiedAt=new Date().toISOString()){
+ if(publisher!=='nba'||metadata?.type!=='video'||!/^[-\w]{11}$/.test(videoId))return[];
+ let author;try{author=new URL(metadata.author_url);}catch{return[];}
+ if(author.origin!=='https://www.youtube.com'||!['/@NBA','/channel/'+publishers.find(p=>p.id==='nba').channel].includes(author.pathname)||author.search||author.hash)return[];
+ const p=publishers.find(p=>p.id==='nba');const videos=parsePublisherFeed('<feed><entry><yt:channelId>'+p.channel+'</yt:channelId><yt:videoId>'+videoId+'</yt:videoId><title>'+xmlEscape(metadata.title)+'</title><published>'+verifiedAt+'</published><media:description></media:description></entry></feed>','nba');
+ return videos.filter(v=>v.kind==='game').map(v=>({...v,publishedAt:null,verifiedAt,metadataSource:'YouTube oEmbed'}));
+}
+
 async function get(url,options={}){const r=await fetch(url,{...options,signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('HTTP '+r.status);return r;}
 export async function loadPublisherArchive(p,{known=new Set(),pages=3}={}){
  const handles={nba:'NBA',magenta:'magentasportgr',nova:'novasports'};
@@ -13,6 +22,6 @@ export async function loadPublisherArchive(p,{known=new Set(),pages=3}={}){
  for(let i=1;i<pages&&page.continuation&&version;i++){const r=await get('https://www.youtube.com/youtubei/v1/browse?prettyPrint=false',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({context:context||{client:{clientName:'WEB',clientVersion:version}},continuation:page.continuation})});page=uploadPage(await r.json());entries.push(...page.videos);}
  if(!entries.length)throw Error('Empty channel uploads; retained earlier videos');
  const pending=[...new Map(entries.map(v=>[v.id,v])).values()].filter(v=>/^[-\w]{11}$/.test(v.id)&&!known.has(p.channel+'|'+v.id)&&/highlights|nightly recap|στιγμι[οό]τυπ/i.test(v.title));let cursor=0;const videos=[],errors=[];
- await Promise.all(Array.from({length:4},async()=>{while(cursor<pending.length){const v=pending[cursor++];try{const html=await(await get('https://www.youtube.com/watch?v='+v.id)).text(),player=assignedJSON(html,'ytInitialPlayerResponse');const parsed=publisherVideo(player,p.id);videos.push(...parsed);}catch(e){errors.push(v.id+': '+e.message);}}}));
+ await Promise.all(Array.from({length:4},async()=>{while(cursor<pending.length){const v=pending[cursor++];try{const html=await(await get('https://www.youtube.com/watch?v='+v.id)).text(),player=assignedJSON(html,'ytInitialPlayerResponse');let parsed=publisherVideo(player,p.id);if(!parsed.length&&p.id==='nba'&&/full game highlights/i.test(v.title)){const r=await get('https://www.youtube.com/oembed?format=json&url='+encodeURIComponent('https://www.youtube.com/watch?v='+v.id));parsed=publisherOEmbed(await r.json(),v.id,p.id);}if(!parsed.length&&/full game highlights/i.test(v.title))errors.push(v.id+': official video metadata unavailable');videos.push(...parsed);}catch(e){errors.push(v.id+': '+e.message);}}}));
  return{videos,scanned:entries.length,errors};
 }

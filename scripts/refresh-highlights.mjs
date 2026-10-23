@@ -2,7 +2,7 @@ import{readFile,writeFile,mkdir}from'node:fs/promises';
 import{publishers,parsePublisherFeed,parseRecapPlaylists}from'../dist/highlights.js';
 import{loadPublisherArchive}from'./youtube-publisher-archive.mjs';
 import{loadUEFAHighlights}from'./uefa-highlights.mjs';
-const sourceVersion=5;
+const sourceVersion=6;
 const target='dist/snapshots/highlights-2026-27.json';let old;
 try{old=JSON.parse(await readFile(target,'utf8'));}catch{old={season:'2026-27',videos:[]};}
 if(!process.argv.includes('--force')&&old.sourceVersion===sourceVersion&&!old.errors?.length&&Date.now()-Date.parse(old.retrievedAt)<900000){console.log('Highlights index is recent.');process.exit(0);}
@@ -15,9 +15,9 @@ const known=new Set([...(old.videos||[]),...videos].map(v=>(v.channelId||v.publi
 // Channel RSS contains only the newest 15 uploads; busy matchdays need pagination.
 await Promise.all(publishers.filter(p=>['nba','magenta','nova'].includes(p.id)).map(async p=>{try{const archive=await loadPublisherArchive(p,{known});videos.push(...archive.videos);succeeded++;console.log('Publisher archive '+p.id+': scanned '+archive.scanned+', indexed '+archive.videos.length);errors.push(...archive.errors.map(e=>p.label+': '+e));}catch(e){errors.push(p.label+' archive: '+e.message);}}));
 if(!succeeded)console.log('Retaining verified highlights index: '+errors.join('; '));
-const now=Date.now(),all=new Map((old.videos||[]).filter(v=>Date.parse(v.publishedAt)>now-90*86400000).map(v=>[(v.channelId||v.publisher)+'|'+v.videoId,v]));
-for(const v of videos)if(Date.parse(v.publishedAt)>now-90*86400000&&Date.parse(v.publishedAt)<=now+300000)all.set((v.channelId||v.publisher)+'|'+v.videoId,v);
-const next={season:'2026-27',sourceVersion,retrievedAt:new Date().toISOString(),errors,sources:publishers.map(p=>({name:p.label,url:'https://www.youtube.com/channel/'+p.channel})),videos:[...all.values()].sort((a,b)=>Date.parse(b.publishedAt)-Date.parse(a.publishedAt))};
+const now=Date.now(),all=new Map((old.videos||[]).filter(v=>Date.parse(v.publishedAt||v.verifiedAt)>now-90*86400000).map(v=>[(v.channelId||v.publisher)+'|'+v.videoId,v]));
+for(const v of videos)if(Date.parse(v.publishedAt||v.verifiedAt)>now-90*86400000&&Date.parse(v.publishedAt||v.verifiedAt)<=now+300000)all.set((v.channelId||v.publisher)+'|'+v.videoId,v);
+const next={season:'2026-27',sourceVersion,retrievedAt:new Date().toISOString(),errors,sources:publishers.map(p=>({name:p.label,url:'https://www.youtube.com/channel/'+p.channel})),videos:[...all.values()].sort((a,b)=>Date.parse(b.publishedAt||b.verifiedAt)-Date.parse(a.publishedAt||a.verifiedAt))};
 if(process.argv.includes('--dry-run'))console.log('Verified publisher feeds: '+succeeded+'; indexed videos: '+next.videos.length);else{await mkdir('dist/snapshots',{recursive:true});await writeFile(target,JSON.stringify(next,null,2)+'\n');console.log('Highlights index updated: '+next.videos.length);}
 if(errors.length)console.log('Retained earlier entries for unavailable sources: '+errors.join('; '));
 
