@@ -1,12 +1,12 @@
 {
   "season": "2026-27",
-  "sourceVersion": 5,
-  "retrievedAt": "2026-10-23T06:45:29.398Z",
+  "sourceVersion": 6,
+  "retrievedAt": "2026-10-23T06:48:57.385Z",
   "errors": [
-    "Magenta Sport: HTTP 404",
-    "Novasports: HTTP 404",
-    "EuroCup: HTTP 404",
     "NBA: HTTP 404",
+    "Magenta Sport: HTTP 404",
+    "EuroCup: HTTP 404",
+    "Novasports: HTTP 404",
     "EuroLeague: HTTP 404",
     "Magenta Sport archive: Empty channel uploads; retained earlier videos"
   ],
@@ -34,6 +34,354 @@
   ],
   "videos": [
     {
+      "videoId": "bmqwoekTXg8",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "BULLS at BUCKS | NBA PRESEASON FULL GAME HIGHLIGHTS | October 14, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-14",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:57.385Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "ou4fHN6d3Ww",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "NUGGETS at CLIPPERS | NBA PRESEASON FULL GAME HIGHLIGHTS | October 14, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-14",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:56.898Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "KcLfEwwzAw4",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "RAPTORS at KNICKS | NBA PRESEASON FULL GAME HIGHLIGHTS | October 15, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-15",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:56.875Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "bmrciQpiHFI",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "THUNDER at ROCKETS | NBA PRESEASON FULL GAME HIGHLIGHTS | October 15, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-15",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:56.806Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "vILUjksgw2Q",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "HEAT at MAGIC | NBA PRESEASON FULL GAME HIGHLIGHTS | October 16, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-16",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:56.540Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "1UcL1Xxx7sI",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "BUCKS at PACERS | NBA PRESEASON FULL GAME HIGHLIGHTS | October 16, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-16",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:56.339Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "Zwp1XDQlhl8",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "RAPTORS at PISTONS | NBA PRESEASON FULL GAME HIGHLIGHTS | October 16, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-16",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:56.212Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "h0LDSDljJMw",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "CELTICS at 76ERS | NBA PRESEASON FULL GAME HIGHLIGHTS | October 16, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-16",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:56.164Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "4Vk445ZPOCE",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "HORNETS at GRIZZLIES | NBA PRESEASON FULL GAME HIGHLIGHTS | October 16, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-16",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:55.891Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "1VjaB6MynyU",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "KINGS at SPURS | NBA PRESEASON FULL GAME HIGHLIGHTS | October 16, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-16",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:55.747Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "xDunS4-w5Hg",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "TRAIL BLAZERS at WARRIORS | NBA PRESEASON FULL GAME HIGHLIGHTS | October 16, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-16",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:55.508Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "XmFFZxa6tM4",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "TIMBERWOLVES at BULLS | NBA PRESEASON FULL GAME HIGHLIGHTS | October 16, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-16",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:55.419Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "qz8Usmdv0QM",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "WIZARDS at PELICANS | NBA PRESEASON FULL GAME HIGHLIGHTS | October 16, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-16",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:55.212Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "pFRSoI2InLU",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "HAWKS at MAVERICKS | NBA PRESEASON FULL GAME HIGHLIGHTS | October 16, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-16",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:55.164Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "fT671wr14Ys",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "JAZZ at SUNS | NBA PRESEASON FULL GAME HIGHLIGHTS | October 16, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-16",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:54.754Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "NZmml7nxVaI",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "CELTICS at PISTONS | FULL GAME HIGHLIGHTS | October 20, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-20",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:54.561Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "qhU2hqJ9rhc",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "NUGGETS at LAKERS | NBA PRESEASON FULL GAME HIGHLIGHTS | October 16, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-16",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:54.497Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "mF7pmQEkS_A",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "76ERS at KNICKS | FULL GAME HIGHLIGHTS | October 20, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-20",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:54.340Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "PuRFyx_FSbs",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "THUNDER at SPURS | FULL GAME HIGHLIGHTS | October 20, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-20",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:54.074Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "Dwea5DcKfK4",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "HAWKS at MAGIC | FULL GAME HIGHLIGHTS | October 21, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-21",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:53.893Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "q1QqueBYMQo",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "BUCKS at WIZARDS | FULL GAME HIGHLIGHTS | October 21, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-21",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:53.804Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "pLXx9k6RYMY",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "TIMBERWOLVES at HEAT | FULL GAME HIGHLIGHTS | October 21, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-21",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:53.621Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "y1pbO1uDxUY",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "BULLS at RAPTORS | FULL GAME HIGHLIGHTS | October 21, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-21",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:53.332Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "3Ttdjq57W9E",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "HORNETS at NETS | FULL GAME HIGHLIGHTS | October 21, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-21",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:53.261Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "dqVSIkG1s0Q",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "PACERS at PELICANS | FULL GAME HIGHLIGHTS | October 21, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-21",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:53.202Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "6IVDF14w-Cc",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "JAZZ at GRIZZLIES | FULL GAME HIGHLIGHTS | October 21, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-21",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:53.174Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "2SHdd_RRsRw",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "CAVALIERS at 76ERS | FULL GAME HIGHLIGHTS | October 22, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-22",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:52.695Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "aEAJfS_6J0g",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "NUGGETS at THUNDER | FULL GAME HIGHLIGHTS | October 22, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-22",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:52.570Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "4hNRkmyNe90",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "MAVERICKS at ROCKETS | FULL GAME HIGHLIGHTS | October 21, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-21",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T06:48:52.520Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
       "videoId": "lDHqeNE3kRI",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
       "title": "Μπράγκα - Γάνδη 2 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
@@ -60,7 +408,7 @@
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-22T23:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e41ef9d9ad-07d129cc4d83-1000--europa-league-highlights-besiktas-2-2-crystal-palace/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21e41ef9d9ad-07d129cc4d83-1000--europa-league-highlights-besiktas-2-2-crystal-palace/",
       "videoId": "02aa-21e41ef9d9ad-07d129cc4d83-1000"
     },
     {
@@ -140,7 +488,7 @@
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-22T22:29:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e4261c8548-951f3ce412dd-1000--europa-league-highlights-lillestrom-0-6-real-sociedad/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21e4261c8548-951f3ce412dd-1000--europa-league-highlights-lillestrom-0-6-real-sociedad/",
       "videoId": "02aa-21e4261c8548-951f3ce412dd-1000"
     },
     {
@@ -150,7 +498,7 @@
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-22T22:26:24+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e4251a0c41-e22b2afd9d85-1000--europa-league-highlights-celtic-1-2-celta/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21e4251a0c41-e22b2afd9d85-1000--europa-league-highlights-celtic-1-2-celta/",
       "videoId": "02aa-21e4251a0c41-e22b2afd9d85-1000"
     },
     {
@@ -251,7 +599,7 @@
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-22T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e41b1a746e-23943079d0c5-1000--europa-league-highlights-bournemouth-3-0-milan/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21e41b1a746e-23943079d0c5-1000--europa-league-highlights-bournemouth-3-0-milan/",
       "videoId": "02aa-21e41b1a746e-23943079d0c5-1000"
     },
     {
@@ -261,7 +609,7 @@
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-22T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e3ed6a03ed-3965738ba8c6-1000--europa-league-highlights-juventus-2-2-rennes/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21e3ed6a03ed-3965738ba8c6-1000--europa-league-highlights-juventus-2-2-rennes/",
       "videoId": "02aa-21e3ed6a03ed-3965738ba8c6-1000"
     },
     {
@@ -820,7 +1168,7 @@
       "gameDate": "2026-10-16",
       "publishedAt": "2026-10-16T14:51:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d6140858b4-1de467f1aaeb-1000--europa-league-highlights-hoffenheim-2-3-besiktas/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d6140858b4-1de467f1aaeb-1000--europa-league-highlights-hoffenheim-2-3-besiktas/",
       "videoId": "02aa-21d6140858b4-1de467f1aaeb-1000"
     },
     {
@@ -830,7 +1178,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:49:54+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d6189af407-8c713da7c3af-1000--europa-league-highlights-benfica-4-1-celtic/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d6189af407-8c713da7c3af-1000--europa-league-highlights-benfica-4-1-celtic/",
       "videoId": "02aa-21d6189af407-8c713da7c3af-1000"
     },
     {
@@ -840,7 +1188,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:47:20+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d617b14f94-8b0307ed7f1a-1000--europa-league-highlights-celta-1-2-juventus/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d617b14f94-8b0307ed7f1a-1000--europa-league-highlights-celta-1-2-juventus/",
       "videoId": "02aa-21d617b14f94-8b0307ed7f1a-1000"
     },
     {
@@ -850,7 +1198,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:45:37+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d61713a2e9-8275a1aa3546-1000--europa-league-highlights-bournemouth-3-0-sturm-graz/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d61713a2e9-8275a1aa3546-1000--europa-league-highlights-bournemouth-3-0-sturm-graz/",
       "videoId": "02aa-21d61713a2e9-8275a1aa3546-1000"
     },
     {
@@ -860,7 +1208,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:45:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d616e247c0-14e744302d2c-1000--europa-league-highlights-marseille-0-1-olympiacos/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d616e247c0-14e744302d2c-1000--europa-league-highlights-marseille-0-1-olympiacos/",
       "videoId": "02aa-21d616e247c0-14e744302d2c-1000"
     },
     {
@@ -900,7 +1248,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d5f2afbe4c-e223f9a42175-1000--europa-league-highlights-torreense-1-2-sunderland/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d5f2afbe4c-e223f9a42175-1000--europa-league-highlights-torreense-1-2-sunderland/",
       "videoId": "02aa-21d5f2afbe4c-e223f9a42175-1000"
     },
     {
@@ -910,7 +1258,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d5e7a4357f-3b02c2ecc44f-1000--europa-league-highlights-salzburg-0-4-milan/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d5e7a4357f-3b02c2ecc44f-1000--europa-league-highlights-salzburg-0-4-milan/",
       "videoId": "02aa-21d5e7a4357f-3b02c2ecc44f-1000"
     },
     {
@@ -920,7 +1268,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d5ed7c68d7-b67d4e3526be-1000--europa-league-highlights-lyon-3-2-crystal-palace/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d5ed7c68d7-b67d4e3526be-1000--europa-league-highlights-lyon-3-2-crystal-palace/",
       "videoId": "02aa-21d5ed7c68d7-b67d4e3526be-1000"
     },
     {
@@ -960,7 +1308,7 @@
       "gameDate": "2026-09-17",
       "publishedAt": "2026-09-17T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219db3baaf73-4926fd29a53a-1000--europa-league-highlights-besiktas-4-1-marseille/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219db3baaf73-4926fd29a53a-1000--europa-league-highlights-besiktas-4-1-marseille/",
       "videoId": "02a9-219db3baaf73-4926fd29a53a-1000"
     },
     {
@@ -970,7 +1318,7 @@
       "gameDate": "2026-09-17",
       "publishedAt": "2026-09-17T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219db2731947-7b90dd3286b3-1000--europa-league-highlights-real-sociedad-1-2-bournemouth/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219db2731947-7b90dd3286b3-1000--europa-league-highlights-real-sociedad-1-2-bournemouth/",
       "videoId": "02a9-219db2731947-7b90dd3286b3-1000"
     },
     {
@@ -980,7 +1328,7 @@
       "gameDate": "2026-09-17",
       "publishedAt": "2026-09-17T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219db5abdc5f-f57e0b80cbab-1000--europa-league-highlights-celtic-1-3-ferencvaros/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219db5abdc5f-f57e0b80cbab-1000--europa-league-highlights-celtic-1-3-ferencvaros/",
       "videoId": "02a9-219db5abdc5f-f57e0b80cbab-1000"
     },
     {
@@ -990,7 +1338,7 @@
       "gameDate": "2026-09-17",
       "publishedAt": "2026-09-17T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219db34a0009-5121057f7ec6-1000--europa-league-highlights-crystal-palace-4-0-lech-poznan/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219db34a0009-5121057f7ec6-1000--europa-league-highlights-crystal-palace-4-0-lech-poznan/",
       "videoId": "02a9-219db34a0009-5121057f7ec6-1000"
     },
     {
@@ -1000,7 +1348,7 @@
       "gameDate": "2026-09-16",
       "publishedAt": "2026-09-16T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219bb924c1a0-29aaa735c81c-1000--europa-league-highlights-milan-0-2-benfica/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219bb924c1a0-29aaa735c81c-1000--europa-league-highlights-milan-0-2-benfica/",
       "videoId": "02a9-219bb924c1a0-29aaa735c81c-1000"
     },
     {
@@ -1010,7 +1358,7 @@
       "gameDate": "2026-09-16",
       "publishedAt": "2026-09-16T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219bbf2917cd-e7aa52e40149-1000--europa-league-highlights-anderlecht-1-2-olympique-lyonnais/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219bbf2917cd-e7aa52e40149-1000--europa-league-highlights-anderlecht-1-2-olympique-lyonnais/",
       "videoId": "02a9-219bbf2917cd-e7aa52e40149-1000"
     },
     {
@@ -1020,7 +1368,7 @@
       "gameDate": "2026-09-16",
       "publishedAt": "2026-09-16T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219bbe130a23-64827612acf7-1000--europa-league-highlights-sunderland-1-0-az-alkmaar/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219bbe130a23-64827612acf7-1000--europa-league-highlights-sunderland-1-0-az-alkmaar/",
       "videoId": "02a9-219bbe130a23-64827612acf7-1000"
     }
   ]

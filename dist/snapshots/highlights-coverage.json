@@ -1,10 +1,10 @@
 {
-  "checkedAt": "2026-10-23T06:45:29.410Z",
+  "checkedAt": "2026-10-23T06:48:57.394Z",
   "sourceErrors": [
-    "Magenta Sport: HTTP 404",
-    "Novasports: HTTP 404",
-    "EuroCup: HTTP 404",
     "NBA: HTTP 404",
+    "Magenta Sport: HTTP 404",
+    "EuroCup: HTTP 404",
+    "Novasports: HTTP 404",
     "EuroLeague: HTTP 404",
     "Magenta Sport archive: Empty channel uploads; retained earlier videos"
   ],
@@ -129,22 +129,25 @@
     },
     "nba": {
       "finished": 15,
-      "covered": 13,
-      "uncoveredMatches": [
+      "covered": 15,
+      "uncoveredMatches": [],
+      "unmatchedVideos": [
         {
-          "home": "Philadelphia 76ers",
-          "away": "Cleveland Cavaliers",
-          "date": "2026-10-23",
-          "time": "02:00"
+          "videoId": "NZmml7nxVaI",
+          "title": "CELTICS at PISTONS | FULL GAME HIGHLIGHTS | October 20, 2026",
+          "gameDate": "2026-10-20"
         },
         {
-          "home": "Oklahoma City Thunder",
-          "away": "Denver Nuggets",
-          "date": "2026-10-23",
-          "time": "04:30"
+          "videoId": "mF7pmQEkS_A",
+          "title": "76ERS at KNICKS | FULL GAME HIGHLIGHTS | October 20, 2026",
+          "gameDate": "2026-10-20"
+        },
+        {
+          "videoId": "PuRFyx_FSbs",
+          "title": "THUNDER at SPURS | FULL GAME HIGHLIGHTS | October 20, 2026",
+          "gameDate": "2026-10-20"
         }
-      ],
-      "unmatchedVideos": []
+      ]
     }
   }
 }
