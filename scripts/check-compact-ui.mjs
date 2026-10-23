@@ -14,7 +14,7 @@ try{
   return route.abort();
  });
  await page.goto(origin);const loaded=()=>page.locator('#refresh:not([disabled])').waitFor();await loaded();
- for(const width of [1280,390,320]){
+ for(const width of [1280,390,320]){const heading=await page.locator('#page-title').boundingBox(),refresh=await page.locator('#refresh').boundingBox();assert.ok(refresh.x>heading.x+heading.width-2&&Math.abs(refresh.y-heading.y)<20,'Refresh stays beside the title');
   await page.setViewportSize({width,height:900});assert.equal(await page.locator('.match-score,.team-score').count(),0,'TV omits all score and LIVE rows');assert.equal(await page.locator('#live-only').isVisible(),false);
   const aligned=await page.locator('.match').evaluateAll(rows=>rows.every(row=>{const title=row.querySelector('.fixture-title'),channel=row.querySelector('.broadcast-channel');return row.querySelector('.match-time').getBoundingClientRect().bottom<=title.getBoundingClientRect().top&&getComputedStyle(title).textAlign==='left'&&(!channel||Math.abs(title.getBoundingClientRect().left-channel.getBoundingClientRect().left)<2);}));assert.ok(aligned,'TV fixtures and channels share the left edge');assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth));
  }await page.setViewportSize({width:1280,height:900});assert.equal(await page.locator('.compact-match').count(),0);assert.ok(await page.locator('.fixture-dash').count()>0,'TV retains the original side-by-side teams');await page.locator('#top-nav [data-tab="football"]').click();await loaded();await page.locator('#competition').selectOption('sl');await loaded();await page.locator('#round').selectOption('');

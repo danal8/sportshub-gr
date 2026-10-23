@@ -203,3 +203,7 @@ body[data-tab=tv] .match.tv-favorite-match{position:relative;padding-inline-star
 @media(max-width:700px){body[data-tab=tv] .match.tv-favorite-match{padding-inline-start:51px}.fixture-favorite{inset-inline-start:5px}#favorites-only{min-height:35px}}
 
 @media(max-width:700px){body[data-tab=matches] .day-bar>label:not(.check){min-width:0;flex:1 1 80px}body[data-tab=matches] .day-bar input[type=date]{min-width:0;padding-inline:2px;font-size:11px}body[data-tab=matches] #favorites-only{min-width:30px;width:30px;padding:3px;margin-inline-start:0}body[data-tab=matches] #live-only{padding-inline:5px}}
+
+/* Keep refresh beside the heading at narrow widths. */
+body .intro{flex-wrap:nowrap;gap:8px}body .intro>div{flex:1 1 auto;min-width:0}body .intro #refresh{margin-inline-start:auto;align-self:center}#source-warning{padding-top:8px;color:#dfc88d}
+@media(max-width:600px){.intro h1{font-size:19px;letter-spacing:-.5px}}
