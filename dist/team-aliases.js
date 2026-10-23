@@ -1,5 +1,9 @@
 // Explicit spelling aliases only; no fuzzy matching between different clubs.
 const rows=[
+['FC Ararat-Armenia','Ararat-Armenia','Αραράτ'],['Union Saint-Gilloise','Union St.-Gilloise','Ουνιόν Σ. Ζ.'],['Jagiellonia Bialystok','Γιαγκιελόνια'],["Inter D’Escaldes","Inter D'Escaldes",'Ίντερ Κλαμπ Εσκάλντες'],['Egnatia','Εγνάτια'],
+
+['Sparta Praha','Sparta Prag','Sparta Prague','Σπάρτα Πράγας','Σπάρτας Πράγας'],['Olympique Lyon','Lyon','Λιόν','Λυών'],['Dinamo Zagreb','Ντιναμό Ζάγκρεμπ','Ντινάμο Ζάγκρεμπ'],
+
 ['FC Ararat-Armenia','Ararat-Armenia','Αραράτ Αρμενία','Αραράτ-Αρμενία'],['AZ Alkmaar','Άλκμααρ','Αλκμάαρ'],
 ['Ferencváros Budapest','Ferencvaros','Φερεντσβάρος'],['SC União Torreense','Torreense','Τορέενσε','Τορεένσε'],
 ['Dinamo Zagreb','Ντινάμο Ζάγκρεμπ'],['NEC Nijmegen','NEC','Ναϊμέγκεν'],

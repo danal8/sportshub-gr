@@ -1,13 +1,9 @@
 {
   "season": "2026-27",
-  "sourceVersion": 6,
-  "retrievedAt": "2026-10-23T06:48:57.385Z",
+  "sourceVersion": 7,
+  "retrievedAt": "2026-10-23T08:59:42.785Z",
   "errors": [
-    "NBA: HTTP 404",
-    "Magenta Sport: HTTP 404",
-    "EuroCup: HTTP 404",
-    "Novasports: HTTP 404",
-    "EuroLeague: HTTP 404",
+    "Novasports archive: HTTP 500",
     "Magenta Sport archive: Empty channel uploads; retained earlier videos"
   ],
   "sources": [
@@ -33,6 +29,114 @@
     }
   ],
   "videos": [
+    {
+      "videoId": "NXfkIJTUPCU",
+      "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
+      "title": "Νόρντζελαντ - ΤΣΣΚΑ Σόφιας 2 - 2 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "publishedAt": null,
+      "publisher": "magenta",
+      "competition": "conference",
+      "gameDate": "2026-10-22",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T08:59:42.784Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "wOoiZh5kjrg",
+      "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
+      "title": "Φερεντσβάρος - Τορεένσε 4 - 1 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+      "publishedAt": null,
+      "publisher": "magenta",
+      "competition": "europa",
+      "gameDate": "2026-10-22",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T08:59:42.747Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "1n8q0SHkH3E",
+      "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
+      "title": "Γιάμπλονετς - Μπράιτον 0 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "publishedAt": null,
+      "publisher": "magenta",
+      "competition": "conference",
+      "gameDate": "2026-10-22",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T08:59:42.743Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "VOvWE4sb-uA",
+      "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
+      "title": "Ερυθρός Αστέρας - Κοπεγχάγη 2 - 2 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "publishedAt": null,
+      "publisher": "magenta",
+      "competition": "conference",
+      "gameDate": "2026-10-22",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T08:59:42.741Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "cR9YoHpjdSw",
+      "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
+      "title": "Ίντερ Κλαμπ Εσκάλντες - Κραϊόβα 1 - 3 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "publishedAt": null,
+      "publisher": "magenta",
+      "competition": "conference",
+      "gameDate": "2026-10-22",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T08:59:42.737Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "FRKNYbOTGxY",
+      "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
+      "title": "Γιαγκιελόνια - Άντερλεχτ 0 - 3 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+      "publishedAt": null,
+      "publisher": "magenta",
+      "competition": "europa",
+      "gameDate": "2026-10-22",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T08:59:42.699Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "7l3VVgEqkEA",
+      "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
+      "title": "Ουνιόν Σ. Ζ. - Χάποελ Μπερ Σεβά 4 - 0 | Highlights - UEFA Europa League 26/27 - 22/10/26 | MagentaTV",
+      "publishedAt": null,
+      "publisher": "magenta",
+      "competition": "europa",
+      "gameDate": "2026-10-22",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T08:59:42.698Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "HMp39sZR9f0",
+      "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
+      "title": "Αραράτ - Αλκμάαρ 0 - 4 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+      "publishedAt": null,
+      "publisher": "magenta",
+      "competition": "europa",
+      "gameDate": "2026-10-22",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T08:59:42.694Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "fttmYlm3eLU",
+      "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
+      "title": "Μονακό - Φράιμπουργκ 3 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "publishedAt": null,
+      "publisher": "magenta",
+      "competition": "conference",
+      "gameDate": "2026-10-22",
+      "kind": "game",
+      "verifiedAt": "2026-10-23T08:59:42.689Z",
+      "metadataSource": "YouTube oEmbed"
+    },
     {
       "videoId": "bmqwoekTXg8",
       "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
@@ -358,18 +462,6 @@
       "metadataSource": "YouTube oEmbed"
     },
     {
-      "videoId": "aEAJfS_6J0g",
-      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
-      "title": "NUGGETS at THUNDER | FULL GAME HIGHLIGHTS | October 22, 2026",
-      "publishedAt": null,
-      "publisher": "nba",
-      "competition": "nba",
-      "gameDate": "2026-10-22",
-      "kind": "game",
-      "verifiedAt": "2026-10-23T06:48:52.570Z",
-      "metadataSource": "YouTube oEmbed"
-    },
-    {
       "videoId": "4hNRkmyNe90",
       "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
       "title": "MAVERICKS at ROCKETS | FULL GAME HIGHLIGHTS | October 21, 2026",
@@ -380,6 +472,68 @@
       "kind": "game",
       "verifiedAt": "2026-10-23T06:48:52.520Z",
       "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "tIsw4QK1Ung",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "NBA's Nightly Recap | October 22, 2026",
+      "publishedAt": "2026-10-23T06:12:40+00:00",
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-22",
+      "kind": "chapters",
+      "chapters": [
+        {
+          "seconds": 0,
+          "label": "Cavaliers at 76ers"
+        },
+        {
+          "seconds": 199,
+          "label": "Nuggets at Thunder"
+        },
+        {
+          "seconds": 390,
+          "label": "Player of the Night"
+        },
+        {
+          "seconds": 482,
+          "label": "Top 5 Plays of the Night"
+        },
+        {
+          "seconds": 572,
+          "label": "Sounds of the Night"
+        }
+      ]
+    },
+    {
+      "videoId": "aEAJfS_6J0g",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "NUGGETS at THUNDER | FULL GAME HIGHLIGHTS | October 22, 2026",
+      "publishedAt": "2026-10-23T04:37:06+00:00",
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-22",
+      "kind": "game"
+    },
+    {
+      "videoId": "lJFg3r0ERl4",
+      "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
+      "title": "Μίντιλαντ - Σεντ Τρούιντεν 0 - 1 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "publishedAt": "2026-10-22T23:19:39+00:00",
+      "publisher": "magenta",
+      "competition": "conference",
+      "gameDate": "2026-10-22",
+      "kind": "game"
+    },
+    {
+      "videoId": "ce3bKbCWaAo",
+      "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
+      "title": "Άαρχους - Εγνάτια 1 - 1 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "publishedAt": "2026-10-22T23:17:00+00:00",
+      "publisher": "magenta",
+      "competition": "conference",
+      "gameDate": "2026-10-22",
+      "kind": "game"
     },
     {
       "videoId": "lDHqeNE3kRI",
@@ -408,7 +562,7 @@
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-22T23:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21e41ef9d9ad-07d129cc4d83-1000--europa-league-highlights-besiktas-2-2-crystal-palace/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e41ef9d9ad-07d129cc4d83-1000--europa-league-highlights-besiktas-2-2-crystal-palace/",
       "videoId": "02aa-21e41ef9d9ad-07d129cc4d83-1000"
     },
     {
@@ -488,7 +642,7 @@
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-22T22:29:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21e4261c8548-951f3ce412dd-1000--europa-league-highlights-lillestrom-0-6-real-sociedad/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e4261c8548-951f3ce412dd-1000--europa-league-highlights-lillestrom-0-6-real-sociedad/",
       "videoId": "02aa-21e4261c8548-951f3ce412dd-1000"
     },
     {
@@ -498,7 +652,7 @@
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-22T22:26:24+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21e4251a0c41-e22b2afd9d85-1000--europa-league-highlights-celtic-1-2-celta/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e4251a0c41-e22b2afd9d85-1000--europa-league-highlights-celtic-1-2-celta/",
       "videoId": "02aa-21e4251a0c41-e22b2afd9d85-1000"
     },
     {
@@ -599,7 +753,7 @@
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-22T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21e41b1a746e-23943079d0c5-1000--europa-league-highlights-bournemouth-3-0-milan/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e41b1a746e-23943079d0c5-1000--europa-league-highlights-bournemouth-3-0-milan/",
       "videoId": "02aa-21e41b1a746e-23943079d0c5-1000"
     },
     {
@@ -609,7 +763,7 @@
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-22T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21e3ed6a03ed-3965738ba8c6-1000--europa-league-highlights-juventus-2-2-rennes/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e3ed6a03ed-3965738ba8c6-1000--europa-league-highlights-juventus-2-2-rennes/",
       "videoId": "02aa-21e3ed6a03ed-3965738ba8c6-1000"
     },
     {
@@ -621,6 +775,149 @@
       "kind": "game",
       "url": "https://www.uefa.com/uefaconferenceleague/video/highlights/02aa-21e40051fb51-f7ccbb247b63-1000--conference-league-highlights-trabzonspor-2-0-hearts/",
       "videoId": "02aa-21e40051fb51-f7ccbb247b63-1000"
+    },
+    {
+      "publisher": "press-player",
+      "competition": "europa",
+      "title": "Ολυμπιακός - Σπάρτας Πράγας 1-0",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-23T00:53:00+03:00",
+      "kind": "game",
+      "url": "https://platform.firstview.gr/player/NTI3MTEyM2MtMTllZS00YWQ0LWE3ZWItMWEwMTU2ZjU1MTllLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+      "sourceURL": "https://www.protothema.gr/sports/article/1899183/o-olubiakos-1-0-ti-sparta-sunehizei-aittitos-sto-europa-den-ta-katafere-o-ofi-me-ti-leverkouzen-thriamvos/",
+      "videoId": "NTI3MTEyM2MtMTllZS00YWQ0LWE3ZWItMWEwMTU2ZjU1MTllLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ="
+    },
+    {
+      "publisher": "press-player",
+      "competition": "europa",
+      "title": "ΟΦΗ (Ελλάδα) - Λεβερκούζεν (Γερμανία) 0-2",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-23T00:53:00+03:00",
+      "kind": "game",
+      "url": "https://platform.firstview.gr/player/MGZjYjIyN2MtNTA3ZC00MDFjLTg1NmEtZTZiMThmYTU2NDE1LDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+      "sourceURL": "https://www.protothema.gr/sports/article/1899183/o-olubiakos-1-0-ti-sparta-sunehizei-aittitos-sto-europa-den-ta-katafere-o-ofi-me-ti-leverkouzen-thriamvos/",
+      "videoId": "MGZjYjIyN2MtNTA3ZC00MDFjLTg1NmEtZTZiMThmYTU2NDE1LDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ="
+    },
+    {
+      "publisher": "press-player",
+      "competition": "europa",
+      "title": "Γιουβέντους (Ιταλία) - Ρεν (Γαλλία) 2-2",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-23T00:53:00+03:00",
+      "kind": "game",
+      "url": "https://platform.firstview.gr/player/NTZiYTViY2ItZWRiMC00NDIxLTk0OTMtYWRiM2Q3MjEyMDVhLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+      "sourceURL": "https://www.protothema.gr/sports/article/1899183/o-olubiakos-1-0-ti-sparta-sunehizei-aittitos-sto-europa-den-ta-katafere-o-ofi-me-ti-leverkouzen-thriamvos/",
+      "videoId": "NTZiYTViY2ItZWRiMC00NDIxLTk0OTMtYWRiM2Q3MjEyMDVhLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ="
+    },
+    {
+      "publisher": "press-player",
+      "competition": "europa",
+      "title": "Ντιναμό Ζάγκρεμπ (Κροατία) - Ναϊμέγκεν (Ολλανδία) 2-4",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-23T00:53:00+03:00",
+      "kind": "game",
+      "url": "https://platform.firstview.gr/player/ODJmZGU2NjEtOTQ1Zi00MWM1LWFkMjgtZGVlNWQyYTM4MGZmLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+      "sourceURL": "https://www.protothema.gr/sports/article/1899183/o-olubiakos-1-0-ti-sparta-sunehizei-aittitos-sto-europa-den-ta-katafere-o-ofi-me-ti-leverkouzen-thriamvos/",
+      "videoId": "ODJmZGU2NjEtOTQ1Zi00MWM1LWFkMjgtZGVlNWQyYTM4MGZmLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ="
+    },
+    {
+      "publisher": "press-player",
+      "competition": "europa",
+      "title": "Στουρμ Γκρατς (Αυστρία) - Μαρσέιγ (Γαλλία) 1-0",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-23T00:53:00+03:00",
+      "kind": "game",
+      "url": "https://platform.firstview.gr/player/MjUzYmEwYjktYmQ3MC00MzUyLTg0NTMtNWNjZmM5MWI3MTNhLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+      "sourceURL": "https://www.protothema.gr/sports/article/1899183/o-olubiakos-1-0-ti-sparta-sunehizei-aittitos-sto-europa-den-ta-katafere-o-ofi-me-ti-leverkouzen-thriamvos/",
+      "videoId": "MjUzYmEwYjktYmQ3MC00MzUyLTg0NTMtNWNjZmM5MWI3MTNhLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ="
+    },
+    {
+      "publisher": "press-player",
+      "competition": "europa",
+      "title": "Λεχ Πόζναν (Πολωνία) - Σάντερλαντ (Αγγλία) 1-1",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-23T00:53:00+03:00",
+      "kind": "game",
+      "url": "https://platform.firstview.gr/player/MjU5MDRmODgtMDk0MC00NmQ4LTliNzQtZTA5YzdiN2E5MWQ2LDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+      "sourceURL": "https://www.protothema.gr/sports/article/1899183/o-olubiakos-1-0-ti-sparta-sunehizei-aittitos-sto-europa-den-ta-katafere-o-ofi-me-ti-leverkouzen-thriamvos/",
+      "videoId": "MjU5MDRmODgtMDk0MC00NmQ4LTliNzQtZTA5YzdiN2E5MWQ2LDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ="
+    },
+    {
+      "publisher": "press-player",
+      "competition": "europa",
+      "title": "Σέλτικ (Σκωτία) - Θέλτα (Ισπανία) 1-2",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-23T00:53:00+03:00",
+      "kind": "game",
+      "url": "https://platform.firstview.gr/player/ODI4ODNmNDAtMGNiNi00NzcxLWI1NTctOGM5NTgwZDM1NjlkLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+      "sourceURL": "https://www.protothema.gr/sports/article/1899183/o-olubiakos-1-0-ti-sparta-sunehizei-aittitos-sto-europa-den-ta-katafere-o-ofi-me-ti-leverkouzen-thriamvos/",
+      "videoId": "ODI4ODNmNDAtMGNiNi00NzcxLWI1NTctOGM5NTgwZDM1NjlkLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ="
+    },
+    {
+      "publisher": "press-player",
+      "competition": "europa",
+      "title": "Μπόρνμουθ (Αγγλία) - Μίλαν (Ιταλία) 3-0",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-23T00:53:00+03:00",
+      "kind": "game",
+      "url": "https://platform.firstview.gr/player/Nzg4MDU2OGUtNTUzMS00NTMwLWEwZmMtYzIyYjdlYjgyNzczLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+      "sourceURL": "https://www.protothema.gr/sports/article/1899183/o-olubiakos-1-0-ti-sparta-sunehizei-aittitos-sto-europa-den-ta-katafere-o-ofi-me-ti-leverkouzen-thriamvos/",
+      "videoId": "Nzg4MDU2OGUtNTUzMS00NTMwLWEwZmMtYzIyYjdlYjgyNzczLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ="
+    },
+    {
+      "publisher": "press-player",
+      "competition": "europa",
+      "title": "Μπεσίκτας (Τουρκία) - Κρίσταλ Πάλας (Αγγλία) 2-2",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-23T00:53:00+03:00",
+      "kind": "game",
+      "url": "https://platform.firstview.gr/player/Y2ViNjM2NzItY2NkMS00MmZmLWE2MDktYmEwNTU1ZTBmMDExLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+      "sourceURL": "https://www.protothema.gr/sports/article/1899183/o-olubiakos-1-0-ti-sparta-sunehizei-aittitos-sto-europa-den-ta-katafere-o-ofi-me-ti-leverkouzen-thriamvos/",
+      "videoId": "Y2ViNjM2NzItY2NkMS00MmZmLWE2MDktYmEwNTU1ZTBmMDExLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ="
+    },
+    {
+      "publisher": "press-player",
+      "competition": "europa",
+      "title": "Ομόνοια (Κύπρος) - Μπενφίκα (Πορτογαλία) 1-4",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-23T00:53:00+03:00",
+      "kind": "game",
+      "url": "https://platform.firstview.gr/player/MTU1ZTU3NzctZTNkOS00MTMxLWJkOGEtMDJmNjVmMzNkYjhjLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+      "sourceURL": "https://www.protothema.gr/sports/article/1899183/o-olubiakos-1-0-ti-sparta-sunehizei-aittitos-sto-europa-den-ta-katafere-o-ofi-me-ti-leverkouzen-thriamvos/",
+      "videoId": "MTU1ZTU3NzctZTNkOS00MTMxLWJkOGEtMDJmNjVmMzNkYjhjLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ="
+    },
+    {
+      "publisher": "press-player",
+      "competition": "europa",
+      "title": "Χόφενχαϊμ (Γερμανία) - Λιόν (Γαλλία) 3-0",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-23T00:53:00+03:00",
+      "kind": "game",
+      "url": "https://platform.firstview.gr/player/NTdkZjc4ZDMtZjA0MS00ZDg0LTk5N2UtODViYzViY2IxZjk4LDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+      "sourceURL": "https://www.protothema.gr/sports/article/1899183/o-olubiakos-1-0-ti-sparta-sunehizei-aittitos-sto-europa-den-ta-katafere-o-ofi-me-ti-leverkouzen-thriamvos/",
+      "videoId": "NTdkZjc4ZDMtZjA0MS00ZDg0LTk5N2UtODViYzViY2IxZjk4LDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ="
+    },
+    {
+      "publisher": "press-player",
+      "competition": "conference",
+      "title": "Καϊράτ Αλμάτι (Καζακστάν) - Παναθηναϊκός (Ελλάδα) 1-5",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-23T00:53:00+03:00",
+      "kind": "game",
+      "url": "https://platform.firstview.gr/player/OWU3YmE5ZjQtYTAyMC00YjJkLThiM2EtYjQ4ZGFiYzgxZDAzLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+      "sourceURL": "https://www.protothema.gr/sports/article/1899183/o-olubiakos-1-0-ti-sparta-sunehizei-aittitos-sto-europa-den-ta-katafere-o-ofi-me-ti-leverkouzen-thriamvos/",
+      "videoId": "OWU3YmE5ZjQtYTAyMC00YjJkLThiM2EtYjQ4ZGFiYzgxZDAzLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ="
+    },
+    {
+      "publisher": "press-player",
+      "competition": "conference",
+      "title": "Πάφος (Κύπρος) - Ρίγα (Λετονία) 1-1",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-23T00:53:00+03:00",
+      "kind": "game",
+      "url": "https://platform.firstview.gr/player/NDMzZDEzYzctYzQ1Ny00ODdhLWIxMTktYzI1MmE1ZDdkMjZhLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+      "sourceURL": "https://www.protothema.gr/sports/article/1899183/o-olubiakos-1-0-ti-sparta-sunehizei-aittitos-sto-europa-den-ta-katafere-o-ofi-me-ti-leverkouzen-thriamvos/",
+      "videoId": "NDMzZDEzYzctYzQ1Ny00ODdhLWIxMTktYzI1MmE1ZDdkMjZhLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ="
     },
     {
       "videoId": "BCjXbmR1TZY",
@@ -1168,7 +1465,7 @@
       "gameDate": "2026-10-16",
       "publishedAt": "2026-10-16T14:51:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d6140858b4-1de467f1aaeb-1000--europa-league-highlights-hoffenheim-2-3-besiktas/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d6140858b4-1de467f1aaeb-1000--europa-league-highlights-hoffenheim-2-3-besiktas/",
       "videoId": "02aa-21d6140858b4-1de467f1aaeb-1000"
     },
     {
@@ -1178,7 +1475,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:49:54+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d6189af407-8c713da7c3af-1000--europa-league-highlights-benfica-4-1-celtic/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d6189af407-8c713da7c3af-1000--europa-league-highlights-benfica-4-1-celtic/",
       "videoId": "02aa-21d6189af407-8c713da7c3af-1000"
     },
     {
@@ -1188,7 +1485,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:47:20+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d617b14f94-8b0307ed7f1a-1000--europa-league-highlights-celta-1-2-juventus/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d617b14f94-8b0307ed7f1a-1000--europa-league-highlights-celta-1-2-juventus/",
       "videoId": "02aa-21d617b14f94-8b0307ed7f1a-1000"
     },
     {
@@ -1198,7 +1495,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:45:37+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d61713a2e9-8275a1aa3546-1000--europa-league-highlights-bournemouth-3-0-sturm-graz/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d61713a2e9-8275a1aa3546-1000--europa-league-highlights-bournemouth-3-0-sturm-graz/",
       "videoId": "02aa-21d61713a2e9-8275a1aa3546-1000"
     },
     {
@@ -1208,7 +1505,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:45:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d616e247c0-14e744302d2c-1000--europa-league-highlights-marseille-0-1-olympiacos/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d616e247c0-14e744302d2c-1000--europa-league-highlights-marseille-0-1-olympiacos/",
       "videoId": "02aa-21d616e247c0-14e744302d2c-1000"
     },
     {
@@ -1248,7 +1545,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d5f2afbe4c-e223f9a42175-1000--europa-league-highlights-torreense-1-2-sunderland/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d5f2afbe4c-e223f9a42175-1000--europa-league-highlights-torreense-1-2-sunderland/",
       "videoId": "02aa-21d5f2afbe4c-e223f9a42175-1000"
     },
     {
@@ -1258,7 +1555,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d5e7a4357f-3b02c2ecc44f-1000--europa-league-highlights-salzburg-0-4-milan/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d5e7a4357f-3b02c2ecc44f-1000--europa-league-highlights-salzburg-0-4-milan/",
       "videoId": "02aa-21d5e7a4357f-3b02c2ecc44f-1000"
     },
     {
@@ -1268,7 +1565,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d5ed7c68d7-b67d4e3526be-1000--europa-league-highlights-lyon-3-2-crystal-palace/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d5ed7c68d7-b67d4e3526be-1000--europa-league-highlights-lyon-3-2-crystal-palace/",
       "videoId": "02aa-21d5ed7c68d7-b67d4e3526be-1000"
     },
     {
@@ -1308,7 +1605,7 @@
       "gameDate": "2026-09-17",
       "publishedAt": "2026-09-17T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219db3baaf73-4926fd29a53a-1000--europa-league-highlights-besiktas-4-1-marseille/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219db3baaf73-4926fd29a53a-1000--europa-league-highlights-besiktas-4-1-marseille/",
       "videoId": "02a9-219db3baaf73-4926fd29a53a-1000"
     },
     {
@@ -1318,7 +1615,7 @@
       "gameDate": "2026-09-17",
       "publishedAt": "2026-09-17T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219db2731947-7b90dd3286b3-1000--europa-league-highlights-real-sociedad-1-2-bournemouth/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219db2731947-7b90dd3286b3-1000--europa-league-highlights-real-sociedad-1-2-bournemouth/",
       "videoId": "02a9-219db2731947-7b90dd3286b3-1000"
     },
     {
@@ -1328,7 +1625,7 @@
       "gameDate": "2026-09-17",
       "publishedAt": "2026-09-17T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219db5abdc5f-f57e0b80cbab-1000--europa-league-highlights-celtic-1-3-ferencvaros/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219db5abdc5f-f57e0b80cbab-1000--europa-league-highlights-celtic-1-3-ferencvaros/",
       "videoId": "02a9-219db5abdc5f-f57e0b80cbab-1000"
     },
     {
@@ -1338,7 +1635,7 @@
       "gameDate": "2026-09-17",
       "publishedAt": "2026-09-17T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219db34a0009-5121057f7ec6-1000--europa-league-highlights-crystal-palace-4-0-lech-poznan/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219db34a0009-5121057f7ec6-1000--europa-league-highlights-crystal-palace-4-0-lech-poznan/",
       "videoId": "02a9-219db34a0009-5121057f7ec6-1000"
     },
     {
@@ -1348,7 +1645,7 @@
       "gameDate": "2026-09-16",
       "publishedAt": "2026-09-16T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219bb924c1a0-29aaa735c81c-1000--europa-league-highlights-milan-0-2-benfica/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219bb924c1a0-29aaa735c81c-1000--europa-league-highlights-milan-0-2-benfica/",
       "videoId": "02a9-219bb924c1a0-29aaa735c81c-1000"
     },
     {
@@ -1358,7 +1655,7 @@
       "gameDate": "2026-09-16",
       "publishedAt": "2026-09-16T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219bbf2917cd-e7aa52e40149-1000--europa-league-highlights-anderlecht-1-2-olympique-lyonnais/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219bbf2917cd-e7aa52e40149-1000--europa-league-highlights-anderlecht-1-2-olympique-lyonnais/",
       "videoId": "02a9-219bbf2917cd-e7aa52e40149-1000"
     },
     {
@@ -1368,7 +1665,7 @@
       "gameDate": "2026-09-16",
       "publishedAt": "2026-09-16T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219bbe130a23-64827612acf7-1000--europa-league-highlights-sunderland-1-0-az-alkmaar/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219bbe130a23-64827612acf7-1000--europa-league-highlights-sunderland-1-0-az-alkmaar/",
       "videoId": "02a9-219bbe130a23-64827612acf7-1000"
     }
   ]

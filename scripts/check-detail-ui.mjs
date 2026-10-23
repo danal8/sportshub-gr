@@ -52,7 +52,7 @@ try{
  for(const kind of ['team','match']){
   if(kind==='match'){await page.setViewportSize({width:1280,height:900});await page.locator('#top-nav [data-tab="basketball"]').click();await page.locator('#refresh:not([disabled])').waitFor();await page.locator('#competition').selectOption('nba');await page.locator('#refresh:not([disabled])').waitFor();await page.locator('#round').selectOption('');await page.setViewportSize({width:390,height:844});}
   const opener=()=>page.locator(kind==='team'?'.team-open':'.match-open').first();
-  await opener().click();await page.locator('#detail-dialog[open]').waitFor();await page.goBack();await schedule();
+  await opener().click();await page.locator('#detail-dialog[open]').waitFor();assert.ok(await page.locator('#detail-dialog').evaluate(el=>{const r=el.getBoundingClientRect();return Math.abs(r.x)<1&&Math.abs(r.y)<1&&Math.abs(r.width-innerWidth)<1&&Math.abs(r.height-innerHeight)<1;}),'Mobile '+kind+' modal fills the viewport');await page.goBack();await schedule();
   await opener().click();await page.locator('#detail-dialog[open]').waitFor();await page.keyboard.press('Escape');await schedule();
   await opener().click();await page.locator('#detail-dialog[open]').waitFor();await page.locator('#detail-close').click();await schedule();
  }

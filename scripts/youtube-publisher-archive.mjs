@@ -6,10 +6,10 @@ const xmlEscape=s=>String(s||'').replaceAll('&','&amp;').replaceAll('<','&lt;').
 export function publisherVideo(player,publisher){const p=publishers.find(p=>p.id===publisher),v=player?.videoDetails,f=player?.microformat?.playerMicroformatRenderer;if(!p||v?.channelId!==p.channel||!/^[-\w]{11}$/.test(v.videoId||''))return[];const date=f?.publishDate||f?.uploadDate;if(!date||!/^\d{4}-\d{2}-\d{2}/.test(date))return[];const publishedAt=date.includes('T')?date:date+'T00:00:00Z';return parsePublisherFeed('<feed><entry><yt:channelId>'+p.channel+'</yt:channelId><yt:videoId>'+v.videoId+'</yt:videoId><title>'+xmlEscape(v.title)+'</title><published>'+publishedAt+'</published><media:description>'+xmlEscape(v.shortDescription)+'</media:description></entry></feed>',publisher);}
 
 export function publisherOEmbed(metadata,videoId,publisher,verifiedAt=new Date().toISOString()){
- if(publisher!=='nba'||metadata?.type!=='video'||!/^[-\w]{11}$/.test(videoId))return[];
+ if(!['nba','magenta','nova'].includes(publisher)||metadata?.type!=='video'||!/^[-\w]{11}$/.test(videoId))return[];
  let author;try{author=new URL(metadata.author_url);}catch{return[];}
- if(author.origin!=='https://www.youtube.com'||!['/@NBA','/channel/'+publishers.find(p=>p.id==='nba').channel].includes(author.pathname)||author.search||author.hash)return[];
- const p=publishers.find(p=>p.id==='nba');const videos=parsePublisherFeed('<feed><entry><yt:channelId>'+p.channel+'</yt:channelId><yt:videoId>'+videoId+'</yt:videoId><title>'+xmlEscape(metadata.title)+'</title><published>'+verifiedAt+'</published><media:description></media:description></entry></feed>','nba');
+ if(author.origin!=='https://www.youtube.com'||!['/@'+({nba:'NBA',magenta:'magentasportgr',nova:'novasports'}[publisher]),'/channel/'+publishers.find(p=>p.id===publisher).channel].includes(author.pathname)||author.search||author.hash)return[];
+ const p=publishers.find(p=>p.id===publisher);const videos=parsePublisherFeed('<feed><entry><yt:channelId>'+p.channel+'</yt:channelId><yt:videoId>'+videoId+'</yt:videoId><title>'+xmlEscape(metadata.title)+'</title><published>'+verifiedAt+'</published><media:description></media:description></entry></feed>',publisher);
  return videos.filter(v=>v.kind==='game').map(v=>({...v,publishedAt:null,verifiedAt,metadataSource:'YouTube oEmbed'}));
 }
 
