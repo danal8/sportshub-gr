@@ -15,7 +15,7 @@ test('initial HTML and loading header reflect TV immediately before providers co
  const html=await readFile(new URL('../dist/index.html',import.meta.url),'utf8');assert.ok(!html.includes('Elite League · Α2 Ανδρών'));
  const app=await readFile(new URL('../dist/app.js',import.meta.url),'utf8');
  const start=app.indexOf('function renderHeader(){'),end=app.indexOf('\nfunction render(){',start),elements=new Map();
- const element=()=>({hidden:false,textContent:'',closest(){return this;},querySelector(){return this;},setAttribute(){},append(){}});
+ const element=()=>({hidden:false,textContent:'',closest(){return this;},querySelector(){return this;},setAttribute(){},before(){},append(){}});
  const $=id=>{if(!elements.has(id))elements.set(id,element());return elements.get(id);};
  const state={tab:'tv',id:'all-tv',tvDate:'2026-10-22'};
  new Function('state','current','$','document','renderMyTeamsControls','renderNav',app.slice(start,end)+';renderHeader();')(state,()=>({id:'all-tv',name:'Όλες οι διοργανώσεις',sport:'all'}),$,{body:{dataset:{}}},()=>{},()=>{});

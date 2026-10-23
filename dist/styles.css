@@ -193,3 +193,13 @@ body .match.compact-match,body[data-tab=tv] .match{display:block}body .compact-m
 
 /* Only the visible crest and name open a team, never the empty team column. */
 body .fixture-team-row .team-open{width:fit-content;max-width:100%;min-width:0;justify-self:start}body[data-tab=tv] .fixture-title .team-open{width:fit-content;max-width:100%}
+
+/* TV fixture favorites and independent match filters. */
+body[data-tab=tv] .match.tv-favorite-match{position:relative;padding-inline-start:58px}
+.fixture-favorite{position:absolute;inset-inline-start:10px;top:50%;transform:translateY(-50%);width:40px;min-height:44px;background:transparent;color:#9aacc5;font-size:28px;padding:0}
+.fixture-favorite[aria-pressed=true],#favorites-only[aria-pressed=true]{color:#ffd56d;background:#3b3424;border-color:#a48a42}
+#favorites-only{min-width:40px;min-height:36px;margin-inline-start:auto;font-size:20px;padding:3px 10px}
+#favorites-only:not([hidden])+#live-only{margin-inline-start:0}
+@media(max-width:700px){body[data-tab=tv] .match.tv-favorite-match{padding-inline-start:51px}.fixture-favorite{inset-inline-start:5px}#favorites-only{min-height:35px}}
+
+@media(max-width:700px){body[data-tab=matches] .day-bar>label:not(.check){min-width:0;flex:1 1 80px}body[data-tab=matches] .day-bar input[type=date]{min-width:0;padding-inline:2px;font-size:11px}body[data-tab=matches] #favorites-only{min-width:30px;width:30px;padding:3px;margin-inline-start:0}body[data-tab=matches] #live-only{padding-inline:5px}}

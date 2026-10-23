@@ -1,0 +1,6 @@
+import{test}from'node:test';import assert from'node:assert/strict';
+import{sanitizeFavorites,toggleFavorite,isFavorite,favoriteMatches}from'../dist/fixture-favorites.js';
+const tv={id:'nova-1',competition:'europa',date:'2026-10-22',time:'19:45',home:'FC Ararat-Armenia',away:'AZ Alkmaar',channel:'TV',score:[0,0],scoreState:'live'};
+const schedule={...tv,id:'espn-1',home:'Ararat-Armenia',score:[0,4],scoreState:'final'};
+test('TV favorites survive provider IDs and explicit aliases, but isolate date, competition and orientation',()=>{const saved=toggleFavorite(tv,[]);assert.ok(isFavorite(schedule,saved));for(const change of [{date:'2026-10-23'},{competition:'cl'},{home:tv.away,away:tv.home}])assert.ok(!isFavorite({...schedule,...change},saved));assert.deepEqual(toggleFavorite(schedule,saved),[]);assert.equal(sanitizeFavorites(JSON.parse(JSON.stringify(saved))).length,1);});
+test('Favorites use current results once available and retain TV-only fixtures without saved stale scores',()=>{const saved=toggleFavorite(tv,[]);assert.equal(saved[0].score,undefined);assert.deepEqual(favoriteMatches([schedule,{...schedule,home:'Other'}],saved),[schedule]);assert.equal(favoriteMatches([],saved).length,1);assert.deepEqual(sanitizeFavorites([null,{},'bad']),[]);});
