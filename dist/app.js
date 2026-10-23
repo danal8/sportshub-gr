@@ -1,7 +1,8 @@
-import{FAVORITES_KEY,sanitizeFavorites,isFavorite,toggleFavorite,favoriteMatches}from'./fixture-favorites.js?v=45';
-import{loadHighlightsIndex,selectHighlights,highlightMatch}from'./highlights.js?v=45';
-import{displayTeamName}from'./team-display.js?v=45';
-import{loadLiveScores,applyLiveScores,mergeLiveMatches,isFreshLive,LIVE_INTERVAL}from'./live-scores.js?v=45';
+import{savePreference}from'./preference-storage.js?v=46';
+import{FAVORITES_KEY,sanitizeFavorites,isFavorite,toggleFavorite,favoriteMatches}from'./fixture-favorites.js?v=46';
+import{loadHighlightsIndex,selectHighlights,highlightMatch}from'./highlights.js?v=46';
+import{displayTeamName}from'./team-display.js?v=46';
+import{loadLiveScores,applyLiveScores,mergeLiveMatches,isFreshLive,LIVE_INTERVAL}from'./live-scores.js?v=46';
 import{makeSelection,sanitizeSelections,selectionForTeam,addSelection,weekRange,weeklyMatches,selectedCompetitions,teamIdentity}from'./my-teams.js?v=26';
 import{teamMarkup}from'./team-view.js?v=26';
 import{loadTVDetails,applyTVDetails}from'./tv-details.js?v=26';
@@ -13,7 +14,7 @@ import{swipeDirection}from'./gestures.js?v=26';
 import{navIcon}from'./icons.js?v=26';
 import{scheduleEntries,daySchedule}from'./schedule.js?v=26';
 import{loadNova}from'./tv.js?v=26';
-import {loadProvider,isConnected,rememberConfirmedResults} from './providers.js?v=45';
+import {loadProvider,isConnected,rememberConfirmedResults} from './providers.js?v=46';
 import {competitions,checkedAt,eliteSchedule,eliteTV,eliteMatches,broadcasts,currentTV,gblStandings} from './data.js?v=26';
 import {escapeHTML as e,normalizeFootball,calculateTable,athensDay,chooseRound,filterMatches,shiftDay} from './core.js?v=26';
 const $=id=>document.getElementById(id);
@@ -48,7 +49,7 @@ async function refreshCardHighlights(force=false){
  cardHighlightsPending=true;cardHighlightsCheckedAt=Date.now();
  try{cardHighlights=await loadHighlightsIndex({force});if(!state.loading&&state.tab!=='standings')render();}catch{}finally{cardHighlightsPending=false;}
 }
-function details(){return detailPromise??=import('./detail-panels.js?v=45').then(m=>m.createDetailPanels({getSeed:()=>{const records=competitions.map(c=>({competition:c,payload:scheduleCache.get(state.season+'-'+c.id)})).filter(r=>r.payload);if(state.meta?.matches&&competitions.some(c=>c.id===state.id))records.push({competition:current(),payload:{...state.meta,matches:state.matches}});return records;}})).catch(error=>{detailPromise=null;notify('Δεν άνοιξαν τα στοιχεία. Δοκίμασε ξανά.');throw error;});}
+function details(){return detailPromise??=import('./detail-panels.js?v=46').then(m=>m.createDetailPanels({getSeed:()=>{const records=competitions.map(c=>({competition:c,payload:scheduleCache.get(state.season+'-'+c.id)})).filter(r=>r.payload);if(state.meta?.matches&&competitions.some(c=>c.id===state.id))records.push({competition:current(),payload:{...state.meta,matches:state.matches}});return records;}})).catch(error=>{detailPromise=null;notify('Δεν άνοιξαν τα στοιχεία. Δοκίμασε ξανά.');throw error;});}
 document.addEventListener('click',async event=>{const t=event.target.closest('[data-open-team]');if(t){const name=t.dataset.openTeam,id=t.dataset.openCompetition;try{(await details()).openTeam(name,id);}catch{}return;}const target=event.target.closest('[data-open-match-index]');if(!target||target.tagName==='ARTICLE'&&event.target.closest('a,button,input,select,summary'))return;const match=renderedMatches[Number(target.dataset.openMatchIndex)];if(match)try{(await details()).openMatch({...match});}catch{}});
 function renderNav(){if(renderedTab===state.tab)return;renderedTab=state.tab;for(const id of ['side-nav','top-nav','bottom-nav']){$(id).innerHTML=nav.map(([key,icon,label])=>`<button type="button" data-tab="${key}" aria-label="${label}" class="${state.tab===key?'active':''}" ${state.tab===key?'aria-current="page"':''}><span class="nav-icon" aria-hidden="true">${navIcon(key)}</span><span class="full-label">${label}</span><span class="short-label" aria-hidden="true">${shortLabels[key]}</span></button>`).join('');}}
 function choices(){const allowed=state.tab==='matches'?[allMatches,...orderedCompetitions(competitions,state.tab)]:state.tab==='tv'?[allTV,...orderedCompetitions(competitions,state.tab)]:orderedCompetitions(competitions,state.tab);if(!allowed.some(c=>c.id===state.id))state.id=allowed[0].id;$('competition').innerHTML=allowed.map(c=>`<option value="${c.id}" ${c.id===state.id?'selected':''}>${c.name}</option>`).join('');}
@@ -137,7 +138,7 @@ function selectTab(key){if(state.tab===key&&!(key==='matches'&&state.myTeams))re
 for(const id of ['side-nav','top-nav','bottom-nav'])$(id).addEventListener('click',event=>{const b=event.target.closest('[data-tab]');if(b)selectTab(b.dataset.tab);});
 $('competition').addEventListener('change',()=>{state.id=$('competition').value;load();});$('round').addEventListener('change',()=>{state.round=$('round').value;render();});$('search').addEventListener('input',()=>{state.search=$('search').value;render();});
 $('favorites-only').onclick=()=>{state.favoritesOnly=!state.favoritesOnly;if(state.favoritesOnly)state.myTeams=false;render();void refreshLive(true);};
-document.addEventListener('click',event=>{const button=event.target.closest('[data-fixture-favorite]');if(!button)return;const match=renderedMatches[Number(button.dataset.fixtureFavorite)];if(!match)return;const next=toggleFavorite(match,favoriteFixtures);if(!save(FAVORITES_KEY,next)){notify('Δεν αποθηκεύτηκαν τα αγαπημένα. Ελέγξτε τον χώρο αποθήκευσης.');return;}favoriteFixtures=next;render();});
+document.addEventListener('click',event=>{const button=event.target.closest('[data-fixture-favorite]');if(!button)return;const match=renderedMatches[Number(button.dataset.fixtureFavorite)];if(!match)return;const next=toggleFavorite(match,favoriteFixtures);if(!savePreference(FAVORITES_KEY,next)){notify('Δεν αποθηκεύτηκαν τα αγαπημένα. Ελέγξτε τον χώρο αποθήκευσης.');return;}favoriteFixtures=next;render();});
 window.addEventListener('storage',event=>{if(event.key===FAVORITES_KEY||event.key===null){favoriteFixtures=sanitizeFavorites(read(FAVORITES_KEY,[]));render();}});
 $('live-only').onclick=()=>{state.liveOnly=!state.liveOnly;if(state.liveOnly){state.tvDate=athensDay();state.round='';$('round').value='';}render();void refreshLive(true);};
 $('refresh').addEventListener('click',()=>{void refreshCardHighlights(true);load(true);});$('help').onclick=showHelp;$('data-help').onclick=showHelp;$('close-help').onclick=()=>$('help-dialog').close();
