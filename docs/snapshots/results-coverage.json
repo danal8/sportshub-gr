@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-23T20:17:08.357Z",
+  "checkedAt": "2026-10-23T23:14:32.978Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -8,15 +8,50 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "bund-83212",
+          "id": "bund-83211",
           "competition": "bund",
-          "date": "2026-10-23",
-          "home": "VfB Stuttgart",
-          "away": "Borussia Mönchengladbach"
+          "date": "2026-10-24",
+          "home": "RB Leipzig",
+          "away": "SV 07 Elversberg"
+        },
+        {
+          "id": "bund-83215",
+          "competition": "bund",
+          "date": "2026-10-24",
+          "home": "FC Augsburg",
+          "away": "1. FC Union Berlin"
+        },
+        {
+          "id": "bund-83216",
+          "competition": "bund",
+          "date": "2026-10-24",
+          "home": "1. FSV Mainz 05",
+          "away": "SV Werder Bremen"
+        },
+        {
+          "id": "bund-83217",
+          "competition": "bund",
+          "date": "2026-10-24",
+          "home": "1. FC Köln",
+          "away": "FC Schalke 04"
+        },
+        {
+          "id": "bund-83218",
+          "competition": "bund",
+          "date": "2026-10-24",
+          "home": "SC Paderborn 07",
+          "away": "Hamburger SV"
+        },
+        {
+          "id": "bund-83210",
+          "competition": "bund",
+          "date": "2026-10-24",
+          "home": "Borussia Dortmund",
+          "away": "Eintracht Frankfurt"
         }
       ],
       "sourceError": null,
-      "finals": 54
+      "finals": 55
     },
     {
       "competition": "cl",
@@ -35,29 +70,43 @@
     {
       "competition": "el",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "E-69",
-          "competition": "el",
-          "date": "2026-10-23",
-          "home": "Paris Basketball",
-          "away": "Valencia Basket"
-        },
-        {
-          "id": "E-70",
-          "competition": "el",
-          "date": "2026-10-23",
-          "home": "Olympiacos Piraeus",
-          "away": "Fenerbahce Tarfin Istanbul"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 68
+      "finals": 70
     },
     {
       "competition": "elite",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "elite-5-ΓΣ ΛΑΥΡΙΟΥ - AΦΟΙ ΛΙΟΣΑΤΟΥ-INTERPLAST ΓΑΣ ΚΟΜΟΤΗΝΗΣ",
+          "competition": "elite",
+          "date": "2026-10-24",
+          "home": "ΓΣ ΛΑΥΡΙΟΥ - AΦΟΙ ΛΙΟΣΑΤΟΥ",
+          "away": "INTERPLAST ΓΑΣ ΚΟΜΟΤΗΝΗΣ"
+        },
+        {
+          "id": "elite-5-EVERTECH ΠΑΠΑΓΟΥ-ΑΣΑ ΑΝΑΓΕΝΝΗΣΗ",
+          "competition": "elite",
+          "date": "2026-10-24",
+          "home": "EVERTECH ΠΑΠΑΓΟΥ",
+          "away": "ΑΣΑ ΑΝΑΓΕΝΝΗΣΗ"
+        },
+        {
+          "id": "elite-5-ΑΣΑ ΚΟΡΟΙΒΟΣ-ΑΕΠΣ ΜΑΧΗΤΕΣ ΠΕΙΡΑΜΑΤΙΚΟ",
+          "competition": "elite",
+          "date": "2026-10-24",
+          "home": "ΑΣΑ ΚΟΡΟΙΒΟΣ",
+          "away": "ΑΕΠΣ ΜΑΧΗΤΕΣ ΠΕΙΡΑΜΑΤΙΚΟ"
+        },
+        {
+          "id": "elite-5-ΠΑΝΙΩΝΙΟΣ COSMORAMA TRAVEL-ΑΟ ΑΜΥΝΤΑΣ",
+          "competition": "elite",
+          "date": "2026-10-24",
+          "home": "ΠΑΝΙΩΝΙΟΣ COSMORAMA TRAVEL",
+          "away": "ΑΟ ΑΜΥΝΤΑΣ"
+        }
+      ],
       "sourceError": null,
       "finals": 33
     },
@@ -80,6 +129,41 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
+          "id": "gbl-2A098C20",
+          "competition": "gbl",
+          "date": "2026-10-24",
+          "home": "ΜΥΚΟΝΟΣ Betsson BC",
+          "away": "ΑΡΗΣ"
+        },
+        {
+          "id": "gbl-D8B7382E",
+          "competition": "gbl",
+          "date": "2026-10-24",
+          "home": "ΔΟΞΑ ΛΕΥΚΑΔΑΣ ELABET",
+          "away": "ΗΡΑΚΛΗΣ"
+        },
+        {
+          "id": "gbl-8645D767",
+          "competition": "gbl",
+          "date": "2026-10-24",
+          "home": "ΠΕΡΙΣΤΕΡΙ Betsson",
+          "away": "ΜΑΡΟΥΣΙ"
+        },
+        {
+          "id": "gbl-BD2162B8",
+          "competition": "gbl",
+          "date": "2026-10-24",
+          "home": "ΠΑΟΚ",
+          "away": "ΑΕΚ"
+        },
+        {
+          "id": "gbl-A904D6E3",
+          "competition": "gbl",
+          "date": "2026-10-24",
+          "home": "ΠΑΝΑΘΗΝΑΪΚΟΣ AKTOR",
+          "away": "ΚΑΡΔΙΤΣΑ ΙΑΠΩΝΙΚΗ"
+        },
+        {
           "id": "gbl-3690EC22",
           "competition": "gbl",
           "date": "2026-09-17",
@@ -100,6 +184,34 @@
           "date": "2026-10-23",
           "home": "Deportivo Alaves",
           "away": "FC Malaga"
+        },
+        {
+          "id": "laliga-85431",
+          "competition": "laliga",
+          "date": "2026-10-24",
+          "home": "Rayo Vallecano",
+          "away": "Elche CF"
+        },
+        {
+          "id": "laliga-85430",
+          "competition": "laliga",
+          "date": "2026-10-24",
+          "home": "Racing Santander",
+          "away": "Espanyol Barcelona"
+        },
+        {
+          "id": "laliga-85434",
+          "competition": "laliga",
+          "date": "2026-10-24",
+          "home": "FC Valencia",
+          "away": "FC Villareal"
+        },
+        {
+          "id": "laliga-85427",
+          "competition": "laliga",
+          "date": "2026-10-24",
+          "home": "Atlético Madrid",
+          "away": "Deportivo A Coruña"
         }
       ],
       "sourceError": null,
@@ -115,6 +227,20 @@
           "date": "2026-10-23",
           "home": "Stade Brestois 29",
           "away": "OGC Nice"
+        },
+        {
+          "id": "ligue1-2026-10-24-Toulouse FC-ES Troyes AC-64",
+          "competition": "ligue1",
+          "date": "2026-10-24",
+          "home": "Toulouse FC",
+          "away": "ES Troyes AC"
+        },
+        {
+          "id": "ligue1-2026-10-24-Racing Club de Lens-Paris FC-65",
+          "competition": "ligue1",
+          "date": "2026-10-24",
+          "home": "Racing Club de Lens",
+          "away": "Paris FC"
         }
       ],
       "sourceError": null,
@@ -125,15 +251,85 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "nba-401909848",
+          "id": "nba-401909095",
           "competition": "nba",
-          "date": "2026-10-23",
-          "home": "Milwaukee Bucks",
-          "away": "Chicago Bulls"
+          "date": "2026-10-24",
+          "home": "Boston Celtics",
+          "away": "New York Knicks"
+        },
+        {
+          "id": "nba-401909845",
+          "competition": "nba",
+          "date": "2026-10-24",
+          "home": "Orlando Magic",
+          "away": "Minnesota Timberwolves"
+        },
+        {
+          "id": "nba-401909844",
+          "competition": "nba",
+          "date": "2026-10-24",
+          "home": "Indiana Pacers",
+          "away": "Dallas Mavericks"
+        },
+        {
+          "id": "nba-401909846",
+          "competition": "nba",
+          "date": "2026-10-24",
+          "home": "Washington Wizards",
+          "away": "Toronto Raptors"
+        },
+        {
+          "id": "nba-401909843",
+          "competition": "nba",
+          "date": "2026-10-24",
+          "home": "Charlotte Hornets",
+          "away": "Atlanta Hawks"
+        },
+        {
+          "id": "nba-401909847",
+          "competition": "nba",
+          "date": "2026-10-24",
+          "home": "Miami Heat",
+          "away": "Detroit Pistons"
+        },
+        {
+          "id": "nba-401909849",
+          "competition": "nba",
+          "date": "2026-10-24",
+          "home": "Utah Jazz",
+          "away": "New Orleans Pelicans"
+        },
+        {
+          "id": "nba-401909096",
+          "competition": "nba",
+          "date": "2026-10-24",
+          "home": "San Antonio Spurs",
+          "away": "Houston Rockets"
+        },
+        {
+          "id": "nba-401909850",
+          "competition": "nba",
+          "date": "2026-10-24",
+          "home": "Golden State Warriors",
+          "away": "Memphis Grizzlies"
+        },
+        {
+          "id": "nba-401909852",
+          "competition": "nba",
+          "date": "2026-10-24",
+          "home": "Sacramento Kings",
+          "away": "Portland Trail Blazers"
+        },
+        {
+          "id": "nba-401909851",
+          "competition": "nba",
+          "date": "2026-10-24",
+          "home": "Los Angeles Lakers",
+          "away": "LA Clippers"
         }
       ],
       "sourceError": null,
-      "finals": 16
+      "finals": 17
     },
     {
       "competition": "pl",
@@ -145,6 +341,34 @@
           "date": "2026-10-23",
           "home": "Ipswich Town",
           "away": "Nottingham Forest"
+        },
+        {
+          "id": "pl-86599",
+          "competition": "pl",
+          "date": "2026-10-24",
+          "home": "Aston Villa",
+          "away": "Manchester City"
+        },
+        {
+          "id": "pl-86600",
+          "competition": "pl",
+          "date": "2026-10-24",
+          "home": "FC Arsenal",
+          "away": "Everton FC"
+        },
+        {
+          "id": "pl-86601",
+          "competition": "pl",
+          "date": "2026-10-24",
+          "home": "Coventry City",
+          "away": "Fulham FC"
+        },
+        {
+          "id": "pl-86603",
+          "competition": "pl",
+          "date": "2026-10-24",
+          "home": "Chelsea FC",
+          "away": "Tottenham Hotspur FC"
         }
       ],
       "sourceError": null,
@@ -160,6 +384,34 @@
           "date": "2026-10-23",
           "home": "Torino FC",
           "away": "AC Monza"
+        },
+        {
+          "id": "seriea-2026-10-24-Cagliari Calcio-Bologna FC 1909-71",
+          "competition": "seriea",
+          "date": "2026-10-24",
+          "home": "Cagliari Calcio",
+          "away": "Bologna FC 1909"
+        },
+        {
+          "id": "seriea-2026-10-24-Como 1907-US Sassuolo Calcio-72",
+          "competition": "seriea",
+          "date": "2026-10-24",
+          "home": "Como 1907",
+          "away": "US Sassuolo Calcio"
+        },
+        {
+          "id": "seriea-2026-10-24-SSC Napoli-AS Roma-73",
+          "competition": "seriea",
+          "date": "2026-10-24",
+          "home": "SSC Napoli",
+          "away": "AS Roma"
+        },
+        {
+          "id": "seriea-2026-10-24-SS Lazio-Parma Calcio 1913-74",
+          "competition": "seriea",
+          "date": "2026-10-24",
+          "home": "SS Lazio",
+          "away": "Parma Calcio 1913"
         }
       ],
       "sourceError": null,
@@ -175,6 +427,27 @@
           "date": "2026-10-17",
           "home": "Atromitos",
           "away": "AEK"
+        },
+        {
+          "id": "sl-2026-10-24-Iraklis 1908-Kifisia",
+          "competition": "sl",
+          "date": "2026-10-24",
+          "home": "Iraklis 1908",
+          "away": "Kifisia"
+        },
+        {
+          "id": "sl-2026-10-24-Asteras Tripolis-Levadiakos",
+          "competition": "sl",
+          "date": "2026-10-24",
+          "home": "Asteras Tripolis",
+          "away": "Levadiakos"
+        },
+        {
+          "id": "sl-2026-10-24-AEK-Panetolikos",
+          "competition": "sl",
+          "date": "2026-10-24",
+          "home": "AEK",
+          "away": "Panetolikos"
         }
       ],
       "sourceError": null,
@@ -183,7 +456,36 @@
     {
       "competition": "sl2",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "sl2-2627061",
+          "competition": "sl2",
+          "date": "2026-10-24",
+          "home": "ATHENS KALLITHEA",
+          "away": "ΑΕΛ NOVIBET"
+        },
+        {
+          "id": "sl2-2627062",
+          "competition": "sl2",
+          "date": "2026-10-24",
+          "home": "ΑΠΟΛΛΩΝ ΚΑΛΑΜΑΡΙΑΣ",
+          "away": "ΝΙΚΗ ΒΟΛΟΥ"
+        },
+        {
+          "id": "sl2-2627059",
+          "competition": "sl2",
+          "date": "2026-10-24",
+          "home": "ΟΛΥΜΠΙΑΚΟΣ Β'",
+          "away": "ΝΕΣΤΟΣ ΧΡΥΣΟΥΠΟΛΗΣ"
+        },
+        {
+          "id": "sl2-2627063",
+          "competition": "sl2",
+          "date": "2026-10-24",
+          "home": "ΠΑΝΣΕΡΡΑΪΚΟΣ",
+          "away": "ΕΛΛΑΣ ΣΥΡΟΥ"
+        }
+      ],
       "sourceError": null,
       "finals": 56
     },
@@ -197,6 +499,20 @@
           "date": "2026-10-23",
           "home": "Α.Ο.Π. Κηφισιάς",
           "away": "Πανιώνιος Betsson"
+        },
+        {
+          "id": "volley-m-1-1",
+          "competition": "volley-m",
+          "date": "2026-10-24",
+          "home": "Ο.Φ.Η.",
+          "away": "Π.Α.Ο.Κ."
+        },
+        {
+          "id": "volley-m-1-2",
+          "competition": "volley-m",
+          "date": "2026-10-24",
+          "home": "Α.Ο.Καλαμάτα Affidea V.C",
+          "away": "Παναθηναϊκός Α.Ο."
         }
       ],
       "sourceError": null,
@@ -206,6 +522,41 @@
       "competition": "volley-w",
       "unmatchedResults": [],
       "awaitingResults": [
+        {
+          "id": "volley-88164",
+          "competition": "volley-w",
+          "date": "2026-10-24",
+          "home": "Α.Σ. Άρης",
+          "away": "Α.Ο. Θήρας"
+        },
+        {
+          "id": "volley-88166",
+          "competition": "volley-w",
+          "date": "2026-10-24",
+          "home": "Ο.Φ.Α. Απολλώνιος",
+          "away": "Πανιώνιος Betsson"
+        },
+        {
+          "id": "volley-88161",
+          "competition": "volley-w",
+          "date": "2026-10-24",
+          "home": "Ζ.Α.Ο.Ν.",
+          "away": "Παναθηναϊκός Α.Ο."
+        },
+        {
+          "id": "volley-88165",
+          "competition": "volley-w",
+          "date": "2026-10-24",
+          "home": "Ολυμπιακός Σ.Φ.Π.",
+          "away": "Α.Σ.Π. Θέτις"
+        },
+        {
+          "id": "volley-88163",
+          "competition": "volley-w",
+          "date": "2026-10-24",
+          "home": "Α.Σ. Ελπίς",
+          "away": "Α.Ο. Μαρκοπούλου Revoil"
+        },
         {
           "id": "volley-88158",
           "competition": "volley-w",

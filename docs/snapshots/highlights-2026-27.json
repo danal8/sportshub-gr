@@ -1,7 +1,7 @@
 {
   "season": "2026-27",
   "sourceVersion": 7,
-  "retrievedAt": "2026-10-23T20:17:14.251Z",
+  "retrievedAt": "2026-10-23T23:14:38.188Z",
   "errors": [
     "Magenta Sport archive: Empty channel uploads; retained earlier videos"
   ],
@@ -28,6 +28,68 @@
     }
   ],
   "videos": [
+    {
+      "videoId": "H4omtK3PnxA",
+      "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
+      "title": "Ίπσουιτς – Νότιγχαμ Φόρεστ: 1-1 (MD 8, 23/10/2026)",
+      "publishedAt": "2026-10-23T21:50:04+00:00",
+      "publisher": "nova",
+      "competition": "pl",
+      "gameDate": "2026-10-23",
+      "kind": "game"
+    },
+    {
+      "videoId": "gtfEW_f1-b8",
+      "channelId": "UCGr3nR_XH9r6E5b09ZJAT9w",
+      "title": "Paris Basketball - Valencia Basket | R7 Basketball Highlights 2026-27",
+      "publishedAt": "2026-10-23T21:46:02+00:00",
+      "publisher": "el",
+      "competition": "el",
+      "round": 7,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "gc2LDsr6btA",
+      "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
+      "title": "Ολυμπιακός - Φενέρμπαχτσε: 61 - 64 (MD 7, 23/10/2026)",
+      "publishedAt": "2026-10-23T21:39:01+00:00",
+      "publisher": "nova",
+      "competition": "el",
+      "gameDate": "2026-10-23",
+      "kind": "game"
+    },
+    {
+      "videoId": "zuLOO49JTIU",
+      "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
+      "title": "Παρί - Βαλένθια: 93-104 (MD 7, 23/10/2026)",
+      "publishedAt": "2026-10-23T21:37:48+00:00",
+      "publisher": "nova",
+      "competition": "el",
+      "gameDate": "2026-10-23",
+      "kind": "game"
+    },
+    {
+      "videoId": "5-6BOJDvHTg",
+      "channelId": "UCGr3nR_XH9r6E5b09ZJAT9w",
+      "title": "Olympiacos - Fenerbahce Tarfin | R7 Basketball Highlights 2026-27",
+      "publishedAt": "2026-10-23T21:06:37+00:00",
+      "publisher": "el",
+      "competition": "el",
+      "round": 7,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "gE_GjLlcB4g",
+      "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
+      "title": "Στουτγκάρδη - Γκλάντμπαχ: 2-3 (MD 7, 23/10/2026)",
+      "publishedAt": "2026-10-23T20:59:21+00:00",
+      "publisher": "nova",
+      "competition": "bund",
+      "gameDate": "2026-10-23",
+      "kind": "game"
+    },
     {
       "videoId": "rm8q0YHdVfg",
       "channelId": "UCGr3nR_XH9r6E5b09ZJAT9w",
