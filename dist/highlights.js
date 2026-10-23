@@ -62,8 +62,9 @@ export function selectHighlights(videos,m,{now=Date.now()}={}){
  if(m.scoreState!=='final'||!Array.isArray(m.score)||m.score.length!==2||!m.score.every(n=>Number.isInteger(n)&&n>=0)||!/^\d{4}-\d{2}-\d{2}$/.test(m.date||'')||m.date>athensDay(new Date(now)))return null;
  const home=choices(m.home,m.homeAliases,m.competition==='nba'),away=choices(m.away,m.awayAliases,m.competition==='nba'),hits=[];
  for(const v of videos||[]){
- const pub=publishers.find(p=>p.id===v.publisher&&p.channel===v.channelId),published=Date.parse(v.publishedAt);
- if(!pub||v.competition!==m.competition||!/^[\w-]{11}$/.test(v.videoId)||!Number.isFinite(published)||published>now+300000||athensDay(new Date(published))<(m.competition==='nba'?shiftDay(m.date,-1):m.date)||athensDay(new Date(published))>shiftDay(m.date,1))continue;
+ const uefaPath={europa:'uefaeuropaleague',conference:'uefaconferenceleague'}[v.competition];let uefa=false;try{const u=new URL(v.url);uefa=v.publisher==='uefa'&&u.origin==='https://www.uefa.com'&&uefaPath&&u.pathname.startsWith('/'+uefaPath+'/video/')&&/^\/[a-z]+\/video\/(?:highlights\/)?[a-f0-9-]+--[a-z0-9-]+\/$/.test(u.pathname)&&!u.search&&!u.hash;}catch{}
+ const pub=uefa?{id:'uefa',label:'UEFA'}:publishers.find(p=>p.id===v.publisher&&p.channel===v.channelId),published=Date.parse(v.publishedAt);
+ if(!pub||v.competition!==m.competition||!uefa&&!/^[\w-]{11}$/.test(v.videoId)||!Number.isFinite(published)||published>now+300000||athensDay(new Date(published))<(m.competition==='nba'?shiftDay(m.date,-1):m.date)||athensDay(new Date(published))>shiftDay(m.date,1))continue;
  if(m.competition==='nba'){if(v.publisher!=='nba'||v.gameDate!==nbaDate(m))continue;}
  else if(v.publisher==='el'||v.publisher==='ec'){if(v.season!=='2026-27'||!Number.isInteger(v.round)||v.round!==Number(m.round))continue;}
  else if(v.gameDate!==m.date)continue;
@@ -73,8 +74,8 @@ export function selectHighlights(videos,m,{now=Date.now()}={}){
   if(matches.length!==1)continue;text=matches[0].label;seconds=matches[0].seconds;
  }else if(v.kind!=='game')continue;
  if(!mentions(text,home)||!mentions(text,away))continue;
- const url='https://www.youtube.com/watch?v='+v.videoId+(seconds===null?'':'&t='+seconds+'s');
- hits.push({url,title:text,provider:pub.label,publishedAt:v.publishedAt,chapter:seconds,rank:seconds!==null?2:v.publisher==='nova'?0:1});
+ const url=uefa?v.url:'https://www.youtube.com/watch?v='+v.videoId+(seconds===null?'':'&t='+seconds+'s');
+ hits.push({url,title:text,provider:pub.label,publishedAt:v.publishedAt,chapter:seconds,rank:uefa?3:seconds!==null?2:v.publisher==='nova'?0:1});
  }
  hits.sort((a,b)=>a.rank-b.rank||Date.parse(b.publishedAt)-Date.parse(a.publishedAt));return hits[0]||null;
 }
