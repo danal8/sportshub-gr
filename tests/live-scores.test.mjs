@@ -29,6 +29,15 @@ test('EuroLeague official Header validates season, teams and date and refuses sc
  assert.equal(parseEuroHeader({...header,Live:false},m,at,{ForthQuarter:[{PLAYTYPE:'EG'}]}).scoreState,'final');
  assert.throws(()=>parseEuroHeader({...header,Date:'21/10/2026'},m,at));assert.throws(()=>parseEuroHeader({...header,CompetitionReducedName:'E2025'},m,at));
 });
+test('EuroLeague Header refreshes inherited snapshot timestamps and clocks',()=>{
+ for(const competition of ['el','eurocup']){
+ const m={id:'E-70',competition,date:'2026-10-23',home:'Olympiacos Piraeus',away:'Fenerbahce Tarfin Istanbul',score:[20,18],scoreState:'current',scoreCheckedAt:'2026-10-22T16:00:00Z',scoreClock:'1η περ. · 01:00'};
+ const header={CompetitionReducedName:competition==='el'?'E2026':'U2026',Date:'23/10/2026',TeamA:m.home,TeamB:m.away,ScoreA:'34',ScoreB:'24',Live:true,Quarter:'',RemainingPartialTime:''};
+ const entry=parseEuroHeader(header,m,at),updated=applyLiveScores([m],[entry],now)[0];
+ assert.deepEqual(updated.score,[34,24]);assert.equal(updated.scoreCheckedAt,at);assert.equal(updated.scoreState,'live');assert.match(resultLabel(updated,now),/LIVE/);assert.equal(updated.scoreClock,null);
+ const expired=applyLiveScores([m],[entry],now+90000)[0];assert.equal(expired.scoreState,'current');assert.equal(resultLabel(expired,now+90000),'Σκορ πηγής');
+ }
+});
 test('Source names are formatted only for display, preserving acronyms and favourite identities',()=>{
  assert.equal(displayTeamName('ΠΑΝΕΡΥΘΡΑΙΚΟΣ ΑΣ'),'Πανερυθραϊκός ΑΣ');assert.equal(displayTeamName('ΓΣ ΣΟΦΑΔΩΝ ΒΙΚΟΣ COLA'),'ΓΣ Σοφάδων Βίκος Cola');assert.equal(displayTeamName('ΠΑΟΚ'),'ΠΑΟΚ');assert.equal(displayTeamName('ΑΕΚ'),'ΑΕΚ');assert.equal(displayTeamName('Boston Celtics'),'Boston Celtics');assert.equal(displayTeamName('<SCRIPT>'),' <Script>'.trim());const m={home:'ΠΑΝΙΩΝΙΟΣ'};displayTeamName(m.home);assert.equal(m.home,'ΠΑΝΙΩΝΙΟΣ');
 });

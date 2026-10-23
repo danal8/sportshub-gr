@@ -40,7 +40,7 @@ export function parseEuroHeader(raw,m,checkedAt=new Date().toISOString(),pbp){
  if(!score(s)||!(raw.Live===true||final))return null;
  const q=Number(raw.Quarter),remaining=String(raw.RemainingPartialTime||'').trim();
  const clock=raw.Live===true&&/^\d{1,2}:\d{2}$/.test(remaining)?(q>0&&q<10?(q<=4?q+'η περ.':(q-4)+'η παρ.')+' · ':'Υπόλοιπο ')+remaining:null;
- return{...m,score:s,scoreState:final?'final':'live',clock,checkedAt,source:'https://live.euroleague.net/',provider:'Euroleague Basketball'};
+ return{...m,score:s,scoreState:final?'final':'live',clock,scoreClock:clock,checkedAt,scoreCheckedAt:checkedAt,source:'https://live.euroleague.net/',provider:'Euroleague Basketball'};
 }
 export function applyLiveScores(matches,entries,now=Date.now()){return mergeResultUpdates(matches,entries,now);}
 const cache=new Map(),inflight=new Map();
