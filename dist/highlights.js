@@ -1,4 +1,4 @@
-import{aliases}from'./team-aliases.js?v=31';
+import{aliases}from'./team-aliases.js?v=43';
 import{teamKey}from'./badges.js?v=26';
 import{athensDay,shiftDay}from'./core.js?v=26';
 export const publishers=[
@@ -11,7 +11,7 @@ export const publishers=[
 const norm=s=>String(s||'').normalize('NFD').replace(/\p{M}/gu,'').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
 const decode=s=>String(s||'').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,'$1').replace(/&#(x[\da-f]+|\d+);/gi,(_,n)=>{const v=n[0].toLowerCase()==='x'?parseInt(n.slice(1),16):Number(n);return v>0&&v<=0x10ffff?String.fromCodePoint(v):'';}).replace(/&(?:amp|lt|gt|quot|apos);/g,s=>({'&amp;':'&','&lt;':'<','&gt;':'>','&quot;':'"','&apos;':"'"}[s]));
 const field=(xml,key)=>decode(xml.match(new RegExp('<'+key+'>([\\s\\S]*?)</'+key+'>'))?.[1]);
-function namedDate(text){const english=text.match(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),?\s+(20\d{2})\b/i);if(english){const d=new Date(english[0]+' 12:00 UTC');return Number.isFinite(+d)?d.toISOString().slice(0,10):null;}const d=text.match(/\b(\d{1,2})\/(\d{1,2})\/(20\d{2})\b/);return d?d[3]+'-'+d[2].padStart(2,'0')+'-'+d[1].padStart(2,'0'):null;}
+function namedDate(text){const english=text.match(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),?\s+(20\d{2})\b/i);if(english){const d=new Date(english[0]+' 12:00 UTC');return Number.isFinite(+d)?d.toISOString().slice(0,10):null;}const d=text.match(/\b(\d{1,2})\/(\d{1,2})\/((?:20)?\d{2})\b/);return d?(d[3].length===2?'20'+d[3]:d[3])+'-'+d[2].padStart(2,'0')+'-'+d[1].padStart(2,'0'):null;}
 function novaCompetition(text){
  const s=norm(text);if(/γυναικ|women|youth|u19|basketball champions league/.test(s))return null;
  for(const [id,re]of[['eurocup',/eurocup|γιουροκαπ/],['el',/euroleague|ευρωλιγκα/],['sl2',/super league 2|superleague 2|super league ii/],['sl',/super league|superleague/],['pl',/premier league/],['bund',/bundesliga/],['laliga',/laliga|la liga/],['seriea',/serie a/],['ligue1',/ligue 1/],['cl',/champions league/],['europa',/europa league/],['conference',/conference league/],['gbl',/basket league|gbl/],['elite',/elite league/]])if(re.test(s))return id;return null;
@@ -63,7 +63,7 @@ export function selectHighlights(videos,m,{now=Date.now()}={}){
  const home=choices(m.home,m.homeAliases,m.competition==='nba'),away=choices(m.away,m.awayAliases,m.competition==='nba'),hits=[];
  for(const v of videos||[]){
  const pub=publishers.find(p=>p.id===v.publisher&&p.channel===v.channelId),published=Date.parse(v.publishedAt);
- if(!pub||v.competition!==m.competition||!/^[\w-]{11}$/.test(v.videoId)||!Number.isFinite(published)||published>now+300000||athensDay(new Date(published))<m.date||athensDay(new Date(published))>shiftDay(m.date,1))continue;
+ if(!pub||v.competition!==m.competition||!/^[\w-]{11}$/.test(v.videoId)||!Number.isFinite(published)||published>now+300000||athensDay(new Date(published))<(m.competition==='nba'?shiftDay(m.date,-1):m.date)||athensDay(new Date(published))>shiftDay(m.date,1))continue;
  if(m.competition==='nba'){if(v.publisher!=='nba'||v.gameDate!==nbaDate(m))continue;}
  else if(v.publisher==='el'||v.publisher==='ec'){if(v.season!=='2026-27'||!Number.isInteger(v.round)||v.round!==Number(m.round))continue;}
  else if(v.gameDate!==m.date)continue;
