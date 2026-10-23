@@ -1,7 +1,15 @@
 {
   "season": "2026-27",
-  "sourceVersion": 3,
-  "retrievedAt": "2026-10-23T06:32:22.415Z",
+  "sourceVersion": 5,
+  "retrievedAt": "2026-10-23T06:45:29.398Z",
+  "errors": [
+    "Magenta Sport: HTTP 404",
+    "Novasports: HTTP 404",
+    "EuroCup: HTTP 404",
+    "NBA: HTTP 404",
+    "EuroLeague: HTTP 404",
+    "Magenta Sport archive: Empty channel uploads; retained earlier videos"
+  ],
   "sources": [
     {
       "name": "NBA",
@@ -46,6 +54,16 @@
       "kind": "game"
     },
     {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Highlights: Beşiktaş 2-2 Crystal Palace",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-22T23:00:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e41ef9d9ad-07d129cc4d83-1000--europa-league-highlights-besiktas-2-2-crystal-palace/",
+      "videoId": "02aa-21e41ef9d9ad-07d129cc4d83-1000"
+    },
+    {
       "videoId": "-Ot9bxLyTU0",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
       "title": "Βικτόρια Πλζεν - Λέφσκι Σόφιας 1 - 2 | Highlights - UEFA Europa League 26/27 - 22/10/26 | MagentaTV",
@@ -76,6 +94,16 @@
       "kind": "game"
     },
     {
+      "publisher": "uefa",
+      "competition": "conference",
+      "title": "Conference League Highlights: Ajax 2-0 Atalanta",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-22T22:50:36+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaconferenceleague/video/highlights/02aa-21e42dbf2ca5-f3ef3e1ff0c8-1000--conference-league-highlights-ajax-2-0-atalanta/",
+      "videoId": "02aa-21e42dbf2ca5-f3ef3e1ff0c8-1000"
+    },
+    {
       "videoId": "CtA0poI_TxA",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
       "title": "Κάουνο Ζαλγκίρις - Μπραν 1 - 4 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
@@ -104,6 +132,26 @@
       "competition": "europa",
       "gameDate": "2026-10-22",
       "kind": "game"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Highlights: Lillestrøm 0-6 Real Sociedad",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-22T22:29:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e4261c8548-951f3ce412dd-1000--europa-league-highlights-lillestrom-0-6-real-sociedad/",
+      "videoId": "02aa-21e4261c8548-951f3ce412dd-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Europa League Highlights: Celtic 1-2 Celta",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-22T22:26:24+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e4251a0c41-e22b2afd9d85-1000--europa-league-highlights-celtic-1-2-celta/",
+      "videoId": "02aa-21e4251a0c41-e22b2afd9d85-1000"
     },
     {
       "videoId": "RcoGEVAKO44",
@@ -147,6 +195,16 @@
       "kind": "game"
     },
     {
+      "publisher": "uefa",
+      "competition": "conference",
+      "title": "Conference League Highlights: Monaco 3-0 Freiburg",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-22T22:18:42+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaconferenceleague/video/highlights/02aa-21e42257a63a-57250d7fd169-1000--conference-league-highlights-monaco-3-0-freiburg/",
+      "videoId": "02aa-21e42257a63a-57250d7fd169-1000"
+    },
+    {
       "videoId": "5jjjpTFJqKY",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
       "title": "Μπόρατς Μπάνια Λούκα - Κουόπιο 2 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
@@ -185,6 +243,36 @@
       "competition": "europa",
       "gameDate": "2026-10-22",
       "kind": "game"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Highlights: Bournemouth 3-0 Milan",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-22T22:00:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e41b1a746e-23943079d0c5-1000--europa-league-highlights-bournemouth-3-0-milan/",
+      "videoId": "02aa-21e41b1a746e-23943079d0c5-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Highlights: Juventus 2-2 Rennes",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-22T22:00:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e3ed6a03ed-3965738ba8c6-1000--europa-league-highlights-juventus-2-2-rennes/",
+      "videoId": "02aa-21e3ed6a03ed-3965738ba8c6-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "conference",
+      "title": "Highlights: Trabzonspor 2-0 Hearts",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-22T22:00:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaconferenceleague/video/highlights/02aa-21e40051fb51-f7ccbb247b63-1000--conference-league-highlights-trabzonspor-2-0-hearts/",
+      "videoId": "02aa-21e40051fb51-f7ccbb247b63-1000"
     },
     {
       "videoId": "BCjXbmR1TZY",
@@ -724,6 +812,216 @@
       "round": 4,
       "season": "2026-27",
       "kind": "game"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Europa League Highlights: Hoffenheim 2-3 Beşiktaş",
+      "gameDate": "2026-10-16",
+      "publishedAt": "2026-10-16T14:51:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d6140858b4-1de467f1aaeb-1000--europa-league-highlights-hoffenheim-2-3-besiktas/",
+      "videoId": "02aa-21d6140858b4-1de467f1aaeb-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Europa League Highlights: Benfica 4-1 Celtic",
+      "gameDate": "2026-10-15",
+      "publishedAt": "2026-10-15T22:49:54+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d6189af407-8c713da7c3af-1000--europa-league-highlights-benfica-4-1-celtic/",
+      "videoId": "02aa-21d6189af407-8c713da7c3af-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Europa League Highlights: Celta 1-2 Juventus",
+      "gameDate": "2026-10-15",
+      "publishedAt": "2026-10-15T22:47:20+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d617b14f94-8b0307ed7f1a-1000--europa-league-highlights-celta-1-2-juventus/",
+      "videoId": "02aa-21d617b14f94-8b0307ed7f1a-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Europa League Highlights: Bournemouth 3-0 Sturm Graz",
+      "gameDate": "2026-10-15",
+      "publishedAt": "2026-10-15T22:45:37+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d61713a2e9-8275a1aa3546-1000--europa-league-highlights-bournemouth-3-0-sturm-graz/",
+      "videoId": "02aa-21d61713a2e9-8275a1aa3546-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Highlights: Marseille 0-1 Olympiacos",
+      "gameDate": "2026-10-15",
+      "publishedAt": "2026-10-15T22:45:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d616e247c0-14e744302d2c-1000--europa-league-highlights-marseille-0-1-olympiacos/",
+      "videoId": "02aa-21d616e247c0-14e744302d2c-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "conference",
+      "title": "Conference League Highlights: Hearts 1-1 Nordsjælland",
+      "gameDate": "2026-10-15",
+      "publishedAt": "2026-10-15T22:44:32+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaconferenceleague/video/highlights/02aa-21d616afebe1-d40b73498190-1000--conference-league-highlights-hearts-1-1-nordsj%C3%A6lland/",
+      "videoId": "02aa-21d616afebe1-d40b73498190-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "conference",
+      "title": "Conference League Highlights: Atalanta 3-1 Pafos",
+      "gameDate": "2026-10-15",
+      "publishedAt": "2026-10-15T22:38:34+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaconferenceleague/video/highlights/02aa-21d6148e5c8f-f07f9d0141b9-1000--conference-league-highlights-atalanta-3-1-pafos/",
+      "videoId": "02aa-21d6148e5c8f-f07f9d0141b9-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "conference",
+      "title": "Highlights: Freiburg 3-2 Jablonec",
+      "gameDate": "2026-10-15",
+      "publishedAt": "2026-10-15T22:19:31+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaconferenceleague/video/highlights/02aa-21d60dbd452c-1c4e0055b4af-1000--conference-league-highlights-freiburg-3-2-jablonec/",
+      "videoId": "02aa-21d60dbd452c-1c4e0055b4af-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Highlights: Torreense 1-2 Sunderland",
+      "gameDate": "2026-10-15",
+      "publishedAt": "2026-10-15T22:00:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d5f2afbe4c-e223f9a42175-1000--europa-league-highlights-torreense-1-2-sunderland/",
+      "videoId": "02aa-21d5f2afbe4c-e223f9a42175-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Highlights: Salzburg 0-4 Milan",
+      "gameDate": "2026-10-15",
+      "publishedAt": "2026-10-15T22:00:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d5e7a4357f-3b02c2ecc44f-1000--europa-league-highlights-salzburg-0-4-milan/",
+      "videoId": "02aa-21d5e7a4357f-3b02c2ecc44f-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Highlights: Lyon 3-2 Crystal Palace",
+      "gameDate": "2026-10-15",
+      "publishedAt": "2026-10-15T22:00:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d5ed7c68d7-b67d4e3526be-1000--europa-league-highlights-lyon-3-2-crystal-palace/",
+      "videoId": "02aa-21d5ed7c68d7-b67d4e3526be-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "conference",
+      "title": "Highlights: CSKA Sofia 1-2 Monaco",
+      "gameDate": "2026-10-15",
+      "publishedAt": "2026-10-15T22:00:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaconferenceleague/video/highlights/02aa-21d5e5c71d27-3b93fb1490de-1000--conference-league-highlights-cska-sofia-1-2-monaco/",
+      "videoId": "02aa-21d5e5c71d27-3b93fb1490de-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "conference",
+      "title": "Highlights: Hajduk Split 2-1 Ajax",
+      "gameDate": "2026-10-15",
+      "publishedAt": "2026-10-15T22:00:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaconferenceleague/video/highlights/02aa-21d5e6a5a001-39b0671eb9fb-1000--conference-league-highlights-hajduk-split-2-1-ajax/",
+      "videoId": "02aa-21d5e6a5a001-39b0671eb9fb-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "conference",
+      "title": "Highlights: Panathinaikos 2-1 Borac",
+      "gameDate": "2026-10-15",
+      "publishedAt": "2026-10-15T22:00:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaconferenceleague/video/highlights/02aa-21d5fe50b194-d65a5235d640-1000--conference-league-highlights-panathinaikos-2-1-borac/",
+      "videoId": "02aa-21d5fe50b194-d65a5235d640-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Highlights: Beşiktaş 4-1 Marseille",
+      "gameDate": "2026-09-17",
+      "publishedAt": "2026-09-17T22:00:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219db3baaf73-4926fd29a53a-1000--europa-league-highlights-besiktas-4-1-marseille/",
+      "videoId": "02a9-219db3baaf73-4926fd29a53a-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Highlights: Real Sociedad 1-2 Bournemouth",
+      "gameDate": "2026-09-17",
+      "publishedAt": "2026-09-17T22:00:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219db2731947-7b90dd3286b3-1000--europa-league-highlights-real-sociedad-1-2-bournemouth/",
+      "videoId": "02a9-219db2731947-7b90dd3286b3-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Highlights: Celtic 1-3 Ferencváros",
+      "gameDate": "2026-09-17",
+      "publishedAt": "2026-09-17T22:00:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219db5abdc5f-f57e0b80cbab-1000--europa-league-highlights-celtic-1-3-ferencvaros/",
+      "videoId": "02a9-219db5abdc5f-f57e0b80cbab-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Highlights: Crystal Palace 4-0 Lech Poznań",
+      "gameDate": "2026-09-17",
+      "publishedAt": "2026-09-17T22:00:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219db34a0009-5121057f7ec6-1000--europa-league-highlights-crystal-palace-4-0-lech-poznan/",
+      "videoId": "02a9-219db34a0009-5121057f7ec6-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Highlights: Milan 0-2 Benfica",
+      "gameDate": "2026-09-16",
+      "publishedAt": "2026-09-16T22:00:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219bb924c1a0-29aaa735c81c-1000--europa-league-highlights-milan-0-2-benfica/",
+      "videoId": "02a9-219bb924c1a0-29aaa735c81c-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Highlights: Anderlecht 1-2 Olympique Lyonnais",
+      "gameDate": "2026-09-16",
+      "publishedAt": "2026-09-16T22:00:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219bbf2917cd-e7aa52e40149-1000--europa-league-highlights-anderlecht-1-2-olympique-lyonnais/",
+      "videoId": "02a9-219bbf2917cd-e7aa52e40149-1000"
+    },
+    {
+      "publisher": "uefa",
+      "competition": "europa",
+      "title": "Highlights: Sunderland 1-0 AZ Alkmaar",
+      "gameDate": "2026-09-16",
+      "publishedAt": "2026-09-16T22:00:00+00:00",
+      "kind": "game",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219bbe130a23-64827612acf7-1000--europa-league-highlights-sunderland-1-0-az-alkmaar/",
+      "videoId": "02a9-219bbe130a23-64827612acf7-1000"
     }
   ]
 }
