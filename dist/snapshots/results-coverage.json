@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-23T16:57:14.077Z",
+  "checkedAt": "2026-10-23T19:21:32.167Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -49,17 +49,10 @@
           "date": "2026-10-23",
           "home": "Olympiacos Piraeus",
           "away": "Fenerbahce Tarfin Istanbul"
-        },
-        {
-          "id": "E-68",
-          "competition": "el",
-          "date": "2026-10-23",
-          "home": "Zalgiris Kaunas",
-          "away": "LDLC ASVEL Villeurbanne"
         }
       ],
       "sourceError": null,
-      "finals": 67
+      "finals": 68
     },
     {
       "competition": "elite",
@@ -214,13 +207,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "volley-88162",
-          "competition": "volley-w",
-          "date": "2026-10-23",
-          "home": "A.E.K.",
-          "away": "Π.Α.Ο.Κ. F&U"
-        },
-        {
           "id": "volley-88158",
           "competition": "volley-w",
           "date": "2026-10-17",
@@ -243,7 +229,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 3
+      "finals": 4
     }
   ]
 }
