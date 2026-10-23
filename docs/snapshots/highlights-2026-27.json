@@ -1,7 +1,7 @@
 {
   "season": "2026-27",
   "sourceVersion": 7,
-  "retrievedAt": "2026-10-23T19:21:37.212Z",
+  "retrievedAt": "2026-10-23T20:17:14.251Z",
   "errors": [
     "Magenta Sport archive: Empty channel uploads; retained earlier videos"
   ],
@@ -28,6 +28,27 @@
     }
   ],
   "videos": [
+    {
+      "videoId": "rm8q0YHdVfg",
+      "channelId": "UCGr3nR_XH9r6E5b09ZJAT9w",
+      "title": "Zalgiris Kaunas - LDLC ASVEL | R7 Basketball Highlights 2026-27",
+      "publishedAt": "2026-10-23T19:52:04+00:00",
+      "publisher": "el",
+      "competition": "el",
+      "round": 7,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "SY_56fmGpGM",
+      "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
+      "title": "Ζάλγκιρις Κάουνας - Βιλερμπάν: 105-85 (MD 7, 23/10/2026)",
+      "publishedAt": "2026-10-23T19:39:52+00:00",
+      "publisher": "nova",
+      "competition": "el",
+      "gameDate": "2026-10-23",
+      "kind": "game"
+    },
     {
       "videoId": "NXfkIJTUPCU",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
