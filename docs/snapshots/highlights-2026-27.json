@@ -1,7 +1,7 @@
 {
   "season": "2026-27",
   "sourceVersion": 7,
-  "retrievedAt": "2026-10-23T09:04:24.564Z",
+  "retrievedAt": "2026-10-23T09:37:02.439Z",
   "errors": [
     "Magenta Sport archive: Empty channel uploads; retained earlier videos"
   ],
@@ -561,7 +561,7 @@
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-22T23:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e41ef9d9ad-07d129cc4d83-1000--europa-league-highlights-besiktas-2-2-crystal-palace/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21e41ef9d9ad-07d129cc4d83-1000--europa-league-highlights-besiktas-2-2-crystal-palace/",
       "videoId": "02aa-21e41ef9d9ad-07d129cc4d83-1000"
     },
     {
@@ -641,7 +641,7 @@
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-22T22:29:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e4261c8548-951f3ce412dd-1000--europa-league-highlights-lillestrom-0-6-real-sociedad/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21e4261c8548-951f3ce412dd-1000--europa-league-highlights-lillestrom-0-6-real-sociedad/",
       "videoId": "02aa-21e4261c8548-951f3ce412dd-1000"
     },
     {
@@ -651,7 +651,7 @@
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-22T22:26:24+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e4251a0c41-e22b2afd9d85-1000--europa-league-highlights-celtic-1-2-celta/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21e4251a0c41-e22b2afd9d85-1000--europa-league-highlights-celtic-1-2-celta/",
       "videoId": "02aa-21e4251a0c41-e22b2afd9d85-1000"
     },
     {
@@ -752,7 +752,7 @@
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-22T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e41b1a746e-23943079d0c5-1000--europa-league-highlights-bournemouth-3-0-milan/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21e41b1a746e-23943079d0c5-1000--europa-league-highlights-bournemouth-3-0-milan/",
       "videoId": "02aa-21e41b1a746e-23943079d0c5-1000"
     },
     {
@@ -762,7 +762,7 @@
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-22T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21e3ed6a03ed-3965738ba8c6-1000--europa-league-highlights-juventus-2-2-rennes/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21e3ed6a03ed-3965738ba8c6-1000--europa-league-highlights-juventus-2-2-rennes/",
       "videoId": "02aa-21e3ed6a03ed-3965738ba8c6-1000"
     },
     {
@@ -1464,7 +1464,7 @@
       "gameDate": "2026-10-16",
       "publishedAt": "2026-10-16T14:51:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d6140858b4-1de467f1aaeb-1000--europa-league-highlights-hoffenheim-2-3-besiktas/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d6140858b4-1de467f1aaeb-1000--europa-league-highlights-hoffenheim-2-3-besiktas/",
       "videoId": "02aa-21d6140858b4-1de467f1aaeb-1000"
     },
     {
@@ -1474,7 +1474,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:49:54+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d6189af407-8c713da7c3af-1000--europa-league-highlights-benfica-4-1-celtic/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d6189af407-8c713da7c3af-1000--europa-league-highlights-benfica-4-1-celtic/",
       "videoId": "02aa-21d6189af407-8c713da7c3af-1000"
     },
     {
@@ -1484,7 +1484,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:47:20+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d617b14f94-8b0307ed7f1a-1000--europa-league-highlights-celta-1-2-juventus/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d617b14f94-8b0307ed7f1a-1000--europa-league-highlights-celta-1-2-juventus/",
       "videoId": "02aa-21d617b14f94-8b0307ed7f1a-1000"
     },
     {
@@ -1494,7 +1494,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:45:37+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d61713a2e9-8275a1aa3546-1000--europa-league-highlights-bournemouth-3-0-sturm-graz/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d61713a2e9-8275a1aa3546-1000--europa-league-highlights-bournemouth-3-0-sturm-graz/",
       "videoId": "02aa-21d61713a2e9-8275a1aa3546-1000"
     },
     {
@@ -1504,7 +1504,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:45:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d616e247c0-14e744302d2c-1000--europa-league-highlights-marseille-0-1-olympiacos/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d616e247c0-14e744302d2c-1000--europa-league-highlights-marseille-0-1-olympiacos/",
       "videoId": "02aa-21d616e247c0-14e744302d2c-1000"
     },
     {
@@ -1544,7 +1544,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d5f2afbe4c-e223f9a42175-1000--europa-league-highlights-torreense-1-2-sunderland/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d5f2afbe4c-e223f9a42175-1000--europa-league-highlights-torreense-1-2-sunderland/",
       "videoId": "02aa-21d5f2afbe4c-e223f9a42175-1000"
     },
     {
@@ -1554,7 +1554,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d5e7a4357f-3b02c2ecc44f-1000--europa-league-highlights-salzburg-0-4-milan/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d5e7a4357f-3b02c2ecc44f-1000--europa-league-highlights-salzburg-0-4-milan/",
       "videoId": "02aa-21d5e7a4357f-3b02c2ecc44f-1000"
     },
     {
@@ -1564,7 +1564,7 @@
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02aa-21d5ed7c68d7-b67d4e3526be-1000--europa-league-highlights-lyon-3-2-crystal-palace/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02aa-21d5ed7c68d7-b67d4e3526be-1000--europa-league-highlights-lyon-3-2-crystal-palace/",
       "videoId": "02aa-21d5ed7c68d7-b67d4e3526be-1000"
     },
     {
@@ -1604,7 +1604,7 @@
       "gameDate": "2026-09-17",
       "publishedAt": "2026-09-17T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219db3baaf73-4926fd29a53a-1000--europa-league-highlights-besiktas-4-1-marseille/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219db3baaf73-4926fd29a53a-1000--europa-league-highlights-besiktas-4-1-marseille/",
       "videoId": "02a9-219db3baaf73-4926fd29a53a-1000"
     },
     {
@@ -1614,7 +1614,7 @@
       "gameDate": "2026-09-17",
       "publishedAt": "2026-09-17T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219db2731947-7b90dd3286b3-1000--europa-league-highlights-real-sociedad-1-2-bournemouth/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219db2731947-7b90dd3286b3-1000--europa-league-highlights-real-sociedad-1-2-bournemouth/",
       "videoId": "02a9-219db2731947-7b90dd3286b3-1000"
     },
     {
@@ -1624,7 +1624,7 @@
       "gameDate": "2026-09-17",
       "publishedAt": "2026-09-17T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219db5abdc5f-f57e0b80cbab-1000--europa-league-highlights-celtic-1-3-ferencvaros/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219db5abdc5f-f57e0b80cbab-1000--europa-league-highlights-celtic-1-3-ferencvaros/",
       "videoId": "02a9-219db5abdc5f-f57e0b80cbab-1000"
     },
     {
@@ -1634,7 +1634,7 @@
       "gameDate": "2026-09-17",
       "publishedAt": "2026-09-17T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219db34a0009-5121057f7ec6-1000--europa-league-highlights-crystal-palace-4-0-lech-poznan/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219db34a0009-5121057f7ec6-1000--europa-league-highlights-crystal-palace-4-0-lech-poznan/",
       "videoId": "02a9-219db34a0009-5121057f7ec6-1000"
     },
     {
@@ -1644,7 +1644,7 @@
       "gameDate": "2026-09-16",
       "publishedAt": "2026-09-16T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219bb924c1a0-29aaa735c81c-1000--europa-league-highlights-milan-0-2-benfica/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219bb924c1a0-29aaa735c81c-1000--europa-league-highlights-milan-0-2-benfica/",
       "videoId": "02a9-219bb924c1a0-29aaa735c81c-1000"
     },
     {
@@ -1654,7 +1654,7 @@
       "gameDate": "2026-09-16",
       "publishedAt": "2026-09-16T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219bbf2917cd-e7aa52e40149-1000--europa-league-highlights-anderlecht-1-2-olympique-lyonnais/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219bbf2917cd-e7aa52e40149-1000--europa-league-highlights-anderlecht-1-2-olympique-lyonnais/",
       "videoId": "02a9-219bbf2917cd-e7aa52e40149-1000"
     },
     {
@@ -1664,7 +1664,7 @@
       "gameDate": "2026-09-16",
       "publishedAt": "2026-09-16T22:00:00+00:00",
       "kind": "game",
-      "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219bbe130a23-64827612acf7-1000--europa-league-highlights-sunderland-1-0-az-alkmaar/",
+      "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219bbe130a23-64827612acf7-1000--europa-league-highlights-sunderland-1-0-az-alkmaar/",
       "videoId": "02a9-219bbe130a23-64827612acf7-1000"
     }
   ]
