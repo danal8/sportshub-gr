@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-23T11:59:28.871Z",
+  "checkedAt": "2026-10-23T16:57:14.077Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -64,17 +64,9 @@
     {
       "competition": "elite",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "elite-5-KRONOS BC PLASIS-ΑΕ ΨΥΧΙΚΟΥ",
-          "competition": "elite",
-          "date": "2026-10-23",
-          "home": "KRONOS BC PLASIS",
-          "away": "ΑΕ ΨΥΧΙΚΟΥ"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 32
+      "finals": 33
     },
     {
       "competition": "eurocup",
