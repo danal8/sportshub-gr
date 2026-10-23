@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-23T01:38:41.467Z",
+  "checkedAt": "2026-10-23T06:18:58.511Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -140,20 +140,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "nba-401909093",
-          "competition": "nba",
-          "date": "2026-10-23",
-          "home": "Philadelphia 76ers",
-          "away": "Cleveland Cavaliers"
-        },
-        {
-          "id": "nba-401909094",
-          "competition": "nba",
-          "date": "2026-10-23",
-          "home": "Oklahoma City Thunder",
-          "away": "Denver Nuggets"
-        },
-        {
           "id": "nba-401909848",
           "competition": "nba",
           "date": "2026-10-23",
@@ -162,7 +148,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 14
+      "finals": 16
     },
     {
       "competition": "pl",
