@@ -210,3 +210,6 @@ body .intro{flex-wrap:nowrap;gap:8px}body .intro>div{flex:1 1 auto;min-width:0}b
 /* Full-height mobile details retain their own scroll area and fixed controls. */
 @media(max-width:700px){body .detail-dialog{inset:0;width:100%;max-width:none;height:100vh;height:100dvh;max-height:none;margin:0;border:0;border-radius:0}body .detail-dialog .detail-header{flex:none;padding-top:max(12px,env(safe-area-inset-top));padding-inline:12px}body .detail-dialog .detail-header button{min-width:44px;min-height:44px}body .detail-dialog .detail-body{flex:1;min-height:0;padding-bottom:max(12px,env(safe-area-inset-bottom))}.detail-dialog .detail-source{flex:none}}
 body[data-tab=tv] .fixture-favorite{z-index:1;width:44px;min-height:44px;touch-action:manipulation}
+
+#match-quick-filters{display:flex;align-items:center;gap:8px;margin-inline-end:auto}#match-quick-filters #favorites-only,#match-quick-filters #live-only{margin:0;min-height:38px}#match-quick-filters #favorites-only{padding:3px 10px}#match-quick-filters #live-only{padding:8px 12px;font-size:12px}
+@media(min-width:701px){body[data-tab=matches] .card-heading{justify-content:flex-start;gap:12px}body[data-tab=matches] #coverage{margin-inline-start:auto}}
