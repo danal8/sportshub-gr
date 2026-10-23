@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-22T23:16:32.743Z",
+  "checkedAt": "2026-10-23T01:38:41.467Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -28,66 +28,9 @@
     {
       "competition": "conference",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "espn-401915837",
-          "competition": "conference",
-          "date": "2026-10-22",
-          "home": "Ajax Amsterdam",
-          "away": "Atalanta"
-        },
-        {
-          "id": "espn-401915836",
-          "competition": "conference",
-          "date": "2026-10-22",
-          "home": "AS Monaco",
-          "away": "SC Freiburg"
-        },
-        {
-          "id": "espn-401915743",
-          "competition": "conference",
-          "date": "2026-10-22",
-          "home": "Borac Banja Luka",
-          "away": "KuPS Kuopio"
-        },
-        {
-          "id": "espn-401915832",
-          "competition": "conference",
-          "date": "2026-10-22",
-          "home": "Braga",
-          "away": "KAA Gent"
-        },
-        {
-          "id": "espn-401915835",
-          "competition": "conference",
-          "date": "2026-10-22",
-          "home": "FC Midtjylland",
-          "away": "Sint-Truidense"
-        },
-        {
-          "id": "espn-401915834",
-          "competition": "conference",
-          "date": "2026-10-22",
-          "home": "FC Thun",
-          "away": "Hajduk Split"
-        },
-        {
-          "id": "espn-401915833",
-          "competition": "conference",
-          "date": "2026-10-22",
-          "home": "Lincoln Red Imps",
-          "away": "FC Twente"
-        },
-        {
-          "id": "espn-401915744",
-          "competition": "conference",
-          "date": "2026-10-22",
-          "home": "AGF",
-          "away": "Egnatia"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 25
+      "finals": 33
     },
     {
       "competition": "el",
@@ -143,80 +86,9 @@
     {
       "competition": "europa",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "europa-87746",
-          "competition": "europa",
-          "date": "2026-10-22",
-          "home": "TSG Hoffenheim",
-          "away": "Olympique Lyon"
-        },
-        {
-          "id": "europa-87813",
-          "competition": "europa",
-          "date": "2026-10-22",
-          "home": "AFC Bournemouth",
-          "away": "AC Mailand"
-        },
-        {
-          "id": "europa-87814",
-          "competition": "europa",
-          "date": "2026-10-22",
-          "home": "Besiktas Istanbul",
-          "away": "Crystal Palace FC"
-        },
-        {
-          "id": "europa-87815",
-          "competition": "europa",
-          "date": "2026-10-22",
-          "home": "Celtic Glasgow",
-          "away": "Celta Vigo"
-        },
-        {
-          "id": "europa-87816",
-          "competition": "europa",
-          "date": "2026-10-22",
-          "home": "Viktoria Pilsen",
-          "away": "Levski Sofia"
-        },
-        {
-          "id": "europa-87817",
-          "competition": "europa",
-          "date": "2026-10-22",
-          "home": "Jagiellonia Bialystok",
-          "away": "RSC Anderlecht"
-        },
-        {
-          "id": "europa-87818",
-          "competition": "europa",
-          "date": "2026-10-22",
-          "home": "Lillestrøm SK",
-          "away": "Real Sociedad"
-        },
-        {
-          "id": "europa-87819",
-          "competition": "europa",
-          "date": "2026-10-22",
-          "home": "NK Celje",
-          "away": "RB Salzburg"
-        },
-        {
-          "id": "europa-87820",
-          "competition": "europa",
-          "date": "2026-10-22",
-          "home": "Olympiakos Piräus",
-          "away": "Sparta Prag"
-        },
-        {
-          "id": "europa-87821",
-          "competition": "europa",
-          "date": "2026-10-22",
-          "home": "Omonia Nikosia",
-          "away": "Benfica Lissabon"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 44
+      "finals": 54
     },
     {
       "competition": "gbl",
