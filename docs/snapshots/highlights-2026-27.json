@@ -1,9 +1,8 @@
 {
   "season": "2026-27",
   "sourceVersion": 7,
-  "retrievedAt": "2026-10-23T08:59:42.785Z",
+  "retrievedAt": "2026-10-23T09:04:24.564Z",
   "errors": [
-    "Novasports archive: HTTP 500",
     "Magenta Sport archive: Empty channel uploads; retained earlier videos"
   ],
   "sources": [
