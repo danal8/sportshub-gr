@@ -20,7 +20,7 @@ try{
  await page.clock.install({time:new Date('2026-10-22T18:00:00Z')});
  let step=0,fail=false,scoreCalls=0;
  await context.route('**/*',async route=>{
- const url=route.request().url();if(url.startsWith(origin))return route.continue();
+ const url=route.request().url();if(url.startsWith(origin)){if(new URL(url).pathname==='/snapshots/europa-2026-27.json')return route.fulfill({json:{...payload,matches:payload.matches.map(m=>m.date==='2026-10-22'?{...m,score:null,scoreState:null,scoreCheckedAt:null,eventIDs:{},homeIDs:{},awayIDs:{}}:m)}});return route.continue();}
  if(url.startsWith('https://site.api.espn.com/apis/site/v2/sports/')||url.startsWith('https://site.web.api.espn.com/apis/site/v2/sports/')){
   if(fail)return route.abort();const target=url.includes('/soccer/uefa.europa/scoreboard')&&url.includes('dates=20261022');if(target)scoreCalls++;
   return route.fulfill({json:{leagues:[{season:{year:url.includes('/basketball/nba/')?2027:2026}}],events:target?[{id:'ui-live',date:'2026-10-22T16:45:00Z',status:{displayClock:step?"68'":"67'",period:2,type:{state:'in',completed:false,name:'STATUS_IN_PROGRESS'}},competitions:[{competitors:[{homeAway:'home',team:{displayName:fixture.home},score:step?'2':'1'},{homeAway:'away',team:{displayName:fixture.away},score:'0'}]}]}]:[]}});
