@@ -1,23 +1,24 @@
-import{loadDailySchedule}from'./daily-schedule.js?v=51';
-import{savePreference}from'./preference-storage.js?v=51';
-import{FAVORITES_KEY,sanitizeFavorites,isFavorite,toggleFavorite,favoriteMatches}from'./fixture-favorites.js?v=51';
-import{loadHighlightsIndex,selectHighlights,highlightMatch}from'./highlights.js?v=51';
-import{displayTeamName}from'./team-display.js?v=51';
-import{loadLiveScores,applyLiveScores,mergeLiveMatches,isFreshLive,LIVE_INTERVAL}from'./live-scores.js?v=51';
-import{makeSelection,sanitizeSelections,selectionForTeam,addSelection,weekRange,weeklyMatches,selectedCompetitions,teamIdentity}from'./my-teams.js?v=51';
-import{teamMarkup}from'./team-view.js?v=51';
-import{loadTVDetails,applyTVDetails}from'./tv-details.js?v=51';
-import{defaultCompetition,orderedCompetitions}from'./competition-order.js?v=51';
-import{badgeSources,loadBadgeCatalog,rememberBadges}from'./badges.js?v=51';
-import{resultLabel}from'./results.js?v=51';
-import{directIDs}from'./direct.js?v=51';
-import{swipeDirection}from'./gestures.js?v=51';
-import{navIcon}from'./icons.js?v=51';
-import{scheduleEntries,daySchedule}from'./schedule.js?v=51';
-import{loadNova}from'./tv.js?v=51';
-import {loadProvider,isConnected,rememberConfirmedResults} from './providers.js?v=51';
-import {competitions,checkedAt,eliteSchedule,eliteTV,eliteMatches,broadcasts,currentTV,gblStandings} from './data.js?v=51';
-import {escapeHTML as e,normalizeFootball,calculateTable,athensDay,chooseRound,filterMatches,shiftDay} from './core.js?v=51';
+import{loadTVGuide}from'./tv-guide.js?v=52';
+import{loadDailySchedule}from'./daily-schedule.js?v=52';
+import{savePreference}from'./preference-storage.js?v=52';
+import{FAVORITES_KEY,sanitizeFavorites,isFavorite,toggleFavorite,favoriteMatches}from'./fixture-favorites.js?v=52';
+import{loadHighlightsIndex,selectHighlights,highlightMatch}from'./highlights.js?v=52';
+import{displayTeamName}from'./team-display.js?v=52';
+import{loadLiveScores,applyLiveScores,mergeLiveMatches,isFreshLive,LIVE_INTERVAL}from'./live-scores.js?v=52';
+import{makeSelection,sanitizeSelections,selectionForTeam,addSelection,weekRange,weeklyMatches,selectedCompetitions,teamIdentity}from'./my-teams.js?v=52';
+import{teamMarkup}from'./team-view.js?v=52';
+import{loadTVDetails,applyTVDetails}from'./tv-details.js?v=52';
+import{defaultCompetition,orderedCompetitions}from'./competition-order.js?v=52';
+import{badgeSources,loadBadgeCatalog,rememberBadges}from'./badges.js?v=52';
+import{resultLabel}from'./results.js?v=52';
+import{directIDs}from'./direct.js?v=52';
+import{swipeDirection}from'./gestures.js?v=52';
+import{navIcon}from'./icons.js?v=52';
+import{scheduleEntries,daySchedule}from'./schedule.js?v=52';
+import{loadNova}from'./tv.js?v=52';
+import {loadProvider,isConnected,rememberConfirmedResults} from './providers.js?v=52';
+import {competitions,checkedAt,eliteSchedule,eliteTV,eliteMatches,broadcasts,currentTV,gblStandings} from './data.js?v=52';
+import {escapeHTML as e,normalizeFootball,calculateTable,athensDay,chooseRound,filterMatches,shiftDay} from './core.js?v=52';
 const $=id=>document.getElementById(id);
 const shortLabels={volleyball:'Βόλεϊ',football:'Ποδ.',basketball:'Μπασκ.',tv:'TV',matches:'Αγώνες',standings:'Βαθμοί'};
 const nav=[['football','⚽','Ποδόσφαιρο'],['basketball','◉','Μπάσκετ'],['volleyball','','Βόλεϊ'],['tv','▣','Τηλεόραση'],['matches','▦','Αγώνες'],['standings','≡','Βαθμολογίες']];
@@ -42,6 +43,7 @@ document.addEventListener('error',event=>{const img=event.target;if(!img?.classL
 function link(url,text){return `<a href="${e(url)}" target="_blank" rel="noopener">${e(text)} ↗</a>`;}
 let renderedTab,renderedMatches=[];
 let detailPromise,cardHighlights=null,cardHighlightsPending=false,cardHighlightsCheckedAt=0;
+function fixtureStar(m,matchIndex){return `<button type="button" class="fixture-favorite" data-fixture-favorite="${matchIndex}" aria-pressed="${isFavorite(m,favoriteFixtures)}" aria-label="${e((isFavorite(m,favoriteFixtures)?'Αφαίρεση από αγαπημένα: ':'Προσθήκη στα αγαπημένα: ')+m.home+' – '+m.away)}">${isFavorite(m,favoriteFixtures)?'★':'☆'}</button>`;}
 function cardHighlight(m){
  const h=cardHighlights&&selectHighlights(cardHighlights,highlightMatch(m));return h?'<a class="match-highlights" href="'+e(h.url)+'" target="_blank" rel="noopener noreferrer" aria-label="'+e('Highlights: '+m.home+' – '+m.away+' · '+h.provider)+'" title="'+e(h.provider)+'">▶ Highlights</a>':'';
 }
@@ -50,7 +52,7 @@ async function refreshCardHighlights(force=false){
  cardHighlightsPending=true;cardHighlightsCheckedAt=Date.now();
  try{cardHighlights=await loadHighlightsIndex({force});if(!state.loading&&state.tab!=='standings')render();}catch{}finally{cardHighlightsPending=false;}
 }
-function details(){return detailPromise??=import('./detail-panels.js?v=51').then(m=>m.createDetailPanels({getSeed:()=>{const records=competitions.map(c=>({competition:c,payload:scheduleCache.get(state.season+'-'+c.id)})).filter(r=>r.payload);if(state.meta?.matches&&competitions.some(c=>c.id===state.id))records.push({competition:current(),payload:{...state.meta,matches:state.matches}});return records;}})).catch(error=>{detailPromise=null;notify('Δεν άνοιξαν τα στοιχεία. Δοκίμασε ξανά.');throw error;});}
+function details(){return detailPromise??=import('./detail-panels.js?v=52').then(m=>m.createDetailPanels({getSeed:()=>{const records=competitions.map(c=>({competition:c,payload:scheduleCache.get(state.season+'-'+c.id)})).filter(r=>r.payload);if(state.meta?.matches&&competitions.some(c=>c.id===state.id))records.push({competition:current(),payload:{...state.meta,matches:state.matches}});return records;}})).catch(error=>{detailPromise=null;notify('Δεν άνοιξαν τα στοιχεία. Δοκίμασε ξανά.');throw error;});}
 document.addEventListener('click',async event=>{const t=event.target.closest('[data-open-team]');if(t){const name=t.dataset.openTeam,id=t.dataset.openCompetition;try{(await details()).openTeam(name,id);}catch{}return;}const target=event.target.closest('[data-open-match-index]');if(!target||target.tagName==='ARTICLE'&&event.target.closest('a,button,input,select,summary'))return;const match=renderedMatches[Number(target.dataset.openMatchIndex)];if(match)try{(await details()).openMatch({...match});}catch{}});
 function renderNav(){if(renderedTab===state.tab)return;renderedTab=state.tab;for(const id of ['side-nav','top-nav','bottom-nav']){$(id).innerHTML=nav.map(([key,icon,label])=>`<button type="button" data-tab="${key}" aria-label="${label}" class="${state.tab===key?'active':''}" ${state.tab===key?'aria-current="page"':''}><span class="nav-icon" aria-hidden="true">${navIcon(key)}</span><span class="full-label">${label}</span><span class="short-label" aria-hidden="true">${shortLabels[key]}</span></button>`).join('');}}
 function choices(){const allowed=state.tab==='matches'?[allMatches,...orderedCompetitions(competitions,state.tab)]:state.tab==='tv'?[allTV,...orderedCompetitions(competitions,state.tab)]:orderedCompetitions(competitions,state.tab);if(!allowed.some(c=>c.id===state.id))state.id=allowed[0].id;$('competition').innerHTML=allowed.map(c=>`<option value="${c.id}" ${c.id===state.id?'selected':''}>${c.name}</option>`).join('');}
@@ -81,6 +83,10 @@ async function load(force=false){const request=++state.request,c=current(),seaso
   if(request!==state.request)return;state.meta=payload;
  }else if(season==='2026-27'){
   if(state.tab==='tv'){
+   let guide;try{guide=await loadTVGuide(tvDate,{competition:c.id,force});}catch{}
+   if(request!==state.request)return;
+   if(guide){state.tvErrors=[];state.tvSources=guide.sources;state.matches=guide.matches;}
+   else{
    state.tvErrors=[];const feeds=['elite','gbl','sl2','volley-w','volley-m','nova'].filter(id=>c.id==='all-tv'||id===c.id||id==='nova');
    const show=()=>{if(request!==state.request)return;state.tvSources=feeds.map(id=>tvCache.get(tvKey(id))).filter(Boolean);state.matches=applyTVDetails(state.tvSources.flatMap(p=>p.matches).filter(m=>m.live&&m.date&&m.time&&m.channel&&(c.id==='all-tv'||m.competition===c.id)),tvDetailsCache.get(tvDate)?.entries||[]);};
    show();notify('Ενημέρωση…');
@@ -88,15 +94,21 @@ async function load(force=false){const request=++state.request,c=current(),seaso
     const competition=competitions.find(x=>x.id===id);const matches=id==='nova'?p.matches:p.matches.filter(m=>m.date&&m.time&&m.channel).map(m=>({...m,id:'tv-'+m.id,competition:id,competitionLabel:competition.name,sportLabel:competition.sport==='football'?'Ποδόσφαιρο':competition.sport==='volleyball'?'Βόλεϊ':'Μπάσκετ',live:true,source:m.source||p.source}));
     rememberBadges(p,id);tvCache.set(tvKey(id),{...p,matches});show();
    }catch(error){if(request===state.request){state.tvErrors.push(id+': '+error.message);const old=tvCache.get(tvKey(id));if(old)tvCache.set(tvKey(id),{...old,fallback:error.message});}}});
-   tasks.push(loadTVDetails(tvDate,{competition:c.id,force}).then(p=>{if(request===state.request){tvDetailsCache.set(tvDate,p);show();}}));await Promise.allSettled(tasks);
+   await Promise.allSettled(tasks);
    if(request!==state.request)return;
+   }
   }
   else if(c.id==='elite')state.matches=eliteMatches;
   state.meta={retrievedAt:checkedAt,source:state.tab==='tv'?(c.id==='elite'?eliteTV:c.url):c.id==='elite'?eliteSchedule:c.ranking||c.url};
   if(state.tab==='tv'){state.meta=null;message='';if(state.tvErrors?.length)message='Ορισμένες μεταδόσεις δεν μπόρεσαν να ενημερωθούν.';}else message='Δεν υπάρχει αυτόματη κάλυψη για αυτή την επιλογή.';
  }else{message='Δεν υπάρχει αποθηκευμένη κάλυψη για την επιλεγμένη σεζόν.';}
  }catch(error){if(request!==state.request)return;message=`Η πηγή δεν είναι διαθέσιμη (${error.message}). Δεν εμφανίζονται επινοημένα δεδομένα.`;}
- finally{if(request===state.request){state.loading=false;setRounds();render();notify((navigator.onLine?'':'Εκτός σύνδεσης · ')+message);$('refresh').disabled=false;void refreshLive();}}
+ finally{if(request===state.request){state.loading=false;setRounds();render();notify((navigator.onLine?'':'Εκτός σύνδεσης · ')+message);$('refresh').disabled=false;if(state.tab==='tv')void refreshTVExtras(request,tvDate,c.id,force);else void refreshLive();}}
+}
+// Enrichment never holds the broadcast list or date controls behind external APIs.
+async function refreshTVExtras(request,date,competition,force){
+ const competitionIDs=[...new Set(state.matches.filter(m=>m.date===date).map(m=>m.competition))];if(!competitionIDs.length)return;
+ try{const p=await loadTVDetails(date,{competition,competitionIDs,force});if(request!==state.request||state.tab!=='tv'||date!==state.tvDate||competition!==state.id)return;tvDetailsCache.set(date,p);state.matches=applyTVDetails(state.matches,p.entries);if(!state.loading)render();}catch{}
 }
 function oddsLine(m){const o=m.odds,age=Date.now()-Date.parse(o?.checkedAt);if(!Number.isFinite(age)||!Number.isFinite(Date.parse(o?.startsAt))||!o||o.bookmaker!=='DraftKings'||age< -60000||age>=600000||Date.now()>=Date.parse(o.startsAt)||![o.home,o.away,...(o.draw===undefined?[]:[o.draw])].every(n=>typeof n==='number'&&Number.isFinite(n)&&n>1))return '';return '<div class="odds-line"><span class="odds-prices">'+(o.market==='Νικητής αγώνα'?'Νικητής · ':'')+'1 <b>'+o.home.toFixed(2)+'</b>'+(o.draw===undefined?'':' · Χ <b>'+o.draw.toFixed(2)+'</b>')+' · 2 <b>'+o.away.toFixed(2)+'</b></span><span class="odds-source">'+link(o.url,'DraftKings')+' · μέσω ESPN · Έλεγχος '+e(new Intl.DateTimeFormat('el-GR',{timeZone:'Europe/Athens',hour:'2-digit',minute:'2-digit'}).format(new Date(o.checkedAt)))+'</span></div>';}
 function renderHeader(){const c=current();$('favorites-only').hidden=state.tab!=='matches';$('favorites-only').setAttribute('aria-pressed',String(state.favoritesOnly));const headingFilters=state.tab==='matches'&&matchMedia('(min-width:701px)').matches;$('match-quick-filters').hidden=!headingFilters;(headingFilters?$('match-quick-filters'):['matches','tv'].includes(state.tab)?$('tv-day'):document.querySelector('.filters')).append($('live-only'));$('live-only').before($('favorites-only'));$('live-only').hidden=!['matches','football','basketball','volleyball'].includes(state.tab);$('live-only').setAttribute('aria-pressed',String(state.liveOnly));document.body.dataset.tab=state.tab;renderMyTeamsControls();$('season').closest('label').hidden=state.tab==='tv';renderNav();$('page-title').textContent=state.tab==='standings'?'Βαθμολογίες διοργανώσεων':state.tab==='tv'?'Τηλεοπτικό πρόγραμμα':state.tab==='football'?'Πρόγραμμα ποδοσφαίρου':state.tab==='basketball'?'Πρόγραμμα μπάσκετ':state.tab==='volleyball'?'Πρόγραμμα βόλεϊ':(state.myTeams?'Οι ομάδες μου · Εβδομάδα':'Όλοι οι αγώνες της ημέρας');$('section-title').textContent=c.name;$('sport-label').textContent=c.sport==='all'?(state.tab==='matches'?'ΟΛΑ ΤΑ ΑΘΛΗΜΑΤΑ':'ΑΘΛΗΤΙΚΗ ΤΗΛΕΟΡΑΣΗ'):c.sport==='football'?'ΠΟΔΟΣΦΑΙΡΟ':c.sport==='volleyball'?'ΒΟΛΕΪ':'ΜΠΑΣΚΕΤ';$('round-label').querySelector('.filter-label').textContent=state.id==='nba'?'Ημερομηνία αγώνων':'Αγωνιστική';$('round-label').hidden=['standings','tv','matches'].includes(state.tab);$('tv-day').hidden=!['tv','matches'].includes(state.tab);$('day-label').textContent=state.tab==='matches'?(state.myTeams?'Εβδομάδα ημερομηνίας':'Ημερήσιο πρόγραμμα'):'Ζωντανές μεταδόσεις';$('tv-archive').closest('label').hidden=true;$('tv-date').value=state.tvDate;$('week-range').hidden=!(state.tab==='matches'&&state.myTeams);if(!$('week-range').hidden){const w=weekRange(state.tvDate);$('week-range').textContent=shortDate(w.start)+' – '+shortDate(w.end);}$('prev-day').setAttribute('aria-label',state.tab==='matches'&&state.myTeams?'Προηγούμενη εβδομάδα':'Προηγούμενη ημέρα');$('next-day').setAttribute('aria-label',state.tab==='matches'&&state.myTeams?'Επόμενη εβδομάδα':'Επόμενη ημέρα');$('coverage').textContent=state.meta?.partial?'Μερική κάλυψη · TheSportsDB':c.id==='sl'?'':' ';
@@ -116,15 +128,15 @@ function render(){renderedMatches=[];const c=current();if(!['tv','standings'].in
  matches.sort((a,b)=>(a.date||'9999').localeCompare(b.date||'9999')||(a.time||'').localeCompare(b.time||''));
  if(state.tab==='matches')matches=state.myTeams?weeklyMatches(matches,followedTeams,state.tvDate,Object.fromEntries(competitions.map(c=>[c.id,c.sport]))):daySchedule(matches,state.tvDate);
  if(state.tab==='matches'&&state.myTeams&&!followedTeams.length){$('view').innerHTML=empty('Διάλεξε τις ομάδες σου','Πάτησε ☆ δίπλα σε μία ή περισσότερες ομάδες στις βαθμολογίες. Εδώ θα βλέπεις το εβδομαδιαίο πρόγραμμά τους.')+'<div class="my-teams-empty"><button type="button" data-open-standings>Επιλογή από τις βαθμολογίες</button></div>';return;}
- if(!matches.length&&favoriteMode){$('view').innerHTML=empty(state.liveOnly?'Δεν υπάρχουν αγαπημένοι αγώνες LIVE':'Δεν υπάρχουν αγαπημένοι αγώνες για αυτή την ημέρα','Πρόσθεσε αγώνες με το ☆ στο πρόγραμμα TV.');return;}
+ if(!matches.length&&favoriteMode){$('view').innerHTML=empty(state.liveOnly?'Δεν υπάρχουν αγαπημένοι αγώνες LIVE':'Δεν υπάρχουν αγαπημένοι αγώνες για αυτή την ημέρα','Πρόσθεσε αγώνες με το ☆ στο TV ή στους Αγώνες.');return;}
  if(!matches.length&&state.liveOnly&&!['tv','standings'].includes(state.tab)){$('view').innerHTML=empty('Δεν υπάρχουν επιβεβαιωμένοι LIVE αγώνες','Ο έλεγχος συνεχίζεται αυτόματα όσο η σελίδα είναι ανοιχτή.');return;}
  if(!matches.length){const hasData=state.matches.length>0;if(state.tab==='matches'){if(state.dailyPending&&!state.dailySources?.length){$('view').innerHTML=empty('Φόρτωση ημερήσιου προγράμματος','Συγκεντρώνονται τα διαθέσιμα προγράμματα.');return;}$('view').innerHTML=empty(state.myTeams?'Δεν βρέθηκαν αγώνες αυτή την εβδομάδα':'Δεν βρέθηκαν αγώνες για αυτή την ημέρα',state.myTeams?'Δοκίμασε άλλη εβδομάδα ή διοργάνωση. Εμφανίζονται μόνο διαθέσιμα προγράμματα με ορισμένη ημερομηνία.':'Επίλεξε άλλη ημερομηνία ή διοργάνωση. Αγώνες χωρίς ορισμένη ημερομηνία δεν εμφανίζονται στην ημερήσια λίστα.');return;}if(state.tab==='tv'){$('view').innerHTML=empty(state.loading?'Φόρτωση…':'Δεν βρέθηκαν ζωντανές μεταδόσεις',state.loading?'':dateLabel(state.tvDate));return;}$('view').innerHTML=empty(hasData?'Δεν βρέθηκαν αγώνες':'Δεν υπάρχουν διαθέσιμα στοιχεία',hasData?'Άλλαξε αγωνιστική ή αναζήτηση.':state.tab==='tv'?'Δεν υπάρχει επιβεβαιωμένη λίστα μεταδόσεων για αυτή τη διοργάνωση και σεζόν. Δες τα επίσημα προγράμματα καναλιών δεξιά.':c.note||'Η επιλεγμένη πηγή δεν επέστρεψε πρόγραμμα.',c.url);return;}
  let day='';let html=state.tab==='matches'?`<div class="daily-summary"><strong>${matches.length} αγώνες</strong><span>${new Set(matches.map(m=>m.competition)).size} διοργανώσεις · ${e(state.myTeams?shortDate(weekRange(state.tvDate).start)+' – '+shortDate(weekRange(state.tvDate).end):dateLabel(state.tvDate))}</span></div>`:state.meta?.partial?`<div class="notice">${e(state.meta.notice)} ${link('https://www.thesportsdb.com/','Πηγή: TheSportsDB')}</div>`:'';
  renderedMatches=matches;for(const [matchIndex,m] of matches.entries()){
  if(day!==m.date){day=m.date;html+=`<div class="match-date">${e(day?dateLabel(day):'Ημερομηνία υπό ορισμό')}</div>`;}
  const id=m.competition||c.id,sport=m.sportLabel==='Μπάσκετ'?'basketball':m.sportLabel==='Βόλεϊ'?'volleyball':m.sportLabel==='Ποδόσφαιρο'?'football':c.sport,scored=Array.isArray(m.score),label=scored?resultLabel({...m,sportLabel:m.sportLabel||(c.sport==='volleyball'?'Βόλεϊ':'')}):'',live=isFreshLive(m);
- if(state.tab==='tv'){html+=`<article class="match tv-favorite-match" data-open-match-index="${matchIndex}"><button type="button" class="fixture-favorite" data-fixture-favorite="${matchIndex}" aria-pressed="${isFavorite(m,favoriteFixtures)}" aria-label="${e((isFavorite(m,favoriteFixtures)?'Αφαίρεση από αγαπημένα: ':'Προσθήκη στα αγαπημένα: ')+m.home+' – '+m.away)}">${isFavorite(m,favoriteFixtures)?'★':'☆'}</button><button type="button" class="match-time match-open" data-open-match-index="${matchIndex}" aria-label="${e('Στοιχεία αγώνα '+m.home+' – '+m.away)}">${e(m.time||'—')}</button><div class="match-info"><div class="fixture-title">${team(m.home,m.homeBadge,m.competition||c.id,m.sportLabel==='Μπάσκετ'?'basketball':m.sportLabel==='Βόλεϊ'?'volleyball':m.sportLabel==='Ποδόσφαιρο'?'football':c.sport)} <span class="fixture-dash">–</span> ${team(m.away,m.awayBadge,m.competition||c.id,m.sportLabel==='Μπάσκετ'?'basketball':m.sportLabel==='Βόλεϊ'?'volleyball':m.sportLabel==='Ποδόσφαιρο'?'football':c.sport)}</div>${['tv','matches'].includes(state.tab)?`<div class="broadcast-meta">${e([m.sportLabel,m.competitionLabel].filter(Boolean).join(' · '))}</div>`:''}${m.channel?`<div class="broadcast-channel"><strong>${e(m.channel)}</strong>${m.streamURL?' '+link(m.streamURL,'Δες'):''}</div>`:''}${state.tab==='tv'?oddsLine(m):''}</div></article>`;continue;}
- html+=`<article class="match compact-match ${live?'is-live':''}" data-open-match-index="${matchIndex}"><button type="button" class="match-time match-open" data-open-match-index="${matchIndex}" aria-label="${e('Λεπτομέρειες αγώνα '+m.home+' – '+m.away)}"><span>${e(m.time||'—')}</span>${scored?'<small class="match-status">'+e(label)+'</small>':''}</button><div class="match-info"><div class="fixture-title"><div class="fixture-team-row">${team(m.home,m.homeBadge,id,sport)}<strong class="team-score">${scored?e(m.score[0]):'–'}</strong></div><div class="fixture-team-row">${team(m.away,m.awayBadge,id,sport)}<strong class="team-score">${scored?e(m.score[1]):'–'}</strong></div></div>${['tv','matches'].includes(state.tab)?'<div class="broadcast-meta">'+e([m.sportLabel,m.competitionLabel].filter(Boolean).join(' · '))+'</div>':''}${scored?'<div class="match-score '+(live?'is-live':'')+'">'+cardHighlight({...m,competition:id})+'</div>':''}${m.channel?'<div class="broadcast-channel"><strong>'+e(m.channel)+'</strong>'+(m.streamURL?' '+link(m.streamURL,'Δες'):'')+'</div>':''}${state.tab==='tv'?oddsLine(m):''}</div></article>`;
+ if(state.tab==='tv'){html+=`<article class="match tv-favorite-match" data-open-match-index="${matchIndex}">${fixtureStar(m,matchIndex)}<button type="button" class="match-time match-open" data-open-match-index="${matchIndex}" aria-label="${e('Στοιχεία αγώνα '+m.home+' – '+m.away)}">${e(m.time||'—')}</button><div class="match-info"><div class="fixture-title">${team(m.home,m.homeBadge,m.competition||c.id,m.sportLabel==='Μπάσκετ'?'basketball':m.sportLabel==='Βόλεϊ'?'volleyball':m.sportLabel==='Ποδόσφαιρο'?'football':c.sport)} <span class="fixture-dash">–</span> ${team(m.away,m.awayBadge,m.competition||c.id,m.sportLabel==='Μπάσκετ'?'basketball':m.sportLabel==='Βόλεϊ'?'volleyball':m.sportLabel==='Ποδόσφαιρο'?'football':c.sport)}</div>${['tv','matches'].includes(state.tab)?`<div class="broadcast-meta">${e([m.sportLabel,m.competitionLabel].filter(Boolean).join(' · '))}</div>`:''}${m.channel?`<div class="broadcast-channel"><strong>${e(m.channel)}</strong>${m.streamURL?' '+link(m.streamURL,'Δες'):''}</div>`:''}${state.tab==='tv'?oddsLine(m):''}</div></article>`;continue;}
+ html+=`<article class="match compact-match ${live?'is-live':''}" data-open-match-index="${matchIndex}"><div class="match-card-heading">${fixtureStar({...m,competition:id},matchIndex)}<button type="button" class="match-time match-open" data-open-match-index="${matchIndex}" aria-label="${e('Λεπτομέρειες αγώνα '+m.home+' – '+m.away)}"><span>${e(m.time||'—')}</span>${scored?'<small class="match-status">'+e(label)+'</small>':''}</button></div><div class="match-info"><div class="fixture-title"><div class="fixture-team-row">${team(m.home,m.homeBadge,id,sport)}<strong class="team-score">${scored?e(m.score[0]):'–'}</strong></div><div class="fixture-team-row">${team(m.away,m.awayBadge,id,sport)}<strong class="team-score">${scored?e(m.score[1]):'–'}</strong></div></div>${['tv','matches'].includes(state.tab)?'<div class="broadcast-meta">'+e([m.sportLabel,m.competitionLabel].filter(Boolean).join(' · '))+'</div>':''}${scored?'<div class="match-score '+(live?'is-live':'')+'">'+cardHighlight({...m,competition:id})+'</div>':''}${m.channel?'<div class="broadcast-channel"><strong>'+e(m.channel)+'</strong>'+(m.streamURL?' '+link(m.streamURL,'Δες'):'')+'</div>':''}${state.tab==='tv'?oddsLine(m):''}</div></article>`;
  }
  $('view').innerHTML=html;void refreshCardHighlights();
 }

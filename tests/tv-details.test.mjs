@@ -1,5 +1,5 @@
 import test from'node:test';import assert from'node:assert/strict';import{readFile}from'node:fs/promises';
-import{decimalOdds,parseTVDetails,applyTVDetails}from'../dist/tv-details.js';import{teamMarkup}from'../dist/team-view.js';
+import{decimalOdds,parseTVDetails,applyTVDetails,loadTVDetails}from'../dist/tv-details.js';import{teamMarkup}from'../dist/team-view.js';
 const now=Date.parse('2026-10-21T12:00:00Z'),checkedAt=new Date(now).toISOString();
 const raw=(state='pre')=>({
  leagues:[{season:{year:2026}}],
@@ -17,3 +17,8 @@ test('TV matches exact aliases, sport/competition, date and kickoff; reversed or
 test('Old or started prices disappear; confirmed live scores expire without becoming final',()=>{let entries=parseTVDetails(raw(),'pl',checkedAt);assert.equal(applyTVDetails([match],entries,now+600001)[0].odds,null);assert.equal(applyTVDetails([match],entries,Date.parse(entries[0].startsAt))[0].odds,null);entries=parseTVDetails(raw('in'),'pl',checkedAt);let m=applyTVDetails([match],entries,now)[0];assert.deepEqual(m.score,[2,1]);assert.equal(m.scoreState,'live');assert.equal(m.odds,null);assert.equal(applyTVDetails([match],entries,now+120001)[0].scoreState,'current');assert.equal(applyTVDetails([match],parseTVDetails(raw('post'),'pl',checkedAt),now)[0].scoreState,'final');});
 test('Team markup holds crest and first name word in one lead span and escapes source text',()=>{const s=teamMarkup('ΑΟ ΑΜΥΝΤΑΣ',{src:'./badges/a.png'});assert.match(s,/<span class="team-lead"><img[^>]+>ΑΟ<\/span> ΑΜΥΝΤΑΣ/);assert.ok(teamMarkup('<script> x').includes('&lt;script&gt;'));});
 test('Fixture favorites are available separately from team following',async()=>{const html=await readFile(new URL('../dist/index.html',import.meta.url),'utf8'),app=await readFile(new URL('../dist/app.js',import.meta.url),'utf8');assert.ok(html.includes('id="favorites-only"'));assert.ok(app.includes('data-fixture-favorite='));assert.ok(!html.includes('Μόνο LIVE'));});
+
+test('TV enrichment requests only competitions present in the selected broadcast list',async()=>{
+ const original=globalThis.fetch,urls=[];globalThis.fetch=async url=>{urls.push(url);return{ok:true,json:async()=>({leagues:[{season:{year:2026}}],events:[]})};};
+ try{const p=await loadTVDetails('2026-10-24',{competitionIDs:['pl'],force:true,fallback:false});assert.equal(p.errors.length,0);assert.equal(urls.length,1);assert.ok(urls[0].includes('/soccer/eng.1/scoreboard'));}finally{globalThis.fetch=original;}
+});
