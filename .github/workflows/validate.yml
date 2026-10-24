@@ -25,6 +25,7 @@ jobs:
         timeout-minutes: 3
       - run: node scripts/check-my-teams-ui.mjs
       - run: node scripts/check-live-ui.mjs
+      - run: node scripts/check-bundesliga-live-ui.mjs
       - run: node scripts/check-compact-ui.mjs
       - run: node scripts/check-daily-performance-ui.mjs
       - run: node scripts/check-tv-favorites-ui.mjs

@@ -1,9 +1,9 @@
-import{mergeResultUpdates,sameResultMatch}from'./result-reconciliation.js?v=52';
-import{teamKey}from'./badges.js?v=52';
-import{aliases}from'./team-aliases.js?v=52';
-import{athensDay,shiftDay}from'./core.js?v=52';
-import{openGames,euroGames}from'./direct.js?v=52';
-import{sl2Score}from'./results.js?v=52';
+import{mergeResultUpdates,sameResultMatch}from'./result-reconciliation.js?v=57';
+import{teamKey}from'./badges.js?v=57';
+import{aliases}from'./team-aliases.js?v=57';
+import{athensDay,shiftDay}from'./core.js?v=57';
+import{openGames,euroGames}from'./direct.js?v=57';
+import{sl2Score}from'./results.js?v=57';
 export const LIVE_INTERVAL=30000,LIVE_TTL=90000;
 export const liveLeagues={sl:['soccer','gre.1'],pl:['soccer','eng.1'],bund:['soccer','ger.1'],laliga:['soccer','esp.1'],seriea:['soccer','ita.1'],ligue1:['soccer','fra.1'],cl:['soccer','uefa.champions'],europa:['soccer','uefa.europa'],conference:['soccer','uefa.europa.conf'],nba:['basketball','nba']};
 const names=(n,extra=[])=>new Set([n,...extra,...aliases[teamKey(n)]||[]].filter(Boolean).flatMap(x=>[x,...aliases[teamKey(x)]||[]]).filter(Boolean).map(teamKey));
@@ -50,7 +50,7 @@ export function isFreshLive(match,now=Date.now()){
 }
 export function mergeLiveMatches(matches,entries,{date,competitionIDs}={}){
  const out=applyLiveScores(matches,entries),allowed=new Set(competitionIDs||matches.map(m=>m.competition));
- for(const x of entries){if(!allowed.has(x.competition)||x.date!==date||!(isFreshLive(x)||x.scoreState==='final'&&score(x.score))||out.some(m=>m.competition===x.competition&&m.date===x.date&&same(m.home,x.home,x.homeAliases)&&same(m.away,x.away,x.awayAliases)))continue;out.push({...x,scoreCheckedAt:x.checkedAt,scoreClock:x.clock,scoreSource:x.source});}
+ for(const x of entries){if(!allowed.has(x.competition)||x.date!==date||!(isFreshLive(x)||x.scoreState==='final'&&score(x.score))||out.some(m=>sameResultMatch(m,x)))continue;out.push({...x,scoreCheckedAt:x.checkedAt,scoreClock:x.clock,scoreSource:x.source});}
  return out;
 }
 async function requestJSON(url){const r=await fetch(url,{cache:'no-store',credentials:'omit',signal:AbortSignal.timeout(7000)});if(!r.ok)throw Error('HTTP '+r.status);return r.json();}

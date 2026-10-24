@@ -1,5 +1,5 @@
-import{selectHighlights}from'./highlights.js?v=56';
-import{athensDay,shiftDay}from'./core.js?v=52';
+import{selectHighlights}from'./highlights.js?v=57';
+import{athensDay,shiftDay}from'./core.js?v=57';
 // Missing links are observable; a source failure never means no video exists.
 export function highlightCoverage(matches,videos,{now=Date.now(),days=3}={}){
  const end=athensDay(new Date(now)),start=shiftDay(end,1-days),competitions={};
