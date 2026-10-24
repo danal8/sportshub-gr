@@ -220,3 +220,5 @@ body .compact-match .match-card-heading>.match-time{flex:1;min-width:0;width:aut
 @media(min-width:701px){body[data-tab=matches] .card-heading{justify-content:flex-start;gap:12px}body[data-tab=matches] #coverage{margin-inline-start:auto}}
 
 @media(max-width:700px){body[data-tab=matches] .day-bar #favorites-only{flex:1 0 44px;min-width:44px;width:auto;padding-inline:8px}body[data-tab=matches] .day-bar #live-only{flex:1.25 0 56px;min-width:56px;padding-inline:10px}}
+
+body[data-tab=matches] .single-day-summary{flex-wrap:nowrap}body[data-tab=matches] .single-day-summary>strong{white-space:nowrap}body[data-tab=matches] .single-day-summary .daily-summary-date{margin-inline-start:auto;text-align:right;font-size:13px}
