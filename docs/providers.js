@@ -1,15 +1,15 @@
-import{preserveConfirmedResults,mergeResultUpdates,sameResultMatch}from'./result-reconciliation.js?v=49';
-import{loadEuropeanLeague}from'./football-leagues.js?v=49';
-import{loadNBA}from'./nba.js?v=49';
-import{safeResults}from'./results.js?v=49';
-import{rememberBadges,loadBadgeCatalog}from'./badges.js?v=49';
-import{directIDs,directProvider}from'./direct.js?v=49';
+import{preserveConfirmedResults,mergeResultUpdates,sameResultMatch}from'./result-reconciliation.js?v=50';
+import{loadEuropeanLeague}from'./football-leagues.js?v=50';
+import{loadNBA}from'./nba.js?v=50';
+import{safeResults}from'./results.js?v=50';
+import{rememberBadges,loadBadgeCatalog}from'./badges.js?v=50';
+import{directIDs,directProvider}from'./direct.js?v=50';
 const staticIDs=['sl2','elite','gbl','volley-m','volley-w','conference'];
 export function isConnected(id){return ['seriea','ligue1'].includes(id)||id==='nba'||staticIDs.includes(id)||directIDs.includes(id);}
 function read(key){try{return JSON.parse(localStorage.getItem(key));}catch{return null;}}
 function save(key,payload){try{localStorage.setItem(key,JSON.stringify(payload));}catch{}}
 const inflight=new Map();
-export function loadProvider(id,season,options={}){const key=id+season;if(inflight.has(key))return inflight.get(key);const task=fetchProvider(id,season,options).then(async p=>{await loadBadgeCatalog();rememberBadges(p,id);const finals=read('sh-confirmed-results-2026-27')||[];return safeResults({...p,matches:mergeResultUpdates(p.matches.map(m=>({...m,competition:id})),Array.isArray(finals)?finals:[])});}).finally(()=>inflight.delete(key));inflight.set(key,task);return task;}
+export function loadProvider(id,season,options={}){const key=id+season;if(inflight.has(key))return inflight.get(key);const task=fetchProvider(id,season,options).then(async p=>{void loadBadgeCatalog();rememberBadges(p,id);const finals=read('sh-confirmed-results-2026-27')||[];return safeResults({...p,matches:mergeResultUpdates(p.matches.map(m=>({...m,competition:id})),Array.isArray(finals)?finals:[])});}).finally(()=>inflight.delete(key));inflight.set(key,task);return task;}
 async function fetchProvider(id,season,{force=false}={}){
  if(season!=='2026-27'||!isConnected(id))throw Error('Μη διαθέσιμη σεζόν ή διοργάνωση');
  const key=(staticIDs.includes(id)?'sh-static-':'sh-provider-v5-')+id+'-'+season,cached=read(key);let failure;
