@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-24T01:41:07.833Z",
+  "checkedAt": "2026-10-24T06:04:53.305Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -235,66 +235,9 @@
     {
       "competition": "nba",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "nba-401909095",
-          "competition": "nba",
-          "date": "2026-10-24",
-          "home": "Boston Celtics",
-          "away": "New York Knicks"
-        },
-        {
-          "id": "nba-401909844",
-          "competition": "nba",
-          "date": "2026-10-24",
-          "home": "Indiana Pacers",
-          "away": "Dallas Mavericks"
-        },
-        {
-          "id": "nba-401909847",
-          "competition": "nba",
-          "date": "2026-10-24",
-          "home": "Miami Heat",
-          "away": "Detroit Pistons"
-        },
-        {
-          "id": "nba-401909849",
-          "competition": "nba",
-          "date": "2026-10-24",
-          "home": "Utah Jazz",
-          "away": "New Orleans Pelicans"
-        },
-        {
-          "id": "nba-401909096",
-          "competition": "nba",
-          "date": "2026-10-24",
-          "home": "San Antonio Spurs",
-          "away": "Houston Rockets"
-        },
-        {
-          "id": "nba-401909850",
-          "competition": "nba",
-          "date": "2026-10-24",
-          "home": "Golden State Warriors",
-          "away": "Memphis Grizzlies"
-        },
-        {
-          "id": "nba-401909852",
-          "competition": "nba",
-          "date": "2026-10-24",
-          "home": "Sacramento Kings",
-          "away": "Portland Trail Blazers"
-        },
-        {
-          "id": "nba-401909851",
-          "competition": "nba",
-          "date": "2026-10-24",
-          "home": "Los Angeles Lakers",
-          "away": "LA Clippers"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 20
+      "finals": 28
     },
     {
       "competition": "pl",

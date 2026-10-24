@@ -1,19 +1,22 @@
 {
-  "checkedAt": "2026-10-24T06:01:30.746Z",
+  "checkedAt": "2026-10-24T06:04:57.803Z",
   "sourceErrors": [
     "NBA: HTTP 404",
-    "Novasports: HTTP 404",
     "Magenta Sport: HTTP 404",
+    "Novasports: HTTP 404",
     "NBA: HTTP 404",
+    "NBA: HTTP 404",
+    "NBA: HTTP 404",
+    "EuroLeague: HTTP 404",
     "EuroCup: HTTP 500",
-    "Magenta Sport archive: Empty channel uploads; retained earlier videos"
+    "Magenta Sport archive: Empty publisher video listings; retained earlier videos: "
   ],
   "start": "2026-10-22",
   "end": "2026-10-24",
   "competitions": {
     "europa": {
       "finished": 18,
-      "covered": 3,
+      "covered": 5,
       "uncoveredMatches": [
         {
           "home": "OFI Kreta",
@@ -64,12 +67,6 @@
           "time": "22:00"
         },
         {
-          "home": "Besiktas Istanbul",
-          "away": "Crystal Palace FC",
-          "date": "2026-10-22",
-          "time": "22:00"
-        },
-        {
           "home": "Viktoria Pilsen",
           "away": "Levski Sofia",
           "date": "2026-10-22",
@@ -78,12 +75,6 @@
         {
           "home": "Jagiellonia Bialystok",
           "away": "RSC Anderlecht",
-          "date": "2026-10-22",
-          "time": "22:00"
-        },
-        {
-          "home": "Lillestrøm SK",
-          "away": "Real Sociedad",
           "date": "2026-10-22",
           "time": "22:00"
         },
@@ -128,11 +119,6 @@
           "gameDate": "2026-10-22"
         },
         {
-          "videoId": "02aa-21e41ef9d9ad-07d129cc4d83-1000",
-          "title": "Highlights: Be┼θikta┼θ 2-2 Crystal Palace",
-          "gameDate": "2026-10-22"
-        },
-        {
           "videoId": "-Ot9bxLyTU0",
           "title": "╬Τ╬╣╬║╧Ε╧Ν╧Β╬╣╬▒ ╬ι╬╗╬╢╬╡╬╜ - ╬δ╬φ╧Η╧Δ╬║╬╣ ╬μ╧Ν╧Η╬╣╬▒╧Γ 1 - 2 | Highlights - UEFA Europa League 26/27 - 22/10/26 | MagentaTV",
           "gameDate": "2026-10-22"
@@ -150,11 +136,6 @@
         {
           "videoId": "7NeNXwHf05U",
           "title": "╬π╧Ν╧Η╬╡╬╜╧Θ╬▒╧Λ╬╝ - ╬δ╧Ζ╧Ο╬╜ 3 - 0 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
-          "gameDate": "2026-10-22"
-        },
-        {
-          "videoId": "02aa-21e4261c8548-951f3ce412dd-1000",
-          "title": "Highlights: Lillestr├╕m 0-6 Real Sociedad",
           "gameDate": "2026-10-22"
         },
         {
