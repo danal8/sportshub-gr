@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-24T17:16:57.819Z",
+  "checkedAt": "2026-10-24T17:42:30.096Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -65,13 +65,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "gbl-8645D767",
-          "competition": "gbl",
-          "date": "2026-10-24",
-          "home": "ΠΕΡΙΣΤΕΡΙ Betsson",
-          "away": "ΜΑΡΟΥΣΙ"
-        },
-        {
           "id": "gbl-A904D6E3",
           "competition": "gbl",
           "date": "2026-10-24",
@@ -87,7 +80,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 24
+      "finals": 25
     },
     {
       "competition": "laliga",
@@ -225,13 +218,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "volley-m-1-1",
-          "competition": "volley-m",
-          "date": "2026-10-24",
-          "home": "Ο.Φ.Η.",
-          "away": "Π.Α.Ο.Κ."
-        },
-        {
           "id": "volley-m-1-2",
           "competition": "volley-m",
           "date": "2026-10-24",
@@ -240,7 +226,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 1
+      "finals": 2
     },
     {
       "competition": "volley-w",
@@ -252,34 +238,6 @@
           "date": "2026-10-24",
           "home": "Α.Σ. Άρης",
           "away": "Α.Ο. Θήρας"
-        },
-        {
-          "id": "volley-88166",
-          "competition": "volley-w",
-          "date": "2026-10-24",
-          "home": "Ο.Φ.Α. Απολλώνιος",
-          "away": "Πανιώνιος Betsson"
-        },
-        {
-          "id": "volley-88161",
-          "competition": "volley-w",
-          "date": "2026-10-24",
-          "home": "Ζ.Α.Ο.Ν.",
-          "away": "Παναθηναϊκός Α.Ο."
-        },
-        {
-          "id": "volley-88165",
-          "competition": "volley-w",
-          "date": "2026-10-24",
-          "home": "Ολυμπιακός Σ.Φ.Π.",
-          "away": "Α.Σ.Π. Θέτις"
-        },
-        {
-          "id": "volley-88163",
-          "competition": "volley-w",
-          "date": "2026-10-24",
-          "home": "Α.Σ. Ελπίς",
-          "away": "Α.Ο. Μαρκοπούλου Revoil"
         },
         {
           "id": "volley-88158",
@@ -304,7 +262,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 4
+      "finals": 8
     }
   ]
 }
