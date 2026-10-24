@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-24T13:56:17.983Z",
+  "checkedAt": "2026-10-24T14:02:46.458Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -343,17 +343,9 @@
     {
       "competition": "sl2",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "sl2-2627059",
-          "competition": "sl2",
-          "date": "2026-10-24",
-          "home": "ΟΛΥΜΠΙΑΚΟΣ Β'",
-          "away": "ΝΕΣΤΟΣ ΧΡΥΣΟΥΠΟΛΗΣ"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 59
+      "finals": 60
     },
     {
       "competition": "volley-m",
