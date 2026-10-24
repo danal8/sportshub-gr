@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-24T11:31:06.187Z",
+  "checkedAt": "2026-10-24T13:56:17.983Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -244,13 +244,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "pl-86599",
-          "competition": "pl",
-          "date": "2026-10-24",
-          "home": "Aston Villa",
-          "away": "Manchester City"
-        },
-        {
           "id": "pl-86600",
           "competition": "pl",
           "date": "2026-10-24",
@@ -273,7 +266,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 71
+      "finals": 72
     },
     {
       "competition": "seriea",
@@ -352,48 +345,20 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "sl2-2627061",
-          "competition": "sl2",
-          "date": "2026-10-24",
-          "home": "ATHENS KALLITHEA",
-          "away": "ΑΕΛ NOVIBET"
-        },
-        {
-          "id": "sl2-2627063",
-          "competition": "sl2",
-          "date": "2026-10-24",
-          "home": "ΠΑΝΣΕΡΡΑΪΚΟΣ",
-          "away": "ΕΛΛΑΣ ΣΥΡΟΥ"
-        },
-        {
           "id": "sl2-2627059",
           "competition": "sl2",
           "date": "2026-10-24",
           "home": "ΟΛΥΜΠΙΑΚΟΣ Β'",
           "away": "ΝΕΣΤΟΣ ΧΡΥΣΟΥΠΟΛΗΣ"
-        },
-        {
-          "id": "sl2-2627062",
-          "competition": "sl2",
-          "date": "2026-10-24",
-          "home": "ΑΠΟΛΛΩΝ ΚΑΛΑΜΑΡΙΑΣ",
-          "away": "ΝΙΚΗ ΒΟΛΟΥ"
         }
       ],
       "sourceError": null,
-      "finals": 56
+      "finals": 59
     },
     {
       "competition": "volley-m",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "volley-m-1-0",
-          "competition": "volley-m",
-          "date": "2026-10-23",
-          "home": "Α.Ο.Π. Κηφισιάς",
-          "away": "Πανιώνιος Betsson"
-        },
         {
           "id": "volley-m-1-1",
           "competition": "volley-m",
@@ -410,7 +375,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 0
+      "finals": 1
     },
     {
       "competition": "volley-w",
