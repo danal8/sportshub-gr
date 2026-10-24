@@ -1,21 +1,33 @@
 {
-  "checkedAt": "2026-10-24T07:23:36.388Z",
+  "checkedAt": "2026-10-24T07:26:04.343Z",
   "sourceErrors": [
-    "NBA: HTTP 404",
-    "Magenta Sport: HTTP 404",
-    "EuroCup: HTTP 404",
-    "Novasports: HTTP 404",
-    "EuroLeague: HTTP 404",
-    "NBA: HTTP 404",
-    "NBA: HTTP 404",
-    "Magenta Sport archive: Empty publisher video listings; retained earlier videos: "
+    "Magenta Sport archive: Empty publisher video listings; retained earlier videos: ",
+    "NBA YouTube region: 9n0WtH6pzGc: YouTube country availability unavailable",
+    "NBA YouTube region: r5pqf0we5uM: YouTube country availability unavailable",
+    "NBA YouTube region: KoRT1d_i13o: YouTube country availability unavailable",
+    "NBA YouTube region: If1DIVuMPkc: YouTube country availability unavailable",
+    "NBA YouTube region: nL79PGsNMNc: YouTube country availability unavailable",
+    "NBA YouTube region: Q052nRK7KNk: YouTube country availability unavailable",
+    "NBA YouTube region: w4g6vpvVyos: YouTube country availability unavailable",
+    "NBA YouTube region: sXlPebl2zfk: YouTube country availability unavailable",
+    "NBA YouTube region: KVC5atVkCyE: YouTube country availability unavailable",
+    "NBA YouTube region: 2o4lgEQCOgk: YouTube country availability unavailable",
+    "NBA YouTube region: ZUslpiyp7G4: YouTube country availability unavailable",
+    "NBA YouTube region: P3U_TwDKT-Y: YouTube country availability unavailable",
+    "NBA YouTube region: 2SHdd_RRsRw: YouTube country availability unavailable",
+    "NBA YouTube region: tIsw4QK1Ung: YouTube country availability unavailable",
+    "NBA YouTube region: aEAJfS_6J0g: YouTube country availability unavailable",
+    "NBA YouTube region: KABX-E-SRwA: YouTube country availability unavailable",
+    "NBA YouTube region: qEepDtX5qLM: YouTube country availability unavailable",
+    "NBA YouTube region: -66hmMWFOcg: YouTube country availability unavailable",
+    "NBA YouTube region: A4v-byV18_Y: YouTube country availability unavailable"
   ],
   "start": "2026-10-22",
   "end": "2026-10-24",
   "competitions": {
     "europa": {
       "finished": 18,
-      "covered": 5,
+      "covered": 8,
       "uncoveredMatches": [
         {
           "home": "OFI Kreta",
@@ -60,26 +72,8 @@
           "time": "19:45"
         },
         {
-          "home": "TSG Hoffenheim",
-          "away": "Olympique Lyon",
-          "date": "2026-10-22",
-          "time": "22:00"
-        },
-        {
-          "home": "Viktoria Pilsen",
-          "away": "Levski Sofia",
-          "date": "2026-10-22",
-          "time": "22:00"
-        },
-        {
           "home": "Jagiellonia Bialystok",
           "away": "RSC Anderlecht",
-          "date": "2026-10-22",
-          "time": "22:00"
-        },
-        {
-          "home": "NK Celje",
-          "away": "RB Salzburg",
           "date": "2026-10-22",
           "time": "22:00"
         },
@@ -115,26 +109,6 @@
         {
           "videoId": "HMp39sZR9f0",
           "title": "╬Σ╧Β╬▒╧Β╬υ╧Ε - ╬Σ╬╗╬║╬╝╬υ╬▒╧Β 0 - 4 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
-          "gameDate": "2026-10-22"
-        },
-        {
-          "videoId": "-Ot9bxLyTU0",
-          "title": "╬Τ╬╣╬║╧Ε╧Ν╧Β╬╣╬▒ ╬ι╬╗╬╢╬╡╬╜ - ╬δ╬φ╧Η╧Δ╬║╬╣ ╬μ╧Ν╧Η╬╣╬▒╧Γ 1 - 2 | Highlights - UEFA Europa League 26/27 - 22/10/26 | MagentaTV",
-          "gameDate": "2026-10-22"
-        },
-        {
-          "videoId": "T6ICC6DyoL8",
-          "title": "╬δ╬ψ╬╗╬╡╧Δ╧Ε╧Β╬┐╬╝ - ╬κ╬╡╬υ╬╗ ╬μ╬┐╧Δ╬╣╬╡╬┤╬υ╬┤ 0 - 6 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
-          "gameDate": "2026-10-22"
-        },
-        {
-          "videoId": "K81GLuw_Uc0",
-          "title": "╬ν╧Δ╬φ╬╗╬╣╬╡ - ╬μ╬υ╬╗╧Ε╧Δ╬╝╧Α╬┐╧Ζ╧Β╬│╬║ 2 - 2 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
-          "gameDate": "2026-10-22"
-        },
-        {
-          "videoId": "7NeNXwHf05U",
-          "title": "╬π╧Ν╧Η╬╡╬╜╧Θ╬▒╧Λ╬╝ - ╬δ╧Ζ╧Ο╬╜ 3 - 0 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
           "gameDate": "2026-10-22"
         },
         {
@@ -206,7 +180,7 @@
     },
     "conference": {
       "finished": 18,
-      "covered": 3,
+      "covered": 11,
       "uncoveredMatches": [
         {
           "home": "Kairat Almaty",
@@ -217,18 +191,6 @@
         {
           "home": "FC Nordsjælland",
           "away": "CSKA Sofia",
-          "date": "2026-10-22",
-          "time": "19:45"
-        },
-        {
-          "home": "Getafe",
-          "away": "FC Lugano",
-          "date": "2026-10-22",
-          "time": "19:45"
-        },
-        {
-          "home": "Iberia 1999",
-          "away": "Mjällby AIF",
           "date": "2026-10-22",
           "time": "19:45"
         },
@@ -245,12 +207,6 @@
           "time": "19:45"
         },
         {
-          "home": "Kauno Zalgiris",
-          "away": "SK Brann",
-          "date": "2026-10-22",
-          "time": "19:45"
-        },
-        {
           "home": "Pafos",
           "away": "Riga FC",
           "date": "2026-10-22",
@@ -263,38 +219,8 @@
           "time": "19:45"
         },
         {
-          "home": "Borac Banja Luka",
-          "away": "KuPS Kuopio",
-          "date": "2026-10-22",
-          "time": "22:00"
-        },
-        {
-          "home": "Braga",
-          "away": "KAA Gent",
-          "date": "2026-10-22",
-          "time": "22:00"
-        },
-        {
-          "home": "FC Midtjylland",
-          "away": "Sint-Truidense",
-          "date": "2026-10-22",
-          "time": "22:00"
-        },
-        {
           "home": "FC Thun",
           "away": "Hajduk Split",
-          "date": "2026-10-22",
-          "time": "22:00"
-        },
-        {
-          "home": "Lincoln Red Imps",
-          "away": "FC Twente",
-          "date": "2026-10-22",
-          "time": "22:00"
-        },
-        {
-          "home": "AGF",
-          "away": "Egnatia",
           "date": "2026-10-22",
           "time": "22:00"
         }
@@ -326,56 +252,6 @@
           "gameDate": "2026-10-22"
         },
         {
-          "videoId": "lJFg3r0ERl4",
-          "title": "╬ε╬ψ╬╜╧Ε╬╣╬╗╬▒╬╜╧Ε - ╬μ╬╡╬╜╧Ε ╬ν╧Β╬┐╧Ξ╬╣╬╜╧Ε╬╡╬╜ 0 - 1 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
-          "gameDate": "2026-10-22"
-        },
-        {
-          "videoId": "ce3bKbCWaAo",
-          "title": "╬Η╬▒╧Β╧Θ╬┐╧Ζ╧Γ - ╬Χ╬│╬╜╬υ╧Ε╬╣╬▒ 1 - 1 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
-          "gameDate": "2026-10-22"
-        },
-        {
-          "videoId": "lDHqeNE3kRI",
-          "title": "╬ε╧Α╧Β╬υ╬│╬║╬▒ - ╬Υ╬υ╬╜╬┤╬╖ 2 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
-          "gameDate": "2026-10-22"
-        },
-        {
-          "videoId": "NifW9EtcBJE",
-          "title": "╬δ╬ψ╬╜╬║╬┐╬╗╬╜ ╬κ╬╡╬╜╧Ε ╬β╬╝╧Α╧Γ - ╬ν╬▓╬φ╬╜╧Ε╬╡ 1 - 4 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
-          "gameDate": "2026-10-22"
-        },
-        {
-          "videoId": "CtA0poI_TxA",
-          "title": "╬γ╬υ╬┐╧Ζ╬╜╬┐ ╬Ψ╬▒╬╗╬│╬║╬ψ╧Β╬╣╧Γ - ╬ε╧Α╧Β╬▒╬╜ 1 - 4 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
-          "gameDate": "2026-10-22"
-        },
-        {
-          "videoId": "fiEsm-7r23c",
-          "title": "╬π╬╡╧Ε╬υ╧Η╬╡ - ╬δ╬┐╧Ζ╬│╬║╬υ╬╜╬┐ 2 - 5 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
-          "gameDate": "2026-10-22"
-        },
-        {
-          "videoId": "-SK49exkqIw",
-          "title": "╬β╬╝╧Α╬φ╧Β╬╣╬▒ 1999 - ╬ε╬╣╬υ╬╗╬╝╧Α╬╣ 1 - 1 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
-          "gameDate": "2026-10-22"
-        },
-        {
-          "videoId": "GL_3fG66zVg",
-          "title": "╬ν╧Β╬▒╬╝╧Α╬╢╬┐╬╜╧Δ╧Α╧Ν╧Β - ╬π╬▒╧Β╧Ε╧Γ 2 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
-          "gameDate": "2026-10-22"
-        },
-        {
-          "videoId": "2fmY2GVrs1c",
-          "title": "╬Η╬│╬╣╬▒╬╛ - ╬Σ╧Ε╬▒╬╗╬υ╬╜╧Ε╬▒ 2 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
-          "gameDate": "2026-10-22"
-        },
-        {
-          "videoId": "5jjjpTFJqKY",
-          "title": "╬ε╧Α╧Ν╧Β╬▒╧Ε╧Γ ╬ε╧Α╬υ╬╜╬╣╬▒ ╬δ╬┐╧Ξ╬║╬▒ - ╬γ╬┐╧Ζ╧Ν╧Α╬╣╬┐ 2 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
-          "gameDate": "2026-10-22"
-        },
-        {
           "videoId": "jw_k6llrNhQ",
           "title": "╬ν╬┐╧Ζ╬╜ - ╬π╬υ╬╣╬╜╧Ε╬┐╧Ζ╬║ ╬μ╧Α╬╗╬╣╧Ε 0 - 1 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
           "gameDate": "2026-10-22"
@@ -403,48 +279,8 @@
       "uncoveredMatches": [],
       "unmatchedVideos": [
         {
-          "videoId": "r5pqf0we5uM",
-          "title": "BULLS at BUCKS | FULL GAME HIGHLIGHTS | October 23, 2026",
-          "gameDate": "2026-10-23"
-        },
-        {
-          "videoId": "9n0WtH6pzGc",
-          "title": "KNICKS at CELTICS | FULL GAME HIGHLIGHTS | October 23, 2026",
-          "gameDate": "2026-10-23"
-        },
-        {
-          "videoId": "If1DIVuMPkc",
-          "title": "MAVERICKS at PACERS | FULL GAME HIGHLIGHTS | October 23, 2026",
-          "gameDate": "2026-10-23"
-        },
-        {
-          "videoId": "KoRT1d_i13o",
-          "title": "TIMBERWOLVES at MAGIC | FULL GAME HIGHLIGHTS | October 23, 2026",
-          "gameDate": "2026-10-23"
-        },
-        {
-          "videoId": "nL79PGsNMNc",
-          "title": "RAPTORS at WIZARDS | FULL GAME HIGHLIGHTS | October 23, 2026",
-          "gameDate": "2026-10-23"
-        },
-        {
-          "videoId": "Q052nRK7KNk",
-          "title": "PISTONS at HEAT | FULL GAME HIGHLIGHTS | October 23, 2026",
-          "gameDate": "2026-10-23"
-        },
-        {
-          "videoId": "sXlPebl2zfk",
-          "title": "PELICANS at JAZZ | FULL GAME HIGHLIGHTS | October 23, 2026",
-          "gameDate": "2026-10-23"
-        },
-        {
-          "videoId": "w4g6vpvVyos",
-          "title": "HAWKS at HORNETS | FULL GAME HIGHLIGHTS | October 23, 2026",
-          "gameDate": "2026-10-23"
-        },
-        {
-          "videoId": "ZUslpiyp7G4",
-          "title": "ROCKETS at SPURS | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "videoId": "A4v-byV18_Y",
+          "title": "NBA's Nightly Recap | October 23, 2026",
           "gameDate": "2026-10-23"
         },
         {
@@ -460,6 +296,51 @@
         {
           "videoId": "P3U_TwDKT-Y",
           "title": "TRAIL BLAZERS at KINGS | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "sXlPebl2zfk",
+          "title": "PELICANS at JAZZ | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "ZUslpiyp7G4",
+          "title": "ROCKETS at SPURS | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "Q052nRK7KNk",
+          "title": "PISTONS at HEAT | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "If1DIVuMPkc",
+          "title": "MAVERICKS at PACERS | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "9n0WtH6pzGc",
+          "title": "KNICKS at CELTICS | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "nL79PGsNMNc",
+          "title": "RAPTORS at WIZARDS | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "KoRT1d_i13o",
+          "title": "TIMBERWOLVES at MAGIC | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "w4g6vpvVyos",
+          "title": "HAWKS at HORNETS | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "r5pqf0we5uM",
+          "title": "BULLS at BUCKS | FULL GAME HIGHLIGHTS | October 23, 2026",
           "gameDate": "2026-10-23"
         },
         {
@@ -498,19 +379,29 @@
           "gameDate": "2026-10-21"
         },
         {
-          "videoId": "2SHdd_RRsRw",
-          "title": "CAVALIERS at 76ERS | FULL GAME HIGHLIGHTS | October 22, 2026",
-          "gameDate": "2026-10-22"
-        },
-        {
           "videoId": "4hNRkmyNe90",
           "title": "MAVERICKS at ROCKETS | FULL GAME HIGHLIGHTS | October 21, 2026",
           "gameDate": "2026-10-21"
         },
         {
+          "videoId": "tIsw4QK1Ung",
+          "title": "NBA's Nightly Recap | October 22, 2026",
+          "gameDate": "2026-10-22"
+        },
+        {
           "videoId": "aEAJfS_6J0g",
           "title": "NUGGETS at THUNDER | FULL GAME HIGHLIGHTS | October 22, 2026",
           "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "2SHdd_RRsRw",
+          "title": "CAVALIERS at 76ERS | FULL GAME HIGHLIGHTS | October 22, 2026",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "KABX-E-SRwA",
+          "title": "NBA's Nightly Recap | October 21, 2026",
+          "gameDate": "2026-10-21"
         },
         {
           "videoId": "qEepDtX5qLM",
