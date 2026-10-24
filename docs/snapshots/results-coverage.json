@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-24T16:22:19.286Z",
+  "checkedAt": "2026-10-24T17:16:57.819Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -42,17 +42,9 @@
     {
       "competition": "elite",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "elite-5-EVERTECH ΠΑΠΑΓΟΥ-ΑΣΑ ΑΝΑΓΕΝΝΗΣΗ",
-          "competition": "elite",
-          "date": "2026-10-24",
-          "home": "EVERTECH ΠΑΠΑΓΟΥ",
-          "away": "ΑΣΑ ΑΝΑΓΕΝΝΗΣΗ"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 36
+      "finals": 37
     },
     {
       "competition": "eurocup",
@@ -73,25 +65,11 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "gbl-D8B7382E",
-          "competition": "gbl",
-          "date": "2026-10-24",
-          "home": "ΔΟΞΑ ΛΕΥΚΑΔΑΣ ELABET",
-          "away": "ΗΡΑΚΛΗΣ"
-        },
-        {
           "id": "gbl-8645D767",
           "competition": "gbl",
           "date": "2026-10-24",
           "home": "ΠΕΡΙΣΤΕΡΙ Betsson",
           "away": "ΜΑΡΟΥΣΙ"
-        },
-        {
-          "id": "gbl-BD2162B8",
-          "competition": "gbl",
-          "date": "2026-10-24",
-          "home": "ΠΑΟΚ",
-          "away": "ΑΕΚ"
         },
         {
           "id": "gbl-A904D6E3",
@@ -109,7 +87,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 22
+      "finals": 24
     },
     {
       "competition": "laliga",
