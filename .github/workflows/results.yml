@@ -24,7 +24,7 @@ jobs:
       - run: node scripts/refresh-gbl.mjs
         continue-on-error: true
       - run: node scripts/refresh-public.mjs
-      - run: node scripts/volley-results.mjs
+      - run: node scripts/refresh-volley.mjs
       - run: node scripts/refresh-confirmed-results.mjs
       - run: node scripts/refresh-tv-details.mjs
       - run: node scripts/refresh-highlights.mjs

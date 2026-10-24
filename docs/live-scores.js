@@ -1,10 +1,11 @@
-import{GBL_LIVE,verifiedGblEntries}from'./gbl-scores.js?v=60';
-import{mergeResultUpdates,sameResultMatch}from'./result-reconciliation.js?v=60';
-import{teamKey}from'./badges.js?v=60';
-import{aliases}from'./team-aliases.js?v=60';
-import{athensDay,shiftDay}from'./core.js?v=60';
-import{openGames,euroGames}from'./direct.js?v=60';
-import{sl2Score}from'./results.js?v=60';
+import{VOLLEY_RESULTS,verifiedVolleyEntries,loadWomenResults}from'./volley-scores.js?v=61';
+import{GBL_LIVE,verifiedGblEntries}from'./gbl-scores.js?v=61';
+import{mergeResultUpdates,sameResultMatch}from'./result-reconciliation.js?v=61';
+import{teamKey}from'./badges.js?v=61';
+import{aliases}from'./team-aliases.js?v=61';
+import{athensDay,shiftDay}from'./core.js?v=61';
+import{openGames,euroGames}from'./direct.js?v=61';
+import{sl2Score}from'./results.js?v=61';
 export const LIVE_INTERVAL=30000,LIVE_TTL=90000;
 export const liveLeagues={sl:['soccer','gre.1'],pl:['soccer','eng.1'],bund:['soccer','ger.1'],laliga:['soccer','esp.1'],seriea:['soccer','ita.1'],ligue1:['soccer','fra.1'],cl:['soccer','uefa.champions'],europa:['soccer','uefa.europa'],conference:['soccer','uefa.europa.conf'],nba:['basketball','nba']};
 const names=(n,extra=[])=>new Set([n,...extra,...aliases[teamKey(n)]||[]].filter(Boolean).flatMap(x=>[x,...aliases[teamKey(x)]||[]]).filter(Boolean).map(teamKey));
@@ -72,6 +73,14 @@ export async function loadLiveScores(matches,date,{force=false,competitionIDs}={
   const value=await requestFeed('sl2-live-'+date,async()=>{const source='https://www.sl2.gr/api/sportsdata/v1/competitions/sl2-2627/matches',raw=await requestJSON(source),checkedAt=new Date().toISOString();if(!Array.isArray(raw)||raw.some(g=>g.competition_slug!=='sl2-2627'))throw Error('Wrong SL2 competition');return raw.filter(g=>g.date===date).map(g=>({id:'sl2-'+g.id,competition:'sl2',date:g.date,time:g.time?.slice(0,5),home:g.home_team.name_el,away:g.away_team.name_el,homeBadge:g.home_team.logo?.small,awayBadge:g.away_team.logo?.small,...sl2Score(g),checkedAt,source,provider:'Super League 2',clock:g.status==='halftime'?'Ημίχρονο':null}));},force);entries.push(...value.filter(m=>score(m.score)));succeeded.push('sl2');sources.push('Super League 2');
  }catch(e){errors.push({id:'sl2',error:e.message});}
  if(ids.includes('gbl'))try{const payload=await requestJSON(GBL_LIVE+'?t='+Date.now());entries.push(...verifiedGblEntries(payload,matches).filter(m=>m.date===date));succeeded.push('gbl');sources.push('ΕΣΑΚΕ / Genius Sports');}catch(e){errors.push({id:'gbl',error:e.message});try{const payload=await requestJSON('./snapshots/gbl-live.json');entries.push(...verifiedGblEntries(payload,matches).filter(m=>m.date===date));}catch{}}
+ const volleyIDs=ids.filter(id=>['volley-m','volley-w'].includes(id));
+ if(volleyIDs.length)await Promise.all([
+  (async()=>{try{const payload=await requestJSON(VOLLEY_RESULTS+'?t='+Date.now());entries.push(...verifiedVolleyEntries(payload,matches).filter(m=>m.date===date));succeeded.push(...volleyIDs);sources.push('ESAP / EOPE');}catch(e){errors.push({id:'volley-results',error:e.message});try{const payload=await requestJSON('./snapshots/volley-results.json?t='+Date.now());entries.push(...verifiedVolleyEntries(payload,matches).filter(m=>m.date===date));}catch{}}})(),
+  (async()=>{if(!volleyIDs.includes('volley-w'))return;const r=await loadWomenResults(matches,date,{fetchJSON:requestJSON});for(const x of r.entries){const i=entries.findIndex(m=>m.competition===x.competition&&m.id===x.id);if(i>=0)entries.splice(i,1);entries.push(x);}if(!r.errors.length){succeeded.push('volley-w');sources.push('EOPE');}else errors.push(...r.errors.map(error=>({id:'volley-w',error})));})()
+ ]);
+ // Coalesce independent result sources before reconciliation (which rejects ambiguous duplicates).
+ const volleyball=new Map();for(const x of entries)if(['volley-m','volley-w'].includes(x.competition)){const k=x.competition+'|'+x.id,old=volleyball.get(k);if(!old||Date.parse(x.scoreCheckedAt||x.checkedAt)>Date.parse(old.scoreCheckedAt||old.checkedAt))volleyball.set(k,x);}
+ for(let i=entries.length-1;i>=0;i--)if(['volley-m','volley-w'].includes(entries[i].competition))entries.splice(i,1);entries.push(...volleyball.values());
  const openLeagues={pl:'pl',bund:'bl1',laliga:'la1',cl:'ucl',europa:'uel2026'};
  await Promise.all(ids.filter(id=>openLeagues[id]&&matches.some(m=>m.competition===id&&m.date===date&&!entries.some(x=>x.competition===id&&same(m.home,x.home,x.homeAliases)&&same(m.away,x.away,x.awayAliases)))).map(async id=>{
   try{const value=await requestFeed('open-live-'+id+'-'+date,async()=>{const url='https://api.openligadb.de/getmatchdata/'+openLeagues[id]+'/2026',raw=await requestJSON(url),checkedAt=new Date().toISOString();return openGames(raw,id,2026).filter(m=>m.date===date&&['live','final'].includes(m.scoreState)).map(m=>({...m,competition:id,checkedAt,source:url,provider:'OpenLigaDB'}));},force);

@@ -19,10 +19,39 @@ export function parseVolleyTable(html,checkedAt=new Date().toISOString()){
  }return entries;
 }
 export function reportLinks(html){
- const links=new Map();for(const m of html.matchAll(/<a[^>]+href="([^"]*\/item\/(\d+)[^"]*)"[^>]*>([\s\S]*?)<\/a>/g)){
-  const title=clean(m[3]);if(!/[0-3]\s*[-–]\s*[0-3]/.test(title)||!/(νίκη|νικη|επικράτ|επικρατ|κέρδ|κερδ|πέρασ|περασ)/i.test(title))continue;
-  const url=new URL(m[1].replaceAll('&amp;','&'),origin);if(url.origin===origin&&!/super|cup/i.test(url.pathname))links.set(m[2],url.href);
- }return [...links.values()].slice(0,30);
+ const links=new Map();
+ for(const m of html.matchAll(/<a\b[^>]+href=(["'])([^"']*\/item\/(\d+)[^"']*)\1[^>]*>([\s\S]*?)<\/a>/g)){
+  const url=new URL(m[2].replaceAll('&amp;','&'),origin);if(url.origin!==origin||/super|cup/i.test(url.pathname))continue;
+  const old=links.get(m[3])||{eligible:false,url:url.href};
+  const title=clean(m[4]);old.eligible ||= /[0-3]\s*[-–]\s*[0-3]/.test(title)&&/(νίκη|νικη|επικράτ|επικρατ|κέρδ|κερδ|πέρασ|περασ)/i.test(title);
+  // The latest-news module exposes the canonical K2 route, while carousel aliases may fail.
+  if(new RegExp('/item/'+m[3]+'/').test(url.pathname))old.url=url.href;
+  links.set(m[3],old);
+ }return [...links.values()].filter(x=>x.eligible).map(x=>x.url).slice(0,30);
+}
+// Dated official news remains available when the results table and article aliases lag.
+export function parseVolleyHeadlines(html,checkedAt=new Date().toISOString()){
+ const dates=new Map(),entries=[];
+ for(const block of html.matchAll(/<div class=["']latest-news-content["']>([\s\S]*?)<\/div>/g)){
+  const id=block[1].match(/\/item\/(\d+)/)?.[1],date=day(clean(block[1]));if(id&&date)dates.set(id,date);
+ }
+ const links=reportLinks(html),seen=new Set();
+ for(const m of html.matchAll(/<a\b[^>]+href=(["'])([^"']*\/item\/(\d+)[^"']*)\1[^>]*>([\s\S]*?)<\/a>/g)){
+  const date=dates.get(m[3]),url=links.find(u=>new RegExp('/item/'+m[3]+'(?:/|-)').test(u));
+  if(!date||date<'2026-07-01'||date>='2027-07-01'||!url||seen.has(m[3]))continue;
+  const title=clean(m[4]),result=title.match(/^(.*?)\s+(?:νίκησε|νικησε|κέρδισε|κερδισε)\s+(3)\s*[-–]\s*([0-2])\s+(?:τον|την|το)\s+(.+)$/i);
+  if(!result)continue;
+  const winners=markers.filter(x=>key(result[1]).includes(x)),losers=markers.filter(x=>key(result[4]).includes(x));
+  if(winners.length!==1||losers.length!==1||winners[0]===losers[0])continue;
+  entries.push({date,winner:winners[0],loser:losers[0],winnerScore:[+result[2],+result[3]],scoreSource:url,scoreCheckedAt:checkedAt});seen.add(m[3]);
+ }return entries;
+}
+export function headlineResults(html,matches,checkedAt){
+ return parseVolleyHeadlines(html,checkedAt).flatMap(x=>{
+  const hits=matches.filter(m=>m.date===x.date&&((club(m.home)===x.winner&&club(m.away)===x.loser)||(club(m.away)===x.winner&&club(m.home)===x.loser)));
+  if(hits.length!==1)return[];const m=hits[0];
+  return [{...m,score:club(m.home)===x.winner?x.winnerScore:[...x.winnerScore].reverse(),scoreState:'final',scoreClock:null,scoreCheckedAt:x.scoreCheckedAt,scoreSource:x.scoreSource,scoreProvider:'ESAP dated news'}];
+ });
 }
 export function parseVolleyReport(html,url,checkedAt=new Date().toISOString()){
  if(new URL(url).origin!==origin||/super|cup/i.test(new URL(url).pathname))return null;
@@ -53,8 +82,9 @@ export async function collectVolleyResults(matches,{fetchText=async url=>{const 
  const entries=[],errors=[],checkedAt=new Date().toISOString();
  try{entries.push(...parseVolleyTable(await fetchText(resultsURL),checkedAt));}catch(e){errors.push('results: '+e.message);}
  const pending=applyVolleyResults(matches,entries,today).filter(m=>m.date&&m.date<=today&&m.date>=shiftDay(today,-14)&&m.scoreState!=='final');
- if(pending.length){let links=[];for(const url of [origin+'/index.php',origin+'/index.php/news/all-news']){try{links=reportLinks(await fetchText(url));if(links.length)break;}catch(e){errors.push(url+': '+e.message);}}
-  let cursor=0;await Promise.all(Array.from({length:3},async()=>{while(cursor<links.length){const url=links[cursor++];try{const x=parseVolleyReport(await fetchText(url),url,checkedAt);if(x&&pending.some(m=>x.date>=m.date&&x.date<=shiftDay(m.date,1)&&club(x.home)===club(m.home)&&club(x.away)===club(m.away)))entries.push(x);}catch(e){errors.push(url+': '+e.message);}}}));
+ if(pending.length){let links=[];for(const url of [origin+'/',origin+'/index.php',origin+'/index.php/news/all-news']){try{const html=await fetchText(url);entries.push(...headlineResults(html,matches,checkedAt));links=reportLinks(html);if(links.length)break;}catch(e){errors.push(url+': '+e.message);}}
+  const unresolved=applyVolleyResults(pending,entries,today).filter(m=>m.scoreState!=='final');if(!unresolved.length)return {matches:applyVolleyResults(matches,entries,today),entries,errors,checkedAt};
+  links=links.filter(url=>!entries.some(x=>x.scoreSource===url));let cursor=0;await Promise.all(Array.from({length:3},async()=>{while(cursor<links.length){const url=links[cursor++];try{const x=parseVolleyReport(await fetchText(url),url,checkedAt);if(!x)errors.push(url+': no verified match report');if(x&&pending.some(m=>x.date>=m.date&&x.date<=shiftDay(m.date,1)&&club(x.home)===club(m.home)&&club(x.away)===club(m.away)))entries.push(x);}catch(e){errors.push(url+': '+e.message);}}}));
  }return {matches:applyVolleyResults(matches,entries,today),entries,errors,checkedAt};
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){

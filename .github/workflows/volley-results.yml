@@ -1,0 +1,25 @@
+name: Refresh volleyball results
+on:
+  push:
+    branches: [main]
+    paths: ['scripts/refresh-volley.mjs', 'scripts/volley-results.mjs', 'dist/volley-scores.js', '.github/workflows/volley-results.yml']
+  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *'
+permissions:
+  contents: write
+concurrency:
+  group: sportshub-volley-results
+  cancel-in-progress: false
+jobs:
+  results:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/refresh-volley.mjs --publish
+        env:
+          GH_TOKEN: ${{ github.token }}
