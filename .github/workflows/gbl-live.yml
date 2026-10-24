@@ -1,0 +1,25 @@
+name: Refresh GBL live scores
+on:
+  push:
+    branches: [main]
+    paths: ['scripts/refresh-gbl.mjs', 'dist/gbl-scores.js', '.github/workflows/gbl-live.yml']
+  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *'
+permissions:
+  contents: write
+concurrency:
+  group: sportshub-gbl-live
+  cancel-in-progress: false
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/refresh-gbl.mjs --poll
+        env:
+          GH_TOKEN: ${{ github.token }}

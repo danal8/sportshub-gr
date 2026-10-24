@@ -21,6 +21,8 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/refresh-results.mjs
+      - run: node scripts/refresh-gbl.mjs
+        continue-on-error: true
       - run: node scripts/refresh-public.mjs
       - run: node scripts/volley-results.mjs
       - run: node scripts/refresh-confirmed-results.mjs

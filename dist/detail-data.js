@@ -1,9 +1,9 @@
-import{footballEvents}from'./football-events.js?v=57';
-import{competitions}from'./data.js?v=57';
-import{aliases}from'./team-aliases.js?v=57';
-import{teamKey}from'./badges.js?v=57';
-import{athensDay,normalizeFootball,shiftDay}from'./core.js?v=57';
-import{liveLeagues,sourceClock,parseEuroHeader}from'./live-scores.js?v=57';
+import{footballEvents}from'./football-events.js?v=60';
+import{competitions}from'./data.js?v=60';
+import{aliases}from'./team-aliases.js?v=60';
+import{teamKey}from'./badges.js?v=60';
+import{athensDay,normalizeFootball,shiftDay}from'./core.js?v=60';
+import{liveLeagues,sourceClock,parseEuroHeader}from'./live-scores.js?v=60';
 const web='https://site.web.api.espn.com/apis/site/v2/sports/',query='region=us&lang=en&contentorigin=espn';
 const validScore=s=>Array.isArray(s)&&s.length===2&&s.every(n=>Number.isInteger(n)&&n>=0);
 const names=(name,extra=[])=>new Set([name,...extra].filter(Boolean).flatMap(n=>[n,...aliases[teamKey(n)]||[]]).map(teamKey));
@@ -175,6 +175,7 @@ export function parseEuroDetails(header,box,pbp,m){
 }
 export async function loadMatchDetails(m,{force=false}={}){
  if(!m.date)throw Error('Δεν έχει οριστεί ημερομηνία για τον αγώνα');
+ if(m.competition==='gbl')return{match:m,score:m.score||null,scoreState:m.scoreState,clock:m.scoreClock||null,stats:[],players:[],lineups:[],events:[],periods:[],provider:'ΕΣΑΚΕ / Genius Sports',source:m.scoreSource||'https://www.esake.gr/',checkedAt:m.scoreCheckedAt};
  if(liveLeagues[m.competition]){const id=await eventID(m,{force}),[sport,league]=liveLeagues[m.competition],p=await detailJSON(web+sport+'/'+league+'/summary?'+query+'&event='+id,{ttl:30000,force});if(String(p.header?.id)!==id)throw Error('Τα στατιστικά δεν αντιστοιχούν στον αγώνα');return parseMatchSummary(p,m);}
  if(['el','eurocup'].includes(m.competition)){
  let ref=m;if(!/^[EU]-\d+$/.test(m.id)){const c=competitions.find(c=>c.id===m.competition),p=await detailJSON('./snapshots/'+c.id+'-2026-27.json');const hits=snapshotMatches(p,c).filter(x=>x.date===m.date&&sameTeam(m.home,x.home)&&sameTeam(m.away,x.away));if(hits.length!==1)throw Error('Δεν επιβεβαιώθηκε ο αγώνας');ref={...m,id:hits[0].id};}
