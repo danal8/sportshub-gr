@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-23T23:14:32.978Z",
+  "checkedAt": "2026-10-24T01:41:07.833Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -179,13 +179,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "laliga-85425",
-          "competition": "laliga",
-          "date": "2026-10-23",
-          "home": "Deportivo Alaves",
-          "away": "FC Malaga"
-        },
-        {
           "id": "laliga-85431",
           "competition": "laliga",
           "date": "2026-10-24",
@@ -215,19 +208,12 @@
         }
       ],
       "sourceError": null,
-      "finals": 89
+      "finals": 90
     },
     {
       "competition": "ligue1",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "ligue1-2026-10-23-Stade Brestois 29-OGC Nice-63",
-          "competition": "ligue1",
-          "date": "2026-10-23",
-          "home": "Stade Brestois 29",
-          "away": "OGC Nice"
-        },
         {
           "id": "ligue1-2026-10-24-Toulouse FC-ES Troyes AC-64",
           "competition": "ligue1",
@@ -244,7 +230,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 63
+      "finals": 64
     },
     {
       "competition": "nba",
@@ -258,32 +244,11 @@
           "away": "New York Knicks"
         },
         {
-          "id": "nba-401909845",
-          "competition": "nba",
-          "date": "2026-10-24",
-          "home": "Orlando Magic",
-          "away": "Minnesota Timberwolves"
-        },
-        {
           "id": "nba-401909844",
           "competition": "nba",
           "date": "2026-10-24",
           "home": "Indiana Pacers",
           "away": "Dallas Mavericks"
-        },
-        {
-          "id": "nba-401909846",
-          "competition": "nba",
-          "date": "2026-10-24",
-          "home": "Washington Wizards",
-          "away": "Toronto Raptors"
-        },
-        {
-          "id": "nba-401909843",
-          "competition": "nba",
-          "date": "2026-10-24",
-          "home": "Charlotte Hornets",
-          "away": "Atlanta Hawks"
         },
         {
           "id": "nba-401909847",
@@ -329,19 +294,12 @@
         }
       ],
       "sourceError": null,
-      "finals": 17
+      "finals": 20
     },
     {
       "competition": "pl",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "pl-86598",
-          "competition": "pl",
-          "date": "2026-10-23",
-          "home": "Ipswich Town",
-          "away": "Nottingham Forest"
-        },
         {
           "id": "pl-86599",
           "competition": "pl",
@@ -372,19 +330,12 @@
         }
       ],
       "sourceError": null,
-      "finals": 70
+      "finals": 71
     },
     {
       "competition": "seriea",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "seriea-2026-10-23-Torino FC-AC Monza-70",
-          "competition": "seriea",
-          "date": "2026-10-23",
-          "home": "Torino FC",
-          "away": "AC Monza"
-        },
         {
           "id": "seriea-2026-10-24-Cagliari Calcio-Bologna FC 1909-71",
           "competition": "seriea",
@@ -415,7 +366,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 70
+      "finals": 71
     },
     {
       "competition": "sl",
