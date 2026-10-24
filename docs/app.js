@@ -157,7 +157,15 @@ $('competition').addEventListener('change',()=>{state.id=$('competition').value;
 $('favorites-only').onclick=()=>{state.favoritesOnly=!state.favoritesOnly;if(state.favoritesOnly)state.myTeams=false;render();void refreshLive(true);};
 document.addEventListener('click',event=>{const button=event.target.closest('[data-fixture-favorite]');if(!button)return;const match=renderedMatches[Number(button.dataset.fixtureFavorite)];if(!match)return;const next=toggleFavorite(match,favoriteFixtures);if(!savePreference(FAVORITES_KEY,next)){notify('Δεν αποθηκεύτηκαν τα αγαπημένα. Ελέγξτε τον χώρο αποθήκευσης.');return;}favoriteFixtures=next;render();});
 window.addEventListener('storage',event=>{if(event.key===FAVORITES_KEY||event.key===null){favoriteFixtures=sanitizeFavorites(read(FAVORITES_KEY,[]));render();}});
-$('live-only').onclick=()=>{state.liveOnly=!state.liveOnly;if(state.liveOnly){state.tvDate=athensDay();state.round='';$('round').value='';}render();void refreshLive(true);};
+$('live-only').onclick=()=>{
+ state.liveOnly=!state.liveOnly;const previousDate=state.tvDate;
+ if(state.liveOnly){state.tvDate=athensDay();state.round='';$('round').value='';}
+ if(state.tab==='matches'&&previousDate!==state.tvDate){void load();return;}
+ render();
+ // Filtering uses the scores already on screen. Reuse a recent check and let
+ // the normal 30-second poll update scores without an extra forced redraw.
+ if(state.liveOnly&&(!liveReport||liveReport.date!==state.tvDate||Date.now()-Date.parse(liveReport.checkedAt)>=LIVE_INTERVAL))void refreshLive();
+};
 $('refresh').addEventListener('click',()=>{void refreshCardHighlights(true);load(true);});$('help').onclick=showHelp;$('data-help').onclick=showHelp;$('close-help').onclick=()=>$('help-dialog').close();
 let installPrompt;
 const standaloneMode=window.matchMedia('(display-mode: standalone)');
