@@ -29,7 +29,7 @@ function save(key,value){try{localStorage.setItem(key,JSON.stringify(value));ret
 let followedTeams=sanitizeSelections(read('sh-followed-teams-v1',[]));
 let favoriteFixtures=sanitizeFavorites(read(FAVORITES_KEY,[]));
 let pendingTeam=null;
-let liveEntries=[],liveReport=null,liveGeneration=0,livePending=false;
+let liveEntries=[],liveReport=null,liveGeneration=0,livePending=false,liveQueued=false;
 const tvCache=new Map(),scheduleCache=new Map(),tvDetailsCache=new Map();
 const allMatches={id:'all-matches',name:'Όλες οι διοργανώσεις',sport:'all'};
 const allTV={id:'all-tv',name:'Όλες οι διοργανώσεις',sport:'all',url:'https://www.novasports.gr/tv-program/'};
@@ -103,7 +103,7 @@ async function load(force=false){const request=++state.request,c=current(),seaso
   if(state.tab==='tv'){state.meta=null;message='';if(state.tvErrors?.length)message='Ορισμένες μεταδόσεις δεν μπόρεσαν να ενημερωθούν.';}else message='Δεν υπάρχει αυτόματη κάλυψη για αυτή την επιλογή.';
  }else{message='Δεν υπάρχει αποθηκευμένη κάλυψη για την επιλεγμένη σεζόν.';}
  }catch(error){if(request!==state.request)return;message=`Η πηγή δεν είναι διαθέσιμη (${error.message}). Δεν εμφανίζονται επινοημένα δεδομένα.`;}
- finally{if(request===state.request){state.loading=false;setRounds();render();notify((navigator.onLine?'':'Εκτός σύνδεσης · ')+message);$('refresh').disabled=false;if(state.tab==='tv')void refreshTVExtras(request,tvDate,c.id,force);else void refreshLive();}}
+ finally{if(request===state.request){state.loading=false;setRounds();render();notify((navigator.onLine?'':'Εκτός σύνδεσης · ')+message);$('refresh').disabled=false;if(state.tab==='tv')void refreshTVExtras(request,tvDate,c.id,force);else void refreshLive(force);}}
 }
 // Enrichment never holds the broadcast list or date controls behind external APIs.
 async function refreshTVExtras(request,date,competition,force){
@@ -188,7 +188,8 @@ installSwipe($('view'),direction=>{if(['tv','matches'].includes(state.tab))chang
 document.addEventListener('keydown',event=>{if(document.querySelector('dialog[open]')||!['tv','matches'].includes(state.tab)||event.target.closest('input,select,textarea,button,a,summary')||event.altKey||event.ctrlKey||event.metaKey)return;if(event.key==='ArrowLeft')changeDay(-1);if(event.key==='ArrowRight')changeDay(1);});
 // Poll live scoreboards separately: never reload the full season or reset the selected round.
 async function refreshLive(force=false){
- if(document.hidden||state.loading||livePending||['tv','standings'].includes(state.tab))return;
+ if(document.hidden||state.loading||['tv','standings'].includes(state.tab))return;
+ if(livePending){if(force)liveQueued=true;return;}
  const today=athensDay(),selected=['matches','tv'].includes(state.tab)?state.tvDate:today;
  const date=state.tab==='matches'&&state.myTeams?(weekRange(selected).start===weekRange(today).start?today:null):selected;
  if(!date)return;let matches=state.matches.map(m=>({...m,competition:m.competition||state.id}));
@@ -200,7 +201,7 @@ async function refreshLive(force=false){
   liveEntries=liveEntries.filter(x=>x.scoreState==='final'||!(x.date===date&&(ids.has(x.competition)||keys.has(x.competition+'|'+x.id))));
   rememberConfirmedResults(report.entries);for(const x of report.entries){if(x.scoreState!=='final'&&liveEntries.some(old=>old.id===x.id&&old.competition===x.competition&&old.scoreState==='final'))continue;liveEntries=liveEntries.filter(old=>!(old.id===x.id&&old.competition===x.competition&&old.date===x.date));liveEntries.push(x);}
   liveReport=report;state.matches=(state.tab==='tv'?applyLiveScores(state.matches,liveEntries):mergeLiveMatches(state.matches,liveEntries,{date,competitionIDs})).map(m=>{const c=competitions.find(c=>c.id===m.competition);return c?{...m,competitionLabel:c.name,sportLabel:c.sport==='football'?'Ποδόσφαιρο':c.sport==='basketball'?'Μπάσκετ':'Βόλεϊ'}:m;});if(detailPromise)void detailPromise.then(p=>p.updateMatches?.(state.matches));render();
- }catch{}finally{livePending=false;if(context!==state.tab+'|'+state.id+'|'+state.tvDate)void refreshLive();}
+ }catch{}finally{livePending=false;const queued=liveQueued;liveQueued=false;if(queued||request!==state.request||context!==state.tab+'|'+state.id+'|'+state.tvDate)void refreshLive(queued||request!==state.request);}
 }
 setInterval(()=>{if(document.hidden||state.loading)return;const today=athensDay();if(['tv','matches'].includes(state.tab)&&!(state.tab==='matches'&&state.myTeams)&&state.tvDate!==today)return;void refreshLive(true);},LIVE_INTERVAL);
 
