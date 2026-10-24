@@ -1,15 +1,15 @@
 {
   "season": "2026-27",
   "sourceVersion": 8,
-  "retrievedAt": "2026-10-24T06:28:33.767Z",
+  "retrievedAt": "2026-10-24T06:30:25.400Z",
   "errors": [
-    "NBA: HTTP 404",
-    "NBA: HTTP 404",
     "NBA: HTTP 404",
     "Novasports: HTTP 404",
     "NBA: HTTP 404",
-    "EuroLeague: HTTP 404",
     "Magenta Sport: HTTP 404",
+    "NBA: HTTP 404",
+    "EuroLeague: HTTP 404",
+    "NBA: HTTP 404",
     "EuroCup: HTTP 404",
     "Magenta Sport archive: Empty publisher video listings; retained earlier videos: "
   ],
