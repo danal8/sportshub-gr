@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-24T14:02:46.458Z",
+  "checkedAt": "2026-10-24T14:50:48.338Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -179,13 +179,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "laliga-85431",
-          "competition": "laliga",
-          "date": "2026-10-24",
-          "home": "Rayo Vallecano",
-          "away": "Elche CF"
-        },
-        {
           "id": "laliga-85430",
           "competition": "laliga",
           "date": "2026-10-24",
@@ -208,7 +201,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 90
+      "finals": 91
     },
     {
       "competition": "ligue1",
