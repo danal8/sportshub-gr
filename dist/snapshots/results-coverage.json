@@ -1,47 +1,12 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-24T14:50:48.338Z",
+  "checkedAt": "2026-10-24T16:22:19.286Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
       "competition": "bund",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "bund-83211",
-          "competition": "bund",
-          "date": "2026-10-24",
-          "home": "RB Leipzig",
-          "away": "SV 07 Elversberg"
-        },
-        {
-          "id": "bund-83215",
-          "competition": "bund",
-          "date": "2026-10-24",
-          "home": "FC Augsburg",
-          "away": "1. FC Union Berlin"
-        },
-        {
-          "id": "bund-83216",
-          "competition": "bund",
-          "date": "2026-10-24",
-          "home": "1. FSV Mainz 05",
-          "away": "SV Werder Bremen"
-        },
-        {
-          "id": "bund-83217",
-          "competition": "bund",
-          "date": "2026-10-24",
-          "home": "1. FC Köln",
-          "away": "FC Schalke 04"
-        },
-        {
-          "id": "bund-83218",
-          "competition": "bund",
-          "date": "2026-10-24",
-          "home": "SC Paderborn 07",
-          "away": "Hamburger SV"
-        },
         {
           "id": "bund-83210",
           "competition": "bund",
@@ -51,7 +16,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 55
+      "finals": 60
     },
     {
       "competition": "cl",
@@ -79,36 +44,15 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "elite-5-ΓΣ ΛΑΥΡΙΟΥ - AΦΟΙ ΛΙΟΣΑΤΟΥ-INTERPLAST ΓΑΣ ΚΟΜΟΤΗΝΗΣ",
-          "competition": "elite",
-          "date": "2026-10-24",
-          "home": "ΓΣ ΛΑΥΡΙΟΥ - AΦΟΙ ΛΙΟΣΑΤΟΥ",
-          "away": "INTERPLAST ΓΑΣ ΚΟΜΟΤΗΝΗΣ"
-        },
-        {
           "id": "elite-5-EVERTECH ΠΑΠΑΓΟΥ-ΑΣΑ ΑΝΑΓΕΝΝΗΣΗ",
           "competition": "elite",
           "date": "2026-10-24",
           "home": "EVERTECH ΠΑΠΑΓΟΥ",
           "away": "ΑΣΑ ΑΝΑΓΕΝΝΗΣΗ"
-        },
-        {
-          "id": "elite-5-ΑΣΑ ΚΟΡΟΙΒΟΣ-ΑΕΠΣ ΜΑΧΗΤΕΣ ΠΕΙΡΑΜΑΤΙΚΟ",
-          "competition": "elite",
-          "date": "2026-10-24",
-          "home": "ΑΣΑ ΚΟΡΟΙΒΟΣ",
-          "away": "ΑΕΠΣ ΜΑΧΗΤΕΣ ΠΕΙΡΑΜΑΤΙΚΟ"
-        },
-        {
-          "id": "elite-5-ΠΑΝΙΩΝΙΟΣ COSMORAMA TRAVEL-ΑΟ ΑΜΥΝΤΑΣ",
-          "competition": "elite",
-          "date": "2026-10-24",
-          "home": "ΠΑΝΙΩΝΙΟΣ COSMORAMA TRAVEL",
-          "away": "ΑΟ ΑΜΥΝΤΑΣ"
         }
       ],
       "sourceError": null,
-      "finals": 33
+      "finals": 36
     },
     {
       "competition": "eurocup",
@@ -128,13 +72,6 @@
       "competition": "gbl",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "gbl-2A098C20",
-          "competition": "gbl",
-          "date": "2026-10-24",
-          "home": "ΜΥΚΟΝΟΣ Betsson BC",
-          "away": "ΑΡΗΣ"
-        },
         {
           "id": "gbl-D8B7382E",
           "competition": "gbl",
@@ -172,19 +109,12 @@
         }
       ],
       "sourceError": null,
-      "finals": 21
+      "finals": 22
     },
     {
       "competition": "laliga",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "laliga-85430",
-          "competition": "laliga",
-          "date": "2026-10-24",
-          "home": "Racing Santander",
-          "away": "Espanyol Barcelona"
-        },
         {
           "id": "laliga-85434",
           "competition": "laliga",
@@ -201,7 +131,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 91
+      "finals": 92
     },
     {
       "competition": "ligue1",
@@ -237,20 +167,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "pl-86600",
-          "competition": "pl",
-          "date": "2026-10-24",
-          "home": "FC Arsenal",
-          "away": "Everton FC"
-        },
-        {
-          "id": "pl-86601",
-          "competition": "pl",
-          "date": "2026-10-24",
-          "home": "Coventry City",
-          "away": "Fulham FC"
-        },
-        {
           "id": "pl-86603",
           "competition": "pl",
           "date": "2026-10-24",
@@ -259,26 +175,12 @@
         }
       ],
       "sourceError": null,
-      "finals": 72
+      "finals": 74
     },
     {
       "competition": "seriea",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "seriea-2026-10-24-Cagliari Calcio-Bologna FC 1909-71",
-          "competition": "seriea",
-          "date": "2026-10-24",
-          "home": "Cagliari Calcio",
-          "away": "Bologna FC 1909"
-        },
-        {
-          "id": "seriea-2026-10-24-Como 1907-US Sassuolo Calcio-72",
-          "competition": "seriea",
-          "date": "2026-10-24",
-          "home": "Como 1907",
-          "away": "US Sassuolo Calcio"
-        },
         {
           "id": "seriea-2026-10-24-SSC Napoli-AS Roma-73",
           "competition": "seriea",
@@ -295,7 +197,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 71
+      "finals": 73
     },
     {
       "competition": "sl",
