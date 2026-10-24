@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-24T07:25:56.672Z",
+  "checkedAt": "2026-10-24T11:31:06.187Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -359,11 +359,11 @@
           "away": "ΑΕΛ NOVIBET"
         },
         {
-          "id": "sl2-2627062",
+          "id": "sl2-2627063",
           "competition": "sl2",
           "date": "2026-10-24",
-          "home": "ΑΠΟΛΛΩΝ ΚΑΛΑΜΑΡΙΑΣ",
-          "away": "ΝΙΚΗ ΒΟΛΟΥ"
+          "home": "ΠΑΝΣΕΡΡΑΪΚΟΣ",
+          "away": "ΕΛΛΑΣ ΣΥΡΟΥ"
         },
         {
           "id": "sl2-2627059",
@@ -373,11 +373,11 @@
           "away": "ΝΕΣΤΟΣ ΧΡΥΣΟΥΠΟΛΗΣ"
         },
         {
-          "id": "sl2-2627063",
+          "id": "sl2-2627062",
           "competition": "sl2",
           "date": "2026-10-24",
-          "home": "ΠΑΝΣΕΡΡΑΪΚΟΣ",
-          "away": "ΕΛΛΑΣ ΣΥΡΟΥ"
+          "home": "ΑΠΟΛΛΩΝ ΚΑΛΑΜΑΡΙΑΣ",
+          "away": "ΝΙΚΗ ΒΟΛΟΥ"
         }
       ],
       "sourceError": null,

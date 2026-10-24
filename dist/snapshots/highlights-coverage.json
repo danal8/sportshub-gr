@@ -1,26 +1,27 @@
 {
-  "checkedAt": "2026-10-24T07:26:04.343Z",
+  "checkedAt": "2026-10-24T11:31:16.798Z",
   "sourceErrors": [
     "Magenta Sport archive: Empty publisher video listings; retained earlier videos: ",
-    "NBA YouTube region: 9n0WtH6pzGc: YouTube country availability unavailable",
-    "NBA YouTube region: r5pqf0we5uM: YouTube country availability unavailable",
-    "NBA YouTube region: KoRT1d_i13o: YouTube country availability unavailable",
-    "NBA YouTube region: If1DIVuMPkc: YouTube country availability unavailable",
-    "NBA YouTube region: nL79PGsNMNc: YouTube country availability unavailable",
-    "NBA YouTube region: Q052nRK7KNk: YouTube country availability unavailable",
-    "NBA YouTube region: w4g6vpvVyos: YouTube country availability unavailable",
+    "NBA YouTube region: A4v-byV18_Y: YouTube country availability unavailable",
+    "NBA YouTube region: 2o4lgEQCOgk: YouTube country availability unavailable",
+    "NBA YouTube region: P3U_TwDKT-Y: YouTube country availability unavailable",
     "NBA YouTube region: sXlPebl2zfk: YouTube country availability unavailable",
     "NBA YouTube region: KVC5atVkCyE: YouTube country availability unavailable",
-    "NBA YouTube region: 2o4lgEQCOgk: YouTube country availability unavailable",
     "NBA YouTube region: ZUslpiyp7G4: YouTube country availability unavailable",
-    "NBA YouTube region: P3U_TwDKT-Y: YouTube country availability unavailable",
+    "NBA YouTube region: If1DIVuMPkc: YouTube country availability unavailable",
+    "NBA YouTube region: Q052nRK7KNk: YouTube country availability unavailable",
+    "NBA YouTube region: 9n0WtH6pzGc: YouTube country availability unavailable",
+    "NBA YouTube region: nL79PGsNMNc: YouTube country availability unavailable",
+    "NBA YouTube region: KoRT1d_i13o: YouTube country availability unavailable",
+    "NBA YouTube region: w4g6vpvVyos: YouTube country availability unavailable",
+    "NBA YouTube region: r5pqf0we5uM: YouTube country availability unavailable",
     "NBA YouTube region: 2SHdd_RRsRw: YouTube country availability unavailable",
-    "NBA YouTube region: tIsw4QK1Ung: YouTube country availability unavailable",
     "NBA YouTube region: aEAJfS_6J0g: YouTube country availability unavailable",
+    "NBA YouTube region: tIsw4QK1Ung: YouTube country availability unavailable",
     "NBA YouTube region: KABX-E-SRwA: YouTube country availability unavailable",
-    "NBA YouTube region: qEepDtX5qLM: YouTube country availability unavailable",
     "NBA YouTube region: -66hmMWFOcg: YouTube country availability unavailable",
-    "NBA YouTube region: A4v-byV18_Y: YouTube country availability unavailable"
+    "NBA YouTube region: qEepDtX5qLM: YouTube country availability unavailable",
+    "NBA YouTube region: ZG-VOv0iI7Q: YouTube country availability unavailable"
   ],
   "start": "2026-10-22",
   "end": "2026-10-24",
@@ -278,6 +279,11 @@
       "covered": 25,
       "uncoveredMatches": [],
       "unmatchedVideos": [
+        {
+          "videoId": "ZG-VOv0iI7Q",
+          "title": "NBA's Nightly Recap | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
         {
           "videoId": "A4v-byV18_Y",
           "title": "NBA's Nightly Recap | October 23, 2026",
