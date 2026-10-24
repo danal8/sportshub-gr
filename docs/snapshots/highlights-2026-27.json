@@ -1,13 +1,12 @@
 {
   "season": "2026-27",
   "sourceVersion": 8,
-  "retrievedAt": "2026-10-24T06:47:32.109Z",
+  "retrievedAt": "2026-10-24T06:56:41.279Z",
   "errors": [
     "NBA: HTTP 404",
-    "NBA: HTTP 404",
+    "Magenta Sport: HTTP 404",
     "EuroCup: HTTP 404",
     "Novasports: HTTP 404",
-    "Magenta Sport: HTTP 404",
     "EuroLeague: HTTP 404",
     "NBA: HTTP 404",
     "NBA: HTTP 404",
@@ -517,18 +516,6 @@
       "metadataSource": "YouTube oEmbed"
     },
     {
-      "videoId": "2o4lgEQCOgk",
-      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
-      "title": "GRIZZLIES at WARRIORS | FULL GAME HIGHLIGHTS | October 23, 2026",
-      "publishedAt": null,
-      "publisher": "nba",
-      "competition": "nba",
-      "gameDate": "2026-10-23",
-      "kind": "game",
-      "verifiedAt": "2026-10-24T06:01:30.746Z",
-      "metadataSource": "YouTube oEmbed"
-    },
-    {
       "videoId": "9n0WtH6pzGc",
       "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
       "title": "KNICKS at CELTICS | FULL GAME HIGHLIGHTS | October 23, 2026",
@@ -565,33 +552,9 @@
       "metadataSource": "YouTube oEmbed"
     },
     {
-      "videoId": "KVC5atVkCyE",
-      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
-      "title": "CLIPPERS at LAKERS | FULL GAME HIGHLIGHTS | October 23, 2026",
-      "publishedAt": null,
-      "publisher": "nba",
-      "competition": "nba",
-      "gameDate": "2026-10-23",
-      "kind": "game",
-      "verifiedAt": "2026-10-24T06:01:30.746Z",
-      "metadataSource": "YouTube oEmbed"
-    },
-    {
       "videoId": "nL79PGsNMNc",
       "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
       "title": "RAPTORS at WIZARDS | FULL GAME HIGHLIGHTS | October 23, 2026",
-      "publishedAt": null,
-      "publisher": "nba",
-      "competition": "nba",
-      "gameDate": "2026-10-23",
-      "kind": "game",
-      "verifiedAt": "2026-10-24T06:01:30.746Z",
-      "metadataSource": "YouTube oEmbed"
-    },
-    {
-      "videoId": "P3U_TwDKT-Y",
-      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
-      "title": "TRAIL BLAZERS at KINGS | FULL GAME HIGHLIGHTS | October 23, 2026",
       "publishedAt": null,
       "publisher": "nba",
       "competition": "nba",
@@ -647,6 +610,36 @@
       "kind": "game",
       "verifiedAt": "2026-10-24T06:01:30.746Z",
       "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "2o4lgEQCOgk",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "GRIZZLIES at WARRIORS | FULL GAME HIGHLIGHTS | October 23, 2026",
+      "publishedAt": "2026-10-24T05:22:13+00:00",
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-23",
+      "kind": "game"
+    },
+    {
+      "videoId": "KVC5atVkCyE",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "CLIPPERS at LAKERS | FULL GAME HIGHLIGHTS | October 23, 2026",
+      "publishedAt": "2026-10-24T05:16:34+00:00",
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-23",
+      "kind": "game"
+    },
+    {
+      "videoId": "P3U_TwDKT-Y",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "TRAIL BLAZERS at KINGS | FULL GAME HIGHLIGHTS | October 23, 2026",
+      "publishedAt": "2026-10-24T05:07:55+00:00",
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-23",
+      "kind": "game"
     },
     {
       "videoId": "H4omtK3PnxA",
