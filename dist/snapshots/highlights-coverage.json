@@ -1,14 +1,14 @@
 {
-  "checkedAt": "2026-10-24T06:30:25.407Z",
+  "checkedAt": "2026-10-24T06:39:23.743Z",
   "sourceErrors": [
     "NBA: HTTP 404",
     "Novasports: HTTP 404",
     "NBA: HTTP 404",
-    "Magenta Sport: HTTP 404",
-    "NBA: HTTP 404",
-    "EuroLeague: HTTP 404",
     "NBA: HTTP 404",
     "EuroCup: HTTP 404",
+    "NBA: HTTP 404",
+    "Magenta Sport: HTTP 404",
+    "EuroLeague: HTTP 404",
     "Magenta Sport archive: Empty publisher video listings; retained earlier videos: "
   ],
   "start": "2026-10-22",
