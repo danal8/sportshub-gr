@@ -218,3 +218,5 @@ body .compact-match .match-card-heading>.fixture-favorite{position:absolute;inse
 @media(max-width:700px){body .match.compact-match{padding-inline-start:51px}body .compact-match .match-card-heading>.fixture-favorite{inset-inline-start:5px}}
 body .compact-match .match-card-heading>.match-time{flex:1;min-width:0;width:auto;margin:0;justify-content:flex-start}
 @media(min-width:701px){body[data-tab=matches] .card-heading{justify-content:flex-start;gap:12px}body[data-tab=matches] #coverage{margin-inline-start:auto}}
+
+@media(max-width:700px){body[data-tab=matches] .day-bar #favorites-only{flex:1 0 44px;min-width:44px;width:auto;padding-inline:8px}body[data-tab=matches] .day-bar #live-only{flex:1.25 0 56px;min-width:56px;padding-inline:10px}}
