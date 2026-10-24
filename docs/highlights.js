@@ -1,6 +1,6 @@
-import{aliases}from'./team-aliases.js?v=50';
-import{teamKey}from'./badges.js?v=50';
-import{athensDay,shiftDay}from'./core.js?v=50';
+import{aliases}from'./team-aliases.js?v=51';
+import{teamKey}from'./badges.js?v=51';
+import{athensDay,shiftDay}from'./core.js?v=51';
 export const publishers=[
  {id:'nba',label:'NBA',channel:'UCWJ2lWNubArHWmf3FIHbfcQ'},
  {id:'el',label:'EuroLeague',channel:'UCGr3nR_XH9r6E5b09ZJAT9w'},
@@ -61,14 +61,16 @@ export function highlightMatch(m){
 }
 export function selectHighlights(videos,m,{now=Date.now()}={}){
  if(m.scoreState!=='final'||!Array.isArray(m.score)||m.score.length!==2||!m.score.every(n=>Number.isInteger(n)&&n>=0)||!/^\d{4}-\d{2}-\d{2}$/.test(m.date||'')||m.date>athensDay(new Date(now)))return null;
- const home=choices(m.home,m.homeAliases,m.competition==='nba'),away=choices(m.away,m.awayAliases,m.competition==='nba'),hits=[];
+ const home=choices(m.home,m.homeAliases,m.competition==='nba'),away=choices(m.away,m.awayAliases,m.competition==='nba'),hits=[],gameDate=m.competition==='nba'?nbaDate(m):m.date,minDay=m.competition==='nba'?shiftDay(m.date,-1):m.date,maxDay=shiftDay(m.date,1);
  for(const v of videos||[]){
- const uefaPath={europa:'uefaeuropaleague',conference:'uefaconferenceleague'}[v.competition];let press=false;try{const u=new URL(v.url),s=new URL(v.sourceURL);press=v.publisher==='press-player'&&u.origin==='https://platform.firstview.gr'&&/^\/player\/[A-Za-z0-9_+\/=-]+$/.test(u.pathname)&&!u.search&&!u.hash&&s.origin==='https://www.protothema.gr'&&/^\/sports\/article\/\d+\//.test(s.pathname);}catch{}let uefa=false;try{const u=new URL(v.url);uefa=v.publisher==='uefa'&&u.origin==='https://www.uefa.com'&&uefaPath&&u.pathname.startsWith('/'+uefaPath+'/video/')&&/^\/[a-z]+\/video\/(?:highlights\/)?[a-f0-9-]+--[a-z0-9-]+\/$/.test(u.pathname)&&!u.search&&!u.hash;}catch{}
- const pub=press?{id:'press-player',label:'Πρώτο Θέμα'}:uefa?{id:'uefa',label:'UEFA'}:publishers.find(p=>p.id===v.publisher&&p.channel===v.channelId),published=Date.parse(v.publishedAt||(v.metadataSource==='YouTube oEmbed'?v.verifiedAt:null));
- if(!pub||v.competition!==m.competition||!uefa&&!press&&!/^[\w-]{11}$/.test(v.videoId)||!Number.isFinite(published)||published>now+300000||athensDay(new Date(published))<(m.competition==='nba'?shiftDay(m.date,-1):m.date)||athensDay(new Date(published))>shiftDay(m.date,1))continue;
- if(m.competition==='nba'){if(v.publisher!=='nba'||v.gameDate!==nbaDate(m))continue;}
+ if(v.competition!==m.competition)continue;
+ if(m.competition==='nba'){if(v.publisher!=='nba'||v.gameDate!==gameDate)continue;}
  else if(v.publisher==='el'||v.publisher==='ec'){if(v.season!=='2026-27'||!Number.isInteger(v.round)||v.round!==Number(m.round))continue;}
  else if(v.gameDate!==m.date)continue;
+ const uefaPath={europa:'uefaeuropaleague',conference:'uefaconferenceleague'}[v.competition];let press=false;if(v.publisher==='press-player')try{const u=new URL(v.url),s=new URL(v.sourceURL);press=v.publisher==='press-player'&&u.origin==='https://platform.firstview.gr'&&/^\/player\/[A-Za-z0-9_+\/=-]+$/.test(u.pathname)&&!u.search&&!u.hash&&s.origin==='https://www.protothema.gr'&&/^\/sports\/article\/\d+\//.test(s.pathname);}catch{}let uefa=false;if(v.publisher==='uefa')try{const u=new URL(v.url);uefa=v.publisher==='uefa'&&u.origin==='https://www.uefa.com'&&uefaPath&&u.pathname.startsWith('/'+uefaPath+'/video/')&&/^\/[a-z]+\/video\/(?:highlights\/)?[a-f0-9-]+--[a-z0-9-]+\/$/.test(u.pathname)&&!u.search&&!u.hash;}catch{}
+ const pub=press?{id:'press-player',label:'Πρώτο Θέμα'}:uefa?{id:'uefa',label:'UEFA'}:publishers.find(p=>p.id===v.publisher&&p.channel===v.channelId),published=Date.parse(v.publishedAt||(v.metadataSource==='YouTube oEmbed'?v.verifiedAt:null));
+ if(!pub||v.competition!==m.competition||!uefa&&!press&&!/^[\w-]{11}$/.test(v.videoId)||!Number.isFinite(published)||published>now+300000||athensDay(new Date(published))<minDay||athensDay(new Date(published))>maxDay)continue;
+
  let text=v.title,seconds=null;
  if(v.kind==='chapters'){
   const matches=(v.chapters||[]).filter(c=>Number.isInteger(c.seconds)&&c.seconds>=0&&mentions(c.label,home)&&mentions(c.label,away));

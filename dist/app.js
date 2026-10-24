@@ -1,23 +1,23 @@
-import{loadDailySchedule}from'./daily-schedule.js?v=50';
-import{savePreference}from'./preference-storage.js?v=50';
-import{FAVORITES_KEY,sanitizeFavorites,isFavorite,toggleFavorite,favoriteMatches}from'./fixture-favorites.js?v=50';
-import{loadHighlightsIndex,selectHighlights,highlightMatch}from'./highlights.js?v=50';
-import{displayTeamName}from'./team-display.js?v=50';
-import{loadLiveScores,applyLiveScores,mergeLiveMatches,isFreshLive,LIVE_INTERVAL}from'./live-scores.js?v=50';
-import{makeSelection,sanitizeSelections,selectionForTeam,addSelection,weekRange,weeklyMatches,selectedCompetitions,teamIdentity}from'./my-teams.js?v=50';
-import{teamMarkup}from'./team-view.js?v=50';
-import{loadTVDetails,applyTVDetails}from'./tv-details.js?v=50';
-import{defaultCompetition,orderedCompetitions}from'./competition-order.js?v=50';
-import{badgeSources,loadBadgeCatalog,rememberBadges}from'./badges.js?v=50';
-import{resultLabel}from'./results.js?v=50';
-import{directIDs}from'./direct.js?v=50';
-import{swipeDirection}from'./gestures.js?v=50';
-import{navIcon}from'./icons.js?v=50';
-import{scheduleEntries,daySchedule}from'./schedule.js?v=50';
-import{loadNova}from'./tv.js?v=50';
-import {loadProvider,isConnected,rememberConfirmedResults} from './providers.js?v=50';
-import {competitions,checkedAt,eliteSchedule,eliteTV,eliteMatches,broadcasts,currentTV,gblStandings} from './data.js?v=50';
-import {escapeHTML as e,normalizeFootball,calculateTable,athensDay,chooseRound,filterMatches,shiftDay} from './core.js?v=50';
+import{loadDailySchedule}from'./daily-schedule.js?v=51';
+import{savePreference}from'./preference-storage.js?v=51';
+import{FAVORITES_KEY,sanitizeFavorites,isFavorite,toggleFavorite,favoriteMatches}from'./fixture-favorites.js?v=51';
+import{loadHighlightsIndex,selectHighlights,highlightMatch}from'./highlights.js?v=51';
+import{displayTeamName}from'./team-display.js?v=51';
+import{loadLiveScores,applyLiveScores,mergeLiveMatches,isFreshLive,LIVE_INTERVAL}from'./live-scores.js?v=51';
+import{makeSelection,sanitizeSelections,selectionForTeam,addSelection,weekRange,weeklyMatches,selectedCompetitions,teamIdentity}from'./my-teams.js?v=51';
+import{teamMarkup}from'./team-view.js?v=51';
+import{loadTVDetails,applyTVDetails}from'./tv-details.js?v=51';
+import{defaultCompetition,orderedCompetitions}from'./competition-order.js?v=51';
+import{badgeSources,loadBadgeCatalog,rememberBadges}from'./badges.js?v=51';
+import{resultLabel}from'./results.js?v=51';
+import{directIDs}from'./direct.js?v=51';
+import{swipeDirection}from'./gestures.js?v=51';
+import{navIcon}from'./icons.js?v=51';
+import{scheduleEntries,daySchedule}from'./schedule.js?v=51';
+import{loadNova}from'./tv.js?v=51';
+import {loadProvider,isConnected,rememberConfirmedResults} from './providers.js?v=51';
+import {competitions,checkedAt,eliteSchedule,eliteTV,eliteMatches,broadcasts,currentTV,gblStandings} from './data.js?v=51';
+import {escapeHTML as e,normalizeFootball,calculateTable,athensDay,chooseRound,filterMatches,shiftDay} from './core.js?v=51';
 const $=id=>document.getElementById(id);
 const shortLabels={volleyball:'Βόλεϊ',football:'Ποδ.',basketball:'Μπασκ.',tv:'TV',matches:'Αγώνες',standings:'Βαθμοί'};
 const nav=[['football','⚽','Ποδόσφαιρο'],['basketball','◉','Μπάσκετ'],['volleyball','','Βόλεϊ'],['tv','▣','Τηλεόραση'],['matches','▦','Αγώνες'],['standings','≡','Βαθμολογίες']];
@@ -50,7 +50,7 @@ async function refreshCardHighlights(force=false){
  cardHighlightsPending=true;cardHighlightsCheckedAt=Date.now();
  try{cardHighlights=await loadHighlightsIndex({force});if(!state.loading&&state.tab!=='standings')render();}catch{}finally{cardHighlightsPending=false;}
 }
-function details(){return detailPromise??=import('./detail-panels.js?v=50').then(m=>m.createDetailPanels({getSeed:()=>{const records=competitions.map(c=>({competition:c,payload:scheduleCache.get(state.season+'-'+c.id)})).filter(r=>r.payload);if(state.meta?.matches&&competitions.some(c=>c.id===state.id))records.push({competition:current(),payload:{...state.meta,matches:state.matches}});return records;}})).catch(error=>{detailPromise=null;notify('Δεν άνοιξαν τα στοιχεία. Δοκίμασε ξανά.');throw error;});}
+function details(){return detailPromise??=import('./detail-panels.js?v=51').then(m=>m.createDetailPanels({getSeed:()=>{const records=competitions.map(c=>({competition:c,payload:scheduleCache.get(state.season+'-'+c.id)})).filter(r=>r.payload);if(state.meta?.matches&&competitions.some(c=>c.id===state.id))records.push({competition:current(),payload:{...state.meta,matches:state.matches}});return records;}})).catch(error=>{detailPromise=null;notify('Δεν άνοιξαν τα στοιχεία. Δοκίμασε ξανά.');throw error;});}
 document.addEventListener('click',async event=>{const t=event.target.closest('[data-open-team]');if(t){const name=t.dataset.openTeam,id=t.dataset.openCompetition;try{(await details()).openTeam(name,id);}catch{}return;}const target=event.target.closest('[data-open-match-index]');if(!target||target.tagName==='ARTICLE'&&event.target.closest('a,button,input,select,summary'))return;const match=renderedMatches[Number(target.dataset.openMatchIndex)];if(match)try{(await details()).openMatch({...match});}catch{}});
 function renderNav(){if(renderedTab===state.tab)return;renderedTab=state.tab;for(const id of ['side-nav','top-nav','bottom-nav']){$(id).innerHTML=nav.map(([key,icon,label])=>`<button type="button" data-tab="${key}" aria-label="${label}" class="${state.tab===key?'active':''}" ${state.tab===key?'aria-current="page"':''}><span class="nav-icon" aria-hidden="true">${navIcon(key)}</span><span class="full-label">${label}</span><span class="short-label" aria-hidden="true">${shortLabels[key]}</span></button>`).join('');}}
 function choices(){const allowed=state.tab==='matches'?[allMatches,...orderedCompetitions(competitions,state.tab)]:state.tab==='tv'?[allTV,...orderedCompetitions(competitions,state.tab)]:orderedCompetitions(competitions,state.tab);if(!allowed.some(c=>c.id===state.id))state.id=allowed[0].id;$('competition').innerHTML=allowed.map(c=>`<option value="${c.id}" ${c.id===state.id?'selected':''}>${c.name}</option>`).join('');}
