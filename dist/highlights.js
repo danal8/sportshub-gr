@@ -64,12 +64,13 @@ export function selectHighlights(videos,m,{now=Date.now()}={}){
  const home=choices(m.home,m.homeAliases,m.competition==='nba'),away=choices(m.away,m.awayAliases,m.competition==='nba'),hits=[],gameDate=m.competition==='nba'?nbaDate(m):m.date,minDay=m.competition==='nba'?shiftDay(m.date,-1):m.date,maxDay=shiftDay(m.date,1);
  for(const v of videos||[]){
  if(v.competition!==m.competition)continue;
- if(m.competition==='nba'){if(v.publisher!=='nba'||v.gameDate!==gameDate)continue;}
+ if(m.competition==='nba'){if(!['nba','nba-com'].includes(v.publisher)||v.gameDate!==gameDate||v.publisher==='nba'&&!v.availableCountries?.includes('GR'))continue;}
  else if(v.publisher==='el'||v.publisher==='ec'){if(v.season!=='2026-27'||!Number.isInteger(v.round)||v.round!==Number(m.round))continue;}
  else if(v.gameDate!==m.date)continue;
+ let native=false;if(v.publisher==='nba-com')try{const u=new URL(v.url),source=new URL(v.sourceURL);native=v.competition==='nba'&&v.format==='recap'&&['free','public'].includes(v.entitlement)&&/^\d{10}$/.test(v.nbaGameId||'')&&u.origin==='https://www.nba.com'&&/^\/watch\/video\/[a-z0-9-]+$/.test(u.pathname)&&!u.search&&!u.hash&&source.origin===u.origin&&new RegExp('^/game/[a-z]{2,3}-vs-[a-z]{2,3}-'+v.nbaGameId+'$').test(source.pathname)&&!source.search&&!source.hash;}catch{}
  const uefaPath={europa:'uefaeuropaleague',conference:'uefaconferenceleague'}[v.competition];let press=false;if(v.publisher==='press-player')try{const u=new URL(v.url),s=new URL(v.sourceURL);press=v.publisher==='press-player'&&u.origin==='https://platform.firstview.gr'&&/^\/player\/[A-Za-z0-9_+\/=-]+$/.test(u.pathname)&&!u.search&&!u.hash&&s.origin==='https://www.protothema.gr'&&/^\/sports\/article\/\d+\//.test(s.pathname);}catch{}let uefa=false;if(v.publisher==='uefa')try{const u=new URL(v.url);uefa=v.publisher==='uefa'&&u.origin==='https://www.uefa.com'&&uefaPath&&u.pathname.startsWith('/'+uefaPath+'/video/')&&/^\/[a-z]+\/video\/(?:highlights\/)?[a-f0-9-]+--[a-z0-9-]+\/$/.test(u.pathname)&&!u.search&&!u.hash;}catch{}
- const pub=press?{id:'press-player',label:'Πρώτο Θέμα'}:uefa?{id:'uefa',label:'UEFA'}:publishers.find(p=>p.id===v.publisher&&p.channel===v.channelId),published=Date.parse(v.publishedAt||(v.metadataSource==='YouTube oEmbed'?v.verifiedAt:null));
- if(!pub||v.competition!==m.competition||!uefa&&!press&&!/^[\w-]{11}$/.test(v.videoId)||!Number.isFinite(published)||published>now+300000||athensDay(new Date(published))<minDay||athensDay(new Date(published))>maxDay)continue;
+ const pub=native?{id:'nba-com',label:'NBA.com'}:press?{id:'press-player',label:'Πρώτο Θέμα'}:uefa?{id:'uefa',label:'UEFA'}:publishers.find(p=>p.id===v.publisher&&p.channel===v.channelId),published=Date.parse(v.publishedAt||(v.metadataSource==='YouTube oEmbed'?v.verifiedAt:null));
+ if(!pub||v.competition!==m.competition||!native&&!uefa&&!press&&!/^[\w-]{11}$/.test(v.videoId)||!Number.isFinite(published)||published>now+300000||athensDay(new Date(published))<minDay||athensDay(new Date(published))>maxDay)continue;
 
  let text=v.title,seconds=null;
  if(v.kind==='chapters'){
@@ -77,8 +78,8 @@ export function selectHighlights(videos,m,{now=Date.now()}={}){
   if(matches.length!==1)continue;text=matches[0].label;seconds=matches[0].seconds;
  }else if(v.kind!=='game')continue;
  if(!mentions(text,home)||!mentions(text,away))continue;
- const url=uefa||press?v.url:'https://www.youtube.com/watch?v='+v.videoId+(seconds===null?'':'&t='+seconds+'s');
- hits.push({url,title:text,provider:pub.label,publishedAt:v.publishedAt,chapter:seconds,rank:press?4:uefa?3:seconds!==null?2:v.publisher==='nova'?0:1});
+ const url=native||uefa||press?v.url:'https://www.youtube.com/watch?v='+v.videoId+(seconds===null?'':'&t='+seconds+'s');
+ hits.push({url,title:text,provider:pub.label,label:native?'Recap':'Highlights',publishedAt:v.publishedAt,chapter:seconds,rank:native?3:press?4:uefa?3:seconds!==null?2:v.publisher==='nova'?0:1});
  }
  hits.sort((a,b)=>a.rank-b.rank||Date.parse(b.publishedAt)-Date.parse(a.publishedAt));return hits[0]||null;
 }

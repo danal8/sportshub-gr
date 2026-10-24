@@ -1,6 +1,6 @@
 import{sameResultMatch,synchronizeDetailScore}from'./result-reconciliation.js?v=52';
 import{eventTimeline}from'./event-timeline.js?v=52';
-import{loadMatchHighlights}from'./highlights.js?v=52';
+import{loadMatchHighlights}from'./highlights.js?v=56';
 import{escapeHTML as e,athensDay}from'./core.js?v=52';
 import{competitions}from'./data.js?v=52';
 import{displayTeamName}from'./team-display.js?v=52';
@@ -85,7 +85,7 @@ export function createDetailPanels({getSeed=()=>[]}={}){
  function highlightLink(card){
  const final=card.data?card.data.scoreState==='final':card.match.scoreState==='final',h=card.highlight;
  if(!final||!h)return '';
- return '<div class="detail-highlight"><a href="'+e(h.url)+'" target="_blank" rel="noopener noreferrer" aria-label="'+e('Highlights: '+name(card.match.home)+' – '+name(card.match.away)+' · '+h.provider)+'">▶ Highlights <span aria-hidden="true">↗</span></a><small>'+e(h.provider)+(h.chapter!==null?' · Στο σημείο του συγκεκριμένου αγώνα':'')+'</small></div>';
+ return '<div class="detail-highlight"><a href="'+e(h.url)+'" target="_blank" rel="noopener noreferrer" aria-label="'+e((h.label||'Highlights')+': '+name(card.match.home)+' – '+name(card.match.away)+' · '+h.provider)+'">▶ '+e(h.label||'Highlights')+' <span aria-hidden="true">↗</span></a><small>'+e(h.provider)+(h.chapter!==null?' · Στο σημείο του συγκεκριμένου αγώνα':'')+'</small></div>';
  }
  async function highlights(card,force=false){
  if(card.hlPending||card.hlLoaded&&!force)return;

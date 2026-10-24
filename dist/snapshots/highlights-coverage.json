@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-24T06:56:41.284Z",
+  "checkedAt": "2026-10-24T07:23:36.388Z",
   "sourceErrors": [
     "NBA: HTTP 404",
     "Magenta Sport: HTTP 404",
@@ -401,7 +401,133 @@
       "finished": 25,
       "covered": 25,
       "uncoveredMatches": [],
-      "unmatchedVideos": []
+      "unmatchedVideos": [
+        {
+          "videoId": "r5pqf0we5uM",
+          "title": "BULLS at BUCKS | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "9n0WtH6pzGc",
+          "title": "KNICKS at CELTICS | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "If1DIVuMPkc",
+          "title": "MAVERICKS at PACERS | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "KoRT1d_i13o",
+          "title": "TIMBERWOLVES at MAGIC | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "nL79PGsNMNc",
+          "title": "RAPTORS at WIZARDS | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "Q052nRK7KNk",
+          "title": "PISTONS at HEAT | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "sXlPebl2zfk",
+          "title": "PELICANS at JAZZ | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "w4g6vpvVyos",
+          "title": "HAWKS at HORNETS | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "ZUslpiyp7G4",
+          "title": "ROCKETS at SPURS | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "2o4lgEQCOgk",
+          "title": "GRIZZLIES at WARRIORS | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "KVC5atVkCyE",
+          "title": "CLIPPERS at LAKERS | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "P3U_TwDKT-Y",
+          "title": "TRAIL BLAZERS at KINGS | FULL GAME HIGHLIGHTS | October 23, 2026",
+          "gameDate": "2026-10-23"
+        },
+        {
+          "videoId": "Dwea5DcKfK4",
+          "title": "HAWKS at MAGIC | FULL GAME HIGHLIGHTS | October 21, 2026",
+          "gameDate": "2026-10-21"
+        },
+        {
+          "videoId": "q1QqueBYMQo",
+          "title": "BUCKS at WIZARDS | FULL GAME HIGHLIGHTS | October 21, 2026",
+          "gameDate": "2026-10-21"
+        },
+        {
+          "videoId": "pLXx9k6RYMY",
+          "title": "TIMBERWOLVES at HEAT | FULL GAME HIGHLIGHTS | October 21, 2026",
+          "gameDate": "2026-10-21"
+        },
+        {
+          "videoId": "y1pbO1uDxUY",
+          "title": "BULLS at RAPTORS | FULL GAME HIGHLIGHTS | October 21, 2026",
+          "gameDate": "2026-10-21"
+        },
+        {
+          "videoId": "3Ttdjq57W9E",
+          "title": "HORNETS at NETS | FULL GAME HIGHLIGHTS | October 21, 2026",
+          "gameDate": "2026-10-21"
+        },
+        {
+          "videoId": "dqVSIkG1s0Q",
+          "title": "PACERS at PELICANS | FULL GAME HIGHLIGHTS | October 21, 2026",
+          "gameDate": "2026-10-21"
+        },
+        {
+          "videoId": "6IVDF14w-Cc",
+          "title": "JAZZ at GRIZZLIES | FULL GAME HIGHLIGHTS | October 21, 2026",
+          "gameDate": "2026-10-21"
+        },
+        {
+          "videoId": "2SHdd_RRsRw",
+          "title": "CAVALIERS at 76ERS | FULL GAME HIGHLIGHTS | October 22, 2026",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "4hNRkmyNe90",
+          "title": "MAVERICKS at ROCKETS | FULL GAME HIGHLIGHTS | October 21, 2026",
+          "gameDate": "2026-10-21"
+        },
+        {
+          "videoId": "aEAJfS_6J0g",
+          "title": "NUGGETS at THUNDER | FULL GAME HIGHLIGHTS | October 22, 2026",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "qEepDtX5qLM",
+          "title": "KINGS at CLIPPERS | FULL GAME HIGHLIGHTS | October 21, 2026",
+          "gameDate": "2026-10-21"
+        },
+        {
+          "videoId": "GU4e--bCuwQ",
+          "title": "WARRIORS at LAKERS | FULL GAME HIGHLIGHTS | October 21, 2026",
+          "gameDate": "2026-10-21"
+        },
+        {
+          "videoId": "EC_WSF7sPuI",
+          "title": "SUNS at TRAIL BLAZERS | FULL GAME HIGHLIGHTS | October 21, 2026",
+          "gameDate": "2026-10-21"
+        }
+      ]
     }
   }
 }

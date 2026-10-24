@@ -1,0 +1,234 @@
+{
+  "games": {
+    "selectedDate": "2026-10-23",
+    "gameCardFeed": {
+      "modules": [
+        {
+          "cards": [
+            {
+              "cardData": {
+                "seasonYear": "2026-27",
+                "leagueId": "00",
+                "gameStatus": 3,
+                "gameId": "0022600008",
+                "gameTimeUtc": "2026-10-23T23:00:00Z",
+                "homeTeam": {
+                  "teamId": 1610612738,
+                  "score": 107
+                },
+                "awayTeam": {
+                  "teamId": 1610612752,
+                  "score": 103
+                },
+                "shareUrl": "https://www.nba.com/game/nyk-vs-bos-0022600008",
+                "heroConfiguration": {
+                  "gameRecap": {
+                    "videoId": "2373631",
+                    "mediakindExternalProgramId": "bdf9e98642d4ac7769139316ccf029b1",
+                    "slug": "game-recap-celtics-107-knicks-103-2",
+                    "title": "Game Recap: Celtics 107, Knicks 103",
+                    "subTitle": "The Celtics improve to 1-1, while the Knicks fall to 0-2.",
+                    "shortTitle": null,
+                    "shareUrl": "https://www.nba.com/watch/video/game-recap-celtics-107-knicks-103-2",
+                    "videoDuration": "1:48",
+                    "adMetaData": {
+                      "cType": "nbaVod",
+                      "caid": "nba-manage-prod-1-2373631",
+                      "showPreviewAds": false,
+                      "adfuelTarget": ""
+                    },
+                    "taxonomy": {
+                      "categories": {
+                        "game-recap": "Game Recap"
+                      },
+                      "tags": {
+                        "boston-celtics": "Boston Celtics",
+                        "game-recap": "game recap",
+                        "highlights": "highlights",
+                        "jayson-tatum": "Jayson Tatum",
+                        "karl-anthony-towns": "Karl-Anthony Towns",
+                        "new-york-knicks": "New York Knicks",
+                        "og-anunoby": "OG Anunoby",
+                        "paul-george": "Paul George",
+                        "recap": "recap"
+                      },
+                      "games": {
+                        "0022600008": "NYK @ BOS (0022600008)"
+                      },
+                      "teams": {
+                        "1610612738": "Boston Celtics",
+                        "1610612752": "New York Knicks"
+                      },
+                      "players": {},
+                      "videoFranchises": {
+                        "game-recap": "Game Recap"
+                      },
+                      "videoFranchisesName": {
+                        "2-min-game-recap": "2 Minute Game Recap"
+                      },
+                      "videoCategories": {
+                        "recaps": "Recaps"
+                      },
+                      "videoTypes": {
+                        "highlights": "Highlights"
+                      },
+                      "videoNumPlays": 0,
+                      "videoPlayTypes": {},
+                      "videoFrequency": {
+                        "game": "Game"
+                      },
+                      "videoPublisher": {
+                        "nbae": "NBAE"
+                      }
+                    },
+                    "image": {
+                      "imageUrl": "https://cdn.nba.com/manage/2026/10/BOS_NYK.jpg"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "watch": {
+    "video": {
+      "id": 2373631,
+      "type": "video",
+      "name": "game-recap-celtics-107-knicks-103-2",
+      "title": "Game Recap: Celtics 107, Knicks 103",
+      "status": "publish",
+      "slug": "game-recap-celtics-107-knicks-103-2",
+      "permalink": "https://www.nba.com/watch/video/game-recap-celtics-107-knicks-103-2",
+      "excerpt": "The Celtics improve to 1-1, while the Knicks fall to 0-2.",
+      "timestamp": 1792818825000,
+      "date": "2026-10-24T05:13:45Z",
+      "modified": "2026-10-24T05:13:45Z",
+      "featuredImage": "https://cdn.nba.com/manage/2026/10/BOS_NYK.jpg",
+      "category": "Game Recap",
+      "coverImage": "",
+      "coverImageId": "",
+      "shortTitle": "Game Recap: Celtics 107, Knicks 103",
+      "description": "",
+      "expirationDate": "",
+      "hideFromPlatform": "",
+      "videoCreationSource": "live-to-vod",
+      "entitlements": "free",
+      "videoName": "",
+      "videoDuration": "01:48",
+      "videoDurationSeconds": 108,
+      "duration": "",
+      "mediaKindAssetId": "202610232323NBA_____VIDEOS__NBAE_2934859",
+      "mediakindExternalProgramId": "bdf9e98642d4ac7769139316ccf029b1",
+      "mediaKindOperationStatus": "succeeded",
+      "videoIviCaid": "nba-manage-prod-1-2373631",
+      "videoIviCType": "nbaVod",
+      "branchUrl": "https://nba.smart.link/2e64ifwhb?videoid=2373631",
+      "seo": {},
+      "videoAssets": {},
+      "attributes": {},
+      "leagueId": "00",
+      "leagueFullName": "National Basketball Association",
+      "league": "NBA",
+      "languages": [
+        {
+          "code": "en_us",
+          "displayName": "English"
+        }
+      ],
+      "taxonomy": {
+        "categories": {
+          "game-recap": "Game Recap"
+        },
+        "tags": {
+          "boston-celtics": "Boston Celtics",
+          "game-recap": "game recap",
+          "highlights": "highlights",
+          "jayson-tatum": "Jayson Tatum",
+          "karl-anthony-towns": "Karl-Anthony Towns",
+          "new-york-knicks": "New York Knicks",
+          "og-anunoby": "OG Anunoby",
+          "paul-george": "Paul George",
+          "recap": "recap"
+        },
+        "games": {
+          "0022600008": "NYK @ BOS (0022600008)"
+        },
+        "teams": {
+          "1610612738": "Boston Celtics",
+          "1610612752": "New York Knicks"
+        },
+        "videoFranchises": {
+          "game-recap": "Game Recap"
+        },
+        "videoFranchisesName": {
+          "2-min-game-recap": "2 Minute Game Recap"
+        },
+        "videoCategories": {
+          "recaps": "Recaps"
+        },
+        "videoPublisher": {
+          "nbae": "NBAE"
+        },
+        "videoTypes": {
+          "highlights": "Highlights"
+        },
+        "videoFrequency": {
+          "game": "Game"
+        },
+        "videoNumPlays": 0
+      },
+      "hideDisplayAds": false,
+      "authors": [
+        {
+          "id": 27,
+          "slug": "nbacom-staff",
+          "name": "NBA.com Staff",
+          "firstName": "",
+          "lastName": "",
+          "organization": "",
+          "isNBAStaff": false,
+          "authorPhoto": "",
+          "socialHandle": "",
+          "socialLink": "",
+          "wpseoTitle": "",
+          "wpseoMetadesc": "",
+          "description": "",
+          "userUrl": "",
+          "featuredAuthor": false
+        }
+      ],
+      "author": {
+        "id": 27,
+        "slug": "nbacom-staff",
+        "name": "NBA.com Staff",
+        "firstName": "",
+        "lastName": "",
+        "organization": "",
+        "isNBAStaff": false,
+        "authorPhoto": "",
+        "socialHandle": "",
+        "socialLink": "",
+        "wpseoTitle": "",
+        "wpseoMetadesc": "",
+        "description": "",
+        "userUrl": "",
+        "featuredAuthor": false
+      },
+      "related": [],
+      "categoryPrimary": {
+        "id": 4329,
+        "name": "Game Recap",
+        "slug": "game-recap",
+        "bannerImage": "",
+        "mobileBannerImage": "",
+        "menu": {},
+        "mobileMenu": {},
+        "adfuelTarget": "",
+        "isHub": false
+      }
+    }
+  }
+}
