@@ -1,7 +1,8 @@
-import{aliases}from'./team-aliases.js?v=40';
-import{validScore}from'./results.js?v=40';
+import{aliases}from'./team-aliases.js?v=49';
+import{validScore}from'./results.js?v=49';
 const key=s=>String(s||'').normalize('NFD').replace(/\p{M}/gu,'').toLocaleLowerCase('el').replace(/[^\p{L}\p{N}]/gu,'');
-const names=(name,extra=[])=>new Set([name,...extra,...aliases[key(name)]||[]].filter(Boolean).flatMap(n=>[n,...aliases[key(n)]||[]]).map(key));
+const nameCache=new Map();
+function names(name,extra=[]){const id=JSON.stringify([name,extra]);if(nameCache.has(id))return nameCache.get(id);const result=new Set([name,...extra,...aliases[key(name)]||[]].filter(Boolean).flatMap(n=>[n,...aliases[key(n)]||[]]).map(key));if(nameCache.size>=1024)nameCache.clear();nameCache.set(id,result);return result;}
 function sameSide(a,b,side){
  const left=a[side+'IDs']||{},right=b[side+'IDs']||{},shared=Object.keys(left).filter(k=>left[k]&&right[k]);
  if(shared.length)return shared.every(k=>String(left[k])===String(right[k]));
@@ -12,11 +13,16 @@ export function sameResultMatch(a,b){
  const x=a.eventIDs||{},y=b.eventIDs||{};if(Object.keys(x).some(k=>x[k]&&y[k]&&String(x[k])!==String(y[k])))return false;
  return sameSide(a,b,'home')&&sameSide(a,b,'away');
 }
+// Only fixtures in the same competition and day can match. Avoid scanning entire
+// seasons for every result, while retaining the existing ambiguity/identity checks.
+function fixtureBuckets(matches){const out=new Map();for(const m of matches){const k=m.competition+'|'+m.date;if(!out.has(k))out.set(k,[]);out.get(k).push(m);}return out;}
+const bucket=(index,m)=>index.get(m.competition+'|'+m.date)||[];
 export function mergeResultUpdates(matches,entries,now=Date.now()){
+ const results=fixtureBuckets(entries),fixtures=fixtureBuckets(matches);
  return matches.map(m=>{
-  const hits=entries.filter(x=>sameResultMatch(m,x));if(hits.length!==1)return m;const x=hits[0];
+  const hits=bucket(results,m).filter(x=>sameResultMatch(m,x));if(hits.length!==1)return m;const x=hits[0];
   // Ambiguous double headers must not receive the same result twice.
-  if(matches.filter(r=>sameResultMatch(r,x)).length!==1)return m;
+  if(bucket(fixtures,x).filter(r=>sameResultMatch(r,x)).length!==1)return m;
   const identity={homeIDs:{...m.homeIDs,...x.homeIDs},awayIDs:{...m.awayIDs,...x.awayIDs},eventIDs:{...m.eventIDs,...x.eventIDs}};
   if(!validScore(x.score)||!['live','current','final'].includes(x.scoreState))return {...m,...identity};
   if(m.scoreState==='final'&&validScore(m.score)&&x.scoreState!=='final')return {...m,...identity};
@@ -31,13 +37,14 @@ export function preserveConfirmedResults(next,previous,id){
  if(!previous||next.season&&previous.season&&next.season!==previous.season)return next;
  const old=(previous.matches||[]).map(m=>({...m,competition:id,checkedAt:m.scoreCheckedAt||previous.retrievedAt}));
  const matches=(next.matches||[]).map(m=>({...m,competition:id}));
+ const prior=fixtureBuckets(old),fixtures=fixtureBuckets(matches),ids=new Set(matches.map(m=>m.id));
  const merged=matches.map(m=>{
-  const hits=old.filter(x=>sameResultMatch(m,x));if(hits.length!==1||matches.filter(x=>sameResultMatch(x,hits[0])).length!==1)return m;
+  const hits=bucket(prior,m).filter(x=>sameResultMatch(m,x));if(hits.length!==1||bucket(fixtures,m).filter(x=>sameResultMatch(x,hits[0])).length!==1)return m;
   const previousMatch=hits[0],identity={homeIDs:{...previousMatch.homeIDs,...m.homeIDs},awayIDs:{...previousMatch.awayIDs,...m.awayIDs},eventIDs:{...previousMatch.eventIDs,...m.eventIDs}};
   if(m.scoreState==='final'&&validScore(m.score)||previousMatch.scoreState!=='final'||!validScore(previousMatch.score))return {...m,...identity};
   return {...m,...identity,score:previousMatch.score,scoreState:'final',scoreClock:null,scoreCheckedAt:previousMatch.checkedAt,scoreSource:previousMatch.scoreSource||previous.source,scoreProvider:previousMatch.scoreProvider};
  });
- for(const m of old)if(m.scoreState==='final'&&validScore(m.score)&&!merged.some(x=>sameResultMatch(x,m))&&!merged.some(x=>x.id===m.id))merged.push({...m,scoreCheckedAt:m.checkedAt});
+ for(const m of old)if(m.scoreState==='final'&&validScore(m.score)&&!bucket(fixtures,m).some(x=>sameResultMatch(x,m))&&!ids.has(m.id)){const restored={...m,scoreCheckedAt:m.checkedAt};merged.push(restored);ids.add(m.id);const k=m.competition+'|'+m.date;if(!fixtures.has(k))fixtures.set(k,[]);fixtures.get(k).push(restored);}
  return {...next,matches:merged};
 }
 export function resultCoverage(matches,entries,today){

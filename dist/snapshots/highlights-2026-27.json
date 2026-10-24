@@ -1,7 +1,7 @@
 {
   "season": "2026-27",
-  "sourceVersion": 7,
-  "retrievedAt": "2026-10-24T01:41:13.607Z",
+  "sourceVersion": 8,
+  "retrievedAt": "2026-10-24T06:01:30.746Z",
   "errors": [
     "NBA: HTTP 404",
     "Novasports: HTTP 404",
@@ -37,16 +37,18 @@
       "videoId": "r5pqf0we5uM",
       "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
       "title": "BULLS at BUCKS | FULL GAME HIGHLIGHTS | October 23, 2026",
-      "publishedAt": "2026-10-23T23:16:44+00:00",
+      "publishedAt": null,
       "publisher": "nba",
       "competition": "nba",
       "gameDate": "2026-10-23",
-      "kind": "game"
+      "kind": "game",
+      "verifiedAt": "2026-10-24T06:01:30.746Z",
+      "metadataSource": "YouTube oEmbed"
     },
     {
       "videoId": "H4omtK3PnxA",
       "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
-      "title": "Ίπσουιτς – Νότιγχαμ Φόρεστ: 1-1 (MD 8, 23/10/2026)",
+      "title": "╬Λ╧Α╧Δ╬┐╧Ζ╬╣╧Ε╧Γ έΑΥ ╬ζ╧Ν╧Ε╬╣╬│╧Θ╬▒╬╝ ╬ο╧Ν╧Β╬╡╧Δ╧Ε: 1-1 (MD 8, 23/10/2026)",
       "publishedAt": "2026-10-23T21:50:04+00:00",
       "publisher": "nova",
       "competition": "pl",
@@ -67,7 +69,7 @@
     {
       "videoId": "gc2LDsr6btA",
       "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
-      "title": "Ολυμπιακός - Φενέρμπαχτσε: 61 - 64 (MD 7, 23/10/2026)",
+      "title": "╬θ╬╗╧Ζ╬╝╧Α╬╣╬▒╬║╧Ν╧Γ - ╬ο╬╡╬╜╬φ╧Β╬╝╧Α╬▒╧Θ╧Ε╧Δ╬╡: 61 - 64 (MD 7, 23/10/2026)",
       "publishedAt": "2026-10-23T21:39:01+00:00",
       "publisher": "nova",
       "competition": "el",
@@ -77,7 +79,7 @@
     {
       "videoId": "zuLOO49JTIU",
       "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
-      "title": "Παρί - Βαλένθια: 93-104 (MD 7, 23/10/2026)",
+      "title": "╬ι╬▒╧Β╬ψ - ╬Τ╬▒╬╗╬φ╬╜╬╕╬╣╬▒: 93-104 (MD 7, 23/10/2026)",
       "publishedAt": "2026-10-23T21:37:48+00:00",
       "publisher": "nova",
       "competition": "el",
@@ -98,7 +100,7 @@
     {
       "videoId": "gE_GjLlcB4g",
       "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
-      "title": "Στουτγκάρδη - Γκλάντμπαχ: 2-3 (MD 7, 23/10/2026)",
+      "title": "╬μ╧Ε╬┐╧Ζ╧Ε╬│╬║╬υ╧Β╬┤╬╖ - ╬Υ╬║╬╗╬υ╬╜╧Ε╬╝╧Α╬▒╧Θ: 2-3 (MD 7, 23/10/2026)",
       "publishedAt": "2026-10-23T20:59:21+00:00",
       "publisher": "nova",
       "competition": "bund",
@@ -119,7 +121,7 @@
     {
       "videoId": "SY_56fmGpGM",
       "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
-      "title": "Ζάλγκιρις Κάουνας - Βιλερμπάν: 105-85 (MD 7, 23/10/2026)",
+      "title": "╬Ψ╬υ╬╗╬│╬║╬╣╧Β╬╣╧Γ ╬γ╬υ╬┐╧Ζ╬╜╬▒╧Γ - ╬Τ╬╣╬╗╬╡╧Β╬╝╧Α╬υ╬╜: 105-85 (MD 7, 23/10/2026)",
       "publishedAt": "2026-10-23T19:39:52+00:00",
       "publisher": "nova",
       "competition": "el",
@@ -129,7 +131,7 @@
     {
       "videoId": "NXfkIJTUPCU",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Νόρντζελαντ - ΤΣΣΚΑ Σόφιας 2 - 2 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "title": "╬ζ╧Ν╧Β╬╜╧Ε╬╢╬╡╬╗╬▒╬╜╧Ε - ╬ν╬μ╬μ╬γ╬Σ ╬μ╧Ν╧Η╬╣╬▒╧Γ 2 - 2 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
       "publishedAt": null,
       "publisher": "magenta",
       "competition": "conference",
@@ -141,7 +143,7 @@
     {
       "videoId": "wOoiZh5kjrg",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Φερεντσβάρος - Τορεένσε 4 - 1 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+      "title": "╬ο╬╡╧Β╬╡╬╜╧Ε╧Δ╬▓╬υ╧Β╬┐╧Γ - ╬ν╬┐╧Β╬╡╬φ╬╜╧Δ╬╡ 4 - 1 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
       "publishedAt": null,
       "publisher": "magenta",
       "competition": "europa",
@@ -153,7 +155,7 @@
     {
       "videoId": "1n8q0SHkH3E",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Γιάμπλονετς - Μπράιτον 0 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "title": "╬Υ╬╣╬υ╬╝╧Α╬╗╬┐╬╜╬╡╧Ε╧Γ - ╬ε╧Α╧Β╬υ╬╣╧Ε╬┐╬╜ 0 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
       "publishedAt": null,
       "publisher": "magenta",
       "competition": "conference",
@@ -165,7 +167,7 @@
     {
       "videoId": "VOvWE4sb-uA",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Ερυθρός Αστέρας - Κοπεγχάγη 2 - 2 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "title": "╬Χ╧Β╧Ζ╬╕╧Β╧Ν╧Γ ╬Σ╧Δ╧Ε╬φ╧Β╬▒╧Γ - ╬γ╬┐╧Α╬╡╬│╧Θ╬υ╬│╬╖ 2 - 2 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
       "publishedAt": null,
       "publisher": "magenta",
       "competition": "conference",
@@ -177,7 +179,7 @@
     {
       "videoId": "cR9YoHpjdSw",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Ίντερ Κλαμπ Εσκάλντες - Κραϊόβα 1 - 3 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "title": "╬Λ╬╜╧Ε╬╡╧Β ╬γ╬╗╬▒╬╝╧Α ╬Χ╧Δ╬║╬υ╬╗╬╜╧Ε╬╡╧Γ - ╬γ╧Β╬▒╧Λ╧Ν╬▓╬▒ 1 - 3 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
       "publishedAt": null,
       "publisher": "magenta",
       "competition": "conference",
@@ -189,7 +191,7 @@
     {
       "videoId": "FRKNYbOTGxY",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Γιαγκιελόνια - Άντερλεχτ 0 - 3 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+      "title": "╬Υ╬╣╬▒╬│╬║╬╣╬╡╬╗╧Ν╬╜╬╣╬▒ - ╬Η╬╜╧Ε╬╡╧Β╬╗╬╡╧Θ╧Ε 0 - 3 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
       "publishedAt": null,
       "publisher": "magenta",
       "competition": "europa",
@@ -201,7 +203,7 @@
     {
       "videoId": "7l3VVgEqkEA",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Ουνιόν Σ. Ζ. - Χάποελ Μπερ Σεβά 4 - 0 | Highlights - UEFA Europa League 26/27 - 22/10/26 | MagentaTV",
+      "title": "╬θ╧Ζ╬╜╬╣╧Ν╬╜ ╬μ. ╬Ψ. - ╬π╬υ╧Α╬┐╬╡╬╗ ╬ε╧Α╬╡╧Β ╬μ╬╡╬▓╬υ 4 - 0 | Highlights - UEFA Europa League 26/27 - 22/10/26 | MagentaTV",
       "publishedAt": null,
       "publisher": "magenta",
       "competition": "europa",
@@ -213,7 +215,7 @@
     {
       "videoId": "HMp39sZR9f0",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Αραράτ - Αλκμάαρ 0 - 4 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+      "title": "╬Σ╧Β╬▒╧Β╬υ╧Ε - ╬Σ╬╗╬║╬╝╬υ╬▒╧Β 0 - 4 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
       "publishedAt": null,
       "publisher": "magenta",
       "competition": "europa",
@@ -225,7 +227,7 @@
     {
       "videoId": "fttmYlm3eLU",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Μονακό - Φράιμπουργκ 3 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "title": "╬ε╬┐╬╜╬▒╬║╧Ν - ╬ο╧Β╬υ╬╣╬╝╧Α╬┐╧Ζ╧Β╬│╬║ 3 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
       "publishedAt": null,
       "publisher": "magenta",
       "competition": "conference",
@@ -615,7 +617,7 @@
     {
       "videoId": "lJFg3r0ERl4",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Μίντιλαντ - Σεντ Τρούιντεν 0 - 1 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "title": "╬ε╬ψ╬╜╧Ε╬╣╬╗╬▒╬╜╧Ε - ╬μ╬╡╬╜╧Ε ╬ν╧Β╬┐╧Ξ╬╣╬╜╧Ε╬╡╬╜ 0 - 1 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
       "publishedAt": "2026-10-22T23:19:39+00:00",
       "publisher": "magenta",
       "competition": "conference",
@@ -625,7 +627,7 @@
     {
       "videoId": "ce3bKbCWaAo",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Άαρχους - Εγνάτια 1 - 1 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "title": "╬Η╬▒╧Β╧Θ╬┐╧Ζ╧Γ - ╬Χ╬│╬╜╬υ╧Ε╬╣╬▒ 1 - 1 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
       "publishedAt": "2026-10-22T23:17:00+00:00",
       "publisher": "magenta",
       "competition": "conference",
@@ -635,7 +637,7 @@
     {
       "videoId": "lDHqeNE3kRI",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Μπράγκα - Γάνδη 2 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "title": "╬ε╧Α╧Β╬υ╬│╬║╬▒ - ╬Υ╬υ╬╜╬┤╬╖ 2 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
       "publishedAt": "2026-10-22T23:04:01+00:00",
       "publisher": "magenta",
       "competition": "conference",
@@ -645,7 +647,7 @@
     {
       "videoId": "NifW9EtcBJE",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Λίνκολν Ρεντ Ιμπς - Τβέντε 1 - 4 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "title": "╬δ╬ψ╬╜╬║╬┐╬╗╬╜ ╬κ╬╡╬╜╧Ε ╬β╬╝╧Α╧Γ - ╬ν╬▓╬φ╬╜╧Ε╬╡ 1 - 4 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
       "publishedAt": "2026-10-22T23:01:35+00:00",
       "publisher": "magenta",
       "competition": "conference",
@@ -655,7 +657,7 @@
     {
       "publisher": "uefa",
       "competition": "europa",
-      "title": "Highlights: Beşiktaş 2-2 Crystal Palace",
+      "title": "Highlights: Be┼θikta┼θ 2-2 Crystal Palace",
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-22T23:00:00+00:00",
       "kind": "game",
@@ -665,7 +667,7 @@
     {
       "videoId": "-Ot9bxLyTU0",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Βικτόρια Πλζεν - Λέφσκι Σόφιας 1 - 2 | Highlights - UEFA Europa League 26/27 - 22/10/26 | MagentaTV",
+      "title": "╬Τ╬╣╬║╧Ε╧Ν╧Β╬╣╬▒ ╬ι╬╗╬╢╬╡╬╜ - ╬δ╬φ╧Η╧Δ╬║╬╣ ╬μ╧Ν╧Η╬╣╬▒╧Γ 1 - 2 | Highlights - UEFA Europa League 26/27 - 22/10/26 | MagentaTV",
       "publishedAt": "2026-10-22T22:58:26+00:00",
       "publisher": "magenta",
       "competition": "europa",
@@ -675,7 +677,7 @@
     {
       "videoId": "T6ICC6DyoL8",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Λίλεστρομ - Ρεάλ Σοσιεδάδ 0 - 6 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+      "title": "╬δ╬ψ╬╗╬╡╧Δ╧Ε╧Β╬┐╬╝ - ╬κ╬╡╬υ╬╗ ╬μ╬┐╧Δ╬╣╬╡╬┤╬υ╬┤ 0 - 6 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
       "publishedAt": "2026-10-22T22:55:38+00:00",
       "publisher": "magenta",
       "competition": "europa",
@@ -685,7 +687,7 @@
     {
       "videoId": "K81GLuw_Uc0",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Τσέλιε - Σάλτσμπουργκ 2 - 2 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+      "title": "╬ν╧Δ╬φ╬╗╬╣╬╡ - ╬μ╬υ╬╗╧Ε╧Δ╬╝╧Α╬┐╧Ζ╧Β╬│╬║ 2 - 2 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
       "publishedAt": "2026-10-22T22:52:34+00:00",
       "publisher": "magenta",
       "competition": "europa",
@@ -705,7 +707,7 @@
     {
       "videoId": "CtA0poI_TxA",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Κάουνο Ζαλγκίρις - Μπραν 1 - 4 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "title": "╬γ╬υ╬┐╧Ζ╬╜╬┐ ╬Ψ╬▒╬╗╬│╬║╬ψ╧Β╬╣╧Γ - ╬ε╧Α╧Β╬▒╬╜ 1 - 4 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
       "publishedAt": "2026-10-22T22:39:25+00:00",
       "publisher": "magenta",
       "competition": "conference",
@@ -715,7 +717,7 @@
     {
       "videoId": "fiEsm-7r23c",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Χετάφε - Λουγκάνο 2 - 5 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "title": "╬π╬╡╧Ε╬υ╧Η╬╡ - ╬δ╬┐╧Ζ╬│╬║╬υ╬╜╬┐ 2 - 5 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
       "publishedAt": "2026-10-22T22:36:34+00:00",
       "publisher": "magenta",
       "competition": "conference",
@@ -725,7 +727,7 @@
     {
       "videoId": "7NeNXwHf05U",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Χόφενχαϊμ - Λυών 3 - 0 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+      "title": "╬π╧Ν╧Η╬╡╬╜╧Θ╬▒╧Λ╬╝ - ╬δ╧Ζ╧Ο╬╜ 3 - 0 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
       "publishedAt": "2026-10-22T22:30:07+00:00",
       "publisher": "magenta",
       "competition": "europa",
@@ -735,7 +737,7 @@
     {
       "publisher": "uefa",
       "competition": "europa",
-      "title": "Highlights: Lillestrøm 0-6 Real Sociedad",
+      "title": "Highlights: Lillestr├╕m 0-6 Real Sociedad",
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-22T22:29:00+00:00",
       "kind": "game",
@@ -766,7 +768,7 @@
     {
       "videoId": "-SK49exkqIw",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Ιμπέρια 1999 - Μιάλμπι 1 - 1 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "title": "╬β╬╝╧Α╬φ╧Β╬╣╬▒ 1999 - ╬ε╬╣╬υ╬╗╬╝╧Α╬╣ 1 - 1 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
       "publishedAt": "2026-10-22T22:24:54+00:00",
       "publisher": "magenta",
       "competition": "conference",
@@ -776,7 +778,7 @@
     {
       "videoId": "GL_3fG66zVg",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Τραμπζονσπόρ - Χαρτς 2 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "title": "╬ν╧Β╬▒╬╝╧Α╬╢╬┐╬╜╧Δ╧Α╧Ν╧Β - ╬π╬▒╧Β╧Ε╧Γ 2 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
       "publishedAt": "2026-10-22T22:22:26+00:00",
       "publisher": "magenta",
       "competition": "conference",
@@ -786,7 +788,7 @@
     {
       "videoId": "2fmY2GVrs1c",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Άγιαξ - Αταλάντα 2 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "title": "╬Η╬│╬╣╬▒╬╛ - ╬Σ╧Ε╬▒╬╗╬υ╬╜╧Ε╬▒ 2 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
       "publishedAt": "2026-10-22T22:20:02+00:00",
       "publisher": "magenta",
       "competition": "conference",
@@ -806,7 +808,7 @@
     {
       "videoId": "5jjjpTFJqKY",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Μπόρατς Μπάνια Λούκα - Κουόπιο 2 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "title": "╬ε╧Α╧Ν╧Β╬▒╧Ε╧Γ ╬ε╧Α╬υ╬╜╬╣╬▒ ╬δ╬┐╧Ξ╬║╬▒ - ╬γ╬┐╧Ζ╧Ν╧Α╬╣╬┐ 2 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
       "publishedAt": "2026-10-22T22:17:14+00:00",
       "publisher": "magenta",
       "competition": "conference",
@@ -816,7 +818,7 @@
     {
       "videoId": "jw_k6llrNhQ",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Τουν - Χάιντουκ Σπλιτ 0 - 1 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "title": "╬ν╬┐╧Ζ╬╜ - ╬π╬υ╬╣╬╜╧Ε╬┐╧Ζ╬║ ╬μ╧Α╬╗╬╣╧Ε 0 - 1 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
       "publishedAt": "2026-10-22T22:14:53+00:00",
       "publisher": "magenta",
       "competition": "conference",
@@ -826,7 +828,7 @@
     {
       "videoId": "vsOvkBY8gyA",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Σέλτικ - Θέλτα 1 - 2 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+      "title": "╬μ╬φ╬╗╧Ε╬╣╬║ - ╬α╬φ╬╗╧Ε╬▒ 1 - 2 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
       "publishedAt": "2026-10-22T22:10:39+00:00",
       "publisher": "magenta",
       "competition": "europa",
@@ -836,7 +838,7 @@
     {
       "videoId": "wjXayLtqf8I",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Μπόρνμουθ - Μίλαν 3 - 0 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+      "title": "╬ε╧Α╧Ν╧Β╬╜╬╝╬┐╧Ζ╬╕ - ╬ε╬ψ╬╗╬▒╬╜ 3 - 0 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
       "publishedAt": "2026-10-22T22:08:18+00:00",
       "publisher": "magenta",
       "competition": "europa",
@@ -876,7 +878,7 @@
     {
       "publisher": "press-player",
       "competition": "europa",
-      "title": "Ολυμπιακός - Σπάρτας Πράγας 1-0",
+      "title": "╬θ╬╗╧Ζ╬╝╧Α╬╣╬▒╬║╧Ν╧Γ - ╬μ╧Α╬υ╧Β╧Ε╬▒╧Γ ╬ι╧Β╬υ╬│╬▒╧Γ 1-0",
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-23T00:53:00+03:00",
       "kind": "game",
@@ -887,7 +889,7 @@
     {
       "publisher": "press-player",
       "competition": "europa",
-      "title": "ΟΦΗ (Ελλάδα) - Λεβερκούζεν (Γερμανία) 0-2",
+      "title": "╬θ╬ο╬Ω (╬Χ╬╗╬╗╬υ╬┤╬▒) - ╬δ╬╡╬▓╬╡╧Β╬║╬┐╧Ξ╬╢╬╡╬╜ (╬Υ╬╡╧Β╬╝╬▒╬╜╬ψ╬▒) 0-2",
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-23T00:53:00+03:00",
       "kind": "game",
@@ -898,7 +900,7 @@
     {
       "publisher": "press-player",
       "competition": "europa",
-      "title": "Γιουβέντους (Ιταλία) - Ρεν (Γαλλία) 2-2",
+      "title": "╬Υ╬╣╬┐╧Ζ╬▓╬φ╬╜╧Ε╬┐╧Ζ╧Γ (╬β╧Ε╬▒╬╗╬ψ╬▒) - ╬κ╬╡╬╜ (╬Υ╬▒╬╗╬╗╬ψ╬▒) 2-2",
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-23T00:53:00+03:00",
       "kind": "game",
@@ -909,7 +911,7 @@
     {
       "publisher": "press-player",
       "competition": "europa",
-      "title": "Ντιναμό Ζάγκρεμπ (Κροατία) - Ναϊμέγκεν (Ολλανδία) 2-4",
+      "title": "╬ζ╧Ε╬╣╬╜╬▒╬╝╧Ν ╬Ψ╬υ╬│╬║╧Β╬╡╬╝╧Α (╬γ╧Β╬┐╬▒╧Ε╬ψ╬▒) - ╬ζ╬▒╧Λ╬╝╬φ╬│╬║╬╡╬╜ (╬θ╬╗╬╗╬▒╬╜╬┤╬ψ╬▒) 2-4",
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-23T00:53:00+03:00",
       "kind": "game",
@@ -920,7 +922,7 @@
     {
       "publisher": "press-player",
       "competition": "europa",
-      "title": "Στουρμ Γκρατς (Αυστρία) - Μαρσέιγ (Γαλλία) 1-0",
+      "title": "╬μ╧Ε╬┐╧Ζ╧Β╬╝ ╬Υ╬║╧Β╬▒╧Ε╧Γ (╬Σ╧Ζ╧Δ╧Ε╧Β╬ψ╬▒) - ╬ε╬▒╧Β╧Δ╬φ╬╣╬│ (╬Υ╬▒╬╗╬╗╬ψ╬▒) 1-0",
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-23T00:53:00+03:00",
       "kind": "game",
@@ -931,7 +933,7 @@
     {
       "publisher": "press-player",
       "competition": "europa",
-      "title": "Λεχ Πόζναν (Πολωνία) - Σάντερλαντ (Αγγλία) 1-1",
+      "title": "╬δ╬╡╧Θ ╬ι╧Ν╬╢╬╜╬▒╬╜ (╬ι╬┐╬╗╧Κ╬╜╬ψ╬▒) - ╬μ╬υ╬╜╧Ε╬╡╧Β╬╗╬▒╬╜╧Ε (╬Σ╬│╬│╬╗╬ψ╬▒) 1-1",
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-23T00:53:00+03:00",
       "kind": "game",
@@ -942,7 +944,7 @@
     {
       "publisher": "press-player",
       "competition": "europa",
-      "title": "Σέλτικ (Σκωτία) - Θέλτα (Ισπανία) 1-2",
+      "title": "╬μ╬φ╬╗╧Ε╬╣╬║ (╬μ╬║╧Κ╧Ε╬ψ╬▒) - ╬α╬φ╬╗╧Ε╬▒ (╬β╧Δ╧Α╬▒╬╜╬ψ╬▒) 1-2",
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-23T00:53:00+03:00",
       "kind": "game",
@@ -953,7 +955,7 @@
     {
       "publisher": "press-player",
       "competition": "europa",
-      "title": "Μπόρνμουθ (Αγγλία) - Μίλαν (Ιταλία) 3-0",
+      "title": "╬ε╧Α╧Ν╧Β╬╜╬╝╬┐╧Ζ╬╕ (╬Σ╬│╬│╬╗╬ψ╬▒) - ╬ε╬ψ╬╗╬▒╬╜ (╬β╧Ε╬▒╬╗╬ψ╬▒) 3-0",
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-23T00:53:00+03:00",
       "kind": "game",
@@ -964,7 +966,7 @@
     {
       "publisher": "press-player",
       "competition": "europa",
-      "title": "Μπεσίκτας (Τουρκία) - Κρίσταλ Πάλας (Αγγλία) 2-2",
+      "title": "╬ε╧Α╬╡╧Δ╬ψ╬║╧Ε╬▒╧Γ (╬ν╬┐╧Ζ╧Β╬║╬ψ╬▒) - ╬γ╧Β╬ψ╧Δ╧Ε╬▒╬╗ ╬ι╬υ╬╗╬▒╧Γ (╬Σ╬│╬│╬╗╬ψ╬▒) 2-2",
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-23T00:53:00+03:00",
       "kind": "game",
@@ -975,7 +977,7 @@
     {
       "publisher": "press-player",
       "competition": "europa",
-      "title": "Ομόνοια (Κύπρος) - Μπενφίκα (Πορτογαλία) 1-4",
+      "title": "╬θ╬╝╧Ν╬╜╬┐╬╣╬▒ (╬γ╧Ξ╧Α╧Β╬┐╧Γ) - ╬ε╧Α╬╡╬╜╧Η╬ψ╬║╬▒ (╬ι╬┐╧Β╧Ε╬┐╬│╬▒╬╗╬ψ╬▒) 1-4",
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-23T00:53:00+03:00",
       "kind": "game",
@@ -986,7 +988,7 @@
     {
       "publisher": "press-player",
       "competition": "europa",
-      "title": "Χόφενχαϊμ (Γερμανία) - Λιόν (Γαλλία) 3-0",
+      "title": "╬π╧Ν╧Η╬╡╬╜╧Θ╬▒╧Λ╬╝ (╬Υ╬╡╧Β╬╝╬▒╬╜╬ψ╬▒) - ╬δ╬╣╧Ν╬╜ (╬Υ╬▒╬╗╬╗╬ψ╬▒) 3-0",
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-23T00:53:00+03:00",
       "kind": "game",
@@ -997,7 +999,7 @@
     {
       "publisher": "press-player",
       "competition": "conference",
-      "title": "Καϊράτ Αλμάτι (Καζακστάν) - Παναθηναϊκός (Ελλάδα) 1-5",
+      "title": "╬γ╬▒╧Λ╧Β╬υ╧Ε ╬Σ╬╗╬╝╬υ╧Ε╬╣ (╬γ╬▒╬╢╬▒╬║╧Δ╧Ε╬υ╬╜) - ╬ι╬▒╬╜╬▒╬╕╬╖╬╜╬▒╧Λ╬║╧Ν╧Γ (╬Χ╬╗╬╗╬υ╬┤╬▒) 1-5",
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-23T00:53:00+03:00",
       "kind": "game",
@@ -1008,7 +1010,7 @@
     {
       "publisher": "press-player",
       "competition": "conference",
-      "title": "Πάφος (Κύπρος) - Ρίγα (Λετονία) 1-1",
+      "title": "╬ι╬υ╧Η╬┐╧Γ (╬γ╧Ξ╧Α╧Β╬┐╧Γ) - ╬κ╬ψ╬│╬▒ (╬δ╬╡╧Ε╬┐╬╜╬ψ╬▒) 1-1",
       "gameDate": "2026-10-22",
       "publishedAt": "2026-10-23T00:53:00+03:00",
       "kind": "game",
@@ -1041,7 +1043,7 @@
     {
       "videoId": "-WG1vjF_2w0",
       "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
-      "title": "Αρμάνι Μιλάνο - Μπαρτσελόνα: 81-89 (MD 7, 22/10/2026)",
+      "title": "╬Σ╧Β╬╝╬υ╬╜╬╣ ╬ε╬╣╬╗╬υ╬╜╬┐ - ╬ε╧Α╬▒╧Β╧Ε╧Δ╬╡╬╗╧Ν╬╜╬▒: 81-89 (MD 7, 22/10/2026)",
       "publishedAt": "2026-10-22T21:03:46+00:00",
       "publisher": "nova",
       "competition": "el",
@@ -1073,7 +1075,7 @@
     {
       "videoId": "kgNi6bEk3jE",
       "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
-      "title": "Παναθηναϊκός - Μπασκόνια: 85-79 (MD 7, 22/10/2026)",
+      "title": "╬ι╬▒╬╜╬▒╬╕╬╖╬╜╬▒╧Λ╬║╧Ν╧Γ - ╬ε╧Α╬▒╧Δ╬║╧Ν╬╜╬╣╬▒: 85-79 (MD 7, 22/10/2026)",
       "publishedAt": "2026-10-22T20:52:51+00:00",
       "publisher": "nova",
       "competition": "el",
@@ -1083,7 +1085,7 @@
     {
       "videoId": "651sb1eHg6k",
       "channelId": "UCGr3nR_XH9r6E5b09ZJAT9w",
-      "title": "TURKISH DERBY SHOWDOWN! 🔥 | Anadolu Efes - Besiktas | R7 Basketball Highlights 2026-27",
+      "title": "TURKISH DERBY SHOWDOWN! ΏθΦξ | Anadolu Efes - Besiktas | R7 Basketball Highlights 2026-27",
       "publishedAt": "2026-10-22T20:33:06+00:00",
       "publisher": "el",
       "competition": "el",
@@ -1094,7 +1096,7 @@
     {
       "videoId": "fjorkq-uSmI",
       "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
-      "title": "Μπάγερν Μονάχου - Ντουμπάι BC: 91-107 (MD 7, 22/10/2026)",
+      "title": "╬ε╧Α╬υ╬│╬╡╧Β╬╜ ╬ε╬┐╬╜╬υ╧Θ╬┐╧Ζ - ╬ζ╧Ε╬┐╧Ζ╬╝╧Α╬υ╬╣ BC: 91-107 (MD 7, 22/10/2026)",
       "publishedAt": "2026-10-22T20:06:32+00:00",
       "publisher": "nova",
       "competition": "el",
@@ -1104,7 +1106,7 @@
     {
       "videoId": "9EPZqCGkRPM",
       "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
-      "title": "Αναντολού Εφές - Μπεσίκτας: 89-80 (MD 7, 22/10/2026)",
+      "title": "╬Σ╬╜╬▒╬╜╧Ε╬┐╬╗╬┐╧Ξ ╬Χ╧Η╬φ╧Γ - ╬ε╧Α╬╡╧Δ╬ψ╬║╧Ε╬▒╧Γ: 89-80 (MD 7, 22/10/2026)",
       "publishedAt": "2026-10-22T19:56:03+00:00",
       "publisher": "nova",
       "competition": "el",
@@ -1114,7 +1116,7 @@
     {
       "videoId": "OoNoPGuvrJs",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Καϊράτ Αλμάτι - Παναθηναϊκός 1 - 5 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+      "title": "╬γ╬▒╧Λ╧Β╬υ╧Ε ╬Σ╬╗╬╝╬υ╧Ε╬╣ - ╬ι╬▒╬╜╬▒╬╕╬╖╬╜╬▒╧Λ╬║╧Ν╧Γ 1 - 5 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
       "publishedAt": "2026-10-22T17:39:59+00:00",
       "publisher": "magenta",
       "competition": "conference",
@@ -1222,7 +1224,7 @@
     {
       "videoId": "UJbGG04MijM",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Μπριζ - Λανς 3 - 0 | Highlights - UEFA Champions League 2026/27 - 21/10/2026 | MagentaTV",
+      "title": "╬ε╧Α╧Β╬╣╬╢ - ╬δ╬▒╬╜╧Γ 3 - 0 | Highlights - UEFA Champions League 2026/27 - 21/10/2026 | MagentaTV",
       "publishedAt": "2026-10-21T21:55:58+00:00",
       "publisher": "magenta",
       "competition": "cl",
@@ -1232,7 +1234,7 @@
     {
       "videoId": "YJy08rjOTh8",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Μπάγερν Μονάχου - Άρσεναλ 2 - 2 | Highlights - UEFA Champions League 2026/27 - 21/10/26 | MagentaTV",
+      "title": "╬ε╧Α╬υ╬│╬╡╧Β╬╜ ╬ε╬┐╬╜╬υ╧Θ╬┐╧Ζ - ╬Η╧Β╧Δ╬╡╬╜╬▒╬╗ 2 - 2 | Highlights - UEFA Champions League 2026/27 - 21/10/26 | MagentaTV",
       "publishedAt": "2026-10-21T21:52:49+00:00",
       "publisher": "magenta",
       "competition": "cl",
@@ -1242,7 +1244,7 @@
     {
       "videoId": "svOePcDO4II",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Άστον Βίλα - Βίκινγκ 3 - 1 | Highlights - UEFA Champions League 2026/27 - 21/10/2026 | MagentaTV",
+      "title": "╬Η╧Δ╧Ε╬┐╬╜ ╬Τ╬ψ╬╗╬▒ - ╬Τ╬ψ╬║╬╣╬╜╬│╬║ 3 - 1 | Highlights - UEFA Champions League 2026/27 - 21/10/2026 | MagentaTV",
       "publishedAt": "2026-10-21T21:49:15+00:00",
       "publisher": "magenta",
       "competition": "cl",
@@ -1252,7 +1254,7 @@
     {
       "videoId": "UCC9H5gqyxo",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Ρεάλ Μαδρίτης - Λειψία 4 - 1 | Highlights - UEFA Champions League 2026/27 - 21/10/2026 | MagentaTV",
+      "title": "╬κ╬╡╬υ╬╗ ╬ε╬▒╬┤╧Β╬ψ╧Ε╬╖╧Γ - ╬δ╬╡╬╣╧Ι╬ψ╬▒ 4 - 1 | Highlights - UEFA Champions League 2026/27 - 21/10/2026 | MagentaTV",
       "publishedAt": "2026-10-21T21:41:21+00:00",
       "publisher": "magenta",
       "competition": "cl",
@@ -1262,7 +1264,7 @@
     {
       "videoId": "F_Yfz1Rwx4c",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Ίντερ - Σαχτάρ Ντόνετσκ 1 - 0 | Highlights - UEFA Champions League 2026/27 - 21/10/2026 | MagentaTV",
+      "title": "╬Λ╬╜╧Ε╬╡╧Β - ╬μ╬▒╧Θ╧Ε╬υ╧Β ╬ζ╧Ε╧Ν╬╜╬╡╧Ε╧Δ╬║ 1 - 0 | Highlights - UEFA Champions League 2026/27 - 21/10/2026 | MagentaTV",
       "publishedAt": "2026-10-21T21:38:36+00:00",
       "publisher": "magenta",
       "competition": "cl",
@@ -1272,7 +1274,7 @@
     {
       "videoId": "d8Szwm3yBDw",
       "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
-      "title": "WHAT A GAME! 🤯 | Napoli Basketball - Tofas Bursa | Round 4 | BKT EuroCup Basketball 2026-27",
+      "title": "WHAT A GAME! Ώθνψ | Napoli Basketball - Tofas Bursa | Round 4 | BKT EuroCup Basketball 2026-27",
       "publishedAt": "2026-10-21T21:35:02+00:00",
       "publisher": "ec",
       "competition": "eurocup",
@@ -1283,7 +1285,7 @@
     {
       "videoId": "0Knnmsce8fs",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Σπόρτινγκ - ΛΑΣΚ Λιντζ 2 - 3 | Highlights - UEFA Champions League 2026/27 - 21/10/2026 | MagentaTV",
+      "title": "╬μ╧Α╧Ν╧Β╧Ε╬╣╬╜╬│╬║ - ╬δ╬Σ╬μ╬γ ╬δ╬╣╬╜╧Ε╬╢ 2 - 3 | Highlights - UEFA Champions League 2026/27 - 21/10/2026 | MagentaTV",
       "publishedAt": "2026-10-21T21:27:09+00:00",
       "publisher": "magenta",
       "competition": "cl",
@@ -1293,7 +1295,7 @@
     {
       "videoId": "yAYvZtfLQgg",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Μπέτις - Φέγενορντ 1 - 0 | Highlights - UEFA Champions League 2026/27 - 21/10/2026 | MagentaTV",
+      "title": "╬ε╧Α╬φ╧Ε╬╣╧Γ - ╬ο╬φ╬│╬╡╬╜╬┐╧Β╬╜╧Ε 1 - 0 | Highlights - UEFA Champions League 2026/27 - 21/10/2026 | MagentaTV",
       "publishedAt": "2026-10-21T21:24:05+00:00",
       "publisher": "magenta",
       "competition": "cl",
@@ -1314,7 +1316,7 @@
     {
       "videoId": "BpWyPwPLKQw",
       "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
-      "title": "Νάπολι - Τόφας: 105-101 παρ. (MD 4, 21/10/2026)",
+      "title": "╬ζ╬υ╧Α╬┐╬╗╬╣ - ╬ν╧Ν╧Η╬▒╧Γ: 105-101 ╧Α╬▒╧Β. (MD 4, 21/10/2026)",
       "publishedAt": "2026-10-21T21:13:45+00:00",
       "publisher": "nova",
       "competition": "eurocup",
@@ -1324,7 +1326,7 @@
     {
       "videoId": "jrr9ELP-S1w",
       "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
-      "title": "Μπόσνα - Μπαχτσεσεχίρ: 86-77 (MD 4, 21/10/2026)",
+      "title": "╬ε╧Α╧Ν╧Δ╬╜╬▒ - ╬ε╧Α╬▒╧Θ╧Ε╧Δ╬╡╧Δ╬╡╧Θ╬ψ╧Β: 86-77 (MD 4, 21/10/2026)",
       "publishedAt": "2026-10-21T20:56:11+00:00",
       "publisher": "nova",
       "competition": "eurocup",
@@ -1367,7 +1369,7 @@
     {
       "videoId": "ObifCPdYuvo",
       "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
-      "title": "ΠΑΟΚ - Ουλμ: 87-78 (MD 4, 21/10/2026)",
+      "title": "╬ι╬Σ╬θ╬γ - ╬θ╧Ζ╬╗╬╝: 87-78 (MD 4, 21/10/2026)",
       "publishedAt": "2026-10-21T19:58:46+00:00",
       "publisher": "nova",
       "competition": "eurocup",
@@ -1388,7 +1390,7 @@
     {
       "videoId": "J8BJu-mTGBg",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Λιλ - Γαλατασαράι 2 - 4 | Highlights - UEFA Champions League 2026/27 - 21/10/2026 | MagentaTV",
+      "title": "╬δ╬╣╬╗ - ╬Υ╬▒╬╗╬▒╧Ε╬▒╧Δ╬▒╧Β╬υ╬╣ 2 - 4 | Highlights - UEFA Champions League 2026/27 - 21/10/2026 | MagentaTV",
       "publishedAt": "2026-10-21T19:54:01+00:00",
       "publisher": "magenta",
       "competition": "cl",
@@ -1409,7 +1411,7 @@
     {
       "videoId": "7ZRn4FznaEY",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Κόμο - Μάντσεστερ Γιουνάιτεντ 4 - 1 | Highlights - UEFA Champions League 26/27 - 21/10/26| MagentaTV",
+      "title": "╬γ╧Ν╬╝╬┐ - ╬ε╬υ╬╜╧Ε╧Δ╬╡╧Δ╧Ε╬╡╧Β ╬Υ╬╣╬┐╧Ζ╬╜╬υ╬╣╧Ε╬╡╬╜╧Ε 4 - 1 | Highlights - UEFA Champions League 26/27 - 21/10/26| MagentaTV",
       "publishedAt": "2026-10-21T19:50:21+00:00",
       "publisher": "magenta",
       "competition": "cl",
@@ -1452,7 +1454,7 @@
     {
       "videoId": "KXSfH8SWZx0",
       "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
-      "title": "Τσεντεβίτα - Λε Μαν: 66-84 (MD 4, 21/10/2026)",
+      "title": "╬ν╧Δ╬╡╬╜╧Ε╬╡╬▓╬ψ╧Ε╬▒ - ╬δ╬╡ ╬ε╬▒╬╜: 66-84 (MD 4, 21/10/2026)",
       "publishedAt": "2026-10-21T19:11:08+00:00",
       "publisher": "nova",
       "competition": "eurocup",
@@ -1462,7 +1464,7 @@
     {
       "videoId": "RckAKUQgMuo",
       "channelId": "UCEIbXco8hU9oDHXGo1kwIlA",
-      "title": "Χάποελ Τελ Αβίβ - Βίρτους Μπολόνια: 90-81 (MD 7, 21/10/2026)",
+      "title": "╬π╬υ╧Α╬┐╬╡╬╗ ╬ν╬╡╬╗ ╬Σ╬▓╬ψ╬▓ - ╬Τ╬ψ╧Β╧Ε╬┐╧Ζ╧Γ ╬ε╧Α╬┐╬╗╧Ν╬╜╬╣╬▒: 90-81 (MD 7, 21/10/2026)",
       "publishedAt": "2026-10-21T18:53:48+00:00",
       "publisher": "nova",
       "competition": "el",
@@ -1526,7 +1528,7 @@
     {
       "videoId": "9XATG7M8oF8",
       "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
-      "title": "Ρόμα - Σλόβαν Μπρατισλάβας 4 - 0 | Highlights - UEFA Champions League 2026/27 - 20/10/26 | MagentaTV",
+      "title": "╬κ╧Ν╬╝╬▒ - ╬μ╬╗╧Ν╬▓╬▒╬╜ ╬ε╧Α╧Β╬▒╧Ε╬╣╧Δ╬╗╬υ╬▓╬▒╧Γ 4 - 0 | Highlights - UEFA Champions League 2026/27 - 20/10/26 | MagentaTV",
       "publishedAt": "2026-10-20T21:55:33+00:00",
       "publisher": "magenta",
       "competition": "cl",
@@ -1558,7 +1560,7 @@
     {
       "publisher": "uefa",
       "competition": "europa",
-      "title": "Europa League Highlights: Hoffenheim 2-3 Beşiktaş",
+      "title": "Europa League Highlights: Hoffenheim 2-3 Be┼θikta┼θ",
       "gameDate": "2026-10-16",
       "publishedAt": "2026-10-16T14:51:00+00:00",
       "kind": "game",
@@ -1608,7 +1610,7 @@
     {
       "publisher": "uefa",
       "competition": "conference",
-      "title": "Conference League Highlights: Hearts 1-1 Nordsjælland",
+      "title": "Conference League Highlights: Hearts 1-1 Nordsj├οlland",
       "gameDate": "2026-10-15",
       "publishedAt": "2026-10-15T22:44:32+00:00",
       "kind": "game",
@@ -1698,7 +1700,7 @@
     {
       "publisher": "uefa",
       "competition": "europa",
-      "title": "Highlights: Beşiktaş 4-1 Marseille",
+      "title": "Highlights: Be┼θikta┼θ 4-1 Marseille",
       "gameDate": "2026-09-17",
       "publishedAt": "2026-09-17T22:00:00+00:00",
       "kind": "game",
@@ -1718,7 +1720,7 @@
     {
       "publisher": "uefa",
       "competition": "europa",
-      "title": "Highlights: Celtic 1-3 Ferencváros",
+      "title": "Highlights: Celtic 1-3 Ferencv├κros",
       "gameDate": "2026-09-17",
       "publishedAt": "2026-09-17T22:00:00+00:00",
       "kind": "game",
@@ -1728,7 +1730,7 @@
     {
       "publisher": "uefa",
       "competition": "europa",
-      "title": "Highlights: Crystal Palace 4-0 Lech Poznań",
+      "title": "Highlights: Crystal Palace 4-0 Lech Pozna┼Ε",
       "gameDate": "2026-09-17",
       "publishedAt": "2026-09-17T22:00:00+00:00",
       "kind": "game",
@@ -1764,6 +1766,138 @@
       "kind": "game",
       "url": "https://www.uefa.com/uefaeuropaleague/video/highlights/02a9-219bbe130a23-64827612acf7-1000--europa-league-highlights-sunderland-1-0-az-alkmaar/",
       "videoId": "02a9-219bbe130a23-64827612acf7-1000"
+    },
+    {
+      "videoId": "2o4lgEQCOgk",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "GRIZZLIES at WARRIORS | FULL GAME HIGHLIGHTS | October 23, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-23",
+      "kind": "game",
+      "verifiedAt": "2026-10-24T06:01:30.746Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "9n0WtH6pzGc",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "KNICKS at CELTICS | FULL GAME HIGHLIGHTS | October 23, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-23",
+      "kind": "game",
+      "verifiedAt": "2026-10-24T06:01:30.746Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "If1DIVuMPkc",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "MAVERICKS at PACERS | FULL GAME HIGHLIGHTS | October 23, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-23",
+      "kind": "game",
+      "verifiedAt": "2026-10-24T06:01:30.746Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "KoRT1d_i13o",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "TIMBERWOLVES at MAGIC | FULL GAME HIGHLIGHTS | October 23, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-23",
+      "kind": "game",
+      "verifiedAt": "2026-10-24T06:01:30.746Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "KVC5atVkCyE",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "CLIPPERS at LAKERS | FULL GAME HIGHLIGHTS | October 23, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-23",
+      "kind": "game",
+      "verifiedAt": "2026-10-24T06:01:30.746Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "nL79PGsNMNc",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "RAPTORS at WIZARDS | FULL GAME HIGHLIGHTS | October 23, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-23",
+      "kind": "game",
+      "verifiedAt": "2026-10-24T06:01:30.746Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "P3U_TwDKT-Y",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "TRAIL BLAZERS at KINGS | FULL GAME HIGHLIGHTS | October 23, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-23",
+      "kind": "game",
+      "verifiedAt": "2026-10-24T06:01:30.746Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "Q052nRK7KNk",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "PISTONS at HEAT | FULL GAME HIGHLIGHTS | October 23, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-23",
+      "kind": "game",
+      "verifiedAt": "2026-10-24T06:01:30.746Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "sXlPebl2zfk",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "PELICANS at JAZZ | FULL GAME HIGHLIGHTS | October 23, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-23",
+      "kind": "game",
+      "verifiedAt": "2026-10-24T06:01:30.746Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "w4g6vpvVyos",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "HAWKS at HORNETS | FULL GAME HIGHLIGHTS | October 23, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-23",
+      "kind": "game",
+      "verifiedAt": "2026-10-24T06:01:30.746Z",
+      "metadataSource": "YouTube oEmbed"
+    },
+    {
+      "videoId": "ZUslpiyp7G4",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "ROCKETS at SPURS | FULL GAME HIGHLIGHTS | October 23, 2026",
+      "publishedAt": null,
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-23",
+      "kind": "game",
+      "verifiedAt": "2026-10-24T06:01:30.746Z",
+      "metadataSource": "YouTube oEmbed"
     }
   ]
 }

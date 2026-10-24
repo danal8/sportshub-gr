@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-24T01:41:13.612Z",
+  "checkedAt": "2026-10-24T06:01:30.746Z",
   "sourceErrors": [
     "NBA: HTTP 404",
     "Novasports: HTTP 404",
@@ -13,39 +13,414 @@
   "competitions": {
     "europa": {
       "finished": 18,
-      "covered": 18,
-      "uncoveredMatches": [],
-      "unmatchedVideos": []
+      "covered": 3,
+      "uncoveredMatches": [
+        {
+          "home": "OFI Kreta",
+          "away": "Bayer 04 Leverkusen",
+          "date": "2026-10-22",
+          "time": "19:45"
+        },
+        {
+          "home": "FC Ararat-Armenia",
+          "away": "AZ Alkmaar",
+          "date": "2026-10-22",
+          "time": "19:45"
+        },
+        {
+          "home": "Ferencváros Budapest",
+          "away": "SC União Torreense",
+          "date": "2026-10-22",
+          "time": "19:45"
+        },
+        {
+          "home": "Dinamo Zagreb",
+          "away": "NEC Nijmegen",
+          "date": "2026-10-22",
+          "time": "19:45"
+        },
+        {
+          "home": "Lech Poznan",
+          "away": "Sunderland AFC",
+          "date": "2026-10-22",
+          "time": "19:45"
+        },
+        {
+          "home": "Union Saint-Gilloise",
+          "away": "Hapoel Beer Scheva",
+          "date": "2026-10-22",
+          "time": "19:45"
+        },
+        {
+          "home": "Sturm Graz",
+          "away": "Olympique Marseille",
+          "date": "2026-10-22",
+          "time": "19:45"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "Olympique Lyon",
+          "date": "2026-10-22",
+          "time": "22:00"
+        },
+        {
+          "home": "Besiktas Istanbul",
+          "away": "Crystal Palace FC",
+          "date": "2026-10-22",
+          "time": "22:00"
+        },
+        {
+          "home": "Viktoria Pilsen",
+          "away": "Levski Sofia",
+          "date": "2026-10-22",
+          "time": "22:00"
+        },
+        {
+          "home": "Jagiellonia Bialystok",
+          "away": "RSC Anderlecht",
+          "date": "2026-10-22",
+          "time": "22:00"
+        },
+        {
+          "home": "Lillestrøm SK",
+          "away": "Real Sociedad",
+          "date": "2026-10-22",
+          "time": "22:00"
+        },
+        {
+          "home": "NK Celje",
+          "away": "RB Salzburg",
+          "date": "2026-10-22",
+          "time": "22:00"
+        },
+        {
+          "home": "Olympiakos Piräus",
+          "away": "Sparta Prag",
+          "date": "2026-10-22",
+          "time": "22:00"
+        },
+        {
+          "home": "Omonia Nikosia",
+          "away": "Benfica Lissabon",
+          "date": "2026-10-22",
+          "time": "22:00"
+        }
+      ],
+      "unmatchedVideos": [
+        {
+          "videoId": "wOoiZh5kjrg",
+          "title": "╬ο╬╡╧Β╬╡╬╜╧Ε╧Δ╬▓╬υ╧Β╬┐╧Γ - ╬ν╬┐╧Β╬╡╬φ╬╜╧Δ╬╡ 4 - 1 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "FRKNYbOTGxY",
+          "title": "╬Υ╬╣╬▒╬│╬║╬╣╬╡╬╗╧Ν╬╜╬╣╬▒ - ╬Η╬╜╧Ε╬╡╧Β╬╗╬╡╧Θ╧Ε 0 - 3 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "7l3VVgEqkEA",
+          "title": "╬θ╧Ζ╬╜╬╣╧Ν╬╜ ╬μ. ╬Ψ. - ╬π╬υ╧Α╬┐╬╡╬╗ ╬ε╧Α╬╡╧Β ╬μ╬╡╬▓╬υ 4 - 0 | Highlights - UEFA Europa League 26/27 - 22/10/26 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "HMp39sZR9f0",
+          "title": "╬Σ╧Β╬▒╧Β╬υ╧Ε - ╬Σ╬╗╬║╬╝╬υ╬▒╧Β 0 - 4 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "02aa-21e41ef9d9ad-07d129cc4d83-1000",
+          "title": "Highlights: Be┼θikta┼θ 2-2 Crystal Palace",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "-Ot9bxLyTU0",
+          "title": "╬Τ╬╣╬║╧Ε╧Ν╧Β╬╣╬▒ ╬ι╬╗╬╢╬╡╬╜ - ╬δ╬φ╧Η╧Δ╬║╬╣ ╬μ╧Ν╧Η╬╣╬▒╧Γ 1 - 2 | Highlights - UEFA Europa League 26/27 - 22/10/26 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "T6ICC6DyoL8",
+          "title": "╬δ╬ψ╬╗╬╡╧Δ╧Ε╧Β╬┐╬╝ - ╬κ╬╡╬υ╬╗ ╬μ╬┐╧Δ╬╣╬╡╬┤╬υ╬┤ 0 - 6 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "K81GLuw_Uc0",
+          "title": "╬ν╧Δ╬φ╬╗╬╣╬╡ - ╬μ╬υ╬╗╧Ε╧Δ╬╝╧Α╬┐╧Ζ╧Β╬│╬║ 2 - 2 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "7NeNXwHf05U",
+          "title": "╬π╧Ν╧Η╬╡╬╜╧Θ╬▒╧Λ╬╝ - ╬δ╧Ζ╧Ο╬╜ 3 - 0 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "02aa-21e4261c8548-951f3ce412dd-1000",
+          "title": "Highlights: Lillestr├╕m 0-6 Real Sociedad",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "vsOvkBY8gyA",
+          "title": "╬μ╬φ╬╗╧Ε╬╣╬║ - ╬α╬φ╬╗╧Ε╬▒ 1 - 2 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "wjXayLtqf8I",
+          "title": "╬ε╧Α╧Ν╧Β╬╜╬╝╬┐╧Ζ╬╕ - ╬ε╬ψ╬╗╬▒╬╜ 3 - 0 | Highlights - UEFA Europa League 2026/27 - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "NTI3MTEyM2MtMTllZS00YWQ0LWE3ZWItMWEwMTU2ZjU1MTllLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+          "title": "╬θ╬╗╧Ζ╬╝╧Α╬╣╬▒╬║╧Ν╧Γ - ╬μ╧Α╬υ╧Β╧Ε╬▒╧Γ ╬ι╧Β╬υ╬│╬▒╧Γ 1-0",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "MGZjYjIyN2MtNTA3ZC00MDFjLTg1NmEtZTZiMThmYTU2NDE1LDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+          "title": "╬θ╬ο╬Ω (╬Χ╬╗╬╗╬υ╬┤╬▒) - ╬δ╬╡╬▓╬╡╧Β╬║╬┐╧Ξ╬╢╬╡╬╜ (╬Υ╬╡╧Β╬╝╬▒╬╜╬ψ╬▒) 0-2",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "NTZiYTViY2ItZWRiMC00NDIxLTk0OTMtYWRiM2Q3MjEyMDVhLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+          "title": "╬Υ╬╣╬┐╧Ζ╬▓╬φ╬╜╧Ε╬┐╧Ζ╧Γ (╬β╧Ε╬▒╬╗╬ψ╬▒) - ╬κ╬╡╬╜ (╬Υ╬▒╬╗╬╗╬ψ╬▒) 2-2",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "ODJmZGU2NjEtOTQ1Zi00MWM1LWFkMjgtZGVlNWQyYTM4MGZmLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+          "title": "╬ζ╧Ε╬╣╬╜╬▒╬╝╧Ν ╬Ψ╬υ╬│╬║╧Β╬╡╬╝╧Α (╬γ╧Β╬┐╬▒╧Ε╬ψ╬▒) - ╬ζ╬▒╧Λ╬╝╬φ╬│╬║╬╡╬╜ (╬θ╬╗╬╗╬▒╬╜╬┤╬ψ╬▒) 2-4",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "MjUzYmEwYjktYmQ3MC00MzUyLTg0NTMtNWNjZmM5MWI3MTNhLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+          "title": "╬μ╧Ε╬┐╧Ζ╧Β╬╝ ╬Υ╬║╧Β╬▒╧Ε╧Γ (╬Σ╧Ζ╧Δ╧Ε╧Β╬ψ╬▒) - ╬ε╬▒╧Β╧Δ╬φ╬╣╬│ (╬Υ╬▒╬╗╬╗╬ψ╬▒) 1-0",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "MjU5MDRmODgtMDk0MC00NmQ4LTliNzQtZTA5YzdiN2E5MWQ2LDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+          "title": "╬δ╬╡╧Θ ╬ι╧Ν╬╢╬╜╬▒╬╜ (╬ι╬┐╬╗╧Κ╬╜╬ψ╬▒) - ╬μ╬υ╬╜╧Ε╬╡╧Β╬╗╬▒╬╜╧Ε (╬Σ╬│╬│╬╗╬ψ╬▒) 1-1",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "ODI4ODNmNDAtMGNiNi00NzcxLWI1NTctOGM5NTgwZDM1NjlkLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+          "title": "╬μ╬φ╬╗╧Ε╬╣╬║ (╬μ╬║╧Κ╧Ε╬ψ╬▒) - ╬α╬φ╬╗╧Ε╬▒ (╬β╧Δ╧Α╬▒╬╜╬ψ╬▒) 1-2",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "Nzg4MDU2OGUtNTUzMS00NTMwLWEwZmMtYzIyYjdlYjgyNzczLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+          "title": "╬ε╧Α╧Ν╧Β╬╜╬╝╬┐╧Ζ╬╕ (╬Σ╬│╬│╬╗╬ψ╬▒) - ╬ε╬ψ╬╗╬▒╬╜ (╬β╧Ε╬▒╬╗╬ψ╬▒) 3-0",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "Y2ViNjM2NzItY2NkMS00MmZmLWE2MDktYmEwNTU1ZTBmMDExLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+          "title": "╬ε╧Α╬╡╧Δ╬ψ╬║╧Ε╬▒╧Γ (╬ν╬┐╧Ζ╧Β╬║╬ψ╬▒) - ╬γ╧Β╬ψ╧Δ╧Ε╬▒╬╗ ╬ι╬υ╬╗╬▒╧Γ (╬Σ╬│╬│╬╗╬ψ╬▒) 2-2",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "MTU1ZTU3NzctZTNkOS00MTMxLWJkOGEtMDJmNjVmMzNkYjhjLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+          "title": "╬θ╬╝╧Ν╬╜╬┐╬╣╬▒ (╬γ╧Ξ╧Α╧Β╬┐╧Γ) - ╬ε╧Α╬╡╬╜╧Η╬ψ╬║╬▒ (╬ι╬┐╧Β╧Ε╬┐╬│╬▒╬╗╬ψ╬▒) 1-4",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "NTdkZjc4ZDMtZjA0MS00ZDg0LTk5N2UtODViYzViY2IxZjk4LDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+          "title": "╬π╧Ν╧Η╬╡╬╜╧Θ╬▒╧Λ╬╝ (╬Υ╬╡╧Β╬╝╬▒╬╜╬ψ╬▒) - ╬δ╬╣╧Ν╬╜ (╬Υ╬▒╬╗╬╗╬ψ╬▒) 3-0",
+          "gameDate": "2026-10-22"
+        }
+      ]
     },
     "conference": {
       "finished": 18,
-      "covered": 18,
-      "uncoveredMatches": [],
-      "unmatchedVideos": []
-    },
-    "nba": {
-      "finished": 17,
-      "covered": 14,
+      "covered": 3,
       "uncoveredMatches": [
         {
-          "home": "Orlando Magic",
-          "away": "Minnesota Timberwolves",
-          "date": "2026-10-24",
-          "time": "02:00"
+          "home": "Kairat Almaty",
+          "away": "Panathinaikos",
+          "date": "2026-10-22",
+          "time": "17:30"
         },
         {
-          "home": "Washington Wizards",
-          "away": "Toronto Raptors",
-          "date": "2026-10-24",
-          "time": "02:00"
+          "home": "FC Nordsjælland",
+          "away": "CSKA Sofia",
+          "date": "2026-10-22",
+          "time": "19:45"
         },
         {
-          "home": "Charlotte Hornets",
-          "away": "Atlanta Hawks",
-          "date": "2026-10-24",
-          "time": "02:00"
+          "home": "Getafe",
+          "away": "FC Lugano",
+          "date": "2026-10-22",
+          "time": "19:45"
+        },
+        {
+          "home": "Iberia 1999",
+          "away": "Mjällby AIF",
+          "date": "2026-10-22",
+          "time": "19:45"
+        },
+        {
+          "home": "Inter D'Escaldes",
+          "away": "CSU Craiova",
+          "date": "2026-10-22",
+          "time": "19:45"
+        },
+        {
+          "home": "Jablonec",
+          "away": "Brighton & Hove Albion",
+          "date": "2026-10-22",
+          "time": "19:45"
+        },
+        {
+          "home": "Kauno Zalgiris",
+          "away": "SK Brann",
+          "date": "2026-10-22",
+          "time": "19:45"
+        },
+        {
+          "home": "Pafos",
+          "away": "Riga FC",
+          "date": "2026-10-22",
+          "time": "19:45"
+        },
+        {
+          "home": "Red Star Belgrade",
+          "away": "F.C. København",
+          "date": "2026-10-22",
+          "time": "19:45"
+        },
+        {
+          "home": "Borac Banja Luka",
+          "away": "KuPS Kuopio",
+          "date": "2026-10-22",
+          "time": "22:00"
+        },
+        {
+          "home": "Braga",
+          "away": "KAA Gent",
+          "date": "2026-10-22",
+          "time": "22:00"
+        },
+        {
+          "home": "FC Midtjylland",
+          "away": "Sint-Truidense",
+          "date": "2026-10-22",
+          "time": "22:00"
+        },
+        {
+          "home": "FC Thun",
+          "away": "Hajduk Split",
+          "date": "2026-10-22",
+          "time": "22:00"
+        },
+        {
+          "home": "Lincoln Red Imps",
+          "away": "FC Twente",
+          "date": "2026-10-22",
+          "time": "22:00"
+        },
+        {
+          "home": "AGF",
+          "away": "Egnatia",
+          "date": "2026-10-22",
+          "time": "22:00"
         }
       ],
+      "unmatchedVideos": [
+        {
+          "videoId": "NXfkIJTUPCU",
+          "title": "╬ζ╧Ν╧Β╬╜╧Ε╬╢╬╡╬╗╬▒╬╜╧Ε - ╬ν╬μ╬μ╬γ╬Σ ╬μ╧Ν╧Η╬╣╬▒╧Γ 2 - 2 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "1n8q0SHkH3E",
+          "title": "╬Υ╬╣╬υ╬╝╧Α╬╗╬┐╬╜╬╡╧Ε╧Γ - ╬ε╧Α╧Β╬υ╬╣╧Ε╬┐╬╜ 0 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "VOvWE4sb-uA",
+          "title": "╬Χ╧Β╧Ζ╬╕╧Β╧Ν╧Γ ╬Σ╧Δ╧Ε╬φ╧Β╬▒╧Γ - ╬γ╬┐╧Α╬╡╬│╧Θ╬υ╬│╬╖ 2 - 2 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "cR9YoHpjdSw",
+          "title": "╬Λ╬╜╧Ε╬╡╧Β ╬γ╬╗╬▒╬╝╧Α ╬Χ╧Δ╬║╬υ╬╗╬╜╧Ε╬╡╧Γ - ╬γ╧Β╬▒╧Λ╧Ν╬▓╬▒ 1 - 3 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "fttmYlm3eLU",
+          "title": "╬ε╬┐╬╜╬▒╬║╧Ν - ╬ο╧Β╬υ╬╣╬╝╧Α╬┐╧Ζ╧Β╬│╬║ 3 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "lJFg3r0ERl4",
+          "title": "╬ε╬ψ╬╜╧Ε╬╣╬╗╬▒╬╜╧Ε - ╬μ╬╡╬╜╧Ε ╬ν╧Β╬┐╧Ξ╬╣╬╜╧Ε╬╡╬╜ 0 - 1 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "ce3bKbCWaAo",
+          "title": "╬Η╬▒╧Β╧Θ╬┐╧Ζ╧Γ - ╬Χ╬│╬╜╬υ╧Ε╬╣╬▒ 1 - 1 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "lDHqeNE3kRI",
+          "title": "╬ε╧Α╧Β╬υ╬│╬║╬▒ - ╬Υ╬υ╬╜╬┤╬╖ 2 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "NifW9EtcBJE",
+          "title": "╬δ╬ψ╬╜╬║╬┐╬╗╬╜ ╬κ╬╡╬╜╧Ε ╬β╬╝╧Α╧Γ - ╬ν╬▓╬φ╬╜╧Ε╬╡ 1 - 4 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "CtA0poI_TxA",
+          "title": "╬γ╬υ╬┐╧Ζ╬╜╬┐ ╬Ψ╬▒╬╗╬│╬║╬ψ╧Β╬╣╧Γ - ╬ε╧Α╧Β╬▒╬╜ 1 - 4 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "fiEsm-7r23c",
+          "title": "╬π╬╡╧Ε╬υ╧Η╬╡ - ╬δ╬┐╧Ζ╬│╬║╬υ╬╜╬┐ 2 - 5 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "-SK49exkqIw",
+          "title": "╬β╬╝╧Α╬φ╧Β╬╣╬▒ 1999 - ╬ε╬╣╬υ╬╗╬╝╧Α╬╣ 1 - 1 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "GL_3fG66zVg",
+          "title": "╬ν╧Β╬▒╬╝╧Α╬╢╬┐╬╜╧Δ╧Α╧Ν╧Β - ╬π╬▒╧Β╧Ε╧Γ 2 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "2fmY2GVrs1c",
+          "title": "╬Η╬│╬╣╬▒╬╛ - ╬Σ╧Ε╬▒╬╗╬υ╬╜╧Ε╬▒ 2 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "5jjjpTFJqKY",
+          "title": "╬ε╧Α╧Ν╧Β╬▒╧Ε╧Γ ╬ε╧Α╬υ╬╜╬╣╬▒ ╬δ╬┐╧Ξ╬║╬▒ - ╬γ╬┐╧Ζ╧Ν╧Α╬╣╬┐ 2 - 0 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "jw_k6llrNhQ",
+          "title": "╬ν╬┐╧Ζ╬╜ - ╬π╬υ╬╣╬╜╧Ε╬┐╧Ζ╬║ ╬μ╧Α╬╗╬╣╧Ε 0 - 1 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "OWU3YmE5ZjQtYTAyMC00YjJkLThiM2EtYjQ4ZGFiYzgxZDAzLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+          "title": "╬γ╬▒╧Λ╧Β╬υ╧Ε ╬Σ╬╗╬╝╬υ╧Ε╬╣ (╬γ╬▒╬╢╬▒╬║╧Δ╧Ε╬υ╬╜) - ╬ι╬▒╬╜╬▒╬╕╬╖╬╜╬▒╧Λ╬║╧Ν╧Γ (╬Χ╬╗╬╗╬υ╬┤╬▒) 1-5",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "NDMzZDEzYzctYzQ1Ny00ODdhLWIxMTktYzI1MmE1ZDdkMjZhLDk5MjE2MzA3LTk5YWQtNGJmZC05NDRjLWQyZjNjNDIxOWNkNyw5OTQzODZmNC0yNjM0LTRlNmUtYmRkYS1kY2Y0MzA0NmJmZjQ=",
+          "title": "╬ι╬υ╧Η╬┐╧Γ (╬γ╧Ξ╧Α╧Β╬┐╧Γ) - ╬κ╬ψ╬│╬▒ (╬δ╬╡╧Ε╬┐╬╜╬ψ╬▒) 1-1",
+          "gameDate": "2026-10-22"
+        },
+        {
+          "videoId": "OoNoPGuvrJs",
+          "title": "╬γ╬▒╧Λ╧Β╬υ╧Ε ╬Σ╬╗╬╝╬υ╧Ε╬╣ - ╬ι╬▒╬╜╬▒╬╕╬╖╬╜╬▒╧Λ╬║╧Ν╧Γ 1 - 5 | Highlights - UEFA Conference League - 22/10/2026 | MagentaTV",
+          "gameDate": "2026-10-22"
+        }
+      ]
+    },
+    "nba": {
+      "finished": 25,
+      "covered": 25,
+      "uncoveredMatches": [],
       "unmatchedVideos": []
     }
   }

@@ -1,6 +1,6 @@
-import{aliases}from'./team-aliases.js?v=45';
-import{teamKey}from'./badges.js?v=26';
-import{athensDay,shiftDay}from'./core.js?v=26';
+import{aliases}from'./team-aliases.js?v=49';
+import{teamKey}from'./badges.js?v=49';
+import{athensDay,shiftDay}from'./core.js?v=49';
 export const publishers=[
  {id:'nba',label:'NBA',channel:'UCWJ2lWNubArHWmf3FIHbfcQ'},
  {id:'el',label:'EuroLeague',channel:'UCGr3nR_XH9r6E5b09ZJAT9w'},
@@ -96,11 +96,13 @@ export async function loadMatchHighlights(m,{force=false}={}){
 }
 
 
-export function parseRecapPlaylists(html){
+export function parseRecapPlaylists(html){return parseNBAPlaylists(html,/nightly recap/i);}
+export function parseGamePlaylists(html){return parseNBAPlaylists(html,/full game highlights.*2026[-–]27/i);}
+function parseNBAPlaylists(html,titlePattern){
  const raw=String(html).match(/ytInitialData\s*=\s*(\{[\s\S]*?\});/)?.[1];if(!raw)return[];
  const found=new Set(),walk=v=>{if(!v||typeof v!=='object')return;
  for(const type of ['playlistRenderer','gridPlaylistRenderer','lockupViewModel']){const r=v[type];if(!r)continue;const title=r.title?.simpleText||r.title?.runs?.map(t=>t.text).join('')||r.metadata?.lockupMetadataViewModel?.title?.content||'';const id=r.playlistId||r.contentId;
- if(/nightly recap/i.test(title)&&/^PL[\w-]+$/.test(id||''))found.add(id);}
+ if(titlePattern.test(title)&&/^PL[\w-]+$/.test(id||''))found.add(id);}
  for(const child of Object.values(v)){if(Array.isArray(child))child.forEach(walk);else if(child&&typeof child==='object')walk(child);}
  };walk(JSON.parse(raw));return[...found].slice(0,3);
 }
