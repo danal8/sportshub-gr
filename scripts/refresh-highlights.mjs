@@ -1,15 +1,18 @@
+import{loadNovaHighlights}from'./nova-highlights.mjs';
 import{loadNBARecaps}from'./nba-recaps.mjs';
 import{verifyNBAVideoRegions}from'./nba-video-regions.mjs';
 import{readFile,writeFile,mkdir}from'node:fs/promises';
-import{publishers,parsePublisherFeed,parseRecapPlaylists,parseGamePlaylists}from'../dist/highlights.js';
+import{publishers,publisherCompetition,parsePublisherFeed,parseRecapPlaylists,parseGamePlaylists}from'../dist/highlights.js';
 import{loadPublisherArchive}from'./youtube-publisher-archive.mjs';
 import{loadUEFAHighlights}from'./uefa-highlights.mjs';
 import{loadPressEmbeds}from'./press-highlight-embeds.mjs';
-const sourceVersion=9;
+const sourceVersion=10;
 const target='dist/snapshots/highlights-2026-27.json';let old;
 try{old=JSON.parse(await readFile(target,'utf8'));}catch{old={season:'2026-27',videos:[]};}
 if(!process.argv.includes('--force')&&old.sourceVersion===sourceVersion&&!old.errors?.length&&Date.now()-Date.parse(old.retrievedAt)<900000){console.log('Highlights index is recent.');process.exit(0);}
 const videos=[],errors=[];let succeeded=0;
+const recentMatches=[];for(const id of ['sl','sl2','pl','bund','laliga','seriea','ligue1','cl','europa','conference','el','eurocup','gbl','elite','volley-m','volley-w','nba'])try{const p=JSON.parse(await readFile('dist/snapshots/'+id+'-2026-27.json','utf8'));recentMatches.push(...p.matches.map(m=>({...m,competition:id})));}catch{}
+try{const p=await loadNovaHighlights(recentMatches);videos.push(...p.videos);errors.push(...p.errors.map(e=>'Novasports Web: '+e));succeeded++;console.log('Novasports Web: '+p.scanned+' pages, '+p.videos.length+' verified videos');}catch(e){errors.push('Novasports Web: '+e.message);}
 let recapPlaylists=[],gamePlaylists=[];try{const r=await fetch('https://www.youtube.com/@NBA/playlists?hl=en&gl=US',{signal:AbortSignal.timeout(10000)});if(!r.ok)throw Error('HTTP '+r.status);const html=await r.text();recapPlaylists=parseRecapPlaylists(html);gamePlaylists=parseGamePlaylists(html);if(!gamePlaylists.length)throw Error('Official full-game playlist unavailable');}catch(e){errors.push('NBA playlists: '+e.message);}if(process.argv.includes('--dry-run'))console.log('NBA PLAYLISTS '+JSON.stringify({recapPlaylists,gamePlaylists}));
 const feeds=publishers.flatMap(p=>[{publisher:p,url:'https://www.youtube.com/feeds/videos.xml?channel_id='+p.channel},...(p.id==='nba'?[...recapPlaylists,...gamePlaylists]:[]).map(id=>({publisher:p,url:'https://www.youtube.com/feeds/videos.xml?playlist_id='+id}))]);
 await Promise.all(feeds.map(async({publisher:p,url})=>{try{const r=await fetch(url,{signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error('HTTP '+r.status);const xml=await r.text(),parsed=parsePublisherFeed(xml,p.id);videos.push(...parsed);if(process.argv.includes('--dry-run')){console.log('HIGHLIGHTS SOURCE '+p.id+' '+JSON.stringify(parsed));}succeeded++;}catch(e){errors.push(p.label+': '+e.message);}}));
@@ -21,7 +24,7 @@ const pressMatches=[];for(const id of ['europa','conference'])try{const p=JSON.p
 try{const p=await loadPressEmbeds(pressMatches,{known});videos.push(...p.videos);errors.push(...p.errors);succeeded++;console.log('Press video discovery: '+p.pages+' pages, '+p.videos.length+' videos');}catch(e){errors.push('Press video discovery: '+e.message);}
 try{const p=JSON.parse(await readFile('dist/snapshots/nba-2026-27.json','utf8')),recaps=await loadNBARecaps(p.matches.map(m=>({...m,competition:'nba'})),{known});videos.push(...recaps.videos);errors.push(...recaps.errors.map(e=>'NBA.com: '+e));succeeded++;console.log('NBA.com recaps: '+recaps.scanned+' games, '+recaps.videos.length+' new verified recaps');}catch(e){errors.push('NBA.com: '+e.message);}
 if(!succeeded)console.log('Retaining verified highlights index: '+errors.join('; '));
-const now=Date.now(),all=new Map((old.videos||[]).filter(v=>Date.parse(v.publishedAt||v.verifiedAt)>now-90*86400000).map(v=>[(v.channelId||v.publisher)+'|'+v.videoId,v]));
+const now=Date.now(),all=new Map((old.videos||[]).map(v=>['nova','magenta'].includes(v.publisher)?{...v,competition:publisherCompetition(v.title)||v.competition}:v).filter(v=>Date.parse(v.publishedAt||v.verifiedAt)>now-90*86400000).map(v=>[(v.channelId||v.publisher)+'|'+v.videoId,v]));
 for(const v of videos)if(Date.parse(v.publishedAt||v.verifiedAt)>now-90*86400000&&Date.parse(v.publishedAt||v.verifiedAt)<=now+300000)all.set((v.channelId||v.publisher)+'|'+v.videoId,v);
 const regions=await verifyNBAVideoRegions([...all.values()]);errors.push(...regions.errors.map(e=>'NBA YouTube region: '+e));
 const next={season:'2026-27',sourceVersion,retrievedAt:new Date().toISOString(),errors,sources:[...publishers.map(p=>({name:p.label,url:'https://www.youtube.com/channel/'+p.channel})),{name:'NBA.com',url:'https://www.nba.com/games'}],videos:regions.videos.sort((a,b)=>Date.parse(b.publishedAt||b.verifiedAt)-Date.parse(a.publishedAt||a.verifiedAt))};
@@ -30,7 +33,7 @@ if(errors.length)console.log('Retained earlier entries for unavailable sources: 
 
 if(!process.argv.includes('--dry-run')){
  const {highlightCoverage}=await import('../dist/highlight-coverage.js');const snapshots=[];
- for(const id of ['europa','conference','nba'])try{const p=JSON.parse(await readFile('dist/snapshots/'+id+'-2026-27.json','utf8'));snapshots.push(...(p.matches||[]).map(m=>({...m,competition:id})));}catch(e){errors.push(id+' snapshot: '+e.message);}
+ for(const id of ['sl','sl2','pl','bund','laliga','seriea','ligue1','cl','europa','conference','el','eurocup','gbl','elite','volley-m','volley-w','nba'])try{const p=JSON.parse(await readFile('dist/snapshots/'+id+'-2026-27.json','utf8'));snapshots.push(...(p.matches||[]).map(m=>({...m,competition:id})));}catch(e){errors.push(id+' snapshot: '+e.message);}
  const report={checkedAt:new Date().toISOString(),sourceErrors:errors,...highlightCoverage(snapshots,next.videos)};
  await writeFile('dist/snapshots/highlights-coverage.json',JSON.stringify(report,null,2)+'\n');
  console.log('Highlight coverage '+JSON.stringify(report.competitions));

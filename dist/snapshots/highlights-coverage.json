@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-25T04:58:23.319Z",
+  "checkedAt": "2026-10-25T05:34:22.644Z",
   "sourceErrors": [
     "NBA: HTTP 404",
     "Magenta Sport: HTTP 404",
@@ -45,16 +45,159 @@
   "start": "2026-10-23",
   "end": "2026-10-25",
   "competitions": {
-    "europa": {
+    "sl": {
+      "finished": 3,
+      "covered": 2,
+      "uncoveredMatches": [
+        {
+          "home": "Iraklis 1908",
+          "away": "Kifisia",
+          "date": "2026-10-24",
+          "time": "19:00"
+        }
+      ],
+      "unmatchedVideos": []
+    },
+    "pl": {
+      "finished": 5,
+      "covered": 5,
+      "uncoveredMatches": [],
+      "unmatchedVideos": []
+    },
+    "bund": {
+      "finished": 7,
+      "covered": 7,
+      "uncoveredMatches": [],
+      "unmatchedVideos": []
+    },
+    "laliga": {
+      "finished": 5,
+      "covered": 0,
+      "uncoveredMatches": [
+        {
+          "home": "Deportivo Alaves",
+          "away": "FC Malaga",
+          "date": "2026-10-23",
+          "time": "22:00"
+        },
+        {
+          "home": "Rayo Vallecano",
+          "away": "Elche CF",
+          "date": "2026-10-24",
+          "time": "15:00"
+        },
+        {
+          "home": "Racing Santander",
+          "away": "Espanyol Barcelona",
+          "date": "2026-10-24",
+          "time": "17:15"
+        },
+        {
+          "home": "FC Valencia",
+          "away": "FC Villareal",
+          "date": "2026-10-24",
+          "time": "19:30"
+        },
+        {
+          "home": "Atlético Madrid",
+          "away": "Deportivo A Coruña",
+          "date": "2026-10-24",
+          "time": "22:30"
+        }
+      ],
+      "unmatchedVideos": []
+    },
+    "seriea": {
+      "finished": 5,
+      "covered": 1,
+      "uncoveredMatches": [
+        {
+          "home": "Torino FC",
+          "away": "AC Monza",
+          "date": "2026-10-23",
+          "time": "21:45"
+        },
+        {
+          "home": "Cagliari Calcio",
+          "away": "Bologna FC 1909",
+          "date": "2026-10-24",
+          "time": "16:00"
+        },
+        {
+          "home": "Como 1907",
+          "away": "US Sassuolo Calcio",
+          "date": "2026-10-24",
+          "time": "16:00"
+        },
+        {
+          "home": "SS Lazio",
+          "away": "Parma Calcio 1913",
+          "date": "2026-10-24",
+          "time": "21:45"
+        }
+      ],
+      "unmatchedVideos": []
+    },
+    "ligue1": {
+      "finished": 2,
+      "covered": 0,
+      "uncoveredMatches": [
+        {
+          "home": "Stade Brestois 29",
+          "away": "OGC Nice",
+          "date": "2026-10-23",
+          "time": "21:45"
+        },
+        {
+          "home": "Racing Club de Lens",
+          "away": "Paris FC",
+          "date": "2026-10-24",
+          "time": "21:45"
+        }
+      ],
+      "unmatchedVideos": []
+    },
+    "el": {
+      "finished": 3,
+      "covered": 3,
+      "uncoveredMatches": [],
+      "unmatchedVideos": []
+    },
+    "eurocup": {
       "finished": 0,
       "covered": 0,
       "uncoveredMatches": [],
       "unmatchedVideos": []
     },
-    "conference": {
-      "finished": 0,
-      "covered": 0,
-      "uncoveredMatches": [],
+    "gbl": {
+      "finished": 5,
+      "covered": 1,
+      "uncoveredMatches": [
+        {
+          "home": "ΜΥΚΟΝΟΣ Betsson BC",
+          "away": "ΑΡΗΣ",
+          "date": "2026-10-24",
+          "time": "15:00"
+        },
+        {
+          "home": "ΔΟΞΑ ΛΕΥΚΑΔΑΣ ELABET",
+          "away": "ΗΡΑΚΛΗΣ",
+          "date": "2026-10-24",
+          "time": "17:00"
+        },
+        {
+          "home": "ΠΕΡΙΣΤΕΡΙ Betsson",
+          "away": "ΜΑΡΟΥΣΙ",
+          "date": "2026-10-24",
+          "time": "17:30"
+        },
+        {
+          "home": "ΠΑΟΚ",
+          "away": "ΑΕΚ",
+          "date": "2026-10-24",
+          "time": "17:30"
+        }
+      ],
       "unmatchedVideos": []
     },
     "nba": {
@@ -206,6 +349,92 @@
           "gameDate": "2026-10-22"
         }
       ]
+    },
+    "cl": {
+      "finished": 0,
+      "covered": 0,
+      "uncoveredMatches": [],
+      "unmatchedVideos": []
+    },
+    "europa": {
+      "finished": 0,
+      "covered": 0,
+      "uncoveredMatches": [],
+      "unmatchedVideos": []
+    },
+    "conference": {
+      "finished": 0,
+      "covered": 0,
+      "uncoveredMatches": [],
+      "unmatchedVideos": []
+    },
+    "volley-m": {
+      "finished": 3,
+      "covered": 0,
+      "uncoveredMatches": [
+        {
+          "home": "Α.Ο.Π. Κηφισιάς",
+          "away": "Πανιώνιος Betsson",
+          "date": "2026-10-23",
+          "time": "19:30"
+        },
+        {
+          "home": "Ο.Φ.Η.",
+          "away": "Π.Α.Ο.Κ.",
+          "date": "2026-10-24",
+          "time": "17:00"
+        },
+        {
+          "home": "Α.Ο.Καλαμάτα Affidea V.C",
+          "away": "Παναθηναϊκός Α.Ο.",
+          "date": "2026-10-24",
+          "time": "19:30"
+        }
+      ],
+      "unmatchedVideos": []
+    },
+    "volley-w": {
+      "finished": 6,
+      "covered": 0,
+      "uncoveredMatches": [
+        {
+          "home": "Α.Σ. Άρης",
+          "away": "Α.Ο. Θήρας",
+          "date": "2026-10-24",
+          "time": "20:00"
+        },
+        {
+          "home": "Ο.Φ.Α. Απολλώνιος",
+          "away": "Πανιώνιος Betsson",
+          "date": "2026-10-24",
+          "time": "19:00"
+        },
+        {
+          "home": "Ζ.Α.Ο.Ν.",
+          "away": "Παναθηναϊκός Α.Ο.",
+          "date": "2026-10-24",
+          "time": "18:00"
+        },
+        {
+          "home": "Ολυμπιακός Σ.Φ.Π.",
+          "away": "Α.Σ.Π. Θέτις",
+          "date": "2026-10-24",
+          "time": "18:00"
+        },
+        {
+          "home": "Α.Σ. Ελπίς",
+          "away": "Α.Ο. Μαρκοπούλου Revoil",
+          "date": "2026-10-24",
+          "time": "16:30"
+        },
+        {
+          "home": "A.E.K.",
+          "away": "Π.Α.Ο.Κ. F&U",
+          "date": "2026-10-23",
+          "time": "19:00"
+        }
+      ],
+      "unmatchedVideos": []
     }
   }
 }

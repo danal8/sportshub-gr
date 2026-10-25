@@ -1,7 +1,7 @@
 {
   "season": "2026-27",
-  "sourceVersion": 9,
-  "retrievedAt": "2026-10-25T04:58:23.313Z",
+  "sourceVersion": 10,
+  "retrievedAt": "2026-10-25T05:34:22.644Z",
   "errors": [
     "NBA: HTTP 404",
     "Magenta Sport: HTTP 404",
@@ -68,6 +68,10 @@
     {
       "name": "NBA.com",
       "url": "https://www.nba.com/games"
+    },
+    {
+      "name": "Novasports Web",
+      "url": "https://www.novasports.gr/web-tv/highlights/"
     }
   ],
   "videos": [
@@ -275,7 +279,7 @@
       "title": "ΑΕΚ - Παναιτωλικός 5 - 0 | Highlights - Stoiximan Super League - 24/10/2026 | MagentaTV",
       "publishedAt": "2026-10-24T19:34:43+00:00",
       "publisher": "magenta",
-      "competition": "sl2",
+      "competition": "sl",
       "gameDate": "2026-10-24",
       "kind": "game"
     },
@@ -4961,6 +4965,259 @@
       "kind": "game",
       "url": "https://www.uefa.com/uefaeuropaleague/video/02a9-219bbe130a23-64827612acf7-1000--europa-league-highlights-sunderland-1-0-az-alkmaar/",
       "videoId": "02a9-219bbe130a23-64827612acf7-1000"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "pl",
+      "title": "Τσέλσι - Τότεναμ: 0-2 (highlights)",
+      "gameDate": "2026-10-24",
+      "publishedAt": "2026-10-24T21:55:43+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/podosfairo/event/premier-league/highlights/video/15191024/tselsi-totenam-0-2-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/podosfairo/event/premier-league/highlights/video/15191024/tselsi-totenam-0-2-highlights/",
+      "videoId": "nova-15191024"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "pl",
+      "title": "Άρσεναλ - Έβερτον: 2-0 (highlights)",
+      "gameDate": "2026-10-24",
+      "publishedAt": "2026-10-24T19:11:29+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/podosfairo/event/premier-league/highlights/video/15190515/arsenal-everton-2-0-highlights-2/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/podosfairo/event/premier-league/highlights/video/15190515/arsenal-everton-2-0-highlights-2/",
+      "videoId": "nova-15190515"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "pl",
+      "title": "Κόβεντρι - Φούλαμ: 0-1 (highlights)",
+      "gameDate": "2026-10-24",
+      "publishedAt": "2026-10-24T19:09:23+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/podosfairo/event/premier-league/highlights/video/15190496/koventri-foulam-0-1-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/podosfairo/event/premier-league/highlights/video/15190496/koventri-foulam-0-1-highlights/",
+      "videoId": "nova-15190496"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "bund",
+      "title": "Μάιντς - Βέρντερ Βρέμης: 2-3 (highlights)",
+      "gameDate": "2026-10-24",
+      "publishedAt": "2026-10-24T18:56:48+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/podosfairo/event/bundesliga/highlights/video/15190427/maints-vernter-vremis-2-3-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/podosfairo/event/bundesliga/highlights/video/15190427/maints-vernter-vremis-2-3-highlights/",
+      "videoId": "nova-15190427"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "bund",
+      "title": "Άουγκσμπουργκ - Ουνιόν Βερολίνου: 1-1 (highlights)",
+      "gameDate": "2026-10-24",
+      "publishedAt": "2026-10-24T18:52:11+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/podosfairo/event/bundesliga/highlights/video/15190431/aougksmpourgk-ounion-verolinou-1-1-highlights-2/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/podosfairo/event/bundesliga/highlights/video/15190431/aougksmpourgk-ounion-verolinou-1-1-highlights-2/",
+      "videoId": "nova-15190431"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "gbl",
+      "title": "Παναθηναϊκός - Καρδίτσα 78-64 (highlights)",
+      "gameDate": "2026-10-24",
+      "publishedAt": "2026-10-24T21:19:09+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/mpasket/event/basket-league/video/15190896/panathinaikos-karditsa-78-64-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/mpasket/event/basket-league/video/15190896/panathinaikos-karditsa-78-64-highlights/",
+      "videoId": "nova-15190896"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "sl",
+      "title": "Asteras AKTOR-Λεβαδειακός: 0-0 (highlights)",
+      "gameDate": "2026-10-24",
+      "publishedAt": "2026-10-24T22:18:16+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/podosfairo/event/super-league-1/video/15191110/asteras-aktor-levadeiakos-0-0-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/podosfairo/event/super-league-1/video/15191110/asteras-aktor-levadeiakos-0-0-highlights/",
+      "videoId": "nova-15191110"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "seriea",
+      "title": "Νάπολι - Ρόμα: 3-3 (highlights)",
+      "gameDate": "2026-10-24",
+      "publishedAt": "2026-10-24T22:16:49+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/podosfairo/event/serie-a/highlights/video/15191112/napoli-roma-3-3-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/podosfairo/event/serie-a/highlights/video/15191112/napoli-roma-3-3-highlights/",
+      "videoId": "nova-15191112"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "sl",
+      "title": "ΑΕΚ - Παναιτωλικός: 5-0 (highlights)",
+      "gameDate": "2026-10-24",
+      "publishedAt": "2026-10-24T22:16:07+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/podosfairo/event/super-league-1/video/15191042/aek-panaitolikos-5-0-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/podosfairo/event/super-league-1/video/15191042/aek-panaitolikos-5-0-highlights/",
+      "videoId": "nova-15191042"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "bund",
+      "title": "Λειψία – Έλβερσμπεργκ: 4-0 (highlights)",
+      "gameDate": "2026-10-24",
+      "publishedAt": "2026-10-24T18:48:53+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/podosfairo/event/bundesliga/highlights/video/15190429/leipsia-elversmpergk-4-0-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/podosfairo/event/bundesliga/highlights/video/15190429/leipsia-elversmpergk-4-0-highlights/",
+      "videoId": "nova-15190429"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "pl",
+      "title": "Άστον Βίλα - Μάντσεστερ Σίτι: 2-1 (highlights)",
+      "gameDate": "2026-10-24",
+      "publishedAt": "2026-10-24T16:46:39+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/podosfairo/event/premier-league/highlights/video/15190096/aston-vila-mantsester-siti-2-1-highlights-2/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/podosfairo/event/premier-league/highlights/video/15190096/aston-vila-mantsester-siti-2-1-highlights-2/",
+      "videoId": "nova-15190096"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "el",
+      "title": "Παρί - Βαλένθια: 93-104 (highlights)",
+      "gameDate": "2026-10-23",
+      "publishedAt": "2026-10-24T00:17:41+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/mpasket/event/euroleague/highlights/video/15189214/pari-valenthia-93-104-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/mpasket/event/euroleague/highlights/video/15189214/pari-valenthia-93-104-highlights/",
+      "videoId": "nova-15189214"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "el",
+      "title": "Ολυμπιακός - Φενέρμπαχτσε: 61 - 64 (highlights)",
+      "gameDate": "2026-10-23",
+      "publishedAt": "2026-10-24T00:16:15+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/mpasket/event/euroleague/highlights/video/15189216/olympiakos-fenermpaxtse-61-64-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/mpasket/event/euroleague/highlights/video/15189216/olympiakos-fenermpaxtse-61-64-highlights/",
+      "videoId": "nova-15189216"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "bund",
+      "title": "Στουτγκάρδη - Γκλάντμπαχ: 2-3 (highlights)",
+      "gameDate": "2026-10-23",
+      "publishedAt": "2026-10-23T23:51:36+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/podosfairo/event/bundesliga/highlights/video/15189125/stoutgkardi-gklantmpax-2-3-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/podosfairo/event/bundesliga/highlights/video/15189125/stoutgkardi-gklantmpax-2-3-highlights/",
+      "videoId": "nova-15189125"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "el",
+      "title": "Ζάλγκιρις Κάουνας - Βιλερμπάν: 105-85 (highlights)",
+      "gameDate": "2026-10-23",
+      "publishedAt": "2026-10-23T22:37:29+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/mpasket/event/euroleague/highlights/video/15188982/zalgkiris-kaounas-vilermpan-105-85-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/mpasket/event/euroleague/highlights/video/15188982/zalgkiris-kaounas-vilermpan-105-85-highlights/",
+      "videoId": "nova-15188982"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "el",
+      "title": "Παρτίζαν - Ερυθρός Αστέρας: 85-82 (highlights)",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-23T00:26:17+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/mpasket/event/euroleague/highlights/video/15187038/partizan-erythros-asteras-85-82-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/mpasket/event/euroleague/highlights/video/15187038/partizan-erythros-asteras-85-82-highlights/",
+      "videoId": "nova-15187038"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "el",
+      "title": "Παναθηναϊκός - Μπασκόνια: 85-79 (highilghts)",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-22T23:42:54+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/mpasket/event/euroleague/highlights/video/15186762/panathinaikos-mpaskonia-85-79-highilghts/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/mpasket/event/euroleague/highlights/video/15186762/panathinaikos-mpaskonia-85-79-highilghts/",
+      "videoId": "nova-15186762"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "bund",
+      "title": "Πάντερμπορν - Αμβούργο: 1-0 (highlights)",
+      "gameDate": "2026-10-24",
+      "publishedAt": "2026-10-24T19:50:49+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/podosfairo/event/bundesliga/highlights/video/15190545/pantermporn-amvourgo-1-0-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/podosfairo/event/bundesliga/highlights/video/15190545/pantermporn-amvourgo-1-0-highlights/",
+      "videoId": "nova-15190545"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "el",
+      "title": "Μακάμπι Τελ Αβίβ - Ρεάλ Μαδρίτης: 99 - 113 (highlights)",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-22T23:32:38+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/mpasket/event/euroleague/highlights/video/15186725/makampi-tel-aviv-real-madritis-99-113-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/mpasket/event/euroleague/highlights/video/15186725/makampi-tel-aviv-real-madritis-99-113-highlights/",
+      "videoId": "nova-15186725"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "el",
+      "title": "Μπάγερν Μονάχου - Ντουμπάι BC: 91-107 (highlights)",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-22T23:06:25+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/mpasket/event/euroleague/highlights/video/15186654/mpagern-monaxou-ntoumpai-bc-91-107-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/mpasket/event/euroleague/highlights/video/15186654/mpagern-monaxou-ntoumpai-bc-91-107-highlights/",
+      "videoId": "nova-15186654"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "el",
+      "title": "Αναντολού Εφές - Μπεσίκτας: 89-80 (highlights)",
+      "gameDate": "2026-10-22",
+      "publishedAt": "2026-10-22T22:53:55+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/mpasket/event/euroleague/highlights/video/15186629/anantolou-efes-mpesiktas-89-80-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/mpasket/event/euroleague/highlights/video/15186629/anantolou-efes-mpesiktas-89-80-highlights/",
+      "videoId": "nova-15186629"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "bund",
+      "title": "Κολωνία - Σάλκε: 0-0 (highlights)",
+      "gameDate": "2026-10-24",
+      "publishedAt": "2026-10-24T19:14:19+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/podosfairo/event/bundesliga/highlights/video/15190498/kolonia-salke-0-0-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/podosfairo/event/bundesliga/highlights/video/15190498/kolonia-salke-0-0-highlights/",
+      "videoId": "nova-15190498"
+    },
+    {
+      "publisher": "nova-web",
+      "competition": "bund",
+      "title": "Ντόρτμουντ – Άιντραχτ Φρανκφούρτης: 1-0 (highlights)",
+      "gameDate": "2026-10-24",
+      "publishedAt": "2026-10-24T21:36:58+03:00",
+      "kind": "game",
+      "url": "https://www.novasports.gr/web-tv/sport/podosfairo/event/bundesliga/highlights/video/15190958/ntortmount-aintraxt-frankfourtis-1-0-highlights/",
+      "sourceURL": "https://www.novasports.gr/web-tv/sport/podosfairo/event/bundesliga/highlights/video/15190958/ntortmount-aintraxt-frankfourtis-1-0-highlights/",
+      "videoId": "nova-15190958"
     }
   ]
 }
