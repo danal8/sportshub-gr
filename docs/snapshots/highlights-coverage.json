@@ -1,46 +1,17 @@
 {
-  "checkedAt": "2026-10-25T05:38:02.501Z",
+  "checkedAt": "2026-10-25T05:57:52.880Z",
   "sourceErrors": [
     "NBA: HTTP 404",
     "EuroLeague: HTTP 404",
     "NBA: HTTP 404",
-    "Magenta Sport: HTTP 404",
-    "Novasports: HTTP 404",
     "NBA: HTTP 404",
+    "Novasports: HTTP 404",
+    "Magenta Sport: HTTP 404",
     "NBA: HTTP 404",
     "EuroCup: HTTP 404",
     "Magenta Sport archive: Empty publisher video listings; retained earlier videos: ",
     "NBA.com: 0022600110: NBA game recap not yet published",
-    "NBA.com: 0022600111: NBA game recap not yet published",
-    "NBA YouTube region: jmxhqhQIUyY: YouTube country availability unavailable",
-    "NBA YouTube region: UIiV46AZIh4: YouTube country availability unavailable",
-    "NBA YouTube region: DPgrjyciioY: YouTube country availability unavailable",
-    "NBA YouTube region: vTUV7qXzPSA: YouTube country availability unavailable",
-    "NBA YouTube region: Lw6ZDR4KRIY: YouTube country availability unavailable",
-    "NBA YouTube region: xN2DI4cxvXc: YouTube country availability unavailable",
-    "NBA YouTube region: Z5yBg42u7N4: YouTube country availability unavailable",
-    "NBA YouTube region: 7wKdoaRzQB0: YouTube country availability unavailable",
-    "NBA YouTube region: A4v-byV18_Y: YouTube country availability unavailable",
-    "NBA YouTube region: ihLZ3Ti4wqM: YouTube country availability unavailable",
-    "NBA YouTube region: ZG-VOv0iI7Q: YouTube country availability unavailable",
-    "NBA YouTube region: 2o4lgEQCOgk: YouTube country availability unavailable",
-    "NBA YouTube region: KVC5atVkCyE: YouTube country availability unavailable",
-    "NBA YouTube region: P3U_TwDKT-Y: YouTube country availability unavailable",
-    "NBA YouTube region: ZUslpiyp7G4: YouTube country availability unavailable",
-    "NBA YouTube region: Q052nRK7KNk: YouTube country availability unavailable",
-    "NBA YouTube region: sXlPebl2zfk: YouTube country availability unavailable",
-    "NBA YouTube region: If1DIVuMPkc: YouTube country availability unavailable",
-    "NBA YouTube region: 9n0WtH6pzGc: YouTube country availability unavailable",
-    "NBA YouTube region: KoRT1d_i13o: YouTube country availability unavailable",
-    "NBA YouTube region: w4g6vpvVyos: YouTube country availability unavailable",
-    "NBA YouTube region: nL79PGsNMNc: YouTube country availability unavailable",
-    "NBA YouTube region: r5pqf0we5uM: YouTube country availability unavailable",
-    "NBA YouTube region: 2SHdd_RRsRw: YouTube country availability unavailable",
-    "NBA YouTube region: tIsw4QK1Ung: YouTube country availability unavailable",
-    "NBA YouTube region: aEAJfS_6J0g: YouTube country availability unavailable",
-    "NBA YouTube region: KABX-E-SRwA: YouTube country availability unavailable",
-    "NBA YouTube region: qEepDtX5qLM: YouTube country availability unavailable",
-    "NBA YouTube region: -66hmMWFOcg: YouTube country availability unavailable"
+    "NBA YouTube region: A4v-byV18_Y: YouTube country availability unavailable"
   ],
   "start": "2026-10-23",
   "end": "2026-10-25",
@@ -356,19 +327,13 @@
     },
     "nba": {
       "finished": 22,
-      "covered": 20,
+      "covered": 21,
       "uncoveredMatches": [
         {
           "home": "Denver Nuggets",
           "away": "New Orleans Pelicans",
           "date": "2026-10-25",
           "time": "03:00"
-        },
-        {
-          "home": "Phoenix Suns",
-          "away": "Golden State Warriors",
-          "date": "2026-10-25",
-          "time": "04:00"
         }
       ],
       "unmatchedVideos": [
@@ -415,11 +380,6 @@
         {
           "videoId": "ihLZ3Ti4wqM",
           "title": "EXTENDED: ROCKETS at SPURS | FULL GAME HIGHLIGHTS | October 23, 2026",
-          "gameDate": "2026-10-23"
-        },
-        {
-          "videoId": "ZG-VOv0iI7Q",
-          "title": "NBA's Nightly Recap | October 23, 2026",
           "gameDate": "2026-10-23"
         },
         {
@@ -486,11 +446,6 @@
           "videoId": "r5pqf0we5uM",
           "title": "BULLS at BUCKS | FULL GAME HIGHLIGHTS | October 23, 2026",
           "gameDate": "2026-10-23"
-        },
-        {
-          "videoId": "tIsw4QK1Ung",
-          "title": "NBA's Nightly Recap | October 22, 2026",
-          "gameDate": "2026-10-22"
         },
         {
           "videoId": "aEAJfS_6J0g",

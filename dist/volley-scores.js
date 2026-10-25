@@ -1,4 +1,4 @@
-import{volleyGames}from'./direct.js?v=62';
+import{volleyGames}from'./direct.js?v=63';
 export const VOLLEY_RESULTS='https://raw.githubusercontent.com/danal8/sportshub-gr/gbl-live-data/volley-results.json';
 export const WOMEN_API='https://volleyball.gr/wp-json/sportspress/v2/events/';
 const name=s=>String(s||'').normalize('NFD').replace(/\p{M}/gu,'').toLowerCase().replace(/[^\p{L}\p{N}]/gu,'');

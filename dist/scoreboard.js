@@ -1,5 +1,5 @@
-import{teamKey}from'./badges.js?v=62';
-import{aliases}from'./team-aliases.js?v=62';
+import{teamKey}from'./badges.js?v=63';
+import{aliases}from'./team-aliases.js?v=63';
 const names=n=>new Set([n,...aliases[teamKey(n)]||[]].map(teamKey));
 const same=(a,b)=>[...names(a)].some(n=>names(b).has(n));
 // Only explicit in-progress/completed states can introduce scores.

@@ -27,7 +27,6 @@ jobs:
       - run: node scripts/refresh-volley.mjs
       - run: node scripts/refresh-confirmed-results.mjs
       - run: node scripts/refresh-tv-details.mjs
-      - run: node scripts/refresh-highlights.mjs
       - run: npm run build
       - run: node --test tests/*.test.mjs
       - name: Save results and rebuild Pages

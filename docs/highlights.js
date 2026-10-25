@@ -1,6 +1,6 @@
-import{aliases}from'./team-aliases.js?v=62';
-import{teamKey}from'./badges.js?v=62';
-import{athensDay,shiftDay}from'./core.js?v=62';
+import{aliases}from'./team-aliases.js?v=63';
+import{teamKey}from'./badges.js?v=63';
+import{athensDay,shiftDay}from'./core.js?v=63';
 export const publishers=[
  {id:'nba',label:'NBA',channel:'UCWJ2lWNubArHWmf3FIHbfcQ'},
  {id:'el',label:'EuroLeague',channel:'UCGr3nR_XH9r6E5b09ZJAT9w'},
@@ -88,9 +88,15 @@ export function selectHighlights(videos,m,{now=Date.now()}={}){
  }
  hits.sort((a,b)=>a.rank-b.rank||Date.parse(b.publishedAt)-Date.parse(a.publishedAt));return hits[0]||null;
 }
+export const HIGHLIGHTS_FEED='https://raw.githubusercontent.com/danal8/sportshub-gr/gbl-live-data/highlights-2026-27.json';
+export async function fetchHighlightsIndex({fetchJSON=async url=>{const r=await fetch(url,{cache:'no-store',credentials:'omit',signal:AbortSignal.timeout(6000)});if(!r.ok)throw Error('Highlights HTTP '+r.status);return r.json();}}={}){
+ const sources=await Promise.allSettled([fetchJSON(HIGHLIGHTS_FEED+'?t='+Date.now()),fetchJSON('./snapshots/highlights-2026-27.json')]);
+ const valid=sources.filter(r=>r.status==='fulfilled'&&r.value?.season==='2026-27'&&Array.isArray(r.value.videos)&&Number.isFinite(Date.parse(r.value.retrievedAt))).map(r=>r.value).sort((a,b)=>Date.parse(b.retrievedAt)-Date.parse(a.retrievedAt));
+ if(!valid.length)throw Error('Highlights unavailable');return valid[0];
+}
 let cached=null,pending=null,loadedAt=0;
 export async function loadHighlightsIndex({force=false}={}){
- if(!pending&&(force||!cached||Date.now()-loadedAt>120000))pending=fetch('./snapshots/highlights-2026-27.json',{cache:'no-store',credentials:'omit',signal:AbortSignal.timeout(6000)}).then(async r=>{if(!r.ok)throw Error('Highlights unavailable');const p=await r.json();if(p.season!=='2026-27'||!Array.isArray(p.videos))throw Error('Wrong highlights season');cached=p.videos;loadedAt=Date.now();}).finally(()=>pending=null);
+ if(!pending&&(force||!cached||Date.now()-loadedAt>120000))pending=fetchHighlightsIndex().then(p=>{cached=p.videos;loadedAt=Date.now();}).catch(e=>{if(!cached)throw e;}).finally(()=>pending=null);
  if(pending)await pending;return cached;
 }
 export async function loadMatchHighlights(m,{force=false}={}){

@@ -1,0 +1,25 @@
+name: Refresh highlights independently
+on:
+  push:
+    branches: [main]
+    paths: ['scripts/*highlight*.mjs', 'scripts/youtube-publisher-archive.mjs', 'scripts/nba-recaps.mjs', 'scripts/nba-video-regions.mjs', 'dist/highlights.js', 'dist/highlight-coverage.js', 'dist/team-aliases.js', '.github/workflows/highlights.yml']
+  workflow_dispatch:
+  schedule:
+    - cron: '*/10 * * * *'
+permissions:
+  contents: write
+concurrency:
+  group: sportshub-highlights
+  cancel-in-progress: false
+jobs:
+  highlights:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/run-highlights.mjs --force --publish
+        env:
+          GH_TOKEN: ${{ github.token }}
