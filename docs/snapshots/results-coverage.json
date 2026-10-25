@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-25T06:01:21.372Z",
+  "checkedAt": "2026-10-25T09:43:52.478Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -360,18 +360,18 @@
           "away": "ΜΑΡΚΟ"
         },
         {
-          "id": "sl2-2627057",
-          "competition": "sl2",
-          "date": "2026-10-25",
-          "home": "ΠΑΝΘΡΑΚΙΚΟΣ",
-          "away": "ASTERAS AKTOR Β'"
-        },
-        {
           "id": "sl2-2627060",
           "competition": "sl2",
           "date": "2026-10-25",
           "home": "ΑΝΑΓ. ΚΑΡΔΙΤΣΑΣ",
           "away": "ΠΑΟΚ Β'"
+        },
+        {
+          "id": "sl2-2627057",
+          "competition": "sl2",
+          "date": "2026-10-25",
+          "home": "ΠΑΝΘΡΑΚΙΚΟΣ",
+          "away": "ASTERAS AKTOR Β'"
         }
       ],
       "sourceError": null,
