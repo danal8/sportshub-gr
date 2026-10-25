@@ -1,6 +1,6 @@
-import{athensDay}from'./core.js?v=64';
-import{aliases}from'./team-aliases.js?v=64';
-import{sameResultMatch}from'./result-reconciliation.js?v=64';
+import{athensDay}from'./core.js?v=65';
+import{aliases}from'./team-aliases.js?v=65';
+import{sameResultMatch}from'./result-reconciliation.js?v=65';
 export const LIVE_DATA='https://raw.githubusercontent.com/danal8/sportshub-gr/gbl-live-data/live-scores.json';
 export const FLASH_DEFAULT={origin:'https://11.flashscore.ninja',project:'11',sign:'SW9D1eZo'};
 export const flashLeagues={
@@ -9,7 +9,7 @@ export const flashLeagues={
  '/volleyball/greece/volley-league/':['volley-m',12],'/volleyball/greece/a1-women/':['volley-w',12],'/volleyball/greece/volley-league-women/':['volley-w',12]
 };
 const key=s=>String(s||'').normalize('NFD').replace(/\p{M}/gu,'').toLowerCase().replace(/ς/g,'σ').replace(/[^\p{L}\p{N}]/gu,'');
-const extra=[['Ολυμπιακός Σ.Φ.Π. ΟΝΕΧ','Ολυμπιακός'],['ΑΝΑΓ. ΚΑΡΔΙΤΣΑΣ','Αναγέννηση Καρδίτσας'],["ASTERAS AKTOR Β'",'Αστέρας Τρίπολης Β'],['Philadelphia 76ers','Φιλαδέλφια 76ερς'],['Washington Wizards','Ουάσιγκτον Γουίζαρντς'],['Phoenix Suns','Φίνιξ Σανς'],['Πανιώνιος','Panionios'],['Μαρκό','Marko','GS Marko'],['Χαλ','Hull City'],['Μπάγερ Λεβερκούζεν','Bayer 04 Leverkusen','Λεβερκούζεν'],['ΚΟΛΟΣΣΟΣ H HOTELS COLLECTION','Κολοσσός Ρόδου'],['VIKOS ΦALCONS','Βίκος Ιωαννίνων'],['ΠΡΟΜΗΘΕΑΣ ΠΑΤΡΑΣ ΒΙΚΟΣ COLA','Προμηθέας Πατρών'],['Ν.Ο.Π.Ε. Ρεθύμνου','Ρέθυμνο'],['Α.Σ. Άρης','Άρης'],['Α.Ο.Φλοίσβος MEMBERS PARON','ΑΟ Φλοίσβος Παλαιού Φαλήρου'],['Α.Ο.Φοίνικας Σύρου','Φοίνικας Σύρου'],['Α.Ο.Ν.Σ.Μίλων','ΑΟΝΣ Μίλων']];
+const extra=[['Ανζέρ','Angers SCO'],['Στρασβούργο','RC Strasbourg Alsace'],['Ολυμπιακός Σ.Φ.Π. ΟΝΕΧ','Ολυμπιακός'],['ΑΝΑΓ. ΚΑΡΔΙΤΣΑΣ','Αναγέννηση Καρδίτσας'],["ASTERAS AKTOR Β'",'Αστέρας Τρίπολης Β'],['Philadelphia 76ers','Φιλαδέλφια 76ερς'],['Washington Wizards','Ουάσιγκτον Γουίζαρντς'],['Phoenix Suns','Φίνιξ Σανς'],['Πανιώνιος','Panionios'],['Μαρκό','Marko','GS Marko'],['Χαλ','Hull City'],['Μπάγερ Λεβερκούζεν','Bayer 04 Leverkusen','Λεβερκούζεν'],['ΚΟΛΟΣΣΟΣ H HOTELS COLLECTION','Κολοσσός Ρόδου'],['VIKOS ΦALCONS','Βίκος Ιωαννίνων'],['ΠΡΟΜΗΘΕΑΣ ΠΑΤΡΑΣ ΒΙΚΟΣ COLA','Προμηθέας Πατρών'],['Ν.Ο.Π.Ε. Ρεθύμνου','Ρέθυμνο'],['Α.Σ. Άρης','Άρης'],['Α.Ο.Φλοίσβος MEMBERS PARON','ΑΟ Φλοίσβος Παλαιού Φαλήρου'],['Α.Ο.Φοίνικας Σύρου','Φοίνικας Σύρου'],['Α.Ο.Ν.Σ.Μίλων','ΑΟΝΣ Μίλων']];
 const aliasMap={};for(const [k,values]of Object.entries(aliases))aliasMap[key(k)]=[...(aliasMap[key(k)]||[]),...values];
 const names=n=>{const out=[n],seen=new Set();for(let i=0;i<out.length;i++){const k=key(out[i]);if(seen.has(k))continue;seen.add(k);out.push(...(aliasMap[k]||[]).filter(a=>!seen.has(key(a))));for(const row of extra)if(row.some(a=>key(a)===k))out.push(...row.filter(a=>!seen.has(key(a))));}return seen;};
 const same=(a,b)=>{const left=names(a);return[...names(b)].some(n=>left.has(n));};
@@ -44,7 +44,7 @@ export function parseFlashscore(text,matches,{sport,date,checkedAt=new Date().to
 }
 export function verifiedScoreData(payload,matches,{date,now=Date.now()}={}){
  if(payload?.season!=='2026-27'||payload.provider!=='SportsHub live relay'||!Array.isArray(payload.entries))throw Error('Invalid live relay');
- return payload.entries.filter(x=>x&&x.date===date&&score(x.score)&&['live','final'].includes(x.scoreState)&&Date.parse(x.scoreCheckedAt)<=now+60000&&matches.filter(m=>m.id===x.id&&sameResultMatch(m,x)).length===1).map(x=>({...x,scoreState:x.scoreState==='live'&&now-Date.parse(x.scoreCheckedAt)>=90000?'current':x.scoreState}));
+ return payload.entries.filter(x=>x&&x.date===date&&score(x.score)&&['live','final'].includes(x.scoreState)&&Date.parse(x.scoreCheckedAt)<=now+60000&&matches.filter(m=>sameResultMatch(m,x)).length===1).map(x=>({...x,id:matches.find(m=>sameResultMatch(m,x)).id,scoreState:x.scoreState==='live'&&now-Date.parse(x.scoreCheckedAt)>=90000?'current':x.scoreState}));
 }
 let config=FLASH_DEFAULT,configChecked=0;const pending=new Map();
 export async function loadFlashScores(matches,date,{competitionIDs,fetchImpl=fetch,force=false,onUpdate}={}){

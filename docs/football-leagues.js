@@ -1,6 +1,6 @@
-import{normalizeFootball}from'./core.js?v=64';
-import{teamKey}from'./badges.js?v=64';
-import{aliases}from'./team-aliases.js?v=64';
+import{normalizeFootball}from'./core.js?v=65';
+import{teamKey}from'./badges.js?v=65';
+import{aliases}from'./team-aliases.js?v=65';
 const leagues={seriea:{file:'it.1',espn:'ita.1',teams:20,matches:380},ligue1:{file:'fr.1',espn:'fra.1',teams:18,matches:306}};
 const local=utc=>({date:new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Athens',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(utc)),time:new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Athens',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date(utc))});
 async function json(url){const r=await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('HTTP '+r.status);return r.json();}

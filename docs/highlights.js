@@ -1,6 +1,6 @@
-import{aliases}from'./team-aliases.js?v=64';
-import{teamKey}from'./badges.js?v=64';
-import{athensDay,shiftDay}from'./core.js?v=64';
+import{aliases}from'./team-aliases.js?v=65';
+import{teamKey}from'./badges.js?v=65';
+import{athensDay,shiftDay}from'./core.js?v=65';
 export const publishers=[
  {id:'nba',label:'NBA',channel:'UCWJ2lWNubArHWmf3FIHbfcQ'},
  {id:'el',label:'EuroLeague',channel:'UCGr3nR_XH9r6E5b09ZJAT9w'},
