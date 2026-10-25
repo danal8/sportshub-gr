@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-25T09:43:52.478Z",
+  "checkedAt": "2026-10-25T13:57:31.769Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -87,20 +87,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "gbl-8C9531D2",
-          "competition": "gbl",
-          "date": "2026-10-25",
-          "home": "ΚΟΛΟΣΣΟΣ H HOTELS COLLECTION",
-          "away": "VIKOS ΦALCONS"
-        },
-        {
-          "id": "gbl-31F4330D",
-          "competition": "gbl",
-          "date": "2026-10-25",
-          "home": "ΠΡΟΜΗΘΕΑΣ ΠΑΤΡΑΣ ΒΙΚΟΣ COLA",
-          "away": "ΟΛΥΜΠΙΑΚΟΣ"
-        },
-        {
           "id": "gbl-3690EC22",
           "competition": "gbl",
           "date": "2026-09-17",
@@ -109,7 +95,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 26
+      "finals": 28
     },
     {
       "competition": "laliga",
@@ -267,13 +253,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "seriea-2026-10-25-FC Internazionale Milano-ACF Fiorentina-75",
-          "competition": "seriea",
-          "date": "2026-10-25",
-          "home": "FC Internazionale Milano",
-          "away": "ACF Fiorentina"
-        },
-        {
           "id": "seriea-2026-10-25-Atalanta BC-Frosinone Calcio-76",
           "competition": "seriea",
           "date": "2026-10-25",
@@ -303,7 +282,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 75
+      "finals": 76
     },
     {
       "competition": "sl",
