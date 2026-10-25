@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-24T22:05:03.682Z",
+  "checkedAt": "2026-10-25T00:18:30.906Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -116,20 +116,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "laliga-85434",
-          "competition": "laliga",
-          "date": "2026-10-24",
-          "home": "FC Valencia",
-          "away": "FC Villareal"
-        },
-        {
-          "id": "laliga-85427",
-          "competition": "laliga",
-          "date": "2026-10-24",
-          "home": "Atlético Madrid",
-          "away": "Deportivo A Coruña"
-        },
-        {
           "id": "laliga-85426",
           "competition": "laliga",
           "date": "2026-10-25",
@@ -159,7 +145,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 92
+      "finals": 94
     },
     {
       "competition": "ligue1",
@@ -171,13 +157,6 @@
           "date": "2026-10-24",
           "home": "Toulouse FC",
           "away": "ES Troyes AC"
-        },
-        {
-          "id": "ligue1-2026-10-24-Racing Club de Lens-Paris FC-65",
-          "competition": "ligue1",
-          "date": "2026-10-24",
-          "home": "Racing Club de Lens",
-          "away": "Paris FC"
         },
         {
           "id": "ligue1-2026-10-25-AS Monaco FC-Lille OSC-66",
@@ -223,7 +202,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 64
+      "finals": 65
     },
     {
       "competition": "nba",
@@ -301,13 +280,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "pl-86603",
-          "competition": "pl",
-          "date": "2026-10-24",
-          "home": "Chelsea FC",
-          "away": "Tottenham Hotspur FC"
-        },
-        {
           "id": "pl-86602",
           "competition": "pl",
           "date": "2026-10-25",
@@ -344,19 +316,12 @@
         }
       ],
       "sourceError": null,
-      "finals": 74
+      "finals": 75
     },
     {
       "competition": "seriea",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "seriea-2026-10-24-SS Lazio-Parma Calcio 1913-74",
-          "competition": "seriea",
-          "date": "2026-10-24",
-          "home": "SS Lazio",
-          "away": "Parma Calcio 1913"
-        },
         {
           "id": "seriea-2026-10-25-FC Internazionale Milano-ACF Fiorentina-75",
           "competition": "seriea",
@@ -394,7 +359,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 74
+      "finals": 75
     },
     {
       "competition": "sl",
@@ -406,20 +371,6 @@
           "date": "2026-10-17",
           "home": "Atromitos",
           "away": "AEK"
-        },
-        {
-          "id": "sl-2026-10-24-Asteras Tripolis-Levadiakos",
-          "competition": "sl",
-          "date": "2026-10-24",
-          "home": "Asteras Tripolis",
-          "away": "Levadiakos"
-        },
-        {
-          "id": "sl-2026-10-24-AEK-Panetolikos",
-          "competition": "sl",
-          "date": "2026-10-24",
-          "home": "AEK",
-          "away": "Panetolikos"
         },
         {
           "id": "sl-2026-10-25-Olympiakos Piraeus-Kalamata",
@@ -451,7 +402,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 49
+      "finals": 51
     },
     {
       "competition": "sl2",
