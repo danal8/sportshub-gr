@@ -1,5 +1,5 @@
-import{aliases}from'./team-aliases.js?v=63';
-import{validScore}from'./results.js?v=63';
+import{aliases}from'./team-aliases.js?v=64';
+import{validScore}from'./results.js?v=64';
 const key=s=>String(s||'').normalize('NFD').replace(/\p{M}/gu,'').toLocaleLowerCase('el').replace(/[^\p{L}\p{N}]/gu,'');
 const nameCache=new Map();
 function names(name,extra=[]){const id=JSON.stringify([name,extra]);if(nameCache.has(id))return nameCache.get(id);const result=new Set([name,...extra,...aliases[key(name)]||[]].filter(Boolean).flatMap(n=>[n,...aliases[key(n)]||[]]).map(key));if(nameCache.size>=1024)nameCache.clear();nameCache.set(id,result);return result;}
@@ -25,10 +25,11 @@ export function mergeResultUpdates(matches,entries,now=Date.now()){
   if(bucket(fixtures,x).filter(r=>sameResultMatch(r,x)).length!==1)return m;
   const identity={homeIDs:{...m.homeIDs,...x.homeIDs},awayIDs:{...m.awayIDs,...x.awayIDs},eventIDs:{...m.eventIDs,...x.eventIDs}};
   if(!validScore(x.score)||!['live','current','final'].includes(x.scoreState))return {...m,...identity};
-  if(m.scoreState==='final'&&validScore(m.score)&&x.scoreState!=='final')return {...m,...identity};
+  if(m.scoreState==='final'&&validScore(m.score)&&(x.scoreState!=='final'||m.scoreProvider==='Flashscore'&&x.provider!=='Flashscore'&&x.scoreProvider!=='Flashscore'))return {...m,...identity};
   const checked=x.scoreCheckedAt||x.checkedAt,existing=Date.parse(m.scoreCheckedAt),incoming=Date.parse(checked);
   if(!Number.isFinite(incoming)||x.scoreState==='final'&&incoming>now+60000)return m;
-  if(validScore(m.score)&&Number.isFinite(existing)&&existing<=now+60000&&existing>incoming)return {...m,...identity};
+  const authoritative=x.provider==='Flashscore'&&m.scoreProvider!=='Flashscore'&&now-incoming>=-60000&&now-incoming<90000;
+  if(validScore(m.score)&&Number.isFinite(existing)&&existing<=now+60000&&existing>incoming&&!(x.scoreState==='final'&&m.scoreState!=='final')&&!authoritative)return {...m,...identity};
   const fresh=now-incoming>=-60000&&now-incoming<90000;
   return {...m,...identity,time:m.time||x.time,score:x.score,scoreState:x.scoreState==='live'&&!fresh?'current':x.scoreState,scoreClock:x.scoreState==='live'&&fresh?(x.clock||x.scoreClock):null,scoreCheckedAt:checked,scoreSource:x.source||x.scoreSource,scoreProvider:x.provider||x.scoreProvider};
  });

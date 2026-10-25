@@ -1,7 +1,8 @@
-import{sourceClock}from'./live-scores.js?v=63';
-import{teamKey}from'./badges.js?v=63';
-import{aliases}from'./team-aliases.js?v=63';
-import{loadProvider}from'./providers.js?v=63';
+import{mergeResultUpdates}from'./result-reconciliation.js?v=64';
+import{sourceClock}from'./live-scores.js?v=64';
+import{teamKey}from'./badges.js?v=64';
+import{aliases}from'./team-aliases.js?v=64';
+import{loadProvider}from'./providers.js?v=64';
 const leagues={sl:['soccer','gre.1'],pl:['soccer','eng.1'],bund:['soccer','ger.1'],laliga:['soccer','esp.1'],seriea:['soccer','ita.1'],ligue1:['soccer','fra.1'],cl:['soccer','uefa.champions'],europa:['soccer','uefa.europa'],conference:['soccer','uefa.europa.conf'],nba:['basketball','nba']};
 const athens=d=>({date:new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Athens',year:'numeric',month:'2-digit',day:'2-digit'}).format(d),time:new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Athens',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(d)});
 export function decimalOdds(value){if(value===null||value===undefined||value==='')return null;const n=String(value).toUpperCase()==='EVEN'?100:Number(value);return Number.isFinite(n)&&Math.abs(n)>=100?Number((n>0?1+n/100:1+100/Math.abs(n)).toFixed(2)):null;}
@@ -20,7 +21,7 @@ export function parseTVDetails(raw,id,checkedAt=new Date().toISOString()){
 const candidates=(name,extra=[])=>new Set([name,...extra,...aliases[teamKey(name)]||[]].flatMap(n=>[n,...aliases[teamKey(n)]||[]]).map(teamKey));
 function same(name,other,extra){const a=candidates(name);return[...candidates(other,extra)].some(n=>a.has(n));}
 export function applyTVDetails(matches,entries,now=Date.now()){
- return matches.map(m=>{const hits=entries.filter(x=>x.competition===m.competition&&x.date===m.date&&same(m.home,x.home,x.homeAliases)&&same(m.away,x.away,x.awayAliases)&&Math.abs(Number(m.time?.slice(0,2))*60+Number(m.time?.slice(3))-Number(x.time?.slice(0,2))*60-Number(x.time?.slice(3)))<=15);if(hits.length!==1)return m;const x=hits[0],age=now-Date.parse(x.checkedAt),fresh=Number.isFinite(age)&&age>=-60000&&age<120000;const score=x.score?{score:x.score,scoreState:x.scoreState==='live'&&!fresh?'current':x.scoreState,scoreCheckedAt:x.checkedAt,scoreSource:x.source,scoreClock:fresh?x.clock:null,scoreProvider:x.provider}:{};const o=x.odds,odds=o&&now<Date.parse(o.startsAt)&&age>=-60000&&age<600000?o:null;return{...m,...score,odds};});
+ return matches.map(m=>{const hits=entries.filter(x=>x.competition===m.competition&&x.date===m.date&&same(m.home,x.home,x.homeAliases)&&same(m.away,x.away,x.awayAliases)&&Math.abs(Number(m.time?.slice(0,2))*60+Number(m.time?.slice(3))-Number(x.time?.slice(0,2))*60-Number(x.time?.slice(3)))<=15);if(hits.length!==1)return m;const x=hits[0],age=now-Date.parse(x.checkedAt),fresh=Number.isFinite(age)&&age>=-60000&&age<120000;const score=x.score?{score:x.score,scoreState:x.scoreState==='live'&&!fresh?'current':x.scoreState,scoreCheckedAt:x.checkedAt,scoreSource:x.source,scoreClock:fresh?x.clock:null,scoreProvider:x.provider}:{};const o=x.odds,odds=o&&now<Date.parse(o.startsAt)&&age>=-60000&&age<600000?o:null;return{...mergeResultUpdates([m],[{...x,id:m.id,home:m.home,away:m.away}],now)[0],odds};});
 }
 const cache=new Map(),inflight=new Map();
 export async function loadTVDetails(date,{competition='all-tv',force=false,fallback=true,competitionIDs}={}){

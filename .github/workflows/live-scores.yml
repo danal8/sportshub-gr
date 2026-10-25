@@ -1,0 +1,25 @@
+name: Refresh multi-sport live scores
+on:
+  push:
+    branches: [main]
+    paths: ['scripts/refresh-live-scores.mjs', 'dist/flashscore.js', '.github/workflows/live-scores.yml']
+  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *'
+permissions:
+  contents: write
+concurrency:
+  group: sportshub-live-relay
+  cancel-in-progress: true
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/refresh-live-scores.mjs --poll
+        env:
+          GH_TOKEN: ${{ github.token }}

@@ -1,0 +1,26 @@
+import{applyTVDetails}from'../dist/tv-details.js';
+import test from'node:test';import assert from'node:assert/strict';import{readFile}from'node:fs/promises';
+import{parseFlashscore,preferScoreSources,verifiedScoreData,flashURL,FLASH_DEFAULT}from'../dist/flashscore.js';import{mergeResultUpdates}from'../dist/result-reconciliation.js';
+const football=await readFile(new URL('./fixtures/flashscore-1.txt',import.meta.url),'utf8'),basket=await readFile(new URL('./fixtures/flashscore-3.txt',import.meta.url),'utf8'),volley=await readFile(new URL('./fixtures/flashscore-12.txt',import.meta.url),'utf8'),date='2026-10-25',checkedAt='2026-10-25T16:00:00Z',now=Date.parse(checkedAt);
+const united={id:'pl-86606',competition:'pl',date,home:'Manchester United FC',away:'AFC Bournemouth',score:[0,2],scoreState:'live',scoreCheckedAt:checkedAt},panionios={id:'sl2-2627064',competition:'sl2',date,home:'ΠΑΝΙΩΝΙΟΣ',away:'ΜΑΡΚΟ',score:[0,2],scoreState:'current',scoreCheckedAt:checkedAt};
+test('Observed Flashscore feed fixes Panionios 0-4 final and United 0-3 final against old source scores',()=>{
+ const {entries,unmatched}=parseFlashscore(football,[united,panionios],{sport:1,date,checkedAt});assert.equal(entries.length,2);assert.deepEqual(entries.map(x=>x.score),[[0,3],[0,4]]);assert.ok(entries.every(x=>x.scoreState==='final'));assert.equal(unmatched.some(x=>x.home==='Πανιώνιος'),false);
+ const corrected=mergeResultUpdates([united,panionios],entries,now);assert.deepEqual(corrected.map(x=>[x.score,x.scoreState]),[[[0,3],'final'],[[0,4],'final']]);const stale={...united,provider:'ESPN',score:[0,2],scoreState:'live',checkedAt:new Date(now+30000).toISOString()};assert.deepEqual(mergeResultUpdates(corrected,[stale],now+30000)[0].score,[0,3]);
+});
+test('Scores require exact competition, date, oriented clubs and unique source identity',()=>{
+ assert.throws(()=>parseFlashscore(football,[united],{sport:3,date,checkedAt}));assert.equal(parseFlashscore(football,[{...united,competition:'sl2'}],{sport:1,date,checkedAt}).entries.length,0);assert.equal(parseFlashscore(football,[{...united,home:united.away,away:united.home}],{sport:1,date,checkedAt}).entries.length,0);assert.equal(parseFlashscore(football,[united,{...united,id:'duplicate'}],{sport:1,date,checkedAt}).entries.length,0);assert.equal(parseFlashscore(football,[united],{sport:1,date:'2026-10-24',checkedAt}).entries.length,0);
+ const learned=parseFlashscore(football,[united],{sport:1,date,checkedAt}).entries[0];assert.equal(parseFlashscore(football,[{...learned,homeIDs:{flashscore:'wrong'}}],{sport:1,date,checkedAt}).entries.length,0);
+});
+test('Flashscore also resolves GBL and volleyball while preserving the application names and separate sports',()=>{
+ const matches=[{id:'gbl-1',competition:'gbl',date,home:'ΚΟΛΟΣΣΟΣ H HOTELS COLLECTION',away:'VIKOS ΦALCONS'},{id:'volley-1',competition:'volley-m',date,home:'Ν.Ο.Π.Ε.Ρεθύμνου',away:'Ολυμπιακός Σ.Φ.Π. ΟΝΕΧ'},{id:'volley-2',competition:'volley-m',date,home:'Α.Σ.Άρης',away:'Α.Ο.Φλοίσβος Members Paron'}];
+ const b=parseFlashscore(basket,matches,{sport:3,date,checkedAt}).entries;assert.deepEqual(b[0].score,[80,70]);assert.equal(b[0].home,matches[0].home);const v=parseFlashscore(volley,matches,{sport:12,date,checkedAt}).entries;assert.deepEqual(v.map(x=>x.score),[[0,3],[0,2]]);assert.equal(v[1].scoreState,'live');assert.equal(v[1].clock,'3ο σετ');
+});
+test('Delayed providers cannot overwrite primary finals; source cache age is not renewed on download',()=>{
+ const fs=parseFlashscore(football,[united],{sport:1,date,checkedAt}).entries[0],other={...united,provider:'ESPN',score:[0,2],scoreState:'final',checkedAt:new Date(now+30000).toISOString()};assert.deepEqual(preferScoreSources([united],[other,fs])[0].score,[0,3]);assert.deepEqual(mergeResultUpdates([fs],[other],now+30000)[0].score,[0,3]);
+ const active={id:'v2',competition:'volley-m',date,home:'Α.Σ.Άρης',away:'Α.Ο.Φλοίσβος Members Paron'},old=parseFlashscore(volley,[active],{sport:12,date,checkedAt,cacheAge:300}).entries[0],p={season:'2026-27',provider:'SportsHub live relay',entries:[old]};assert.equal(verifiedScoreData(p,[active],{date,now})[0].scoreState,'current');assert.equal(old.scoreCheckedAt,new Date(now-300000).toISOString());
+ assert.throws(()=>flashURL({...FLASH_DEFAULT,origin:'https://evil.example'},1,date,date));assert.ok(flashURL(FLASH_DEFAULT,1,date,date).includes('?t='));
+});
+
+test('An expired relay score cannot outrank a fresh live score from another provider',()=>{const stamp=Date.now(),old={...united,provider:'Flashscore',score:[0,1],scoreState:'current',scoreCheckedAt:new Date(stamp-120000).toISOString()},fresh={...united,provider:'ESPN',score:[0,3],scoreState:'live',scoreCheckedAt:new Date(stamp).toISOString()};assert.deepEqual(preferScoreSources([united],[old,fresh])[0].score,[0,3]);});
+
+test('TV enrichment cannot restore an ESPN live score after a verified Flashscore final',()=>{const m={...united,time:'16:00',score:[0,3],scoreState:'final',scoreProvider:'Flashscore'},entry={...united,time:'16:00',score:[0,2],checkedAt,provider:'ESPN'};assert.deepEqual(applyTVDetails([m],[entry],now)[0].score,[0,3]);assert.equal(applyTVDetails([m],[entry],now)[0].scoreState,'final');});
