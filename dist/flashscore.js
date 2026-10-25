@@ -1,6 +1,6 @@
-import{athensDay}from'./core.js?v=65';
-import{aliases}from'./team-aliases.js?v=65';
-import{sameResultMatch}from'./result-reconciliation.js?v=65';
+import{athensDay}from'./core.js?v=66';
+import{aliases}from'./team-aliases.js?v=66';
+import{sameResultMatch}from'./result-reconciliation.js?v=66';
 export const LIVE_DATA='https://raw.githubusercontent.com/danal8/sportshub-gr/gbl-live-data/live-scores.json';
 export const FLASH_DEFAULT={origin:'https://11.flashscore.ninja',project:'11',sign:'SW9D1eZo'};
 export const flashLeagues={
@@ -62,7 +62,7 @@ export async function loadFlashScores(matches,date,{competitionIDs,fetchImpl=fet
 export function preferScoreSources(matches,candidates){
  const out=[];for(const m of matches){const hits=candidates.filter(x=>sameResultMatch(m,x)&&score(x.score));if(!hits.length)continue;
   const finals=hits.filter(x=>x.scoreState==='final'),eligible=finals.length?finals:hits;
-  const rank=x=>x.provider==='Flashscore'||x.scoreProvider==='Flashscore'?(x.scoreState==='final'||Date.now()-Date.parse(x.scoreCheckedAt||x.checkedAt)<90000?3:1):2;
+  const rank=x=>x.scoreState!=='final'&&Date.now()-Date.parse(x.scoreCheckedAt||x.checkedAt)>=90000?1:x.provider==='Flashscore'||x.scoreProvider==='Flashscore'?3:2;
   eligible.sort((a,b)=>rank(b)-rank(a)||Date.parse(b.scoreCheckedAt||b.checkedAt)-Date.parse(a.scoreCheckedAt||a.checkedAt));out.push(eligible[0]);
  }for(const x of candidates)if(!matches.some(m=>sameResultMatch(m,x)))out.push(x);return out;
 }
