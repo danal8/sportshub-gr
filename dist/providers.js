@@ -1,9 +1,9 @@
-import{preserveConfirmedResults,mergeResultUpdates,sameResultMatch}from'./result-reconciliation.js?v=66';
-import{loadEuropeanLeague}from'./football-leagues.js?v=66';
-import{loadNBA}from'./nba.js?v=66';
-import{safeResults}from'./results.js?v=66';
-import{rememberBadges,loadBadgeCatalog}from'./badges.js?v=66';
-import{directIDs,directProvider}from'./direct.js?v=66';
+import{preserveConfirmedResults,mergeResultUpdates,sameResultMatch}from'./result-reconciliation.js?v=67';
+import{loadEuropeanLeague}from'./football-leagues.js?v=67';
+import{loadNBA}from'./nba.js?v=67';
+import{safeResults}from'./results.js?v=67';
+import{rememberBadges,loadBadgeCatalog}from'./badges.js?v=67';
+import{directIDs,directProvider}from'./direct.js?v=67';
 const staticIDs=['sl2','elite','gbl','volley-m','volley-w','conference'];
 export function isConnected(id){return ['seriea','ligue1'].includes(id)||id==='nba'||staticIDs.includes(id)||directIDs.includes(id);}
 function read(key){try{return JSON.parse(localStorage.getItem(key));}catch{return null;}}

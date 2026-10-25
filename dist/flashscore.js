@@ -1,6 +1,6 @@
-import{athensDay}from'./core.js?v=66';
-import{aliases}from'./team-aliases.js?v=66';
-import{sameResultMatch}from'./result-reconciliation.js?v=66';
+import{athensDay}from'./core.js?v=67';
+import{aliases}from'./team-aliases.js?v=67';
+import{sameResultMatch}from'./result-reconciliation.js?v=67';
 export const LIVE_DATA='https://raw.githubusercontent.com/danal8/sportshub-gr/gbl-live-data/live-scores.json';
 export const FLASH_DEFAULT={origin:'https://11.flashscore.ninja',project:'11',sign:'SW9D1eZo'};
 export const flashLeagues={
@@ -53,7 +53,7 @@ export async function loadFlashScores(matches,date,{competitionIDs,fetchImpl=fet
  const task=(async()=>{
  const entries=[],errors=[],sources=[],succeeded=[];
  // The relay also carries the latest public configuration; a failed relay never blocks direct scores.
- const relay=(async()=>{try{const r=await fetchImpl(LIVE_DATA+'?t='+Date.now(),{cache:'no-store',credentials:'omit',signal:AbortSignal.timeout(3500)});if(!r.ok)throw Error('Relay HTTP '+r.status);const p=await r.json();if(p.flashscore&&Date.now()-configChecked>300000){flashURL(p.flashscore,sports[0],date);config=p.flashscore;configChecked=Date.now();}const verified=verifiedScoreData(p,matches,{date});if(verified.length)onUpdate?.({date,entries:verified,errors:[...errors],sources:['SportsHub live relay'],succeeded:[...new Set(verified.map(x=>x.competition))],checkedAt:p.checkedAt});return verified;}catch(e){errors.push({id:'live-relay',error:e.message});return[];}})();
+ const relay=(async()=>{try{let r;try{r=await fetchImpl('https://odtbtugzilxsfqxlpofq.supabase.co/functions/v1/sportshub-live?date='+date+'&sports='+sports.join(','),{cache:'no-store',credentials:'omit',headers:{Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9kdGJ0dWd6aWx4c2ZxeGxwb2ZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1NTM0MTcsImV4cCI6MjA5NjEyOTQxN30.EE5xUVk_M9JVNaA1eSdqYeQxovLgLEzmIV34HHjJ3EU'},signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('Live server unavailable');}catch{r=await fetchImpl(LIVE_DATA+'?t='+Date.now(),{cache:'no-store',credentials:'omit',signal:AbortSignal.timeout(3500)});}if(!r.ok)throw Error('Relay HTTP '+r.status);const p=await r.json();if(p.flashscore&&Date.now()-configChecked>300000){flashURL(p.flashscore,sports[0],date);config=p.flashscore;configChecked=Date.now();}const verified=verifiedScoreData(p,matches,{date});if(verified.length)onUpdate?.({date,entries:verified,errors:[...errors],sources:['SportsHub live relay'],succeeded:[...new Set(verified.map(x=>x.competition))],checkedAt:p.checkedAt});return verified;}catch(e){errors.push({id:'live-relay',error:e.message});return[];}})();
  await Promise.all(sports.map(async sport=>{try{const r=await fetchImpl(flashURL(config,sport,date),{cache:'no-store',credentials:'omit',headers:{'x-fsign':config.sign},signal:AbortSignal.timeout(5000)});if(!r.ok)throw Error('Flashscore HTTP '+r.status);const p=parseFlashscore(await r.text(),matches,{sport,date,cacheAge:r.headers?.get('age')||0});entries.push(...p.entries);succeeded.push(...Object.values(flashLeagues).filter(([,s])=>s===sport).map(([id])=>id));sources.push('Flashscore');onUpdate?.({date,entries:[...entries],errors:[...errors],sources:[...new Set(sources)],succeeded:[...succeeded],checkedAt:new Date().toISOString()});}catch(e){errors.push({id:'flashscore-'+sport,error:e.message});}}));
  const old=await relay;if(old.length){sources.push('SportsHub live relay');succeeded.push(...new Set(old.map(x=>x.competition)));}for(const x of old)if(!entries.some(m=>m.id===x.id&&m.competition===x.competition))entries.push(x);
  return{entries,errors,sources,succeeded,checkedAt:new Date().toISOString()};
