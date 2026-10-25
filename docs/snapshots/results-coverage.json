@@ -1,19 +1,12 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-25T16:29:48.226Z",
+  "checkedAt": "2026-10-25T16:31:55.314Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
       "competition": "bund",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "bund-83213",
-          "competition": "bund",
-          "date": "2026-10-25",
-          "home": "TSG Hoffenheim",
-          "away": "Bayer 04 Leverkusen"
-        },
         {
           "id": "bund-83214",
           "competition": "bund",
@@ -23,7 +16,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 61
+      "finals": 62
     },
     {
       "competition": "cl",
