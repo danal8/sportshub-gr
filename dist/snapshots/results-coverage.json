@@ -1,22 +1,14 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-25T17:34:01.778Z",
+  "checkedAt": "2026-10-25T19:56:01.143Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
       "competition": "bund",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "bund-83214",
-          "competition": "bund",
-          "date": "2026-10-25",
-          "home": "SC Freiburg",
-          "away": "FC Bayern München"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 62
+      "finals": 63
     },
     {
       "competition": "cl",
@@ -80,13 +72,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "laliga-85428",
-          "competition": "laliga",
-          "date": "2026-10-25",
-          "home": "Celta Vigo",
-          "away": "Real Betis"
-        },
-        {
           "id": "laliga-85432",
           "competition": "laliga",
           "date": "2026-10-25",
@@ -102,7 +87,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 95
+      "finals": 96
     },
     {
       "competition": "ligue1",
@@ -180,17 +165,9 @@
     {
       "competition": "pl",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "pl-86607",
-          "competition": "pl",
-          "date": "2026-10-25",
-          "home": "Sunderland",
-          "away": "Leeds United"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 79
+      "finals": 80
     },
     {
       "competition": "seriea",
@@ -226,20 +203,6 @@
           "away": "AEK"
         },
         {
-          "id": "sl-2026-10-25-Volos-Panathinaikos",
-          "competition": "sl",
-          "date": "2026-10-25",
-          "home": "Volos",
-          "away": "Panathinaikos"
-        },
-        {
-          "id": "sl-2026-10-25-Aris Thessaloniki-Atromitos",
-          "competition": "sl",
-          "date": "2026-10-25",
-          "home": "Aris Thessaloniki",
-          "away": "Atromitos"
-        },
-        {
           "id": "sl-2026-10-25-OFI-PAOK",
           "competition": "sl",
           "date": "2026-10-25",
@@ -248,7 +211,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 52
+      "finals": 54
     },
     {
       "competition": "sl2",
