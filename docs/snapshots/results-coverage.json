@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-25T16:43:45.554Z",
+  "checkedAt": "2026-10-25T17:34:01.778Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -42,24 +42,9 @@
     {
       "competition": "elite",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "elite-5-ΓΣ ΣΟΦΑΔΩΝ ΒΙΚΟΣ COLA-Α.Ε. ΓΛΑΥΚΟΥ ΕΣΠΕΡΟΥ",
-          "competition": "elite",
-          "date": "2026-10-25",
-          "home": "ΓΣ ΣΟΦΑΔΩΝ ΒΙΚΟΣ COLA",
-          "away": "Α.Ε. ΓΛΑΥΚΟΥ ΕΣΠΕΡΟΥ"
-        },
-        {
-          "id": "elite-5-KERAKOLL ΑΓΕΧ-ΑΕΟ ΠΡΩΤΕΑΣ ΒΟΥΛΑΣ",
-          "competition": "elite",
-          "date": "2026-10-25",
-          "home": "KERAKOLL ΑΓΕΧ",
-          "away": "ΑΕΟ ΠΡΩΤΕΑΣ ΒΟΥΛΑΣ"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 37
+      "finals": 39
     },
     {
       "competition": "eurocup",
