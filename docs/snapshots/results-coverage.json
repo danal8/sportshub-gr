@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-25T13:57:31.769Z",
+  "checkedAt": "2026-10-25T16:20:35.523Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -102,13 +102,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "laliga-85426",
-          "competition": "laliga",
-          "date": "2026-10-25",
-          "home": "Athletic Club",
-          "away": "FC Getafe"
-        },
-        {
           "id": "laliga-85428",
           "competition": "laliga",
           "date": "2026-10-25",
@@ -131,7 +124,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 94
+      "finals": 95
     },
     {
       "competition": "ligue1",
@@ -143,13 +136,6 @@
           "date": "2026-10-24",
           "home": "Toulouse FC",
           "away": "ES Troyes AC"
-        },
-        {
-          "id": "ligue1-2026-10-25-AS Monaco FC-Lille OSC-66",
-          "competition": "ligue1",
-          "date": "2026-10-25",
-          "home": "AS Monaco FC",
-          "away": "Lille OSC"
         },
         {
           "id": "ligue1-2026-10-25-Olympique de Marseille-Le Havre AC-67",
@@ -188,7 +174,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 65
+      "finals": 66
     },
     {
       "competition": "nba",
@@ -210,34 +196,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "pl-86602",
-          "competition": "pl",
-          "date": "2026-10-25",
-          "home": "FC Liverpool",
-          "away": "Brighton & Hove Albion"
-        },
-        {
-          "id": "pl-86604",
-          "competition": "pl",
-          "date": "2026-10-25",
-          "home": "Crystal Palace FC",
-          "away": "Newcastle United FC"
-        },
-        {
-          "id": "pl-86605",
-          "competition": "pl",
-          "date": "2026-10-25",
-          "home": "Hull City",
-          "away": "Brentford F.C."
-        },
-        {
-          "id": "pl-86606",
-          "competition": "pl",
-          "date": "2026-10-25",
-          "home": "Manchester United FC",
-          "away": "AFC Bournemouth"
-        },
-        {
           "id": "pl-86607",
           "competition": "pl",
           "date": "2026-10-25",
@@ -246,26 +204,12 @@
         }
       ],
       "sourceError": null,
-      "finals": 75
+      "finals": 79
     },
     {
       "competition": "seriea",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "seriea-2026-10-25-Atalanta BC-Frosinone Calcio-76",
-          "competition": "seriea",
-          "date": "2026-10-25",
-          "home": "Atalanta BC",
-          "away": "Frosinone Calcio"
-        },
-        {
-          "id": "seriea-2026-10-25-Genoa CFC-Venezia FC-77",
-          "competition": "seriea",
-          "date": "2026-10-25",
-          "home": "Genoa CFC",
-          "away": "Venezia FC"
-        },
         {
           "id": "seriea-2026-10-25-US Lecce-Juventus FC-78",
           "competition": "seriea",
@@ -282,7 +226,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 76
+      "finals": 78
     },
     {
       "competition": "sl",
@@ -294,13 +238,6 @@
           "date": "2026-10-17",
           "home": "Atromitos",
           "away": "AEK"
-        },
-        {
-          "id": "sl-2026-10-25-Olympiakos Piraeus-Kalamata",
-          "competition": "sl",
-          "date": "2026-10-25",
-          "home": "Olympiakos Piraeus",
-          "away": "Kalamata"
         },
         {
           "id": "sl-2026-10-25-Volos-Panathinaikos",
@@ -325,48 +262,19 @@
         }
       ],
       "sourceError": null,
-      "finals": 51
+      "finals": 52
     },
     {
       "competition": "sl2",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "sl2-2627064",
-          "competition": "sl2",
-          "date": "2026-10-25",
-          "home": "ΠΑΝΙΩΝΙΟΣ",
-          "away": "ΜΑΡΚΟ"
-        },
-        {
-          "id": "sl2-2627060",
-          "competition": "sl2",
-          "date": "2026-10-25",
-          "home": "ΑΝΑΓ. ΚΑΡΔΙΤΣΑΣ",
-          "away": "ΠΑΟΚ Β'"
-        },
-        {
-          "id": "sl2-2627057",
-          "competition": "sl2",
-          "date": "2026-10-25",
-          "home": "ΠΑΝΘΡΑΚΙΚΟΣ",
-          "away": "ASTERAS AKTOR Β'"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 60
+      "finals": 63
     },
     {
       "competition": "volley-m",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "volley-m-1-3",
-          "competition": "volley-m",
-          "date": "2026-10-25",
-          "home": "Ν.Ο.Π.Ε.Ρεθύμνου",
-          "away": "Ολυμπιακός Σ.Φ.Π. ΟΝΕΧ"
-        },
         {
           "id": "volley-m-1-4",
           "competition": "volley-m",
@@ -383,7 +291,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 3
+      "finals": 4
     },
     {
       "competition": "volley-w",
