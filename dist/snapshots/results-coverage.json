@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-25T19:56:01.143Z",
+  "checkedAt": "2026-10-25T22:22:44.859Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -34,7 +34,15 @@
     {
       "competition": "elite",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "elite-5-ΜΕΓΑΡΑ ΟΝΕΧ BC-ΠΑΝΕΡΥΘΡΑΙΚΟΣ ΑΣ",
+          "competition": "elite",
+          "date": "2026-10-26",
+          "home": "ΜΕΓΑΡΑ ΟΝΕΧ BC",
+          "away": "ΠΑΝΕΡΥΘΡΑΙΚΟΣ ΑΣ"
+        }
+      ],
       "sourceError": null,
       "finals": 39
     },
@@ -72,22 +80,15 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "laliga-85432",
+          "id": "laliga-85433",
           "competition": "laliga",
-          "date": "2026-10-25",
-          "home": "Real Sociedad",
-          "away": "Levante UD"
-        },
-        {
-          "id": "laliga-85429",
-          "competition": "laliga",
-          "date": "2026-10-25",
-          "home": "FC Barcelona",
-          "away": "Real Madrid"
+          "date": "2026-10-26",
+          "home": "FC Sevilla",
+          "away": "CA Osasuna"
         }
       ],
       "sourceError": null,
-      "finals": 96
+      "finals": 98
     },
     {
       "competition": "ligue1",
@@ -109,34 +110,6 @@
           "away": "ES Troyes AC"
         },
         {
-          "id": "ligue1-2026-10-25-Olympique de Marseille-Le Havre AC-67",
-          "competition": "ligue1",
-          "date": "2026-10-25",
-          "home": "Olympique de Marseille",
-          "away": "Le Havre AC"
-        },
-        {
-          "id": "ligue1-2026-10-25-Stade Rennais FC 1901-RC Strasbourg Alsace-68",
-          "competition": "ligue1",
-          "date": "2026-10-25",
-          "home": "Stade Rennais FC 1901",
-          "away": "RC Strasbourg Alsace"
-        },
-        {
-          "id": "ligue1-2026-10-25-Angers SCO-FC Lorient-69",
-          "competition": "ligue1",
-          "date": "2026-10-25",
-          "home": "Angers SCO",
-          "away": "FC Lorient"
-        },
-        {
-          "id": "ligue1-2026-10-25-AJ Auxerre-Le Mans FC-70",
-          "competition": "ligue1",
-          "date": "2026-10-25",
-          "home": "AJ Auxerre",
-          "away": "Le Mans FC"
-        },
-        {
           "id": "ligue1-2026-10-25-Paris Saint-Germain FC-Olympique Lyonnais-71",
           "competition": "ligue1",
           "date": "2026-10-25",
@@ -145,7 +118,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 66
+      "finals": 70
     },
     {
       "competition": "nba",
@@ -157,6 +130,48 @@
           "date": "2026-10-25",
           "home": "Utah Jazz",
           "away": "Los Angeles Lakers"
+        },
+        {
+          "id": "nba-401909862",
+          "competition": "nba",
+          "date": "2026-10-26",
+          "home": "Brooklyn Nets",
+          "away": "Indiana Pacers"
+        },
+        {
+          "id": "nba-401909863",
+          "competition": "nba",
+          "date": "2026-10-26",
+          "home": "New York Knicks",
+          "away": "Orlando Magic"
+        },
+        {
+          "id": "nba-401909864",
+          "competition": "nba",
+          "date": "2026-10-26",
+          "home": "Minnesota Timberwolves",
+          "away": "Toronto Raptors"
+        },
+        {
+          "id": "nba-401909865",
+          "competition": "nba",
+          "date": "2026-10-26",
+          "home": "Oklahoma City Thunder",
+          "away": "LA Clippers"
+        },
+        {
+          "id": "nba-401909866",
+          "competition": "nba",
+          "date": "2026-10-26",
+          "home": "Philadelphia 76ers",
+          "away": "Detroit Pistons"
+        },
+        {
+          "id": "nba-401909867",
+          "competition": "nba",
+          "date": "2026-10-26",
+          "home": "Sacramento Kings",
+          "away": "Memphis Grizzlies"
         }
       ],
       "sourceError": null,
@@ -172,24 +187,9 @@
     {
       "competition": "seriea",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "seriea-2026-10-25-US Lecce-Juventus FC-78",
-          "competition": "seriea",
-          "date": "2026-10-25",
-          "home": "US Lecce",
-          "away": "Juventus FC"
-        },
-        {
-          "id": "seriea-2026-10-25-Udinese Calcio-AC Milan-79",
-          "competition": "seriea",
-          "date": "2026-10-25",
-          "home": "Udinese Calcio",
-          "away": "AC Milan"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 78
+      "finals": 80
     },
     {
       "competition": "sl",
@@ -201,22 +201,23 @@
           "date": "2026-10-17",
           "home": "Atromitos",
           "away": "AEK"
-        },
-        {
-          "id": "sl-2026-10-25-OFI-PAOK",
-          "competition": "sl",
-          "date": "2026-10-25",
-          "home": "OFI",
-          "away": "PAOK"
         }
       ],
       "sourceError": null,
-      "finals": 54
+      "finals": 55
     },
     {
       "competition": "sl2",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "sl2-2627058",
+          "competition": "sl2",
+          "date": "2026-10-26",
+          "home": "ΖΑΚΥΝΘΟΣ",
+          "away": "ΠΥΡΓΟΣ"
+        }
+      ],
       "sourceError": null,
       "finals": 63
     },
