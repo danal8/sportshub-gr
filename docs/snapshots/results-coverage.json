@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-25T00:18:30.906Z",
+  "checkedAt": "2026-10-25T04:58:13.426Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -209,62 +209,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "nba-401909853",
-          "competition": "nba",
-          "date": "2026-10-25",
-          "home": "Charlotte Hornets",
-          "away": "Miami Heat"
-        },
-        {
-          "id": "nba-401909855",
-          "competition": "nba",
-          "date": "2026-10-25",
-          "home": "Philadelphia 76ers",
-          "away": "Milwaukee Bucks"
-        },
-        {
-          "id": "nba-401909854",
-          "competition": "nba",
-          "date": "2026-10-25",
-          "home": "Cleveland Cavaliers",
-          "away": "Brooklyn Nets"
-        },
-        {
-          "id": "nba-401909857",
-          "competition": "nba",
-          "date": "2026-10-25",
-          "home": "Chicago Bulls",
-          "away": "Washington Wizards"
-        },
-        {
-          "id": "nba-401909859",
-          "competition": "nba",
-          "date": "2026-10-25",
-          "home": "Denver Nuggets",
-          "away": "New Orleans Pelicans"
-        },
-        {
-          "id": "nba-401909858",
-          "competition": "nba",
-          "date": "2026-10-25",
-          "home": "Dallas Mavericks",
-          "away": "San Antonio Spurs"
-        },
-        {
-          "id": "nba-401909856",
-          "competition": "nba",
-          "date": "2026-10-25",
-          "home": "Atlanta Hawks",
-          "away": "Houston Rockets"
-        },
-        {
-          "id": "nba-401909860",
-          "competition": "nba",
-          "date": "2026-10-25",
-          "home": "Phoenix Suns",
-          "away": "Golden State Warriors"
-        },
-        {
           "id": "nba-401909861",
           "competition": "nba",
           "date": "2026-10-25",
@@ -273,7 +217,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 28
+      "finals": 36
     },
     {
       "competition": "pl",

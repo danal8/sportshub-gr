@@ -1,36 +1,46 @@
 {
-  "checkedAt": "2026-10-25T00:18:44.090Z",
+  "checkedAt": "2026-10-25T04:58:23.319Z",
   "sourceErrors": [
+    "NBA: HTTP 404",
+    "Magenta Sport: HTTP 404",
+    "NBA: HTTP 404",
     "NBA: HTTP 404",
     "EuroCup: HTTP 404",
     "EuroLeague: HTTP 404",
-    "Magenta Sport: HTTP 500",
-    "NBA: HTTP 404",
     "NBA: HTTP 404",
     "Novasports: HTTP 404",
-    "NBA: HTTP 404",
     "Magenta Sport archive: Empty publisher video listings; retained earlier videos: ",
-    "NBA YouTube region: A4v-byV18_Y: YouTube country availability unavailable",
-    "NBA YouTube region: ihLZ3Ti4wqM: YouTube country availability unavailable",
-    "NBA YouTube region: ZG-VOv0iI7Q: YouTube country availability unavailable",
-    "NBA YouTube region: 2o4lgEQCOgk: YouTube country availability unavailable",
-    "NBA YouTube region: KVC5atVkCyE: YouTube country availability unavailable",
-    "NBA YouTube region: sXlPebl2zfk: YouTube country availability unavailable",
-    "NBA YouTube region: P3U_TwDKT-Y: YouTube country availability unavailable",
-    "NBA YouTube region: ZUslpiyp7G4: YouTube country availability unavailable",
-    "NBA YouTube region: Q052nRK7KNk: YouTube country availability unavailable",
-    "NBA YouTube region: 9n0WtH6pzGc: YouTube country availability unavailable",
-    "NBA YouTube region: nL79PGsNMNc: YouTube country availability unavailable",
-    "NBA YouTube region: If1DIVuMPkc: YouTube country availability unavailable",
-    "NBA YouTube region: KoRT1d_i13o: YouTube country availability unavailable",
-    "NBA YouTube region: w4g6vpvVyos: YouTube country availability unavailable",
-    "NBA YouTube region: tIsw4QK1Ung: YouTube country availability unavailable",
-    "NBA YouTube region: aEAJfS_6J0g: YouTube country availability unavailable",
-    "NBA YouTube region: r5pqf0we5uM: YouTube country availability unavailable",
-    "NBA YouTube region: 2SHdd_RRsRw: YouTube country availability unavailable",
-    "NBA YouTube region: KABX-E-SRwA: YouTube country availability unavailable",
-    "NBA YouTube region: qEepDtX5qLM: YouTube country availability unavailable",
-    "NBA YouTube region: -66hmMWFOcg: YouTube country availability unavailable"
+    "NBA.com: 0022600111: NBA game recap not yet published",
+    "NBA.com: 0022600110: NBA game recap not yet published",
+    "NBA YouTube region: ihLZ3Ti4wqM: HTTP 429",
+    "NBA YouTube region: ZG-VOv0iI7Q: HTTP 429",
+    "NBA YouTube region: 2o4lgEQCOgk: HTTP 429",
+    "NBA YouTube region: A4v-byV18_Y: HTTP 429",
+    "NBA YouTube region: KVC5atVkCyE: HTTP 429",
+    "NBA YouTube region: ZUslpiyp7G4: HTTP 429",
+    "NBA YouTube region: P3U_TwDKT-Y: HTTP 429",
+    "NBA YouTube region: sXlPebl2zfk: HTTP 429",
+    "NBA YouTube region: Q052nRK7KNk: HTTP 429",
+    "NBA YouTube region: If1DIVuMPkc: HTTP 429",
+    "NBA YouTube region: 9n0WtH6pzGc: HTTP 429",
+    "NBA YouTube region: nL79PGsNMNc: HTTP 429",
+    "NBA YouTube region: w4g6vpvVyos: HTTP 429",
+    "NBA YouTube region: KoRT1d_i13o: HTTP 429",
+    "NBA YouTube region: tIsw4QK1Ung: HTTP 429",
+    "NBA YouTube region: r5pqf0we5uM: HTTP 429",
+    "NBA YouTube region: aEAJfS_6J0g: HTTP 429",
+    "NBA YouTube region: 2SHdd_RRsRw: HTTP 429",
+    "NBA YouTube region: KABX-E-SRwA: HTTP 429",
+    "NBA YouTube region: qEepDtX5qLM: HTTP 429",
+    "NBA YouTube region: -66hmMWFOcg: HTTP 429",
+    "NBA YouTube region: 7wKdoaRzQB0: HTTP 429",
+    "NBA YouTube region: Lw6ZDR4KRIY: HTTP 429",
+    "NBA YouTube region: Z5yBg42u7N4: HTTP 429",
+    "NBA YouTube region: xN2DI4cxvXc: HTTP 429",
+    "NBA YouTube region: jmxhqhQIUyY: HTTP 429",
+    "NBA YouTube region: UIiV46AZIh4: HTTP 429",
+    "NBA YouTube region: vTUV7qXzPSA: HTTP 429",
+    "NBA YouTube region: DPgrjyciioY: HTTP 429"
   ],
   "start": "2026-10-23",
   "end": "2026-10-25",
@@ -48,10 +58,63 @@
       "unmatchedVideos": []
     },
     "nba": {
-      "finished": 14,
-      "covered": 14,
-      "uncoveredMatches": [],
+      "finished": 22,
+      "covered": 20,
+      "uncoveredMatches": [
+        {
+          "home": "Denver Nuggets",
+          "away": "New Orleans Pelicans",
+          "date": "2026-10-25",
+          "time": "03:00"
+        },
+        {
+          "home": "Phoenix Suns",
+          "away": "Golden State Warriors",
+          "date": "2026-10-25",
+          "time": "04:00"
+        }
+      ],
       "unmatchedVideos": [
+        {
+          "videoId": "DPgrjyciioY",
+          "title": "HEAT at HORNETS | FULL GAME HIGHLIGHTS | October 24, 2026",
+          "gameDate": "2026-10-24"
+        },
+        {
+          "videoId": "vTUV7qXzPSA",
+          "title": "SPURS at MAVERICKS | FULL GAME HIGHLIGHTS | October 24, 2026",
+          "gameDate": "2026-10-24"
+        },
+        {
+          "videoId": "UIiV46AZIh4",
+          "title": "BUCKS at 76ERS | FULL GAME HIGHLIGHTS | October 24, 2026",
+          "gameDate": "2026-10-24"
+        },
+        {
+          "videoId": "jmxhqhQIUyY",
+          "title": "NETS at CAVALIERS | FULL GAME HIGHLIGHTS | October 24, 2026",
+          "gameDate": "2026-10-24"
+        },
+        {
+          "videoId": "xN2DI4cxvXc",
+          "title": "PELICANS at NUGGETS | FULL GAME HIGHLIGHTS | October 24, 2026",
+          "gameDate": "2026-10-24"
+        },
+        {
+          "videoId": "Lw6ZDR4KRIY",
+          "title": "WIZARDS at BULLS | FULL GAME HIGHLIGHTS | October 24, 2026",
+          "gameDate": "2026-10-24"
+        },
+        {
+          "videoId": "Z5yBg42u7N4",
+          "title": "ROCKETS at HAWKS | FULL GAME HIGHLIGHTS | October 24, 2026",
+          "gameDate": "2026-10-24"
+        },
+        {
+          "videoId": "7wKdoaRzQB0",
+          "title": "WARRIORS at SUNS | FULL GAME HIGHLIGHTS | October 24, 2026",
+          "gameDate": "2026-10-24"
+        },
         {
           "videoId": "ihLZ3Ti4wqM",
           "title": "EXTENDED: ROCKETS at SPURS | FULL GAME HIGHLIGHTS | October 23, 2026",
