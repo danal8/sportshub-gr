@@ -1,46 +1,46 @@
 {
-  "checkedAt": "2026-10-25T05:34:22.644Z",
+  "checkedAt": "2026-10-25T05:38:02.501Z",
   "sourceErrors": [
     "NBA: HTTP 404",
+    "EuroLeague: HTTP 404",
+    "NBA: HTTP 404",
     "Magenta Sport: HTTP 404",
+    "Novasports: HTTP 404",
     "NBA: HTTP 404",
     "NBA: HTTP 404",
     "EuroCup: HTTP 404",
-    "EuroLeague: HTTP 404",
-    "NBA: HTTP 404",
-    "Novasports: HTTP 404",
     "Magenta Sport archive: Empty publisher video listings; retained earlier videos: ",
-    "NBA.com: 0022600111: NBA game recap not yet published",
     "NBA.com: 0022600110: NBA game recap not yet published",
-    "NBA YouTube region: ihLZ3Ti4wqM: HTTP 429",
-    "NBA YouTube region: ZG-VOv0iI7Q: HTTP 429",
-    "NBA YouTube region: 2o4lgEQCOgk: HTTP 429",
-    "NBA YouTube region: A4v-byV18_Y: HTTP 429",
-    "NBA YouTube region: KVC5atVkCyE: HTTP 429",
-    "NBA YouTube region: ZUslpiyp7G4: HTTP 429",
-    "NBA YouTube region: P3U_TwDKT-Y: HTTP 429",
-    "NBA YouTube region: sXlPebl2zfk: HTTP 429",
-    "NBA YouTube region: Q052nRK7KNk: HTTP 429",
-    "NBA YouTube region: If1DIVuMPkc: HTTP 429",
-    "NBA YouTube region: 9n0WtH6pzGc: HTTP 429",
-    "NBA YouTube region: nL79PGsNMNc: HTTP 429",
-    "NBA YouTube region: w4g6vpvVyos: HTTP 429",
-    "NBA YouTube region: KoRT1d_i13o: HTTP 429",
-    "NBA YouTube region: tIsw4QK1Ung: HTTP 429",
-    "NBA YouTube region: r5pqf0we5uM: HTTP 429",
-    "NBA YouTube region: aEAJfS_6J0g: HTTP 429",
-    "NBA YouTube region: 2SHdd_RRsRw: HTTP 429",
-    "NBA YouTube region: KABX-E-SRwA: HTTP 429",
-    "NBA YouTube region: qEepDtX5qLM: HTTP 429",
-    "NBA YouTube region: -66hmMWFOcg: HTTP 429",
-    "NBA YouTube region: 7wKdoaRzQB0: HTTP 429",
-    "NBA YouTube region: Lw6ZDR4KRIY: HTTP 429",
-    "NBA YouTube region: Z5yBg42u7N4: HTTP 429",
-    "NBA YouTube region: xN2DI4cxvXc: HTTP 429",
-    "NBA YouTube region: jmxhqhQIUyY: HTTP 429",
-    "NBA YouTube region: UIiV46AZIh4: HTTP 429",
-    "NBA YouTube region: vTUV7qXzPSA: HTTP 429",
-    "NBA YouTube region: DPgrjyciioY: HTTP 429"
+    "NBA.com: 0022600111: NBA game recap not yet published",
+    "NBA YouTube region: jmxhqhQIUyY: YouTube country availability unavailable",
+    "NBA YouTube region: UIiV46AZIh4: YouTube country availability unavailable",
+    "NBA YouTube region: DPgrjyciioY: YouTube country availability unavailable",
+    "NBA YouTube region: vTUV7qXzPSA: YouTube country availability unavailable",
+    "NBA YouTube region: Lw6ZDR4KRIY: YouTube country availability unavailable",
+    "NBA YouTube region: xN2DI4cxvXc: YouTube country availability unavailable",
+    "NBA YouTube region: Z5yBg42u7N4: YouTube country availability unavailable",
+    "NBA YouTube region: 7wKdoaRzQB0: YouTube country availability unavailable",
+    "NBA YouTube region: A4v-byV18_Y: YouTube country availability unavailable",
+    "NBA YouTube region: ihLZ3Ti4wqM: YouTube country availability unavailable",
+    "NBA YouTube region: ZG-VOv0iI7Q: YouTube country availability unavailable",
+    "NBA YouTube region: 2o4lgEQCOgk: YouTube country availability unavailable",
+    "NBA YouTube region: KVC5atVkCyE: YouTube country availability unavailable",
+    "NBA YouTube region: P3U_TwDKT-Y: YouTube country availability unavailable",
+    "NBA YouTube region: ZUslpiyp7G4: YouTube country availability unavailable",
+    "NBA YouTube region: Q052nRK7KNk: YouTube country availability unavailable",
+    "NBA YouTube region: sXlPebl2zfk: YouTube country availability unavailable",
+    "NBA YouTube region: If1DIVuMPkc: YouTube country availability unavailable",
+    "NBA YouTube region: 9n0WtH6pzGc: YouTube country availability unavailable",
+    "NBA YouTube region: KoRT1d_i13o: YouTube country availability unavailable",
+    "NBA YouTube region: w4g6vpvVyos: YouTube country availability unavailable",
+    "NBA YouTube region: nL79PGsNMNc: YouTube country availability unavailable",
+    "NBA YouTube region: r5pqf0we5uM: YouTube country availability unavailable",
+    "NBA YouTube region: 2SHdd_RRsRw: YouTube country availability unavailable",
+    "NBA YouTube region: tIsw4QK1Ung: YouTube country availability unavailable",
+    "NBA YouTube region: aEAJfS_6J0g: YouTube country availability unavailable",
+    "NBA YouTube region: KABX-E-SRwA: YouTube country availability unavailable",
+    "NBA YouTube region: qEepDtX5qLM: YouTube country availability unavailable",
+    "NBA YouTube region: -66hmMWFOcg: YouTube country availability unavailable"
   ],
   "start": "2026-10-23",
   "end": "2026-10-25",
@@ -54,6 +54,37 @@
           "away": "Kifisia",
           "date": "2026-10-24",
           "time": "19:00"
+        }
+      ],
+      "unmatchedVideos": []
+    },
+    "sl2": {
+      "finished": 4,
+      "covered": 0,
+      "uncoveredMatches": [
+        {
+          "home": "ATHENS KALLITHEA",
+          "away": "ΑΕΛ NOVIBET",
+          "date": "2026-10-24",
+          "time": "14:45"
+        },
+        {
+          "home": "ΟΛΥΜΠΙΑΚΟΣ Β'",
+          "away": "ΝΕΣΤΟΣ ΧΡΥΣΟΥΠΟΛΗΣ",
+          "date": "2026-10-24",
+          "time": "15:00"
+        },
+        {
+          "home": "ΑΠΟΛΛΩΝ ΚΑΛΑΜΑΡΙΑΣ",
+          "away": "ΝΙΚΗ ΒΟΛΟΥ",
+          "date": "2026-10-24",
+          "time": "15:00"
+        },
+        {
+          "home": "ΠΑΝΣΕΡΡΑΪΚΟΣ",
+          "away": "ΕΛΛΑΣ ΣΥΡΟΥ",
+          "date": "2026-10-24",
+          "time": "15:00"
         }
       ],
       "unmatchedVideos": []
@@ -157,6 +188,24 @@
       ],
       "unmatchedVideos": []
     },
+    "cl": {
+      "finished": 0,
+      "covered": 0,
+      "uncoveredMatches": [],
+      "unmatchedVideos": []
+    },
+    "europa": {
+      "finished": 0,
+      "covered": 0,
+      "uncoveredMatches": [],
+      "unmatchedVideos": []
+    },
+    "conference": {
+      "finished": 0,
+      "covered": 0,
+      "uncoveredMatches": [],
+      "unmatchedVideos": []
+    },
     "el": {
       "finished": 3,
       "covered": 3,
@@ -196,6 +245,111 @@
           "away": "ΑΕΚ",
           "date": "2026-10-24",
           "time": "17:30"
+        }
+      ],
+      "unmatchedVideos": []
+    },
+    "elite": {
+      "finished": 5,
+      "covered": 0,
+      "uncoveredMatches": [
+        {
+          "home": "KRONOS BC PLASIS",
+          "away": "ΑΕ ΨΥΧΙΚΟΥ",
+          "date": "2026-10-23",
+          "time": "17:00"
+        },
+        {
+          "home": "ΓΣ ΛΑΥΡΙΟΥ - AΦΟΙ ΛΙΟΣΑΤΟΥ",
+          "away": "INTERPLAST ΓΑΣ ΚΟΜΟΤΗΝΗΣ",
+          "date": "2026-10-24",
+          "time": "17:00"
+        },
+        {
+          "home": "EVERTECH ΠΑΠΑΓΟΥ",
+          "away": "ΑΣΑ ΑΝΑΓΕΝΝΗΣΗ",
+          "date": "2026-10-24",
+          "time": "17:00"
+        },
+        {
+          "home": "ΑΣΑ ΚΟΡΟΙΒΟΣ",
+          "away": "ΑΕΠΣ ΜΑΧΗΤΕΣ ΠΕΙΡΑΜΑΤΙΚΟ",
+          "date": "2026-10-24",
+          "time": "17:00"
+        },
+        {
+          "home": "ΠΑΝΙΩΝΙΟΣ COSMORAMA TRAVEL",
+          "away": "ΑΟ ΑΜΥΝΤΑΣ",
+          "date": "2026-10-24",
+          "time": "17:00"
+        }
+      ],
+      "unmatchedVideos": []
+    },
+    "volley-m": {
+      "finished": 3,
+      "covered": 0,
+      "uncoveredMatches": [
+        {
+          "home": "Α.Ο.Π. Κηφισιάς",
+          "away": "Πανιώνιος Betsson",
+          "date": "2026-10-23",
+          "time": "19:30"
+        },
+        {
+          "home": "Ο.Φ.Η.",
+          "away": "Π.Α.Ο.Κ.",
+          "date": "2026-10-24",
+          "time": "17:00"
+        },
+        {
+          "home": "Α.Ο.Καλαμάτα Affidea V.C",
+          "away": "Παναθηναϊκός Α.Ο.",
+          "date": "2026-10-24",
+          "time": "19:30"
+        }
+      ],
+      "unmatchedVideos": []
+    },
+    "volley-w": {
+      "finished": 6,
+      "covered": 0,
+      "uncoveredMatches": [
+        {
+          "home": "Α.Σ. Άρης",
+          "away": "Α.Ο. Θήρας",
+          "date": "2026-10-24",
+          "time": "20:00"
+        },
+        {
+          "home": "Ο.Φ.Α. Απολλώνιος",
+          "away": "Πανιώνιος Betsson",
+          "date": "2026-10-24",
+          "time": "19:00"
+        },
+        {
+          "home": "Ζ.Α.Ο.Ν.",
+          "away": "Παναθηναϊκός Α.Ο.",
+          "date": "2026-10-24",
+          "time": "18:00"
+        },
+        {
+          "home": "Ολυμπιακός Σ.Φ.Π.",
+          "away": "Α.Σ.Π. Θέτις",
+          "date": "2026-10-24",
+          "time": "18:00"
+        },
+        {
+          "home": "Α.Σ. Ελπίς",
+          "away": "Α.Ο. Μαρκοπούλου Revoil",
+          "date": "2026-10-24",
+          "time": "16:30"
+        },
+        {
+          "home": "A.E.K.",
+          "away": "Π.Α.Ο.Κ. F&U",
+          "date": "2026-10-23",
+          "time": "19:00"
         }
       ],
       "unmatchedVideos": []
@@ -349,92 +503,6 @@
           "gameDate": "2026-10-22"
         }
       ]
-    },
-    "cl": {
-      "finished": 0,
-      "covered": 0,
-      "uncoveredMatches": [],
-      "unmatchedVideos": []
-    },
-    "europa": {
-      "finished": 0,
-      "covered": 0,
-      "uncoveredMatches": [],
-      "unmatchedVideos": []
-    },
-    "conference": {
-      "finished": 0,
-      "covered": 0,
-      "uncoveredMatches": [],
-      "unmatchedVideos": []
-    },
-    "volley-m": {
-      "finished": 3,
-      "covered": 0,
-      "uncoveredMatches": [
-        {
-          "home": "Α.Ο.Π. Κηφισιάς",
-          "away": "Πανιώνιος Betsson",
-          "date": "2026-10-23",
-          "time": "19:30"
-        },
-        {
-          "home": "Ο.Φ.Η.",
-          "away": "Π.Α.Ο.Κ.",
-          "date": "2026-10-24",
-          "time": "17:00"
-        },
-        {
-          "home": "Α.Ο.Καλαμάτα Affidea V.C",
-          "away": "Παναθηναϊκός Α.Ο.",
-          "date": "2026-10-24",
-          "time": "19:30"
-        }
-      ],
-      "unmatchedVideos": []
-    },
-    "volley-w": {
-      "finished": 6,
-      "covered": 0,
-      "uncoveredMatches": [
-        {
-          "home": "Α.Σ. Άρης",
-          "away": "Α.Ο. Θήρας",
-          "date": "2026-10-24",
-          "time": "20:00"
-        },
-        {
-          "home": "Ο.Φ.Α. Απολλώνιος",
-          "away": "Πανιώνιος Betsson",
-          "date": "2026-10-24",
-          "time": "19:00"
-        },
-        {
-          "home": "Ζ.Α.Ο.Ν.",
-          "away": "Παναθηναϊκός Α.Ο.",
-          "date": "2026-10-24",
-          "time": "18:00"
-        },
-        {
-          "home": "Ολυμπιακός Σ.Φ.Π.",
-          "away": "Α.Σ.Π. Θέτις",
-          "date": "2026-10-24",
-          "time": "18:00"
-        },
-        {
-          "home": "Α.Σ. Ελπίς",
-          "away": "Α.Ο. Μαρκοπούλου Revoil",
-          "date": "2026-10-24",
-          "time": "16:30"
-        },
-        {
-          "home": "A.E.K.",
-          "away": "Π.Α.Ο.Κ. F&U",
-          "date": "2026-10-23",
-          "time": "19:00"
-        }
-      ],
-      "unmatchedVideos": []
     }
   }
 }
