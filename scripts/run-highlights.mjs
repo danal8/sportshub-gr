@@ -12,6 +12,10 @@ const health=highlightsHealth(matches,index);await writeFile(file,JSON.stringify
 console.log('HIGHLIGHTS HEALTH',JSON.stringify({status:health.status,sourceErrors:health.sourceErrors.length,unmatched:health.unmatchedVideos.length,awaiting:health.awaitingVideo.length}));
 if(health.unmatchedVideos.length)console.log('::warning::Published highlight videos need match reconciliation; see highlights-health.json');
 if(process.argv.includes('--publish'))for(const [path,payload]of [[name,index],['highlights-health.json',health]]){
- const endpoint=`repos/${process.env.GITHUB_REPOSITORY}/contents/${path}`;let sha;try{sha=JSON.parse(execFileSync('gh',['api',endpoint+'?ref='+branch],{encoding:'utf8',stdio:['pipe','pipe','pipe']})).sha;}catch{}
- execFileSync('gh',['api','--method','PUT',endpoint,'--input','-'],{input:JSON.stringify({branch,message:'Refresh verified highlights and coverage',content:Buffer.from(JSON.stringify(payload)).toString('base64'),...(sha?{sha}:{})}),stdio:['pipe','pipe','pipe']});
+ const endpoint=`repos/${process.env.GITHUB_REPOSITORY}/contents/${path}`;
+ let published=false;for(let attempt=0;attempt<3;attempt++){
+  let sha;try{sha=JSON.parse(execFileSync('gh',['api',endpoint+'?ref='+branch],{encoding:'utf8',stdio:['pipe','pipe','pipe']})).sha;}catch{}
+  try{execFileSync('gh',['api','--method','PUT',endpoint,'--input','-'],{input:JSON.stringify({branch,message:'Refresh verified highlights and coverage',content:Buffer.from(JSON.stringify(payload)).toString('base64'),...(sha?{sha}:{})}),stdio:['pipe','pipe','pipe']});published=true;break;}catch(e){if(attempt===2)throw Error('Highlights publication failed after retry: '+path);}
+ }
+ if(!published)throw Error('Highlights publication was not completed: '+path);
 }
