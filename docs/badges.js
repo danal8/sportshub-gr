@@ -1,4 +1,4 @@
-import {aliases} from './team-aliases.js?v=67';
+import {aliases} from './team-aliases.js?v=68';
 export const teamKey=name=>String(name||'').normalize('NFD').replace(/\p{M}/gu,'').toLocaleLowerCase('el').replace(/[^\p{L}\p{N}]/gu,'');
 const sports={bcl:'basketball',cev:'volleyball',seriea:'football',ligue1:'football',sl:'football',sl2:'football',pl:'football',bund:'football',laliga:'football',cl:'football',europa:'football',conference:'football',elite:'basketball',gbl:'basketball',el:'basketball',eurocup:'basketball',nba:'basketball','volley-m':'volleyball','volley-w':'volleyball'};
 let catalog={teams:{},urls:{}},pending;

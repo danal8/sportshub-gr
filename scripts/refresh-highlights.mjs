@@ -1,3 +1,4 @@
+import{loadLeagueHighlights,loadERTHighlights}from'./official-football-highlights.mjs';
 import{loadNovaHighlights}from'./nova-highlights.mjs';
 import{loadNBARecaps}from'./nba-recaps.mjs';
 import{verifyNBAVideoRegions}from'./nba-video-regions.mjs';
@@ -6,7 +7,7 @@ import{publishers,publisherCompetition,parsePublisherFeed,parseRecapPlaylists,pa
 import{loadPublisherArchive}from'./youtube-publisher-archive.mjs';
 import{loadUEFAHighlights}from'./uefa-highlights.mjs';
 import{loadPressEmbeds}from'./press-highlight-embeds.mjs';
-const sourceVersion=10;
+const sourceVersion=11;
 const target='dist/snapshots/highlights-2026-27.json';let old;
 try{old=JSON.parse(await readFile(target,'utf8'));}catch{old={season:'2026-27',videos:[]};}
 if(!process.argv.includes('--force')&&old.sourceVersion===sourceVersion&&!old.errors?.length&&Date.now()-Date.parse(old.retrievedAt)<900000){console.log('Highlights index is recent.');process.exit(0);}
@@ -14,10 +15,11 @@ const videos=[],errors=[];let succeeded=0,pendingNovaURLs=old.pendingNovaURLs||[
 const recentMatches=[];for(const id of ['sl','sl2','pl','bund','laliga','seriea','ligue1','cl','europa','conference','el','eurocup','gbl','elite','volley-m','volley-w','nba'])try{const p=JSON.parse(await readFile('dist/snapshots/'+id+'-2026-27.json','utf8'));recentMatches.push(...p.matches.map(m=>({...m,competition:id})));}catch{}
 try{const p=await loadNovaHighlights(recentMatches,{pendingURLs:pendingNovaURLs,knownURLs:new Set((old.videos||[]).filter(v=>v.publisher==='nova-web').map(v=>v.url))});pendingNovaURLs=p.pendingURLs;videos.push(...p.videos);errors.push(...p.errors.map(e=>'Novasports Web: '+e));succeeded++;console.log('Novasports Web: '+p.scanned+' pages, '+p.videos.length+' verified videos');}catch(e){errors.push('Novasports Web: '+e.message);}
 let recapPlaylists=[],gamePlaylists=[];try{const r=await fetch('https://www.youtube.com/@NBA/playlists?hl=en&gl=US',{signal:AbortSignal.timeout(10000)});if(!r.ok)throw Error('HTTP '+r.status);const html=await r.text();recapPlaylists=parseRecapPlaylists(html);gamePlaylists=parseGamePlaylists(html);if(!gamePlaylists.length)throw Error('Official full-game playlist unavailable');}catch(e){errors.push('NBA playlists: '+e.message);}if(process.argv.includes('--dry-run'))console.log('NBA PLAYLISTS '+JSON.stringify({recapPlaylists,gamePlaylists}));
-const feeds=publishers.flatMap(p=>[{publisher:p,url:'https://www.youtube.com/feeds/videos.xml?channel_id='+p.channel},...(p.id==='nba'?[...recapPlaylists,...gamePlaylists]:[]).map(id=>({publisher:p,url:'https://www.youtube.com/feeds/videos.xml?playlist_id='+id}))]);
+const feeds=publishers.filter(p=>!['laliga','seriea'].includes(p.id)).flatMap(p=>[{publisher:p,url:'https://www.youtube.com/feeds/videos.xml?channel_id='+p.channel},...(p.id==='nba'?[...recapPlaylists,...gamePlaylists]:[]).map(id=>({publisher:p,url:'https://www.youtube.com/feeds/videos.xml?playlist_id='+id}))]);
 await Promise.all(feeds.map(async({publisher:p,url})=>{try{const r=await fetch(url,{signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error('HTTP '+r.status);const xml=await r.text(),parsed=parsePublisherFeed(xml,p.id);videos.push(...parsed);if(process.argv.includes('--dry-run')){console.log('HIGHLIGHTS SOURCE '+p.id+' '+JSON.stringify(parsed));}succeeded++;}catch(e){errors.push(p.label+': '+e.message);}}));
 await Promise.all(['europa','conference'].map(async id=>{try{const entries=await loadUEFAHighlights(id);videos.push(...entries);succeeded++;console.log('UEFA '+id+': '+entries.length+' verified videos');}catch(e){errors.push('UEFA '+id+': '+e.message);}}));
 const known=new Set([...(old.videos||[]),...videos].map(v=>(v.channelId||v.publisher)+'|'+v.videoId));
+await Promise.all([loadLeagueHighlights,loadERTHighlights].map(async load=>{try{const p=await load(recentMatches,{known});videos.push(...p.videos);errors.push(...p.errors);succeeded++;console.log(load.name+': '+p.scanned+' pages, '+p.videos.length+' verified videos');}catch(e){errors.push(load.name+': '+e.message);}}));
 // Channel RSS contains only the newest 15 uploads; busy matchdays need pagination.
 await Promise.all(publishers.filter(p=>['nba','magenta','nova'].includes(p.id)).map(async p=>{try{const archive=await loadPublisherArchive(p,{known,playlists:p.id==='nba'?gamePlaylists:[]});videos.push(...archive.videos);succeeded++;console.log('Publisher archive '+p.id+': scanned '+archive.scanned+', indexed '+archive.videos.length);errors.push(...archive.errors.map(e=>p.label+': '+e));}catch(e){errors.push(p.label+' archive: '+e.message);}}));
 const pressMatches=[];for(const id of ['europa','conference'])try{const p=JSON.parse(await readFile('dist/snapshots/'+id+'-2026-27.json','utf8'));pressMatches.push(...p.matches.map(m=>({...m,competition:id})));}catch{}

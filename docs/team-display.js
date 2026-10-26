@@ -5,6 +5,7 @@ const names=[
 ["FC Liverpool","Liverpool"],
 ["Panathinaikos","Παναθηναϊκός"],
 ["PAOK Thessaloniki","ΠΑΟΚ"],
+["PAOK","ΠΑΟΚ"],
 ["Aris Thessaloniki","Άρης"],
 ["Asteras Tripolis","Αστέρας Τρίπολης"],
 ["Atromitos","Ατρόμητος"],
