@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-26T00:31:43.988Z",
+  "checkedAt": "2026-10-26T05:14:04.951Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -123,52 +123,9 @@
     {
       "competition": "nba",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "nba-401909862",
-          "competition": "nba",
-          "date": "2026-10-26",
-          "home": "Brooklyn Nets",
-          "away": "Indiana Pacers"
-        },
-        {
-          "id": "nba-401909863",
-          "competition": "nba",
-          "date": "2026-10-26",
-          "home": "New York Knicks",
-          "away": "Orlando Magic"
-        },
-        {
-          "id": "nba-401909864",
-          "competition": "nba",
-          "date": "2026-10-26",
-          "home": "Minnesota Timberwolves",
-          "away": "Toronto Raptors"
-        },
-        {
-          "id": "nba-401909865",
-          "competition": "nba",
-          "date": "2026-10-26",
-          "home": "Oklahoma City Thunder",
-          "away": "LA Clippers"
-        },
-        {
-          "id": "nba-401909866",
-          "competition": "nba",
-          "date": "2026-10-26",
-          "home": "Philadelphia 76ers",
-          "away": "Detroit Pistons"
-        },
-        {
-          "id": "nba-401909867",
-          "competition": "nba",
-          "date": "2026-10-26",
-          "home": "Sacramento Kings",
-          "away": "Memphis Grizzlies"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 37
+      "finals": 43
     },
     {
       "competition": "pl",
