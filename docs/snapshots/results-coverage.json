@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-26T11:13:34.480Z",
+  "checkedAt": "2026-10-26T17:26:08.293Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -159,39 +159,16 @@
     {
       "competition": "sl2",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "sl2-2627058",
-          "competition": "sl2",
-          "date": "2026-10-26",
-          "home": "ΖΑΚΥΝΘΟΣ",
-          "away": "ΠΥΡΓΟΣ"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 63
+      "finals": 64
     },
     {
       "competition": "volley-m",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "volley-m-1-4",
-          "competition": "volley-m",
-          "date": "2026-10-25",
-          "home": "Α.Σ.Άρης",
-          "away": "Α.Ο.Φλοίσβος Members Paron"
-        },
-        {
-          "id": "volley-m-1-5",
-          "competition": "volley-m",
-          "date": "2026-10-25",
-          "home": "Α.Ο.Φοίνικας Σύρου",
-          "away": "Α.Ο.Ν.Σ. Μίλων"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 4
+      "finals": 6
     },
     {
       "competition": "volley-w",
