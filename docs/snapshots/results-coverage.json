@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-25T22:22:44.859Z",
+  "checkedAt": "2026-10-26T00:31:43.988Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -125,13 +125,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "nba-401909861",
-          "competition": "nba",
-          "date": "2026-10-25",
-          "home": "Utah Jazz",
-          "away": "Los Angeles Lakers"
-        },
-        {
           "id": "nba-401909862",
           "competition": "nba",
           "date": "2026-10-26",
@@ -175,7 +168,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 36
+      "finals": 37
     },
     {
       "competition": "pl",
