@@ -1,4 +1,4 @@
-import{volleyGames}from'./direct.js?v=71';
+import{volleyGames}from'./direct.js?v=72';
 export const VOLLEY_RESULTS='https://raw.githubusercontent.com/danal8/sportshub-gr/gbl-live-data/volley-results.json';
 export const WOMEN_API='https://volleyball.gr/wp-json/sportspress/v2/events/';
 const name=s=>String(s||'').normalize('NFD').replace(/\p{M}/gu,'').toLowerCase().replace(/[^\p{L}\p{N}]/gu,'');
@@ -17,3 +17,4 @@ export async function loadWomenResults(matches,date,{fetchJSON,checkedAt=new Dat
  const entries=results.filter(r=>r.status==='fulfilled'&&r.value).map(r=>r.value),errors=results.filter(r=>r.status==='rejected').map(r=>r.reason.message);
  return {entries,errors};
 }
+

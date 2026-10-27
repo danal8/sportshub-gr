@@ -1,4 +1,4 @@
-import {aliases} from './team-aliases.js?v=71';
+import {aliases} from './team-aliases.js?v=72';
 export const teamKey=name=>String(name||'').normalize('NFD').replace(/\p{M}/gu,'').toLocaleLowerCase('el').replace(/[^\p{L}\p{N}]/gu,'');
 const sports={bcl:'basketball',cev:'volleyball',seriea:'football',ligue1:'football',sl:'football',sl2:'football',pl:'football',bund:'football',laliga:'football',cl:'football',europa:'football',conference:'football',elite:'basketball',gbl:'basketball',el:'basketball',eurocup:'basketball',nba:'basketball','volley-m':'volleyball','volley-w':'volleyball'};
 let catalog={teams:{},urls:{}},pending;
@@ -18,3 +18,4 @@ export function badgeSources(name,url,id,sport){
  return {src:catalog.urls?.[original]||original,fallback:https(original)?original:null};
 }
 export function loadBadgeCatalog(){return pending||=(async()=>{try{const r=await fetch('./badges/catalog.json',{cache:'no-cache',signal:AbortSignal.timeout(5000)});if(r.ok){const p=await r.json();for(const [id,teams]of Object.entries(catalog.teams))p.teams[id]={...p.teams[id],...teams};setBadgeCatalog(p);}}catch{}return catalog;})();}
+

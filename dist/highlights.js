@@ -1,7 +1,7 @@
-import{mergeResultUpdates}from'./result-reconciliation.js?v=71';
-import{aliases}from'./team-aliases.js?v=71';
-import{teamKey}from'./badges.js?v=71';
-import{athensDay,shiftDay}from'./core.js?v=71';
+import{mergeResultUpdates}from'./result-reconciliation.js?v=72';
+import{aliases}from'./team-aliases.js?v=72';
+import{teamKey}from'./badges.js?v=72';
+import{athensDay,shiftDay}from'./core.js?v=72';
 export const publishers=[
  {id:'laliga',label:'LALIGA',channel:'UCTv-XvfzLX3i4IGWAm4sbmA'},
  {id:'seriea',label:'Serie A',channel:'UCBJeMCIeLQos7wacox4hmLQ'},
@@ -126,3 +126,4 @@ function parseNBAPlaylists(html,titlePattern){
  for(const child of Object.values(v)){if(Array.isArray(child))child.forEach(walk);else if(child&&typeof child==='object')walk(child);}
  };walk(JSON.parse(raw));return[...found].slice(0,3);
 }
+

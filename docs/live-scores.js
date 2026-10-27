@@ -1,12 +1,12 @@
-import{loadFlashScores,preferScoreSources}from'./flashscore.js?v=71';
-import{VOLLEY_RESULTS,verifiedVolleyEntries,loadWomenResults}from'./volley-scores.js?v=71';
-import{GBL_LIVE,verifiedGblEntries}from'./gbl-scores.js?v=71';
-import{mergeResultUpdates,sameResultMatch}from'./result-reconciliation.js?v=71';
-import{teamKey}from'./badges.js?v=71';
-import{aliases}from'./team-aliases.js?v=71';
-import{athensDay,shiftDay}from'./core.js?v=71';
-import{openGames,euroGames}from'./direct.js?v=71';
-import{sl2Score}from'./results.js?v=71';
+import{loadFlashScores,preferScoreSources}from'./flashscore.js?v=72';
+import{VOLLEY_RESULTS,verifiedVolleyEntries,loadWomenResults}from'./volley-scores.js?v=72';
+import{GBL_LIVE,verifiedGblEntries}from'./gbl-scores.js?v=72';
+import{mergeResultUpdates,sameResultMatch}from'./result-reconciliation.js?v=72';
+import{teamKey}from'./badges.js?v=72';
+import{aliases}from'./team-aliases.js?v=72';
+import{athensDay,shiftDay}from'./core.js?v=72';
+import{openGames,euroGames}from'./direct.js?v=72';
+import{sl2Score}from'./results.js?v=72';
 export const LIVE_INTERVAL=30000,LIVE_TTL=90000;
 export const liveLeagues={sl:['soccer','gre.1'],pl:['soccer','eng.1'],bund:['soccer','ger.1'],laliga:['soccer','esp.1'],seriea:['soccer','ita.1'],ligue1:['soccer','fra.1'],cl:['soccer','uefa.champions'],europa:['soccer','uefa.europa'],conference:['soccer','uefa.europa.conf'],nba:['basketball','nba']};
 const names=(n,extra=[])=>new Set([n,...extra,...aliases[teamKey(n)]||[]].filter(Boolean).flatMap(x=>[x,...aliases[teamKey(x)]||[]]).filter(Boolean).map(teamKey));
@@ -109,4 +109,5 @@ export async function loadLiveScores(matches,date,{force=false,competitionIDs,on
  }catch(e){errors.push({id:'official-'+id,error:e.message});}}));
  return{date,entries:preferScoreSources(matches,entries),succeeded,errors,sources:[...new Set(sources)],checkedAt:new Date().toISOString()};
 }
+
 

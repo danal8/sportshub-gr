@@ -1,9 +1,9 @@
-import{footballEvents}from'./football-events.js?v=71';
-import{competitions}from'./data.js?v=71';
-import{aliases}from'./team-aliases.js?v=71';
-import{teamKey}from'./badges.js?v=71';
-import{athensDay,normalizeFootball,shiftDay}from'./core.js?v=71';
-import{liveLeagues,sourceClock,parseEuroHeader}from'./live-scores.js?v=71';
+import{footballEvents}from'./football-events.js?v=72';
+import{competitions}from'./data.js?v=72';
+import{aliases}from'./team-aliases.js?v=72';
+import{teamKey}from'./badges.js?v=72';
+import{athensDay,normalizeFootball,shiftDay}from'./core.js?v=72';
+import{liveLeagues,sourceClock,parseEuroHeader}from'./live-scores.js?v=72';
 const web='https://site.web.api.espn.com/apis/site/v2/sports/',query='region=us&lang=en&contentorigin=espn';
 const validScore=s=>Array.isArray(s)&&s.length===2&&s.every(n=>Number.isInteger(n)&&n>=0);
 const names=(name,extra=[])=>new Set([name,...extra].filter(Boolean).flatMap(n=>[n,...aliases[teamKey(n)]||[]]).map(teamKey));
@@ -145,13 +145,18 @@ export async function loadTeamRoster(team,c,overview,{force=false}={}){
  const p=await detailJSON(web+sport+'/'+league+'/teams/'+resolved.team.id+'/roster?'+query+'&season='+(c.id==='nba'?2027:2026),{ttl:3600000,force});let roster=parseRoster(p,team,resolved.team.id,actual);if(c.sport==='football')try{roster=applyRosterPhotos(roster,await detailJSON('./snapshots/player-photos-2026-27.json',{ttl:300000,force}),resolved.team.id);}catch{}return roster;
 }
 const labels={foulsCommitted:'Φάουλ',yellowCards:'Κίτρινες κάρτες',redCards:'Κόκκινες κάρτες',offsides:'Οφσάιντ',wonCorners:'Κόρνερ',possessionPct:'Κατοχή %',shotsOnTarget:'Εντός εστίας',totalShots:'Τελικές',saves:'Αποκρούσεις',goalAssists:'Ασίστ',totalGoals:'Γκολ',appearances:'Συμμετοχές',points:'Πόντοι',rebounds:'Ριμπάουντ',totalRebounds:'Ριμπάουντ',assists:'Ασίστ',turnovers:'Λάθη',steals:'Κλεψίματα',blocks:'Τάπες',fieldGoalPct:'Εντός πεδιάς %',threePointFieldGoalPct:'Τρίποντα %',freeThrowPct:'Βολές %',offensiveRebounds:'Επιθετικά ριμπ.',defensiveRebounds:'Αμυντικά ριμπ.',fouls:'Φάουλ','fieldGoalsMade-fieldGoalsAttempted':'Εντός πεδιάς','threePointFieldGoalsMade-threePointFieldGoalsAttempted':'Τρίποντα','freeThrowsMade-freeThrowsAttempted':'Βολές'};
+const ratioStats=new Set(['shotPct','passPct','crossPct','longballPct','tacklePct','onTargetPct','passCompletionPct']);
+export function statisticValue(stat){
+ const text=val(stat.displayValue);if(text===null||!ratioStats.has(stat.name)||text.includes('%'))return text;
+ const n=Number(text);return Number.isFinite(n)&&n>=0&&n<=1?String(Math.round(n*1000)/10)+'%':text;
+}
 const val=v=>v===null||v===undefined||v===''?null:String(v);
 export function parseMatchSummary(raw,m){
  const header=raw.header,g=header?.competitions?.[0],home=g?.competitors?.find(t=>t.homeAway==='home'),away=g?.competitors?.find(t=>t.homeAway==='away'),[sport,league]=liveLeagues[m.competition]||[];
  if(!sport||!home||!away||header.season?.year!==(m.competition==='nba'?2027:2026)||header.league?.slug!==league||!Number.isFinite(Date.parse(g.date))||athensDay(new Date(g.date))!==m.date||!sameTeam(m.home,home.team.displayName,[home.team.shortDisplayName])||!sameTeam(m.away,away.team.displayName,[away.team.shortDisplayName]))throw Error('Τα στατιστικά δεν αντιστοιχούν στον αγώνα');
  const byID=id=>String(id)===String(home.team.id)?'home':String(id)===String(away.team.id)?'away':null;
  const status=g.status||{},s=[home.score,away.score].map(v=>v===null||v===undefined||v===''?NaN:Number(v)),valid=validScore(s)&&(status.type?.completed||status.type?.state==='in');
- const stats=new Map();for(const t of raw.boxscore?.teams||[]){const side=byID(t.team?.id);if(!side)continue;for(const r of t.statistics||[]){if(!r.name||val(r.displayValue)===null)continue;const item=stats.get(r.name)||{name:r.name,label:labels[r.name]||r.label||r.name,home:null,away:null};item[side]=val(r.displayValue);stats.set(r.name,item);}}
+ const stats=new Map();for(const t of raw.boxscore?.teams||[]){const side=byID(t.team?.id);if(!side)continue;for(const r of t.statistics||[]){if(!r.name||val(r.displayValue)===null)continue;const item=stats.get(r.name)||{name:r.name,label:labels[r.name]||r.label||r.name,home:null,away:null};item[side]=statisticValue(r);stats.set(r.name,item);}}
  const players=[];for(const t of raw.boxscore?.players||[]){const side=byID(t.team?.id);if(!side)continue;for(const block of t.statistics||[])if(Array.isArray(block.labels))players.push({side,team:t.team.displayName,labels:block.labels,rows:(block.athletes||[]).filter(a=>a.athlete?.displayName).map(a=>({name:a.athlete.displayName,jersey:a.athlete.jersey||'',starter:!!a.starter,dnp:!!a.didNotPlay,values:block.labels.map((_,i)=>val(a.stats?.[i]))}))});}
  const lineups=[];for(const t of raw.rosters||[]){const side=byID(t.team?.id);if(!side)continue;lineups.push({side,team:t.team.displayName,formation:t.formation||'',rows:(t.roster||[]).filter(a=>a.athlete?.displayName).map(a=>({name:a.athlete.displayName,jersey:a.jersey||'',position:a.position?.displayName||'',starter:!!a.starter,subbedIn:!!a.subbedIn,subbedOut:!!a.subbedOut,stats:(a.stats||[]).filter(s=>['totalGoals','goalAssists','shotsOnTarget','totalShots','saves'].includes(s.name)).map(s=>({label:labels[s.name]||s.displayName,value:val(s.displayValue)}))}))});}
  const events=sport==='soccer'?footballEvents(raw):(raw.keyEvents?.length?raw.keyEvents:raw.plays?.length?raw.plays:g.details||[]).map(p=>({clock:p.clock?.displayValue||'',period:p.period?.number||null,text:p.text||p.shortText||''})).filter(p=>p.text).reverse();
@@ -173,8 +178,14 @@ export function parseEuroDetails(header,box,pbp,m){
  const events=groups.flatMap((key,i)=>(pbp?.[key]||[]).map(p=>({order:Number(p.NUMBEROFPLAY)||0,clock:p.MARKERTIME||'',period:i+1,text:[p.PLAYER?.trim(),p.PLAYINFO||p.COMMENT].filter(Boolean).join(' · ')}))).filter(p=>p.text).sort((a,b)=>b.order-a.order);
  return{match:m,score:confirmed?.score||null,scoreState:confirmed?.scoreState||null,clock:confirmed?.clock||null,stats:[...stats.values()],players,lineups:[],events,periods,venue:header.Stadium||'',provider:'Euroleague Basketball',source:'https://live.euroleague.net/',checkedAt:new Date().toISOString()};
 }
+export function isUpcomingMatch(m,now=new Date()){
+ if(m.scoreState==='live'||m.scoreState==='final'||Array.isArray(m.score))return false;
+ const today=athensDay(now),clock=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Athens',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(now);
+ return !!m.date&&(m.date>today||m.date===today&&/^\d{2}:\d{2}$/.test(m.time||'')&&m.time>clock);
+}
 export async function loadMatchDetails(m,{force=false}={}){
  if(!m.date)throw Error('Δεν έχει οριστεί ημερομηνία για τον αγώνα');
+ if(['el','eurocup'].includes(m.competition)&&isUpcomingMatch(m))return{match:m,score:null,scoreState:null,scheduled:true,clock:null,stats:[],players:[],lineups:[],events:[],periods:[],venue:'',provider:'Euroleague Basketball',source:competitions.find(c=>c.id===m.competition).url,checkedAt:new Date().toISOString()};
  if(m.competition==='gbl')return{match:m,score:m.score||null,scoreState:m.scoreState,clock:m.scoreClock||null,stats:[],players:[],lineups:[],events:[],periods:[],provider:'ΕΣΑΚΕ / Genius Sports',source:m.scoreSource||'https://www.esake.gr/',checkedAt:m.scoreCheckedAt};
  if(liveLeagues[m.competition]){const id=await eventID(m,{force}),[sport,league]=liveLeagues[m.competition],p=await detailJSON(web+sport+'/'+league+'/summary?'+query+'&event='+id,{ttl:30000,force});if(String(p.header?.id)!==id)throw Error('Τα στατιστικά δεν αντιστοιχούν στον αγώνα');return parseMatchSummary(p,m);}
  if(['el','eurocup'].includes(m.competition)){
@@ -185,5 +196,6 @@ export async function loadMatchDetails(m,{force=false}={}){
  }
  throw Error('Δεν υπάρχει συνδεδεμένη πηγή αναλυτικών στατιστικών για αυτή τη διοργάνωση');
 }
+
 
 

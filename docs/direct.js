@@ -1,8 +1,9 @@
-import{standingsCoverage}from'./standings-health.js?v=71';
-import{sectionStatus}from'./source-status.js?v=71';
-import{refreshGreekScores}from'./scoreboard.js?v=71';
-import{sl2Score}from'./results.js?v=71';
-import{parseGreekFootball}from'./feeds.js?v=71';
+import{loadFootballStandings}from'./football-leagues.js?v=72';
+import{standingsCoverage}from'./standings-health.js?v=72';
+import{sectionStatus}from'./source-status.js?v=72';
+import{refreshGreekScores}from'./scoreboard.js?v=72';
+import{sl2Score}from'./results.js?v=72';
+import{parseGreekFootball}from'./feeds.js?v=72';
 const shortcuts={pl:'pl',bund:'bl1',laliga:'la1',cl:'ucl',europa:'uel2026'};
 export const directIDs=['sl','pl','bund','laliga','cl','europa','el','eurocup','volley-w','volley-m','sl2'];
 const pair=s=>Array.isArray(s)&&s.length===2&&s.every(n=>Number.isInteger(n)&&n>=0);
@@ -20,9 +21,16 @@ export function volleyGames(raw,league){return raw.map(g=>{if(!g.leagues?.includ
 async function json(url){const r=await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('HTTP '+r.status);return r.json();}
 export async function directProvider(id,season){const year=season.slice(0,4),retrievedAt=new Date().toISOString();let source,matches,standings=[],standingsSource,standingsError=null, copyright='',terms;
 if(id==='sl2'){source='https://www.sl2.gr/api/sportsdata/v1/competitions/sl2-2627/matches';const raw=await json(source);if(!Array.isArray(raw)||raw.length!==240||raw.some(g=>g.competition_slug!=='sl2-2627'))throw Error('Μη πλήρες πρόγραμμα SL2');matches=raw.map(g=>({id:'sl2-'+g.id,home:g.home_team.name_el,away:g.away_team.name_el,homeBadge:g.home_team.logo?.small,awayBadge:g.away_team.logo?.small,round:g.matchday_el?.match(/^(\d+)η/)?.[1]||'',date:g.date||null,time:g.time&&g.time!=='00:00:00'?g.time.slice(0,5):null,channel:g.channel||null,...sl2Score(g)}));copyright='Πηγή: Super League 2';}
-else if(shortcuts[id]){const base='https://api.openligadb.de/',shortcut=shortcuts[id];source=base+'getmatchdata/'+shortcut+'/'+year;matches=openGames(await json(source),id,year);standingsSource=base+'getbltable/'+shortcut+'/'+year;try{standings=(await json(standingsSource)).map((r,i)=>({rank:i+1,team:r.teamName,played:r.matches,wins:r.won,draws:r.draw,losses:r.lost,points:r.points}));}catch(e){standingsError=e.message;}copyright='OpenLigaDB contributors · Κοινοτικά δεδομένα / ODbL';terms='https://www.openligadb.de/lizenz';}
+else if(shortcuts[id]){const base='https://api.openligadb.de/',shortcut=shortcuts[id];source=base+'getmatchdata/'+shortcut+'/'+year;matches=openGames(await json(source),id,year);standingsSource=base+'getbltable/'+shortcut+'/'+year;try{standings=(await json(standingsSource)).map((r,i)=>({rank:i+1,team:r.teamName,played:r.matches,wins:r.won,draws:r.draw,losses:r.lost,points:r.points}));}catch(e){standingsError=e.message;}copyright='OpenLigaDB contributors · Κοινοτικά δεδομένα / ODbL';terms='https://www.openligadb.de/lizenz';
+ if(['pl','laliga'].includes(id)&&(!standings.length||standingsCoverage(matches,standings).stale))try{
+  const alternative=await loadFootballStandings(id),coverage=standingsCoverage(matches,alternative.standings);
+  if(coverage.stale||coverage.unmatched.length)throw Error('Η εναλλακτική βαθμολογία δεν καλύπτει τα επιβεβαιωμένα αποτελέσματα');
+  standings=alternative.standings;standingsSource=alternative.source;standingsError=null;copyright+=' · ESPN standings';
+ }catch(error){if(!standings.length)standingsError=error.message;}
+}
 else if(id==='sl'){source='https://raw.githubusercontent.com/openfootball/europe/master/greece/'+season+'_gr1.txt';const r=await fetch(source,{signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('HTTP '+r.status);matches=parseGreekFootball(await r.text(),season).map(m=>({...m,scoreState:m.score?'final':null}));copyright='openfootball contributors / CC0';}
 else if(['el','eurocup'].includes(id)){const code=id==='el'?'E':'U',base='https://api-live.euroleague.net/v2/competitions/'+code+'/seasons/'+code+year;source=base+'/games';const raw=await json(source);matches=euroGames(raw,code,year);const round=Math.max(0,...raw.data.filter(g=>g.played).map(g=>g.round));if(round){standingsSource=base+'/rounds/'+round+'/standings';try{const groups=await json(standingsSource);standings=groups.flatMap(g=>g.standings.map(r=>({rank:r.data.position,team:r.club.name,played:r.data.gamesPlayed,wins:r.data.gamesWon,losses:r.data.gamesLost,points:null,winRate:r.data.gamesPlayed?Math.round(100*r.data.gamesWon/r.data.gamesPlayed)+'%':'—',group:groups.length>1?g.group.name:null})));}catch{}}copyright='Euroleague Basketball · Προσωπική μη εμπορική χρήση';}
 else{const league=id==='volley-w'?11:156,base='https://volleyball.gr/wp-json/sportspress/v2/';source=base+'events?leagues='+league+'&seasons=298&per_page=100&_fields=id,date,title,teams,day,results,leagues,seasons,status';const first=await json(source);let all=first;if(first.length===100)all=[...first,...await json(source+'&page=2')];matches=volleyGames(all,league);try{const ids=[...new Set(all.flatMap(g=>g.teams))],teams=await json(base+'teams?include='+ids.join(',')+'&per_page=100&_embed=wp:featuredmedia');const badges=new Map(teams.map(t=>[t.id,t._embedded?.['wp:featuredmedia']?.[0]?.source_url]));matches=matches.map((m,i)=>({...m,homeBadge:badges.get(all[i].teams[0]),awayBadge:badges.get(all[i].teams[1])}));}catch{}if(!matches.length)throw Error('Δεν υπάρχει συνδεδεμένο επίσημο πρόγραμμα ανδρών. Δες την ΕΣΑΠ.');if(id==='volley-w'){try{standingsSource=base+'tables/88153?_fields=data';const t=await json(standingsSource);standings=Object.entries(t.data).filter(([k])=>k!=='0').map(([,r])=>({rank:Number(r.pos),team:decode(r.name),played:Number(r.p),wins:Number(r.w),losses:Number(r.l),points:Number(r.pts)})).sort((a,b)=>a.rank-b.rank);}catch{}}copyright='Ελληνική Ομοσπονδία Πετοσφαίρισης · Προσωπική χρήση';}
 let scoresSource;if(id==='sl'){try{const p=await refreshGreekScores(matches);matches=p.matches;scoresSource=p.source;}catch{}}
 const sections={matches:sectionStatus(null,{data:matches,source,now:retrievedAt})};if(standingsSource)sections.standings=sectionStatus(null,{data:standings,source:standingsSource,now:retrievedAt,error:standingsError||(!standings.length?'Δεν ανακτήθηκε έγκυρη βαθμολογία':null),coverage:standingsCoverage(matches,standings)});return{matches,standings,source,standingsSource,scoresSource,retrievedAt,copyright,terms,sections};}
+

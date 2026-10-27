@@ -1,5 +1,5 @@
-import{aliases}from'./team-aliases.js?v=71';
-import{validScore}from'./results.js?v=71';
+import{aliases}from'./team-aliases.js?v=72';
+import{validScore}from'./results.js?v=72';
 const key=s=>String(s||'').normalize('NFD').replace(/\p{M}/gu,'').toLocaleLowerCase('el').replace(/[^\p{L}\p{N}]/gu,'');
 const nameCache=new Map();
 function names(name,extra=[]){const id=JSON.stringify([name,extra]);if(nameCache.has(id))return nameCache.get(id);const result=new Set([name,...extra,...aliases[key(name)]||[]].filter(Boolean).flatMap(n=>[n,...aliases[key(n)]||[]]).map(key));if(nameCache.size>=1024)nameCache.clear();nameCache.set(id,result);return result;}
@@ -78,3 +78,4 @@ export function synchronizeDetailScore(data,match,now=Date.now()){
  if(data.scoreState==='final'&&match.scoreState==='final'&&Date.parse(data.checkedAt)>Date.parse(checked))return data;
  return {...data,score:match.score,scoreState:match.scoreState,clock:match.scoreClock||match.clock||null,scoreCheckedAt:checked};
 }
+

@@ -1,5 +1,5 @@
-import{teamKey}from'./badges.js?v=71';
-import{aliases}from'./team-aliases.js?v=71';
+import{teamKey}from'./badges.js?v=72';
+import{aliases}from'./team-aliases.js?v=72';
 const names=n=>new Set([n,...aliases[teamKey(n)]||[]].map(teamKey));
 const same=(a,b)=>[...names(a)].some(n=>names(b).has(n));
 // Only explicit in-progress/completed states can introduce scores.
@@ -15,3 +15,4 @@ export function mergeScoreboard(matches,raw){
  return next;
 }
 export async function refreshGreekScores(matches){const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Athens',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date()).replaceAll('-',''),source='https://site.web.api.espn.com/apis/site/v2/sports/soccer/gre.1/scoreboard?region=us&lang=en&contentorigin=espn&dates='+today;const r=await fetch(source,{cache:'no-store',signal:AbortSignal.timeout(6000)});if(!r.ok)throw Error('LiveScore '+r.status);return{matches:mergeScoreboard(matches,await r.json()),source};}
+

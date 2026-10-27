@@ -1,6 +1,6 @@
-const CACHE='sportshub-shell-v71';
-const ASSETS=['./source-status.js','./standings-health.js','./flashscore.js','./volley-scores.js','./volley-scores.js?v=71','./gbl-scores.js','./gbl-scores.js?v=71','./tv-guide.js','./daily-schedule.js','./preference-storage.js','./fixture-favorites.js','./fixture-favorites.js?v=71','./result-reconciliation.js','./result-reconciliation.js?v=71','./event-timeline.js','./event-timeline.js?v=71','./football-events.js','./football-events.js?v=71','./','./index.html','./styles.css','./styles.css?v=55','./app.js','./app.js?v=71','./tv.js','./tv-meta.js','./icons.js','./schedule.js','./gestures.js','./core.js','./feeds.js','./providers.js','./direct.js','./data.js','./badges.js','./team-aliases.js','./results.js','./nba.js','./scoreboard.js','./competition-order.js','./football-leagues.js','./team-view.js','./tv-details.js','./my-teams.js','./team-display.js','./live-scores.js','./detail-data.js','./detail-data.js?v=71','./highlights.js','./highlights.js?v=71','./detail-panels.js','./detail-panels.js?v=71','./badges/catalog.json','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
-ASSETS.push(...ASSETS.filter(a=>a.endsWith('.js')).map(a=>a+'?v=71'));
+const CACHE='sportshub-shell-v72';
+const ASSETS=['./source-status.js','./standings-health.js','./flashscore.js','./volley-scores.js','./volley-scores.js?v=72','./gbl-scores.js','./gbl-scores.js?v=72','./tv-guide.js','./daily-schedule.js','./preference-storage.js','./fixture-favorites.js','./fixture-favorites.js?v=72','./result-reconciliation.js','./result-reconciliation.js?v=72','./event-timeline.js','./event-timeline.js?v=72','./football-events.js','./football-events.js?v=72','./','./index.html','./styles.css','./styles.css?v=56','./app.js','./app.js?v=72','./tv.js','./tv-meta.js','./icons.js','./schedule.js','./gestures.js','./core.js','./feeds.js','./providers.js','./direct.js','./data.js','./badges.js','./team-aliases.js','./results.js','./nba.js','./scoreboard.js','./competition-order.js','./football-leagues.js','./team-view.js','./tv-details.js','./my-teams.js','./team-display.js','./live-scores.js','./detail-data.js','./detail-data.js?v=72','./highlights.js','./highlights.js?v=72','./detail-panels.js','./detail-panels.js?v=72','./badges/catalog.json','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
+ASSETS.push(...ASSETS.filter(a=>a.endsWith('.js')).map(a=>a+'?v=72'));
 ASSETS.splice(0,ASSETS.length,...new Set(ASSETS));
 const ASSET_URLS=new Set(ASSETS);
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
@@ -12,5 +12,6 @@ self.addEventListener('fetch',event=>{const u=new URL(event.request.url);if(even
  // No authentication responses, API results, or external pages enter the shell cache.
  event.respondWith(fetch(event.request).then(async r=>{if(r.ok&&r.type!=='opaqueredirect'&&!r.redirected){const type=r.headers.get('content-type')||'';if(event.request.mode!=='navigate'||type.includes('text/html')){const cache=await caches.open(CACHE);await cache.put(event.request,r.clone());}}return r;}).catch(async()=>await caches.match(event.request)|| (event.request.mode==='navigate'?await caches.match('./index.html'):Response.error())));
 });
+
 
 

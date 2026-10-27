@@ -1,6 +1,6 @@
-import{athensDay}from'./core.js?v=71';
-import{aliases}from'./team-aliases.js?v=71';
-import{sameResultMatch}from'./result-reconciliation.js?v=71';
+import{athensDay}from'./core.js?v=72';
+import{aliases}from'./team-aliases.js?v=72';
+import{sameResultMatch}from'./result-reconciliation.js?v=72';
 export const LIVE_DATA='https://raw.githubusercontent.com/danal8/sportshub-gr/gbl-live-data/live-scores.json';
 export const FLASH_DEFAULT={origin:'https://11.flashscore.ninja',project:'11',sign:'SW9D1eZo'};
 export const flashLeagues={
@@ -66,3 +66,4 @@ export function preferScoreSources(matches,candidates){
   eligible.sort((a,b)=>rank(b)-rank(a)||Date.parse(b.scoreCheckedAt||b.checkedAt)-Date.parse(a.scoreCheckedAt||a.checkedAt));out.push(eligible[0]);
  }for(const x of candidates)if(!matches.some(m=>sameResultMatch(m,x)))out.push(x);return out;
 }
+
