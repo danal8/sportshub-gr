@@ -1,4 +1,4 @@
-import{aliases}from'./team-aliases.js?v=69';
+import{aliases}from'./team-aliases.js?v=70';
 export function escapeHTML(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 export function seasonNow(date=new Date()){const y=date.getFullYear()-(date.getMonth()<6?1:0);return `${y}-${String(y+1).slice(-2)}`;}
 export function validateFootball(data){if(!data||typeof data.name!=='string'||!Array.isArray(data.matches))throw Error('Μη έγκυρη μορφή δεδομένων');for(const m of data.matches){if(typeof m.team1!=='string'||typeof m.team2!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(m.date)||typeof m.round!=='string')throw Error('Μη έγκυρος αγώνας');if(m.score?.ft&&!validScore(m.score.ft))throw Error('Μη έγκυρο τελικό αποτέλεσμα');}return data;}
@@ -7,7 +7,7 @@ export function normalizeFootball(data,id){return validateFootball(data).matches
 // Indicative football table, never labelled official: deductions and head-to-head rules are unavailable.
 export function calculateTable(matches,today){const teams=new Map();for(const m of matches){for(const team of [m.home,m.away])if(!teams.has(team))teams.set(team,{team,played:0,wins:0,draws:0,losses:0,gf:0,ga:0,points:0});if(!validScore(m.score)||m.date>=today)continue;const a=teams.get(m.home),b=teams.get(m.away),[x,y]=m.score;a.played++;b.played++;a.gf+=x;a.ga+=y;b.gf+=y;b.ga+=x;if(x===y){a.draws++;b.draws++;a.points++;b.points++;}else{const w=x>y?a:b,l=x>y?b:a;w.wins++;w.points+=3;l.losses++;}}return [...teams.values()].sort((a,b)=>b.points-a.points||(b.gf-b.ga)-(a.gf-a.ga)||b.gf-a.gf||a.team.localeCompare(b.team)).map((r,i)=>({...r,rank:i+1}));}
 const athensDateFormat=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Athens',year:'numeric',month:'2-digit',day:'2-digit'});
-export function athensDay(date=new Date()){return athensDateFormat.format(date);}
+export function athensDay(date=new Date()){const parts=Object.fromEntries(athensDateFormat.formatToParts(date).map(p=>[p.type,p.value]));return parts.year+'-'+parts.month+'-'+parts.day;}
 export function chooseRound(matches,today){const next=matches.filter(m=>m.date>=today).sort((a,b)=>a.date.localeCompare(b.date))[0];return next?.round||matches.at(-1)?.round||'';}
 const searchKey=s=>String(s||'').normalize('NFD').replace(/\p{M}/gu,'').toLocaleLowerCase('el').replace(/ς/g,'σ').replace(/[^\p{L}\p{N}]+/gu,' ').trim();
 const aliasKey=s=>String(s||'').normalize('NFD').replace(/\p{M}/gu,'').toLocaleLowerCase('el').replace(/[^\p{L}\p{N}]/gu,'');

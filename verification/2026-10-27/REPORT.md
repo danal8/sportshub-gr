@@ -12,12 +12,12 @@
 - `dist/core.js`, `dist/app.js`: shared verified aliases and accent/case normalization for fixture and standings search; missing-round label; visible dataset timestamp and integrity/highlights failure messages.
 - `scripts/refresh-results.mjs`, `dist/data.js`: Conference production always supplies season 2026-27 and consistently describes partial TheSportsDB/ESPN coverage, with no synthetic standings.
 - `scripts/audit-coverage.mjs`: persisted coverage audit across all 17 configured competitions.
-- Cache v68 → v69 is one coordinated shell/import revision for changed JavaScript. No user preferences or confirmed-result storage was cleared.
+- Cache v68 → v69 → v70 is one coordinated shell/import revision for changed JavaScript. No user preferences or confirmed-result storage was cleared.
 - Regression tests: verified aliases, source evidence, date changes, ambiguous/repeated pairings, repeat execution, newer confirmed finals for highlights, and per-competition rollback.
 
 ## Executed checks
 
-`full-refresh-verification.json` records **two complete runs** of the six workflow refresh scripts, build and full tests. Every process exited 0. Both runs retained Ligue 1 306/306 unique IDs, Serie A 380/380, NBA 1200/1200, Elite 240/240, Conference 33/33. The final complete test suite passed **183 tests, 0 failures**.
+`full-refresh-verification.json` records **two complete runs** of the six workflow refresh scripts, build and full tests. Every process exited 0. Both runs retained Ligue 1 306/306 unique IDs, Serie A 380/380, NBA 1200/1200, Elite 240/240, Conference 33/33. The final complete test suite passed **184 tests, 0 failures**.
 
 All nine NBA finals for the Athens day 27 October were compared with ESPN source dates 26 and 27 October. All nine agree; all 30 standings records agree with ESPN, including Miami 0–4. No standings were manually patched or recalculated from an incomplete season. `nba-verification27.json` records the checks; `nba-recaps-verified.json` records all nine verified links.
 
@@ -46,3 +46,5 @@ GitHub cron does not guarantee its nominal cadence. The UI now displays dataset 
 An on-demand highlights Edge Function was tested but its upstream NBA/ESPN requests were rejected in that hosting environment. It is **not wired into the application**; only the verified scheduled/bundled/remote-index path is enabled. No database/auth configuration was changed.
 
 Real-time progression of an actual currently running game was not observed in this session; live-to-final behavior was tested using deterministic injected source responses. Screenshots and local command logs remain in test-artifacts and are not part of the deployed application.
+
+Follow-up: the index reader now merges verified videos from both valid indices, so a newer partial source cannot hide a valid bundled recap. Date keys use formatToParts rather than locale-specific display formatting. Compact-list selection now retains the dataset timestamp. The actual GitHub results workflow completed all refresh/build/test/publish steps successfully (run 40496951363). The broader v69 UI CI failed on a layout assertion after the new status messages; this is recorded, with a follow-up assertion accounting for the visible status rows. Local direct browser CORS probes to ESPN/EuroLeague failed in this environment; they are not claimed as passing.

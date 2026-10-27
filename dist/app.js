@@ -1,24 +1,24 @@
-import{loadTVGuide}from'./tv-guide.js?v=69';
-import{loadDailySchedule}from'./daily-schedule.js?v=69';
-import{savePreference}from'./preference-storage.js?v=69';
-import{FAVORITES_KEY,sanitizeFavorites,isFavorite,toggleFavorite,favoriteMatches}from'./fixture-favorites.js?v=69';
-import{loadHighlightsIndex,selectHighlights,highlightMatch,highlightsState}from'./highlights.js?v=69';
-import{displayTeamName}from'./team-display.js?v=69';
-import{loadLiveScores,applyLiveScores,mergeLiveMatches,isFreshLive,LIVE_INTERVAL}from'./live-scores.js?v=69';
-import{makeSelection,sanitizeSelections,selectionForTeam,addSelection,weekRange,weeklyMatches,selectedCompetitions,teamIdentity}from'./my-teams.js?v=69';
-import{teamMarkup}from'./team-view.js?v=69';
-import{loadTVDetails,applyTVDetails}from'./tv-details.js?v=69';
-import{defaultCompetition,orderedCompetitions}from'./competition-order.js?v=69';
-import{badgeSources,loadBadgeCatalog,rememberBadges}from'./badges.js?v=69';
-import{resultLabel}from'./results.js?v=69';
-import{directIDs}from'./direct.js?v=69';
-import{swipeDirection}from'./gestures.js?v=69';
-import{navIcon}from'./icons.js?v=69';
-import{scheduleEntries,daySchedule}from'./schedule.js?v=69';
-import{loadNova}from'./tv.js?v=69';
-import {loadProvider,isConnected,rememberConfirmedResults} from './providers.js?v=69';
-import {competitions,checkedAt,eliteSchedule,eliteTV,eliteMatches,broadcasts,currentTV,gblStandings} from './data.js?v=69';
-import {escapeHTML as e,normalizeFootball,calculateTable,athensDay,chooseRound,filterMatches,shiftDay} from './core.js?v=69';
+import{loadTVGuide}from'./tv-guide.js?v=70';
+import{loadDailySchedule}from'./daily-schedule.js?v=70';
+import{savePreference}from'./preference-storage.js?v=70';
+import{FAVORITES_KEY,sanitizeFavorites,isFavorite,toggleFavorite,favoriteMatches}from'./fixture-favorites.js?v=70';
+import{loadHighlightsIndex,selectHighlights,highlightMatch,highlightsState}from'./highlights.js?v=70';
+import{displayTeamName}from'./team-display.js?v=70';
+import{loadLiveScores,applyLiveScores,mergeLiveMatches,isFreshLive,LIVE_INTERVAL}from'./live-scores.js?v=70';
+import{makeSelection,sanitizeSelections,selectionForTeam,addSelection,weekRange,weeklyMatches,selectedCompetitions,teamIdentity}from'./my-teams.js?v=70';
+import{teamMarkup}from'./team-view.js?v=70';
+import{loadTVDetails,applyTVDetails}from'./tv-details.js?v=70';
+import{defaultCompetition,orderedCompetitions}from'./competition-order.js?v=70';
+import{badgeSources,loadBadgeCatalog,rememberBadges}from'./badges.js?v=70';
+import{resultLabel}from'./results.js?v=70';
+import{directIDs}from'./direct.js?v=70';
+import{swipeDirection}from'./gestures.js?v=70';
+import{navIcon}from'./icons.js?v=70';
+import{scheduleEntries,daySchedule}from'./schedule.js?v=70';
+import{loadNova}from'./tv.js?v=70';
+import {loadProvider,isConnected,rememberConfirmedResults} from './providers.js?v=70';
+import {competitions,checkedAt,eliteSchedule,eliteTV,eliteMatches,broadcasts,currentTV,gblStandings} from './data.js?v=70';
+import {escapeHTML as e,normalizeFootball,calculateTable,athensDay,chooseRound,filterMatches,shiftDay} from './core.js?v=70';
 const $=id=>document.getElementById(id);
 const shortLabels={volleyball:'Βόλεϊ',football:'Ποδ.',basketball:'Μπασκ.',tv:'TV',matches:'Αγώνες',standings:'Βαθμοί'};
 const nav=[['football','⚽','Ποδόσφαιρο'],['basketball','◉','Μπάσκετ'],['volleyball','','Βόλεϊ'],['tv','▣','Τηλεόραση'],['matches','▦','Αγώνες'],['standings','≡','Βαθμολογίες']];
@@ -52,7 +52,7 @@ async function refreshCardHighlights(force=false){
  cardHighlightsPending=true;cardHighlightsCheckedAt=Date.now();
  try{cardHighlights=await loadHighlightsIndex({force});cardHighlightsError=null;if(!state.loading&&state.tab!=='standings')render();}catch(error){cardHighlightsError=error.message;renderFreshness();}finally{cardHighlightsPending=false;}
 }
-function details(){return detailPromise??=import('./detail-panels.js?v=69').then(m=>m.createDetailPanels({getSeed:()=>{const records=competitions.map(c=>({competition:c,payload:scheduleCache.get(state.season+'-'+c.id)})).filter(r=>r.payload);if(state.meta?.matches&&competitions.some(c=>c.id===state.id))records.push({competition:current(),payload:{...state.meta,matches:state.matches}});return records;}})).catch(error=>{detailPromise=null;notify('Δεν άνοιξαν τα στοιχεία. Δοκίμασε ξανά.');throw error;});}
+function details(){return detailPromise??=import('./detail-panels.js?v=70').then(m=>m.createDetailPanels({getSeed:()=>{const records=competitions.map(c=>({competition:c,payload:scheduleCache.get(state.season+'-'+c.id)})).filter(r=>r.payload);if(state.meta?.matches&&competitions.some(c=>c.id===state.id))records.push({competition:current(),payload:{...state.meta,matches:state.matches}});return records;}})).catch(error=>{detailPromise=null;notify('Δεν άνοιξαν τα στοιχεία. Δοκίμασε ξανά.');throw error;});}
 document.addEventListener('click',async event=>{const t=event.target.closest('[data-open-team]');if(t){const name=t.dataset.openTeam,id=t.dataset.openCompetition;try{(await details()).openTeam(name,id);}catch{}return;}const target=event.target.closest('[data-open-match-index]');if(!target||target.tagName==='ARTICLE'&&event.target.closest('a,button,input,select,summary'))return;const match=renderedMatches[Number(target.dataset.openMatchIndex)];if(match)try{(await details()).openMatch({...match});}catch{}});
 function renderNav(){if(renderedTab===state.tab)return;renderedTab=state.tab;for(const id of ['side-nav','top-nav','bottom-nav']){$(id).innerHTML=nav.map(([key,icon,label])=>`<button type="button" data-tab="${key}" aria-label="${label}" class="${state.tab===key?'active':''}" ${state.tab===key?'aria-current="page"':''}><span class="nav-icon" aria-hidden="true">${navIcon(key)}</span><span class="full-label">${label}</span><span class="short-label" aria-hidden="true">${shortLabels[key]}</span></button>`).join('');}}
 function choices(){const allowed=state.tab==='matches'?[allMatches,...orderedCompetitions(competitions,state.tab)]:state.tab==='tv'?[allTV,...orderedCompetitions(competitions,state.tab)]:orderedCompetitions(competitions,state.tab);if(!allowed.some(c=>c.id===state.id))state.id=allowed[0].id;$('competition').innerHTML=allowed.map(c=>`<option value="${c.id}" ${c.id===state.id?'selected':''}>${c.name}</option>`).join('');}
@@ -281,7 +281,7 @@ var snapshotIntegrity=null;
 function renderFreshness(){
  const stamp=state.meta?.retrievedAt||state.dailyIndex?.retrievedAt,el=$('data-freshness'),warning=$('integrity-warning');if(!el||!warning)return;
  const age=Math.max(0,Math.floor((Date.now()-Date.parse(stamp))/60000));el.hidden=!Number.isFinite(age);if(!el.hidden)el.textContent='Ενημέρωση λίστας: '+timestamp(stamp)+' · πριν '+(age<60?age+' λεπτά':Math.floor(age/60)+' ώρες');
- const hl=$('highlights-warning'),hs=highlightsState();if(hl){hl.hidden=!cardHighlightsError&&!hs?.errors?.length;if(!hl.hidden)hl.textContent=cardHighlightsError?'Απέτυχε η ενημέρωση highlights. Δοκίμασε Ανανέωση.':'Highlights: έλεγχος '+timestamp(hs.retrievedAt)+' · ορισμένες πηγές δεν ενημερώθηκαν. Εμφανίζονται μόνο επαληθευμένα βίντεο.';}
+ const hl=$('highlights-warning'),hs=highlightsState();if(hl){hl.hidden=!cardHighlightsError&&!hs?.errors?.length;if(!hl.hidden)hl.textContent=cardHighlightsError?'Απέτυχε η ενημέρωση highlights. Δοκίμασε Ανανέωση.':'Highlights: έλεγχος '+timestamp(hs.retrievedAt)+' · Μερική ενημέρωση πηγών.';}
  const failures=(snapshotIntegrity?.competitions||[]).filter(r=>r.status==='retained-previous'&&(state.id==='all-matches'||state.id==='all-tv'||state.id===r.competition));warning.hidden=!failures.length;if(failures.length)warning.textContent='Απέτυχε ο έλεγχος νέων δεδομένων για '+failures.map(r=>competitions.find(c=>c.id===r.competition)?.name||r.competition).join(', ')+'. Εμφανίζονται τα τελευταία έγκυρα στοιχεία.';
 }
 async function refreshIntegrity(){try{const r=await fetch('./snapshots/snapshot-integrity.json',{cache:'no-store',signal:AbortSignal.timeout(4000)});if(r.ok){snapshotIntegrity=await r.json();renderFreshness();}}catch{}}

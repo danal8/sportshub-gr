@@ -13,7 +13,7 @@ const browser=await chromium.launch();try{
  assert.match(await page.locator('#week-range').textContent(),/19.*25/);assert.equal(await page.locator('.match .team-follow').count(),0);
  assert.ok(await page.locator('.match').evaluateAll(es=>new Set(es.map(e=>e.innerText)).size===es.length));
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth));
- const layout=await page.evaluate(()=>{const controls=document.querySelector('#match-controls').getBoundingClientRect(),first=document.querySelector('.match').getBoundingClientRect(),filters=document.querySelector('.filters').getBoundingClientRect();return {gap:first.top-controls.top,filtersHeight:filters.height,seasonVisible:document.querySelector('#season').getClientRects().length>0};});
+ const layout=await page.evaluate(()=>{const controls=document.querySelector('#match-controls').getBoundingClientRect(),first=document.querySelector('.match').getBoundingClientRect(),filters=document.querySelector('.filters').getBoundingClientRect();return {gap:first.top-controls.top-['data-freshness','highlights-warning','integrity-warning'].reduce((sum,id)=>sum+(document.getElementById(id)?.getBoundingClientRect().height||0),0),filtersHeight:filters.height,seasonVisible:document.querySelector('#season').getClientRects().length>0};});
  assert.ok(layout.gap<240,JSON.stringify(layout));assert.ok(layout.filtersHeight<=42,JSON.stringify(layout));assert.equal(layout.seasonVisible,false);
  await mkdir('test-artifacts',{recursive:true});await page.screenshot({path:'test-artifacts/my-teams-mobile.png',fullPage:true});
  await page.getByRole('button',{name:'Επόμενη εβδομάδα',exact:true}).click();assert.equal(await page.locator('#tv-date').inputValue(),'2026-10-28');

@@ -1,7 +1,7 @@
-import{mergeResultUpdates}from'./result-reconciliation.js?v=69';
-import{aliases}from'./team-aliases.js?v=69';
-import{teamKey}from'./badges.js?v=69';
-import{athensDay,shiftDay}from'./core.js?v=69';
+import{mergeResultUpdates}from'./result-reconciliation.js?v=70';
+import{aliases}from'./team-aliases.js?v=70';
+import{teamKey}from'./badges.js?v=70';
+import{athensDay,shiftDay}from'./core.js?v=70';
 export const publishers=[
  {id:'laliga',label:'LALIGA',channel:'UCTv-XvfzLX3i4IGWAm4sbmA'},
  {id:'seriea',label:'Serie A',channel:'UCBJeMCIeLQos7wacox4hmLQ'},
@@ -60,7 +60,7 @@ function nbaDate(m){
  if(!/^\d{2}:\d{2}$/.test(m.time||''))return null;
  const part=new Intl.DateTimeFormat('en',{timeZone:'Europe/Athens',timeZoneName:'longOffset'}).formatToParts(new Date(m.date+'T12:00:00Z')).find(p=>p.type==='timeZoneName')?.value.replace('GMT','');
  const start=new Date(m.date+'T'+m.time+':00'+(part||'+00:00'));if(!Number.isFinite(+start))return null;
- return new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(start);
+ const parts=Object.fromEntries(new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(start).map(p=>[p.type,p.value]));return parts.year+'-'+parts.month+'-'+parts.day;
 }
 // normalizeFootball exposes score.ft as score and marks the record non-provisional.
 export function highlightMatch(m){
@@ -97,7 +97,7 @@ export const HIGHLIGHTS_FEED='https://raw.githubusercontent.com/danal8/sportshub
 export async function fetchHighlightsIndex({fetchJSON=async url=>{const r=await fetch(url,{cache:'no-store',credentials:'omit',signal:AbortSignal.timeout(6000)});if(!r.ok)throw Error('Highlights HTTP '+r.status);return r.json();}}={}){
  const sources=await Promise.allSettled([fetchJSON(HIGHLIGHTS_FEED+'?t='+Date.now()),fetchJSON('./snapshots/highlights-2026-27.json')]);
  const valid=sources.filter(r=>r.status==='fulfilled'&&r.value?.season==='2026-27'&&Array.isArray(r.value.videos)&&Number.isFinite(Date.parse(r.value.retrievedAt))).map(r=>r.value).sort((a,b)=>Date.parse(b.retrievedAt)-Date.parse(a.retrievedAt));
- if(!valid.length)throw Error('Highlights unavailable');return valid[0];
+ if(!valid.length)throw Error('Highlights unavailable');const videos=new Map();for(const p of [...valid].reverse())for(const v of p.videos)videos.set((v.channelId||v.publisher)+'|'+v.videoId,v);return{...valid[0],videos:[...videos.values()]};
 }
 let cached=null,pending=null,loadedAt=0,loadState=null;
 export function highlightsState(){return loadState;}

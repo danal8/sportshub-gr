@@ -1,9 +1,9 @@
-import{footballEvents}from'./football-events.js?v=69';
-import{competitions}from'./data.js?v=69';
-import{aliases}from'./team-aliases.js?v=69';
-import{teamKey}from'./badges.js?v=69';
-import{athensDay,normalizeFootball,shiftDay}from'./core.js?v=69';
-import{liveLeagues,sourceClock,parseEuroHeader}from'./live-scores.js?v=69';
+import{footballEvents}from'./football-events.js?v=70';
+import{competitions}from'./data.js?v=70';
+import{aliases}from'./team-aliases.js?v=70';
+import{teamKey}from'./badges.js?v=70';
+import{athensDay,normalizeFootball,shiftDay}from'./core.js?v=70';
+import{liveLeagues,sourceClock,parseEuroHeader}from'./live-scores.js?v=70';
 const web='https://site.web.api.espn.com/apis/site/v2/sports/',query='region=us&lang=en&contentorigin=espn';
 const validScore=s=>Array.isArray(s)&&s.length===2&&s.every(n=>Number.isInteger(n)&&n>=0);
 const names=(name,extra=[])=>new Set([name,...extra].filter(Boolean).flatMap(n=>[n,...aliases[teamKey(n)]||[]]).map(teamKey));

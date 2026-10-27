@@ -25,3 +25,4 @@ test('Temporary YouTube failure is bounded and backs off instead of retrying eve
  try{const videos=Array.from({length:20},(_,i)=>({publisher:'nba',videoId:String(i),gameDate:'2026-10-24',availableCountries:['GR'],regionCheckedAt:'2026-10-20T00:00:00Z'})),first=await verifyNBAVideoRegions(videos,{now});assert.equal(calls,16);assert.equal(first.videos.length,20);assert.deepEqual(first.videos[0].availableCountries,['GR']);await verifyNBAVideoRegions(first.videos,{now:now+600000});assert.equal(calls,20);}
  finally{globalThis.fetch=saved;}
 });
+test('A later partial index cannot erase a verified video from the other available index',async()=>{const latestPartial={...latest,videos:[latest.videos[1]]};const p=await fetchHighlightsIndex({fetchJSON:async u=>u.startsWith(HIGHLIGHTS_FEED)?latestPartial:old});assert.equal(p.videos.length,2);assert.equal(p.retrievedAt,latest.retrievedAt);});
