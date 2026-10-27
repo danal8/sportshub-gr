@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-27T12:02:24.587Z",
+  "checkedAt": "2026-10-27T14:50:32.532Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -242,31 +242,9 @@
     {
       "competition": "volley-w",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "volley-88158",
-          "competition": "volley-w",
-          "date": "2026-10-17",
-          "home": "Α.Ο. Θήρας",
-          "away": "Ολυμπιακός Σ.Φ.Π."
-        },
-        {
-          "id": "volley-88157",
-          "competition": "volley-w",
-          "date": "2026-10-17",
-          "home": "Α.Ο. Μαρκοπούλου Revoil",
-          "away": "Α.Σ. Άρης"
-        },
-        {
-          "id": "volley-88160",
-          "competition": "volley-w",
-          "date": "2026-10-17",
-          "home": "Ζ.Α.Ο.Ν.",
-          "away": "Ο.Φ.Α. Απολλώνιος"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 9
+      "finals": 12
     }
   ]
 }

@@ -29,7 +29,7 @@ export async function loadPublisherArchive(p,{known=new Set(),pages=3,playlists=
  for(let i=1;i<pages&&page.continuation&&version;i++){const r=await get('https://www.youtube.com/youtubei/v1/browse?prettyPrint=false',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({context:context||{client:{clientName:'WEB',clientVersion:version}},continuation:page.continuation})});page=uploadPage(await r.json());entries.push(...page.videos);}
  }catch(e){discoveryErrors.push(url+': '+e.message);}
  if(!entries.length)throw Error('Empty publisher video listings; retained earlier videos: '+discoveryErrors.join('; '));
- const pending=[...new Map(entries.map(v=>[v.id,v])).values()].filter(v=>/^[-\w]{11}$/.test(v.id)&&!known.has(p.channel+'|'+v.id)&&/highlights|nightly recap|στιγμι[οό]τυπ/i.test(v.title));let cursor=0;const videos=[],errors=[...discoveryErrors];
+ const pending=[...new Map(entries.map(v=>[v.id,v])).values()].filter(v=>/^[-\w]{11}$/.test(v.id)&&!known.has(p.channel+'|'+v.id)&&(/highlights|nightly recap|στιγμι[οό]τυπ/i.test(v.title)||p.id==='ec'&&/\|\s*BKT EuroCup Basketball\s+2026[-–]27/i.test(v.title)));let cursor=0;const videos=[],errors=[...discoveryErrors];
  await Promise.all(Array.from({length:4},async()=>{while(cursor<pending.length){const v=pending[cursor++];try{let parsed=[];
  // Full-game videos can be absent from channel uploads and watch pages can fail.
  // oEmbed independently verifies the official NBA author and the dated title.

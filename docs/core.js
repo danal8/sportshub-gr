@@ -1,4 +1,4 @@
-import{aliases}from'./team-aliases.js?v=70';
+import{aliases}from'./team-aliases.js?v=71';
 export function escapeHTML(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 export function seasonNow(date=new Date()){const y=date.getFullYear()-(date.getMonth()<6?1:0);return `${y}-${String(y+1).slice(-2)}`;}
 export function validateFootball(data){if(!data||typeof data.name!=='string'||!Array.isArray(data.matches))throw Error('Μη έγκυρη μορφή δεδομένων');for(const m of data.matches){if(typeof m.team1!=='string'||typeof m.team2!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(m.date)||typeof m.round!=='string')throw Error('Μη έγκυρος αγώνας');if(m.score?.ft&&!validScore(m.score.ft))throw Error('Μη έγκυρο τελικό αποτέλεσμα');}return data;}

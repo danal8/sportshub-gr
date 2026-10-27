@@ -1,19 +1,235 @@
 {
   "season": "2026-27",
-  "sourceVersion": 11,
+  "sourceVersion": 12,
   "pendingNovaURLs": [],
-  "retrievedAt": "2026-10-27T06:28:26.781Z",
+  "retrievedAt": "2026-10-27T14:53:06.670Z",
   "errors": [
-    "NBA: HTTP 404",
-    "NBA: HTTP 404",
-    "NBA: HTTP 404",
-    "NBA: HTTP 404",
-    "Magenta Sport: HTTP 404",
-    "EuroCup: HTTP 404",
-    "EuroLeague: HTTP 404",
-    "Novasports: HTTP 500",
     "Magenta Sport archive: Empty publisher video listings; retained earlier videos: ",
-    "NBA YouTube region: A4v-byV18_Y: YouTube country availability unavailable"
+    "NBA YouTube region: A4v-byV18_Y: YouTube country availability unavailable",
+    "NBA YouTube region: EyQytP1xKiY: YouTube country availability unavailable"
+  ],
+  "sourceReports": [
+    {
+      "id": "nova-web",
+      "publisher": "nova-web",
+      "label": "Novasports Web",
+      "url": "https://www.novasports.gr/web-tv/highlights/",
+      "lastAttemptAt": "2026-10-27T14:52:04.056Z",
+      "lastSuccessAt": "2026-10-27T14:52:04.056Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "nba-playlists",
+      "publisher": "nba",
+      "label": "NBA · Playlists",
+      "url": "https://www.youtube.com/@NBA/playlists",
+      "lastAttemptAt": "2026-10-27T14:52:08.604Z",
+      "lastSuccessAt": "2026-10-27T14:52:08.604Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "rss:https://www.youtube.com/feeds/videos.xml?channel_id=UCWJ2lWNubArHWmf3FIHbfcQ",
+      "publisher": "nba",
+      "label": "NBA · RSS",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCWJ2lWNubArHWmf3FIHbfcQ",
+      "lastAttemptAt": "2026-10-27T14:52:08.649Z",
+      "lastSuccessAt": "2026-10-27T14:52:08.649Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 4
+    },
+    {
+      "id": "rss:https://www.youtube.com/feeds/videos.xml?channel_id=UCpFqOv5z4WKps64GlQS4ytw",
+      "publisher": "ec",
+      "label": "EuroCup · RSS",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCpFqOv5z4WKps64GlQS4ytw",
+      "lastAttemptAt": "2026-10-27T14:52:12.877Z",
+      "lastSuccessAt": "2026-10-27T14:52:12.877Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 13
+    },
+    {
+      "id": "rss:https://www.youtube.com/feeds/videos.xml?channel_id=UCGr3nR_XH9r6E5b09ZJAT9w",
+      "publisher": "el",
+      "label": "EuroLeague · RSS",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCGr3nR_XH9r6E5b09ZJAT9w",
+      "lastAttemptAt": "2026-10-27T14:52:12.878Z",
+      "lastSuccessAt": "2026-10-27T14:52:12.878Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "rss:https://www.youtube.com/feeds/videos.xml?playlist_id=PLlVlyGVtvuVl3-HYumcaTFTwBBe-QVY8Z",
+      "publisher": "nba",
+      "label": "NBA · RSS",
+      "url": "https://www.youtube.com/feeds/videos.xml?playlist_id=PLlVlyGVtvuVl3-HYumcaTFTwBBe-QVY8Z",
+      "lastAttemptAt": "2026-10-27T14:52:12.889Z",
+      "lastSuccessAt": "2026-10-27T14:52:12.889Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 13
+    },
+    {
+      "id": "rss:https://www.youtube.com/feeds/videos.xml?channel_id=UCgMUmr7uLDalwVk63Sf6pBw",
+      "publisher": "magenta",
+      "label": "Magenta Sport · RSS",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCgMUmr7uLDalwVk63Sf6pBw",
+      "lastAttemptAt": "2026-10-27T14:52:12.894Z",
+      "lastSuccessAt": "2026-10-27T14:52:12.894Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 1
+    },
+    {
+      "id": "rss:https://www.youtube.com/feeds/videos.xml?playlist_id=PLftRqjkDhxkg",
+      "publisher": "nba",
+      "label": "NBA · RSS",
+      "url": "https://www.youtube.com/feeds/videos.xml?playlist_id=PLftRqjkDhxkg",
+      "lastAttemptAt": "2026-10-27T14:52:12.906Z",
+      "lastSuccessAt": "2026-10-27T14:52:12.906Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 15
+    },
+    {
+      "id": "rss:https://www.youtube.com/feeds/videos.xml?channel_id=UCEIbXco8hU9oDHXGo1kwIlA",
+      "publisher": "nova",
+      "label": "Novasports · RSS",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEIbXco8hU9oDHXGo1kwIlA",
+      "lastAttemptAt": "2026-10-27T14:52:13.029Z",
+      "lastSuccessAt": "2026-10-27T14:52:13.029Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "rss:https://www.youtube.com/feeds/videos.xml?playlist_id=PLaMWIRum7wA0",
+      "publisher": "nba",
+      "label": "NBA · RSS",
+      "url": "https://www.youtube.com/feeds/videos.xml?playlist_id=PLaMWIRum7wA0",
+      "lastAttemptAt": "2026-10-27T14:52:13.142Z",
+      "lastSuccessAt": "2026-10-27T14:52:13.142Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 14
+    },
+    {
+      "id": "archive:magenta",
+      "publisher": "magenta",
+      "label": "Magenta Sport · Αρχείο καναλιού",
+      "url": "https://www.youtube.com/channel/UCgMUmr7uLDalwVk63Sf6pBw/videos",
+      "lastAttemptAt": "2026-10-27T14:52:39.020Z",
+      "lastSuccessAt": null,
+      "status": "failed",
+      "error": "Empty publisher video listings; retained earlier videos: ",
+      "httpStatus": null,
+      "retainedVideos": 59,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "archive:nova",
+      "publisher": "nova",
+      "label": "Novasports · Αρχείο καναλιού",
+      "url": "https://www.youtube.com/channel/UCEIbXco8hU9oDHXGo1kwIlA/videos",
+      "lastAttemptAt": "2026-10-27T14:52:39.036Z",
+      "lastSuccessAt": "2026-10-27T14:52:39.036Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "archive:ec",
+      "publisher": "ec",
+      "label": "EuroCup · Αρχείο καναλιού",
+      "url": "https://www.youtube.com/channel/UCpFqOv5z4WKps64GlQS4ytw/videos",
+      "lastAttemptAt": "2026-10-27T14:52:39.114Z",
+      "lastSuccessAt": "2026-10-27T14:52:39.114Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "archive:nba",
+      "publisher": "nba",
+      "label": "NBA · Αρχείο καναλιού",
+      "url": "https://www.youtube.com/channel/UCWJ2lWNubArHWmf3FIHbfcQ/videos",
+      "lastAttemptAt": "2026-10-27T14:52:40.056Z",
+      "lastSuccessAt": "2026-10-27T14:52:40.056Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "archive:el",
+      "publisher": "el",
+      "label": "EuroLeague · Αρχείο καναλιού",
+      "url": "https://www.youtube.com/channel/UCGr3nR_XH9r6E5b09ZJAT9w/videos",
+      "lastAttemptAt": "2026-10-27T14:52:47.087Z",
+      "lastSuccessAt": "2026-10-27T14:52:47.087Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "nba-com",
+      "publisher": "nba-com",
+      "label": "NBA.com recaps",
+      "url": "https://www.nba.com/games",
+      "lastAttemptAt": "2026-10-27T14:52:59.212Z",
+      "lastSuccessAt": "2026-10-27T14:52:59.212Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "nba-regions",
+      "publisher": "nba",
+      "label": "NBA · Διαθεσιμότητα YouTube",
+      "url": "https://www.youtube.com/",
+      "lastAttemptAt": "2026-10-27T14:53:06.670Z",
+      "lastSuccessAt": null,
+      "status": "failed",
+      "error": "A4v-byV18_Y: YouTube country availability unavailable; EyQytP1xKiY: YouTube country availability unavailable",
+      "httpStatus": null,
+      "retainedVideos": 116,
+      "verifiedThisRun": 0
+    }
   ],
   "sources": [
     {
@@ -63,7 +279,7 @@
       "competition": "nba",
       "gameDate": "2026-10-24",
       "kind": "game",
-      "regionAttemptedAt": "2026-10-27T06:28:19.805Z",
+      "regionAttemptedAt": "2026-10-27T14:52:59.215Z",
       "availableCountries": [
         "AR",
         "AU",
@@ -90,7 +306,7 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-27T06:28:19.805Z"
+      "regionCheckedAt": "2026-10-27T14:52:59.215Z"
     },
     {
       "videoId": "vTUV7qXzPSA",
@@ -101,7 +317,7 @@
       "competition": "nba",
       "gameDate": "2026-10-24",
       "kind": "game",
-      "regionAttemptedAt": "2026-10-27T06:28:19.805Z",
+      "regionAttemptedAt": "2026-10-27T14:52:59.215Z",
       "availableCountries": [
         "AR",
         "AU",
@@ -128,7 +344,7 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-27T06:28:19.805Z"
+      "regionCheckedAt": "2026-10-27T14:52:59.215Z"
     },
     {
       "videoId": "UIiV46AZIh4",
@@ -139,7 +355,7 @@
       "competition": "nba",
       "gameDate": "2026-10-24",
       "kind": "game",
-      "regionAttemptedAt": "2026-10-27T06:28:19.805Z",
+      "regionAttemptedAt": "2026-10-27T14:52:59.215Z",
       "availableCountries": [
         "AR",
         "AU",
@@ -166,7 +382,7 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-27T06:28:19.805Z"
+      "regionCheckedAt": "2026-10-27T14:52:59.215Z"
     },
     {
       "videoId": "jmxhqhQIUyY",
@@ -177,7 +393,7 @@
       "competition": "nba",
       "gameDate": "2026-10-24",
       "kind": "game",
-      "regionAttemptedAt": "2026-10-27T06:28:19.805Z",
+      "regionAttemptedAt": "2026-10-27T14:52:59.215Z",
       "availableCountries": [
         "AR",
         "AU",
@@ -204,7 +420,7 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-27T06:28:19.805Z"
+      "regionCheckedAt": "2026-10-27T14:52:59.215Z"
     },
     {
       "videoId": "xN2DI4cxvXc",
@@ -215,7 +431,7 @@
       "competition": "nba",
       "gameDate": "2026-10-24",
       "kind": "game",
-      "regionAttemptedAt": "2026-10-27T06:28:19.805Z",
+      "regionAttemptedAt": "2026-10-27T14:52:59.215Z",
       "availableCountries": [
         "AR",
         "AU",
@@ -242,7 +458,7 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-27T06:28:19.805Z"
+      "regionCheckedAt": "2026-10-27T14:52:59.215Z"
     },
     {
       "videoId": "Lw6ZDR4KRIY",
@@ -253,7 +469,7 @@
       "competition": "nba",
       "gameDate": "2026-10-24",
       "kind": "game",
-      "regionAttemptedAt": "2026-10-27T06:28:19.805Z",
+      "regionAttemptedAt": "2026-10-27T14:52:59.215Z",
       "availableCountries": [
         "AR",
         "AU",
@@ -280,7 +496,7 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-27T06:28:19.805Z"
+      "regionCheckedAt": "2026-10-27T14:52:59.215Z"
     },
     {
       "videoId": "Z5yBg42u7N4",
@@ -291,7 +507,7 @@
       "competition": "nba",
       "gameDate": "2026-10-24",
       "kind": "game",
-      "regionAttemptedAt": "2026-10-27T06:28:19.805Z",
+      "regionAttemptedAt": "2026-10-27T14:52:59.215Z",
       "availableCountries": [
         "AR",
         "AU",
@@ -318,7 +534,7 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-27T06:28:19.805Z"
+      "regionCheckedAt": "2026-10-27T14:52:59.215Z"
     },
     {
       "videoId": "7wKdoaRzQB0",
@@ -329,7 +545,7 @@
       "competition": "nba",
       "gameDate": "2026-10-24",
       "kind": "game",
-      "regionAttemptedAt": "2026-10-27T06:28:19.805Z",
+      "regionAttemptedAt": "2026-10-27T14:52:59.215Z",
       "availableCountries": [
         "AR",
         "AU",
@@ -356,7 +572,7 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-27T06:28:19.805Z"
+      "regionCheckedAt": "2026-10-27T14:52:59.215Z"
     },
     {
       "publisher": "nba-com",
@@ -718,8 +934,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-27T06:28:19.805Z",
-      "regionAttemptedAt": "2026-10-27T06:28:19.805Z"
+      "regionCheckedAt": "2026-10-27T14:52:59.215Z",
+      "regionAttemptedAt": "2026-10-27T14:52:59.215Z"
     },
     {
       "publisher": "nova-web",
@@ -799,7 +1015,6 @@
           "label": "Top Plays of the Night"
         }
       ],
-      "regionAttemptedAt": "2026-10-27T06:28:19.805Z",
       "availableCountries": [
         "AD",
         "AE",
@@ -1049,7 +1264,8 @@
         "ZM",
         "ZW"
       ],
-      "regionCheckedAt": "2026-10-27T06:28:19.805Z"
+      "regionCheckedAt": "2026-10-27T14:52:59.215Z",
+      "regionAttemptedAt": "2026-10-27T14:52:59.215Z"
     },
     {
       "publisher": "nba-com",
@@ -1135,7 +1351,7 @@
           "label": "Top Plays of the Night"
         }
       ],
-      "regionAttemptedAt": "2026-10-27T06:28:19.805Z"
+      "regionAttemptedAt": "2026-10-27T14:52:59.215Z"
     },
     {
       "publisher": "nba-com",
@@ -1986,8 +2202,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-27T06:28:19.805Z",
-      "regionAttemptedAt": "2026-10-27T06:28:19.805Z"
+      "regionCheckedAt": "2026-10-27T14:52:59.215Z",
+      "regionAttemptedAt": "2026-10-27T14:52:59.215Z"
     },
     {
       "videoId": "EyQytP1xKiY",
@@ -2026,8 +2242,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-27T06:28:19.805Z",
-      "regionAttemptedAt": "2026-10-27T06:28:19.805Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T14:52:59.215Z"
     },
     {
       "videoId": "x6ajbvY0OjQ",
@@ -2066,8 +2282,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-27T06:28:19.805Z",
-      "regionAttemptedAt": "2026-10-27T06:28:19.805Z"
+      "regionCheckedAt": "2026-10-27T14:52:59.215Z",
+      "regionAttemptedAt": "2026-10-27T14:52:59.215Z"
     },
     {
       "videoId": "xsl01r9uQLQ",
@@ -2106,8 +2322,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-27T06:28:19.805Z",
-      "regionAttemptedAt": "2026-10-27T06:28:19.805Z"
+      "regionCheckedAt": "2026-10-27T14:52:59.215Z",
+      "regionAttemptedAt": "2026-10-27T14:52:59.215Z"
     },
     {
       "videoId": "KRTK_zDU5l0",
@@ -2146,8 +2362,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-27T06:28:19.805Z",
-      "regionAttemptedAt": "2026-10-27T06:28:19.805Z"
+      "regionCheckedAt": "2026-10-27T14:52:59.215Z",
+      "regionAttemptedAt": "2026-10-27T14:52:59.215Z"
     },
     {
       "videoId": "p9iE4bGvMP8",
@@ -2187,7 +2403,7 @@
         "VN"
       ],
       "regionCheckedAt": "2026-10-24T07:23:36.388Z",
-      "regionAttemptedAt": "2026-10-26T06:52:01.151Z"
+      "regionAttemptedAt": "2026-10-27T11:40:37.884Z"
     },
     {
       "videoId": "BMlNel_dUyk",
@@ -2227,7 +2443,7 @@
         "VN"
       ],
       "regionCheckedAt": "2026-10-24T07:23:36.388Z",
-      "regionAttemptedAt": "2026-10-26T06:52:01.151Z"
+      "regionAttemptedAt": "2026-10-27T11:40:37.884Z"
     },
     {
       "videoId": "PMhkej9WpJA",
@@ -2267,7 +2483,7 @@
         "VN"
       ],
       "regionCheckedAt": "2026-10-24T07:23:36.388Z",
-      "regionAttemptedAt": "2026-10-26T06:52:01.151Z"
+      "regionAttemptedAt": "2026-10-27T11:40:37.884Z"
     },
     {
       "videoId": "j-rTz31Pems",
@@ -2307,7 +2523,7 @@
         "VN"
       ],
       "regionCheckedAt": "2026-10-24T07:23:36.388Z",
-      "regionAttemptedAt": "2026-10-26T06:52:01.151Z"
+      "regionAttemptedAt": "2026-10-27T11:40:37.884Z"
     },
     {
       "videoId": "4Mtdux5j_5U",
@@ -2347,7 +2563,7 @@
         "VN"
       ],
       "regionCheckedAt": "2026-10-24T07:23:36.388Z",
-      "regionAttemptedAt": "2026-10-26T06:52:01.151Z"
+      "regionAttemptedAt": "2026-10-27T11:40:37.884Z"
     },
     {
       "publisher": "nba-com",
@@ -2392,7 +2608,7 @@
       "competition": "nba",
       "gameDate": "2026-10-23",
       "kind": "game",
-      "regionAttemptedAt": "2026-10-26T06:52:01.151Z"
+      "regionAttemptedAt": "2026-10-27T11:40:37.884Z"
     },
     {
       "publisher": "nba-com",
@@ -2420,7 +2636,7 @@
       "competition": "nba",
       "gameDate": "2026-10-23",
       "kind": "game",
-      "regionAttemptedAt": "2026-10-26T06:52:01.151Z"
+      "regionAttemptedAt": "2026-10-27T11:40:37.884Z"
     },
     {
       "publisher": "nba-com",
@@ -2465,7 +2681,7 @@
       "competition": "nba",
       "gameDate": "2026-10-23",
       "kind": "game",
-      "regionAttemptedAt": "2026-10-26T06:52:01.151Z"
+      "regionAttemptedAt": "2026-10-27T11:40:37.884Z"
     },
     {
       "publisher": "nba-com",
@@ -2493,7 +2709,7 @@
       "competition": "nba",
       "gameDate": "2026-10-23",
       "kind": "game",
-      "regionAttemptedAt": "2026-10-26T06:52:01.151Z"
+      "regionAttemptedAt": "2026-10-27T11:40:37.884Z"
     },
     {
       "videoId": "ZUslpiyp7G4",
@@ -2504,7 +2720,7 @@
       "competition": "nba",
       "gameDate": "2026-10-23",
       "kind": "game",
-      "regionAttemptedAt": "2026-10-26T06:52:01.151Z"
+      "regionAttemptedAt": "2026-10-27T11:40:37.884Z"
     },
     {
       "publisher": "nba-com",
@@ -2532,7 +2748,7 @@
       "competition": "nba",
       "gameDate": "2026-10-23",
       "kind": "game",
-      "regionAttemptedAt": "2026-10-26T06:52:01.151Z"
+      "regionAttemptedAt": "2026-10-27T11:40:37.884Z"
     },
     {
       "videoId": "If1DIVuMPkc",
@@ -2543,7 +2759,7 @@
       "competition": "nba",
       "gameDate": "2026-10-23",
       "kind": "game",
-      "regionAttemptedAt": "2026-10-26T06:52:01.151Z"
+      "regionAttemptedAt": "2026-10-27T11:40:37.884Z"
     },
     {
       "videoId": "9n0WtH6pzGc",
@@ -2580,7 +2796,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-25T05:57:41.994Z"
+      "regionCheckedAt": "2026-10-25T05:57:41.994Z",
+      "regionAttemptedAt": "2026-10-27T11:40:37.884Z"
     },
     {
       "videoId": "nL79PGsNMNc",
@@ -2617,7 +2834,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-25T05:57:41.994Z"
+      "regionCheckedAt": "2026-10-25T05:57:41.994Z",
+      "regionAttemptedAt": "2026-10-27T11:40:37.884Z"
     },
     {
       "videoId": "KoRT1d_i13o",
@@ -2654,7 +2872,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-25T05:57:41.994Z"
+      "regionCheckedAt": "2026-10-25T05:57:41.994Z",
+      "regionAttemptedAt": "2026-10-27T11:40:37.884Z"
     },
     {
       "videoId": "w4g6vpvVyos",
@@ -2691,7 +2910,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-25T05:57:41.994Z"
+      "regionCheckedAt": "2026-10-25T05:57:41.994Z",
+      "regionAttemptedAt": "2026-10-27T11:41:22.143Z"
     },
     {
       "publisher": "nba-com",
@@ -2745,7 +2965,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-25T05:57:41.994Z"
+      "regionCheckedAt": "2026-10-25T05:57:41.994Z",
+      "regionAttemptedAt": "2026-10-27T11:41:22.143Z"
     },
     {
       "videoId": "H4omtK3PnxA",
@@ -3019,7 +3240,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:41:22.143Z"
     },
     {
       "videoId": "ou4fHN6d3Ww",
@@ -3058,7 +3280,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:41:22.143Z"
     },
     {
       "videoId": "KcLfEwwzAw4",
@@ -3097,7 +3320,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:41:22.143Z"
     },
     {
       "videoId": "bmrciQpiHFI",
@@ -3136,7 +3360,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:41:22.143Z"
     },
     {
       "videoId": "vILUjksgw2Q",
@@ -3175,7 +3400,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:41:22.143Z"
     },
     {
       "videoId": "1UcL1Xxx7sI",
@@ -3214,7 +3440,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:41:22.143Z"
     },
     {
       "videoId": "Zwp1XDQlhl8",
@@ -3253,7 +3480,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:41:22.143Z"
     },
     {
       "videoId": "h0LDSDljJMw",
@@ -3292,7 +3520,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:41:22.143Z"
     },
     {
       "videoId": "4Vk445ZPOCE",
@@ -3331,7 +3560,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:41:22.143Z"
     },
     {
       "videoId": "1VjaB6MynyU",
@@ -3370,7 +3600,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:41:22.143Z"
     },
     {
       "videoId": "xDunS4-w5Hg",
@@ -3409,7 +3640,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:41:22.143Z"
     },
     {
       "videoId": "XmFFZxa6tM4",
@@ -3448,7 +3680,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:41:22.143Z"
     },
     {
       "videoId": "qz8Usmdv0QM",
@@ -3487,7 +3720,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:41:22.143Z"
     },
     {
       "videoId": "pFRSoI2InLU",
@@ -3751,7 +3985,8 @@
         "ZM",
         "ZW"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:45:25.788Z"
     },
     {
       "videoId": "fT671wr14Ys",
@@ -3790,7 +4025,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:45:25.788Z"
     },
     {
       "videoId": "NZmml7nxVaI",
@@ -3829,7 +4065,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:45:25.788Z"
     },
     {
       "videoId": "qhU2hqJ9rhc",
@@ -3868,7 +4105,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:45:25.788Z"
     },
     {
       "videoId": "mF7pmQEkS_A",
@@ -3907,7 +4145,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:45:25.788Z"
     },
     {
       "videoId": "PuRFyx_FSbs",
@@ -3946,7 +4185,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:45:25.788Z"
     },
     {
       "videoId": "Dwea5DcKfK4",
@@ -3985,7 +4225,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:45:25.788Z"
     },
     {
       "videoId": "q1QqueBYMQo",
@@ -4024,7 +4265,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:45:25.788Z"
     },
     {
       "videoId": "pLXx9k6RYMY",
@@ -4063,7 +4305,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:45:25.788Z"
     },
     {
       "videoId": "y1pbO1uDxUY",
@@ -4102,7 +4345,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:45:25.788Z"
     },
     {
       "videoId": "3Ttdjq57W9E",
@@ -4141,7 +4385,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:45:25.788Z"
     },
     {
       "videoId": "dqVSIkG1s0Q",
@@ -4180,7 +4425,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:45:25.788Z"
     },
     {
       "videoId": "6IVDF14w-Cc",
@@ -4219,7 +4465,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:45:25.788Z"
     },
     {
       "videoId": "4hNRkmyNe90",
@@ -4258,7 +4505,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T11:45:25.788Z"
     },
     {
       "videoId": "tIsw4QK1Ung",
@@ -4344,7 +4592,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-25T05:57:41.994Z"
+      "regionCheckedAt": "2026-10-25T05:57:41.994Z",
+      "regionAttemptedAt": "2026-10-27T12:02:53.642Z"
     },
     {
       "publisher": "nba-com",
@@ -4398,7 +4647,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-25T05:57:41.994Z"
+      "regionCheckedAt": "2026-10-25T05:57:41.994Z",
+      "regionAttemptedAt": "2026-10-27T12:02:53.642Z"
     },
     {
       "videoId": "lJFg3r0ERl4",
@@ -5118,7 +5368,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-25T05:57:41.994Z"
+      "regionCheckedAt": "2026-10-25T05:57:41.994Z",
+      "regionAttemptedAt": "2026-10-27T12:02:53.642Z"
     },
     {
       "videoId": "GU4e--bCuwQ",
@@ -5155,7 +5406,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T12:02:53.642Z"
     },
     {
       "videoId": "EC_WSF7sPuI",
@@ -5192,7 +5444,8 @@
         "VE",
         "VN"
       ],
-      "regionCheckedAt": "2026-10-24T07:23:36.388Z"
+      "regionCheckedAt": "2026-10-24T07:23:36.388Z",
+      "regionAttemptedAt": "2026-10-27T12:02:53.642Z"
     },
     {
       "publisher": "nba-com",
@@ -6436,7 +6689,8 @@
       "publisher": "nba",
       "competition": "nba",
       "gameDate": "2026-10-25",
-      "kind": "game"
+      "kind": "game",
+      "regionAttemptedAt": "2026-10-27T12:02:53.642Z"
     },
     {
       "videoId": "_4MO3BVOKkU",
@@ -12889,85 +13143,71 @@
       "videoId": "6TlvMGNxCBw",
       "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
       "title": "HAWKS at ROCKETS | FULL GAME HIGHLIGHTS | October 26, 2026",
-      "publishedAt": null,
+      "publishedAt": "2026-10-27T03:27:25+00:00",
       "publisher": "nba",
       "competition": "nba",
       "gameDate": "2026-10-26",
-      "kind": "game",
-      "verifiedAt": "2026-10-27T06:28:09.955Z",
-      "metadataSource": "YouTube oEmbed"
+      "kind": "game"
     },
     {
       "videoId": "ZuTuycl-wYc",
       "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
       "title": "SUNS at THUNDER | FULL GAME HIGHLIGHTS | October 26, 2026",
-      "publishedAt": null,
+      "publishedAt": "2026-10-27T03:12:17+00:00",
       "publisher": "nba",
       "competition": "nba",
       "gameDate": "2026-10-26",
-      "kind": "game",
-      "verifiedAt": "2026-10-27T06:28:09.946Z",
-      "metadataSource": "YouTube oEmbed"
+      "kind": "game"
     },
     {
       "videoId": "vDxNf1bBs6o",
       "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
       "title": "MAVERICKS at HEAT | FULL GAME HIGHLIGHTS | October 26, 2026",
-      "publishedAt": null,
+      "publishedAt": "2026-10-27T02:39:11+00:00",
       "publisher": "nba",
       "competition": "nba",
       "gameDate": "2026-10-26",
-      "kind": "game",
-      "verifiedAt": "2026-10-27T06:28:06.502Z",
-      "metadataSource": "YouTube oEmbed"
+      "kind": "game"
     },
     {
       "videoId": "DTNqMLNVBC8",
       "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
       "title": "BULLS at CELTICS | FULL GAME HIGHLIGHTS | October 26, 2026",
-      "publishedAt": null,
+      "publishedAt": "2026-10-27T02:44:21+00:00",
       "publisher": "nba",
       "competition": "nba",
       "gameDate": "2026-10-26",
-      "kind": "game",
-      "verifiedAt": "2026-10-27T06:28:06.448Z",
-      "metadataSource": "YouTube oEmbed"
+      "kind": "game"
     },
     {
       "videoId": "SSJORIN8D1M",
       "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
       "title": "PACERS at BUCKS | FULL GAME HIGHLIGHTS | October 26, 2026",
-      "publishedAt": null,
+      "publishedAt": "2026-10-27T02:50:28+00:00",
       "publisher": "nba",
       "competition": "nba",
       "gameDate": "2026-10-26",
-      "kind": "game",
-      "verifiedAt": "2026-10-27T06:28:06.447Z",
-      "metadataSource": "YouTube oEmbed"
+      "kind": "game"
     },
     {
       "videoId": "uyUAxlfj77s",
       "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
       "title": "GRIZZLIES at JAZZ | FULL GAME HIGHLIGHTS | October 26, 2026",
-      "publishedAt": null,
+      "publishedAt": "2026-10-27T04:11:37+00:00",
       "publisher": "nba",
       "competition": "nba",
       "gameDate": "2026-10-26",
-      "kind": "game",
-      "verifiedAt": "2026-10-27T06:28:06.418Z",
-      "metadataSource": "YouTube oEmbed"
+      "kind": "game"
     },
     {
       "videoId": "AHOFXEAw58k",
       "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
       "title": "WARRIORS at NUGGETS | FULL GAME HIGHLIGHTS | October 26, 2026",
-      "publishedAt": null,
+      "publishedAt": "2026-10-27T05:02:13+00:00",
       "publisher": "nba",
       "competition": "nba",
       "gameDate": "2026-10-26",
-      "kind": "game",
-      "verifiedAt": "2026-10-27T06:28:06.415Z",
-      "metadataSource": "YouTube oEmbed"
+      "kind": "game"
     },
     {
       "publisher": "nba-com",
@@ -13904,6 +14144,512 @@
         "ZM",
         "ZW"
       ]
+    },
+    {
+      "videoId": "BU3BDM6yPQ4",
+      "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+      "title": "NBA's Nightly Recap | October 26, 2026",
+      "publishedAt": "2026-10-27T06:35:45+00:00",
+      "publisher": "nba",
+      "competition": "nba",
+      "gameDate": "2026-10-26",
+      "kind": "chapters",
+      "chapters": [
+        {
+          "seconds": 0,
+          "label": "Timberwolves at Cavaliers"
+        },
+        {
+          "seconds": 157,
+          "label": "Wizards at Hornets"
+        },
+        {
+          "seconds": 287,
+          "label": "Bulls at Celtics"
+        },
+        {
+          "seconds": 399,
+          "label": "Hawks at Rockets"
+        },
+        {
+          "seconds": 528,
+          "label": "Suns at Thunder"
+        },
+        {
+          "seconds": 659,
+          "label": "Pacers at Bucks"
+        },
+        {
+          "seconds": 790,
+          "label": "Mavericks at Heat"
+        },
+        {
+          "seconds": 943,
+          "label": "Warriors at Nuggets"
+        },
+        {
+          "seconds": 1073,
+          "label": "Grizzlies at Jazz"
+        },
+        {
+          "seconds": 1179,
+          "label": "Player of the Night"
+        },
+        {
+          "seconds": 1346,
+          "label": "Top Plays of the Night"
+        }
+      ]
+    },
+    {
+      "videoId": "B0Tn6TjDsBk",
+      "channelId": "UCgMUmr7uLDalwVk63Sf6pBw",
+      "title": "Σεβίλλη - Οσασούνα 2 - 0 | Highlights - LaLiga EA SPORTS 2026/27 - 26/10/2026 | MagentaTV",
+      "publishedAt": "2026-10-27T09:30:07+00:00",
+      "publisher": "magenta",
+      "competition": "laliga",
+      "gameDate": "2026-10-26",
+      "kind": "game"
+    },
+    {
+      "videoId": "1zl3GKZH6V8",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Buducnost VOLI Podgorica - Neptunas Klaipeda | Round 4 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-20T12:29:31-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 4,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "XACy0XwieMc",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Turk Telekom Ankara - Siauliai Basketball | Round 4 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-20T12:01:49-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 4,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "xunx5gaLTYU",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Balkan Botevgrad - Lietkabelis Panevezys | Round 4 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-20T11:30:50-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 4,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "rb0RqzmR-4I",
+      "channelId": "UCGr3nR_XH9r6E5b09ZJAT9w",
+      "title": "FC Barcelona - Olympiacos | R6 Basketball Highlights 2026-27",
+      "publishedAt": "2026-10-16T14:31:13-07:00",
+      "publisher": "el",
+      "competition": "el",
+      "round": 6,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "1t8iSmCKAqk",
+      "channelId": "UCGr3nR_XH9r6E5b09ZJAT9w",
+      "title": "Virtus Bologna - Kosner Baskonia | R6 Basketball Highlights 2026-27",
+      "publishedAt": "2026-10-16T14:29:50-07:00",
+      "publisher": "el",
+      "competition": "el",
+      "round": 6,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "n9O-4UzQOzA",
+      "channelId": "UCGr3nR_XH9r6E5b09ZJAT9w",
+      "title": "Panathinaikos AKTOR - Hapoel IBI Tel Aviv | R6 Basketball Highlights 2026-27",
+      "publishedAt": "2026-10-16T14:27:28-07:00",
+      "publisher": "el",
+      "competition": "el",
+      "round": 6,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "tgv285w8K7g",
+      "channelId": "UCGr3nR_XH9r6E5b09ZJAT9w",
+      "title": "Besiktas - FC Bayern Munich | R6 Basketball Highlights 2026-27",
+      "publishedAt": "2026-10-16T14:21:45-07:00",
+      "publisher": "el",
+      "competition": "el",
+      "round": 6,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "qEfWxrFNO7k",
+      "channelId": "UCGr3nR_XH9r6E5b09ZJAT9w",
+      "title": "Crvena Zvezda - Paris Basketball | R6 Basketball Highlights 2026-27",
+      "publishedAt": "2026-10-16T13:34:24-07:00",
+      "publisher": "el",
+      "competition": "el",
+      "round": 6,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "Xt8G1r0ywS8",
+      "channelId": "UCGr3nR_XH9r6E5b09ZJAT9w",
+      "title": "Zalgiris Kaunas - Anadolu Efes | R6 Basketball Highlights 2026-27",
+      "publishedAt": "2026-10-16T12:53:09-07:00",
+      "publisher": "el",
+      "competition": "el",
+      "round": 6,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "lrllnrA921I",
+      "channelId": "UCGr3nR_XH9r6E5b09ZJAT9w",
+      "title": "Armani Olimpia Milan - Dubai Basketball | R6 Basketball Highlights 2026-27",
+      "publishedAt": "2026-10-15T14:47:30-07:00",
+      "publisher": "el",
+      "competition": "el",
+      "round": 6,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "pA2Wxt4jXW0",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "London Lions - Skyliners Frankfurt | Round 3 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-15T14:41:20-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 3,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "xjdQ7lofffw",
+      "channelId": "UCGr3nR_XH9r6E5b09ZJAT9w",
+      "title": "Real Madrid - LDLC ASVEL | R6 Basketball Highlights 2026-27",
+      "publishedAt": "2026-10-15T14:35:43-07:00",
+      "publisher": "el",
+      "competition": "el",
+      "round": 6,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "78NWkJjztAU",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "La Laguna Tenerife - Maxima Roma | Round 3 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-14T14:50:17-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 3,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "rlx-Qao2jjw",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Umana Reyer Venice - Turk Telekom Ankara | Round 3 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-14T14:44:59-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 3,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "M-enb3uBjUw",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Recoletas Salud San Pablo Burgos - Hapoel Midtown Jerusalem | R3 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-14T14:39:10-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 3,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "8q5Z-DsmPP4",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Riga Zelli - Cedevita Olimpija Ljubljana | Round 3 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-14T14:14:08-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 3,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "JEuQGGtbrio",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Siauliai Basketball - U-BT Cluj-Napoca | Round 3 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-14T11:50:45-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 3,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "AJBUAUfpwf8",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "OVERTIME THRILLER! 🔥 | Roma Basketball - Balkan Botevgrad | Round 3 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-13T15:25:31-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 3,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "BE96cBJ-1f4",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Dolomiti Energia Trento - NINERS Chemnitz | Round 3 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-13T13:27:44-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 3,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "npQbZe6pUao",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Bahcesehir College Istanbul - Kids&Us Manresa | Round 3 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-13T11:58:17-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 3,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "gegXga57jsk",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Neptunas Klaipeda - Cosea JL Bourg-en-Bresse | Round 3 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-13T11:51:37-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 3,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "DaghJT80AWY",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Lietkabelis Panevezys - PAOK Thessaloniki | Round 3 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-13T11:19:14-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 3,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "DRXKitE2R9I",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Kids&Us Manresa - radiopharm ulm | Round 2 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-07T14:35:09-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 2,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "JtolGGDrRpU",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Roma Basketball - Lietkabelis Panevezys | Round 2 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-07T13:54:47-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 2,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "M8pPl81bpEM",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Aris Thessaloniki - Recoletas Salud San Pablo Burgos | Round 2 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-07T13:27:23-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 2,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "SrOUfeg_g7c",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Baglietto Derthona Tortona - Le Mans Sarthe Basket | Round 2 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-07T13:12:41-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 2,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "0W72LXcb0Pc",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "NINERS Chemnitz - Neptunas Klaipeda | Round 2 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-07T12:38:44-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 2,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "Ua8TTcSy09w",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "U-BT Cluj-Napoca - Umana Reyer Venice | Round 2 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-07T11:34:42-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 2,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "87wPdHXZYI8",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Balkan Botevgrad - Bahcesehir College Istanbul | Round 2 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-07T11:30:55-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 2,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "U5TUQ5NI0HI",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Dolomiti Energia Trento - Slask Wroclaw | Round 2 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-06T14:31:26-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 2,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "SyLCQFm5muI",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "London Lions - La Laguna Tenerife | Round 2 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-06T14:29:23-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 2,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "34bKTiagBSM",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Rostock Seawolves - Riga Zelli | Round 2 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-06T14:17:00-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 2,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "MlCUgZMl5Tk",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Skyliners Frankfurt - Siauliai Basketball | Round 2 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-06T14:14:13-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 2,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "EJP0YWFteY8",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "BOSNA BH Telecom Sarajevo - PAOK Thessaloniki | Round 2 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-06T14:08:41-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 2,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "MZVwFNiVmDc",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Buducnost VOLI Podgorica - Napoli Basketball | Round 2 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-06T13:14:12-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 2,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "1WVvbvWKSpk",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Cosea JL Bourg-en-Bresse - Tofas Bursa | Round 2 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-06T13:08:09-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 2,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "xdCaSpnmtm4",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Turk Telekom Ankara - Maxima Roma | Round 2 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-06T12:35:40-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 2,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "825eNJUlwA8",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Cedevita Olimpija Ljubljana - Hapoel Midtown Jerusalem | Round 2 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-10-06T12:28:18-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 2,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "5P8b1bx0uR0",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "Maxima Roma - U-BT Cluj-Napoca | Round 1 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-09-30T15:45:33-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 1,
+      "season": "2026-27",
+      "kind": "game"
+    },
+    {
+      "videoId": "bscw8MKvqAQ",
+      "channelId": "UCpFqOv5z4WKps64GlQS4ytw",
+      "title": "La Laguna Tenerife - Turk Telekom Ankara | Round 1 | BKT EuroCup Basketball 2026-27",
+      "publishedAt": "2026-09-30T15:42:23-07:00",
+      "publisher": "ec",
+      "competition": "eurocup",
+      "round": 1,
+      "season": "2026-27",
+      "kind": "game"
     }
   ]
 }

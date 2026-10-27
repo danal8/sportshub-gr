@@ -1,16 +1,9 @@
 {
-  "checkedAt": "2026-10-27T06:28:26.819Z",
+  "checkedAt": "2026-10-27T14:53:06.776Z",
   "sourceErrors": [
-    "NBA: HTTP 404",
-    "NBA: HTTP 404",
-    "NBA: HTTP 404",
-    "NBA: HTTP 404",
-    "Magenta Sport: HTTP 404",
-    "EuroCup: HTTP 404",
-    "EuroLeague: HTTP 404",
-    "Novasports: HTTP 500",
     "Magenta Sport archive: Empty publisher video listings; retained earlier videos: ",
-    "NBA YouTube region: A4v-byV18_Y: YouTube country availability unavailable"
+    "NBA YouTube region: A4v-byV18_Y: YouTube country availability unavailable",
+    "NBA YouTube region: EyQytP1xKiY: YouTube country availability unavailable"
   ],
   "start": "2026-10-25",
   "end": "2026-10-27",
@@ -230,6 +223,21 @@
       "uncoveredMatches": [],
       "unmatchedVideos": [
         {
+          "videoId": "BU3BDM6yPQ4",
+          "title": "NBA's Nightly Recap | October 26, 2026",
+          "gameDate": "2026-10-26"
+        },
+        {
+          "videoId": "AHOFXEAw58k",
+          "title": "WARRIORS at NUGGETS | FULL GAME HIGHLIGHTS | October 26, 2026",
+          "gameDate": "2026-10-26"
+        },
+        {
+          "videoId": "uyUAxlfj77s",
+          "title": "GRIZZLIES at JAZZ | FULL GAME HIGHLIGHTS | October 26, 2026",
+          "gameDate": "2026-10-26"
+        },
+        {
           "videoId": "6TlvMGNxCBw",
           "title": "HAWKS at ROCKETS | FULL GAME HIGHLIGHTS | October 26, 2026",
           "gameDate": "2026-10-26"
@@ -240,8 +248,8 @@
           "gameDate": "2026-10-26"
         },
         {
-          "videoId": "vDxNf1bBs6o",
-          "title": "MAVERICKS at HEAT | FULL GAME HIGHLIGHTS | October 26, 2026",
+          "videoId": "SSJORIN8D1M",
+          "title": "PACERS at BUCKS | FULL GAME HIGHLIGHTS | October 26, 2026",
           "gameDate": "2026-10-26"
         },
         {
@@ -250,18 +258,8 @@
           "gameDate": "2026-10-26"
         },
         {
-          "videoId": "SSJORIN8D1M",
-          "title": "PACERS at BUCKS | FULL GAME HIGHLIGHTS | October 26, 2026",
-          "gameDate": "2026-10-26"
-        },
-        {
-          "videoId": "uyUAxlfj77s",
-          "title": "GRIZZLIES at JAZZ | FULL GAME HIGHLIGHTS | October 26, 2026",
-          "gameDate": "2026-10-26"
-        },
-        {
-          "videoId": "AHOFXEAw58k",
-          "title": "WARRIORS at NUGGETS | FULL GAME HIGHLIGHTS | October 26, 2026",
+          "videoId": "vDxNf1bBs6o",
+          "title": "MAVERICKS at HEAT | FULL GAME HIGHLIGHTS | October 26, 2026",
           "gameDate": "2026-10-26"
         },
         {

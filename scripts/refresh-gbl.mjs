@@ -1,3 +1,4 @@
+import{sectionStatus}from'../dist/source-status.js';
 import{readFile,writeFile}from'node:fs/promises';import{pathToFileURL}from'node:url';import{execFileSync}from'node:child_process';
 import{GBL_WIDGET,parseGblWidget}from'../dist/gbl-scores.js';import{mergeResultUpdates}from'../dist/result-reconciliation.js';import{athensDay}from'../dist/core.js';
 export async function refreshGbl({fetchText=async url=>{const r=await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error('ESAKE live '+r.status);return r.text();}}={}){
@@ -5,7 +6,7 @@ export async function refreshGbl({fetchText=async url=>{const r=await fetch(url,
  const {entries,unmatched}=parseGblWidget(await fetchText(GBL_WIDGET),matches,{today});
  if(unmatched.length)throw Error('Unmatched ESAKE games: '+JSON.stringify(unmatched));
  if(!entries.length)throw Error('No confirmed ESAKE live results');
- p.matches=mergeResultUpdates(matches,entries);p.resultsCheckedAt=new Date().toISOString();await writeFile(file,JSON.stringify(p));
+ p.matches=mergeResultUpdates(matches,entries);p.resultsCheckedAt=new Date().toISOString();p.sections={...p.sections,results:sectionStatus(p.sections?.results,{data:p.matches.filter(m=>m.scoreState==='final'),previousData:matches.filter(m=>m.scoreState==='final'),source:GBL_WIDGET,now:p.resultsCheckedAt})};await writeFile(file,JSON.stringify(p));
  const payload={season:'2026-27',provider:'ΕΣΑΚΕ / Genius Sports',checkedAt:p.resultsCheckedAt,entries:entries.map(({homeBadge,awayBadge,...m})=>m)};await writeFile(new URL('../dist/snapshots/gbl-live.json',import.meta.url),JSON.stringify(payload));console.log('GBL',entries.map(m=>({id:m.id,home:m.home,away:m.away,score:m.score,state:m.scoreState,clock:m.clock})));
  return payload;
 }

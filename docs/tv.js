@@ -1,4 +1,5 @@
-import{isExplicitLive,broadcastDetails}from'./tv-meta.js?v=70';
+import{sectionStatus}from'./source-status.js?v=71';
+import{isExplicitLive,broadcastDetails}from'./tv-meta.js?v=71';
 export function novaURL(date){if(!/^\d{4}-\d{2}-\d{2}$/.test(date))throw Error('Μη έγκυρη ημερομηνία');return 'https://www.novasports.gr/wp-admin/admin-ajax.php?action=nova_get_template&template=tv-program/broadcast&dt='+date;}
 const clean=s=>s.replace(/<[^>]*>/g,'').replace(/&#(\d+);/g,(_,n)=>String.fromCodePoint(+n)).replace(/&amp;|&#038;/g,'&').replace(/&nbsp;/g,' ').trim();
 export function parseNova(html,requestedDate){
@@ -6,7 +7,7 @@ export function parseNova(html,requestedDate){
  const base=stamp?stamp.split('-').reverse().join('-'):requestedDate;
  if(!/^\d{4}-\d{2}-\d{2}$/.test(base||'')||requestedDate&&stamp&&base!==requestedDate)throw Error('Λανθασμένη ημερομηνία Nova');
  const matches=[],sections=html.split(/<div class="channel-title[^"\n]*">/).slice(1);
- if(!sections.length)throw Error('Δεν αναγνωρίστηκε το πρόγραμμα Nova');
+ if(!sections.length){if(/Δε(?:ν)? βρέθηκαν προγρ[αά]μμ?[αά]τ/i.test(clean(html)))throw Error('Η Nova επέστρεψε κενό πρόγραμμα για '+base+' (κενή απόκριση πηγής).');throw Error('Δεν αναγνωρίστηκε το πρόγραμμα Nova (άγνωστη δομή απόκρισης).');}
  for(const section of sections){const channel=clean(section.split('</div>')[0]);let day=base,previous=-1;
   for(const item of section.split(/<div class="tv-broadcast[^"\n]*">/).slice(1)){
    const field=cls=>clean(item.match(new RegExp('<div class="'+cls+'[^"\\n]*">([\\s\\S]*?)</div>'))?.[1]||'');
@@ -20,8 +21,8 @@ export function parseNova(html,requestedDate){
  return{date:base,matches,source:novaURL(base),retrievedAt:new Date().toISOString(),notice:'Μόνο ρητά δηλωμένες ζωντανές μεταδόσεις Novasports.'};
 }
 export async function loadNova(date){
- try{const r=await fetch(novaURL(date),{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('Nova HTTP '+r.status);const p=parseNova(await r.text(),date);try{localStorage.setItem('sh-tv-'+date,JSON.stringify(p));}catch{}return p;}
- catch(error){try{const r=await fetch('./snapshots/tv-'+date+'.json',{cache:'no-store',signal:AbortSignal.timeout(8000)});if(r.ok){const p=await r.json();if(p.date===date&&Array.isArray(p.matches))return{...p,fallback:error.message};}}catch{}
-  try{const p=JSON.parse(localStorage.getItem('sh-tv-'+date));if(p?.date===date&&Array.isArray(p.matches))return{...p,fallback:error.message};}catch{}throw error;
+ try{const r=await fetch(novaURL(date),{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('Nova HTTP '+r.status);const p=parseNova(await r.text(),date);p.sections={broadcasts:sectionStatus(null,{data:p.matches,source:p.source})};try{localStorage.setItem('sh-tv-'+date,JSON.stringify(p));}catch{}return p;}
+ catch(error){try{const r=await fetch('./snapshots/tv-'+date+'.json',{cache:'no-store',signal:AbortSignal.timeout(8000)});if(r.ok){const p=await r.json();if(p.date===date&&Array.isArray(p.matches))return{...p,fallback:error.message,sections:{...p.sections,broadcasts:sectionStatus(p.sections?.broadcasts,{data:p.matches,source:p.source,error:error.message})}};}}catch{}
+  try{const p=JSON.parse(localStorage.getItem('sh-tv-'+date));if(p?.date===date&&Array.isArray(p.matches))return{...p,fallback:error.message,sections:{...p.sections,broadcasts:sectionStatus(p.sections?.broadcasts,{data:p.matches,source:p.source,error:error.message})}};}catch{}throw error;
  }
 }

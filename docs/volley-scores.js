@@ -1,4 +1,4 @@
-import{volleyGames}from'./direct.js?v=70';
+import{volleyGames}from'./direct.js?v=71';
 export const VOLLEY_RESULTS='https://raw.githubusercontent.com/danal8/sportshub-gr/gbl-live-data/volley-results.json';
 export const WOMEN_API='https://volleyball.gr/wp-json/sportspress/v2/events/';
 const name=s=>String(s||'').normalize('NFD').replace(/\p{M}/gu,'').toLowerCase().replace(/[^\p{L}\p{N}]/gu,'');
@@ -10,7 +10,7 @@ export function verifiedVolleyEntries(payload,matches,now=Date.now()){
 export async function loadWomenResults(matches,date,{fetchJSON,checkedAt=new Date().toISOString()}={}){
  const fixtures=matches.filter(m=>m.competition==='volley-w'&&m.date===date&&/^volley-\d+$/.test(m.id));
  const results=await Promise.allSettled(fixtures.map(async m=>{
-  const url=WOMEN_API+m.id.slice(7)+'?_fields=id,date,title,teams,day,results,leagues,seasons&t='+Date.parse(checkedAt),raw=await fetchJSON(url),game=volleyGames([raw],11)[0];
+  const url=WOMEN_API+m.id.slice(7)+'?_fields=id,date,title,teams,day,results,leagues,seasons,status&t='+Date.parse(checkedAt),raw=await fetchJSON(url),game=volleyGames([raw],11)[0];
   if(game.id!==m.id||game.date!==m.date||name(game.home)!==name(m.home)||name(game.away)!==name(m.away))throw Error('Wrong EOPE event');
   return game.scoreState==='final'&&final(game.score)?{...m,score:game.score,scoreState:'final',checkedAt,scoreCheckedAt:checkedAt,source:WOMEN_API+raw.id,provider:'EOPE'}:null;
  }));

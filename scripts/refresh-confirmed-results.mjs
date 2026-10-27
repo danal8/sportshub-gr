@@ -1,3 +1,5 @@
+import{sectionStatus}from'../dist/source-status.js';
+import{standingsCoverage}from'../dist/standings-health.js';
 import{verifyESPNFixture}from'./fixture-evidence.mjs';
 import{readFile,writeFile}from'node:fs/promises';
 import{pathToFileURL}from'node:url';
@@ -21,7 +23,7 @@ export async function refreshConfirmedResults({fetchJSON=async url=>{const r=awa
    }
    // Updates only existing, uniquely verified fixtures; never invents a final.
    p.matches=applyLiveScores(reconcileFixtureDates(matches,entries),entries);for(const x of entries)if(['final','live'].includes(x.scoreState)&&x.score&&p.partial===true&&!p.matches.some(m=>sameResultMatch(m,x)))p.matches.push({...x,scoreCheckedAt:x.checkedAt,scoreSource:x.source,scoreProvider:x.provider});p.resultSources=[...new Set([...(p.resultSources||[]),'ESPN'])];p.resultsCheckedAt=new Date().toISOString();
-   await writeFile(file,JSON.stringify(p));
+   p.sections={...p.sections,results:sectionStatus(p.sections?.results,{data:p.matches.filter(m=>m.scoreState==='final'),previousData:matches.filter(m=>m.scoreState==='final'),source:'https://www.espn.com/',error})};if(p.standings?.length){const coverage=standingsCoverage(p.matches,p.standings,{today});p.sections.standings={...p.sections.standings,source:p.standingsSource,coverage,status:p.sections.standings?.error?'failed':coverage.stale?'stale':p.sections.standings?.status||'unknown'};}await writeFile(file,JSON.stringify(p));
   }catch(e){error=e.message;}
   const coverage=resultCoverage(p.matches.map(m=>({...m,competition:c.id})),entries,today);
   reports.push({competition:c.id,...coverage,sourceError:error,finals:p.matches.filter(m=>m.scoreState==='final'&&m.score).length});

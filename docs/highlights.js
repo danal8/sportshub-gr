@@ -1,7 +1,7 @@
-import{mergeResultUpdates}from'./result-reconciliation.js?v=70';
-import{aliases}from'./team-aliases.js?v=70';
-import{teamKey}from'./badges.js?v=70';
-import{athensDay,shiftDay}from'./core.js?v=70';
+import{mergeResultUpdates}from'./result-reconciliation.js?v=71';
+import{aliases}from'./team-aliases.js?v=71';
+import{teamKey}from'./badges.js?v=71';
+import{athensDay,shiftDay}from'./core.js?v=71';
 export const publishers=[
  {id:'laliga',label:'LALIGA',channel:'UCTv-XvfzLX3i4IGWAm4sbmA'},
  {id:'seriea',label:'Serie A',channel:'UCBJeMCIeLQos7wacox4hmLQ'},
@@ -102,7 +102,7 @@ export async function fetchHighlightsIndex({fetchJSON=async url=>{const r=await 
 let cached=null,pending=null,loadedAt=0,loadState=null;
 export function highlightsState(){return loadState;}
 export async function loadHighlightsIndex({force=false}={}){
- if(!pending&&(force||!cached||Date.now()-loadedAt>120000))pending=fetchHighlightsIndex().then(p=>{cached=p.videos;loadState={retrievedAt:p.retrievedAt,errors:p.errors||[]};loadedAt=Date.now();}).catch(e=>{if(!cached)throw e;}).finally(()=>pending=null);
+ if(!pending&&(force||!cached||Date.now()-loadedAt>120000))pending=fetchHighlightsIndex().then(p=>{cached=p.videos;loadState={retrievedAt:p.retrievedAt,lastAttemptAt:new Date().toISOString(),lastSuccessAt:new Date().toISOString(),status:'ok',sourceReports:p.sourceReports||[],errors:p.errors||[]};loadedAt=Date.now();}).catch(e=>{loadState={...loadState,lastAttemptAt:new Date().toISOString(),status:'failed',error:e.message,retainedVideos:cached?.length||0};if(!cached)throw e;}).finally(()=>pending=null);
  if(pending)await pending;return cached;
 }
 export async function loadMatchHighlights(m,{force=false,confirmedResults=[]}={}){

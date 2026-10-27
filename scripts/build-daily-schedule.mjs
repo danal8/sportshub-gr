@@ -12,7 +12,7 @@ export async function buildDailySchedule(){
  const valid=records.filter(Boolean),checked=valid.map(({p})=>p.retrievedAt).filter(t=>Number.isFinite(Date.parse(t))).sort((a,b)=>Date.parse(b)-Date.parse(a))[0];
  if(!checked)throw Error('No dated schedules');
  const anchor=athensDay(new Date(checked)),start=shiftDay(anchor,-7),end=shiftDay(anchor,14),matches=[],sources=[];
- for(const{c,p}of valid){sources.push({id:c.id,name:c.name,source:p.source,retrievedAt:p.retrievedAt,copyright:p.copyright,terms:p.terms});
+ for(const{c,p}of valid){sources.push({id:c.id,name:c.name,source:p.source,retrievedAt:p.retrievedAt,copyright:p.copyright,terms:p.terms,sections:p.sections});
   for(const m of scheduleEntries(p,c).filter(m=>m.date>=start&&m.date<=end)){
    // Preserve fixture/source identities and timestamps; omit unrelated season tables.
    const entry={...m,scoreCheckedAt:m.scoreCheckedAt||p.retrievedAt};

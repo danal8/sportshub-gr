@@ -1,18 +1,234 @@
 {
-  "checkedAt": "2026-10-27T06:28:27.722Z",
-  "indexCheckedAt": "2026-10-27T06:28:26.781Z",
+  "checkedAt": "2026-10-27T14:53:08.340Z",
+  "indexCheckedAt": "2026-10-27T14:53:06.670Z",
   "status": "degraded",
+  "sources": [
+    {
+      "id": "nova-web",
+      "publisher": "nova-web",
+      "label": "Novasports Web",
+      "url": "https://www.novasports.gr/web-tv/highlights/",
+      "lastAttemptAt": "2026-10-27T14:52:04.056Z",
+      "lastSuccessAt": "2026-10-27T14:52:04.056Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "nba-playlists",
+      "publisher": "nba",
+      "label": "NBA · Playlists",
+      "url": "https://www.youtube.com/@NBA/playlists",
+      "lastAttemptAt": "2026-10-27T14:52:08.604Z",
+      "lastSuccessAt": "2026-10-27T14:52:08.604Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "rss:https://www.youtube.com/feeds/videos.xml?channel_id=UCWJ2lWNubArHWmf3FIHbfcQ",
+      "publisher": "nba",
+      "label": "NBA · RSS",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCWJ2lWNubArHWmf3FIHbfcQ",
+      "lastAttemptAt": "2026-10-27T14:52:08.649Z",
+      "lastSuccessAt": "2026-10-27T14:52:08.649Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 4
+    },
+    {
+      "id": "rss:https://www.youtube.com/feeds/videos.xml?channel_id=UCpFqOv5z4WKps64GlQS4ytw",
+      "publisher": "ec",
+      "label": "EuroCup · RSS",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCpFqOv5z4WKps64GlQS4ytw",
+      "lastAttemptAt": "2026-10-27T14:52:12.877Z",
+      "lastSuccessAt": "2026-10-27T14:52:12.877Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 13
+    },
+    {
+      "id": "rss:https://www.youtube.com/feeds/videos.xml?channel_id=UCGr3nR_XH9r6E5b09ZJAT9w",
+      "publisher": "el",
+      "label": "EuroLeague · RSS",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCGr3nR_XH9r6E5b09ZJAT9w",
+      "lastAttemptAt": "2026-10-27T14:52:12.878Z",
+      "lastSuccessAt": "2026-10-27T14:52:12.878Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "rss:https://www.youtube.com/feeds/videos.xml?playlist_id=PLlVlyGVtvuVl3-HYumcaTFTwBBe-QVY8Z",
+      "publisher": "nba",
+      "label": "NBA · RSS",
+      "url": "https://www.youtube.com/feeds/videos.xml?playlist_id=PLlVlyGVtvuVl3-HYumcaTFTwBBe-QVY8Z",
+      "lastAttemptAt": "2026-10-27T14:52:12.889Z",
+      "lastSuccessAt": "2026-10-27T14:52:12.889Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 13
+    },
+    {
+      "id": "rss:https://www.youtube.com/feeds/videos.xml?channel_id=UCgMUmr7uLDalwVk63Sf6pBw",
+      "publisher": "magenta",
+      "label": "Magenta Sport · RSS",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCgMUmr7uLDalwVk63Sf6pBw",
+      "lastAttemptAt": "2026-10-27T14:52:12.894Z",
+      "lastSuccessAt": "2026-10-27T14:52:12.894Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 1
+    },
+    {
+      "id": "rss:https://www.youtube.com/feeds/videos.xml?playlist_id=PLftRqjkDhxkg",
+      "publisher": "nba",
+      "label": "NBA · RSS",
+      "url": "https://www.youtube.com/feeds/videos.xml?playlist_id=PLftRqjkDhxkg",
+      "lastAttemptAt": "2026-10-27T14:52:12.906Z",
+      "lastSuccessAt": "2026-10-27T14:52:12.906Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 15
+    },
+    {
+      "id": "rss:https://www.youtube.com/feeds/videos.xml?channel_id=UCEIbXco8hU9oDHXGo1kwIlA",
+      "publisher": "nova",
+      "label": "Novasports · RSS",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEIbXco8hU9oDHXGo1kwIlA",
+      "lastAttemptAt": "2026-10-27T14:52:13.029Z",
+      "lastSuccessAt": "2026-10-27T14:52:13.029Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "rss:https://www.youtube.com/feeds/videos.xml?playlist_id=PLaMWIRum7wA0",
+      "publisher": "nba",
+      "label": "NBA · RSS",
+      "url": "https://www.youtube.com/feeds/videos.xml?playlist_id=PLaMWIRum7wA0",
+      "lastAttemptAt": "2026-10-27T14:52:13.142Z",
+      "lastSuccessAt": "2026-10-27T14:52:13.142Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 14
+    },
+    {
+      "id": "archive:magenta",
+      "publisher": "magenta",
+      "label": "Magenta Sport · Αρχείο καναλιού",
+      "url": "https://www.youtube.com/channel/UCgMUmr7uLDalwVk63Sf6pBw/videos",
+      "lastAttemptAt": "2026-10-27T14:52:39.020Z",
+      "lastSuccessAt": null,
+      "status": "failed",
+      "error": "Empty publisher video listings; retained earlier videos: ",
+      "httpStatus": null,
+      "retainedVideos": 59,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "archive:nova",
+      "publisher": "nova",
+      "label": "Novasports · Αρχείο καναλιού",
+      "url": "https://www.youtube.com/channel/UCEIbXco8hU9oDHXGo1kwIlA/videos",
+      "lastAttemptAt": "2026-10-27T14:52:39.036Z",
+      "lastSuccessAt": "2026-10-27T14:52:39.036Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "archive:ec",
+      "publisher": "ec",
+      "label": "EuroCup · Αρχείο καναλιού",
+      "url": "https://www.youtube.com/channel/UCpFqOv5z4WKps64GlQS4ytw/videos",
+      "lastAttemptAt": "2026-10-27T14:52:39.114Z",
+      "lastSuccessAt": "2026-10-27T14:52:39.114Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "archive:nba",
+      "publisher": "nba",
+      "label": "NBA · Αρχείο καναλιού",
+      "url": "https://www.youtube.com/channel/UCWJ2lWNubArHWmf3FIHbfcQ/videos",
+      "lastAttemptAt": "2026-10-27T14:52:40.056Z",
+      "lastSuccessAt": "2026-10-27T14:52:40.056Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "archive:el",
+      "publisher": "el",
+      "label": "EuroLeague · Αρχείο καναλιού",
+      "url": "https://www.youtube.com/channel/UCGr3nR_XH9r6E5b09ZJAT9w/videos",
+      "lastAttemptAt": "2026-10-27T14:52:47.087Z",
+      "lastSuccessAt": "2026-10-27T14:52:47.087Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "nba-com",
+      "publisher": "nba-com",
+      "label": "NBA.com recaps",
+      "url": "https://www.nba.com/games",
+      "lastAttemptAt": "2026-10-27T14:52:59.212Z",
+      "lastSuccessAt": "2026-10-27T14:52:59.212Z",
+      "status": "ok",
+      "error": null,
+      "httpStatus": null,
+      "retainedVideos": 0,
+      "verifiedThisRun": 0
+    },
+    {
+      "id": "nba-regions",
+      "publisher": "nba",
+      "label": "NBA · Διαθεσιμότητα YouTube",
+      "url": "https://www.youtube.com/",
+      "lastAttemptAt": "2026-10-27T14:53:06.670Z",
+      "lastSuccessAt": null,
+      "status": "failed",
+      "error": "A4v-byV18_Y: YouTube country availability unavailable; EyQytP1xKiY: YouTube country availability unavailable",
+      "httpStatus": null,
+      "retainedVideos": 116,
+      "verifiedThisRun": 0
+    }
+  ],
   "sourceErrors": [
-    "NBA: HTTP 404",
-    "NBA: HTTP 404",
-    "NBA: HTTP 404",
-    "NBA: HTTP 404",
-    "Magenta Sport: HTTP 404",
-    "EuroCup: HTTP 404",
-    "EuroLeague: HTTP 404",
-    "Novasports: HTTP 500",
     "Magenta Sport archive: Empty publisher video listings; retained earlier videos: ",
-    "NBA YouTube region: A4v-byV18_Y: YouTube country availability unavailable"
+    "NBA YouTube region: A4v-byV18_Y: YouTube country availability unavailable",
+    "NBA YouTube region: EyQytP1xKiY: YouTube country availability unavailable"
   ],
   "unmatchedVideos": [],
   "unavailableOrUnverifiedInGR": [
@@ -170,6 +386,12 @@
       "competition": "nba",
       "videoId": "AHOFXEAw58k",
       "title": "WARRIORS at NUGGETS | FULL GAME HIGHLIGHTS | October 26, 2026",
+      "gameDate": "2026-10-26"
+    },
+    {
+      "competition": "nba",
+      "videoId": "BU3BDM6yPQ4",
+      "title": "NBA's Nightly Recap | October 26, 2026",
       "gameDate": "2026-10-26"
     }
   ],
@@ -646,6 +868,11 @@
         {
           "videoId": "AHOFXEAw58k",
           "title": "WARRIORS at NUGGETS | FULL GAME HIGHLIGHTS | October 26, 2026",
+          "gameDate": "2026-10-26"
+        },
+        {
+          "videoId": "BU3BDM6yPQ4",
+          "title": "NBA's Nightly Recap | October 26, 2026",
           "gameDate": "2026-10-26"
         }
       ]
