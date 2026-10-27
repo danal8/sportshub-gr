@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-27T17:55:29.504Z",
+  "checkedAt": "2026-10-27T21:55:24.703Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -34,45 +34,10 @@
           "date": "2026-10-27",
           "home": "Kosner Baskonia Vitoria-Gasteiz",
           "away": "Real Madrid"
-        },
-        {
-          "id": "E-75",
-          "competition": "el",
-          "date": "2026-10-27",
-          "home": "Valencia Basket",
-          "away": "Fenerbahce Tarfin Istanbul"
-        },
-        {
-          "id": "E-76",
-          "competition": "el",
-          "date": "2026-10-27",
-          "home": "Panathinaikos AKTOR Athens",
-          "away": "Armani Olimpia Milan"
-        },
-        {
-          "id": "E-74",
-          "competition": "el",
-          "date": "2026-10-27",
-          "home": "FC Bayern Munich",
-          "away": "FC Barcelona"
-        },
-        {
-          "id": "E-71",
-          "competition": "el",
-          "date": "2026-10-27",
-          "home": "Crvena Zvezda Meridianbet Belgrade",
-          "away": "Maccabi Rapyd Tel Aviv"
-        },
-        {
-          "id": "E-72",
-          "competition": "el",
-          "date": "2026-10-27",
-          "home": "Dubai Basketball",
-          "away": "Paris Basketball"
         }
       ],
       "sourceError": null,
-      "finals": 70
+      "finals": 75
     },
     {
       "competition": "elite",
@@ -84,52 +49,9 @@
     {
       "competition": "eurocup",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "U-79",
-          "competition": "eurocup",
-          "date": "2026-10-27",
-          "home": "Roma Basketball",
-          "away": "BOSNA BH Telecom Sarajevo"
-        },
-        {
-          "id": "U-75",
-          "competition": "eurocup",
-          "date": "2026-10-27",
-          "home": "Dolomiti Energia Trento",
-          "away": "Buducnost VOLI Podgorica"
-        },
-        {
-          "id": "U-72",
-          "competition": "eurocup",
-          "date": "2026-10-27",
-          "home": "Skyliners Frankfurt",
-          "away": "U-BT Cluj-Napoca"
-        },
-        {
-          "id": "U-80",
-          "competition": "eurocup",
-          "date": "2026-10-27",
-          "home": "Balkan Botevgrad",
-          "away": "Kids&Us Manresa"
-        },
-        {
-          "id": "U-77",
-          "competition": "eurocup",
-          "date": "2026-10-27",
-          "home": "Lietkabelis Panevezys",
-          "away": "ratiopharm ulm"
-        },
-        {
-          "id": "U-78",
-          "competition": "eurocup",
-          "date": "2026-10-27",
-          "home": "Bahcesehir College Istanbul",
-          "away": "PAOK Thessaloniki"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 64
+      "finals": 70
     },
     {
       "competition": "europa",
