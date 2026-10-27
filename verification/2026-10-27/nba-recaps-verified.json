@@ -1,0 +1,83 @@
+[
+  {
+    "home": "Charlotte Hornets",
+    "away": "Washington Wizards",
+    "score": [
+      110,
+      103
+    ],
+    "recap": "https://www.nba.com/watch/video/game-recap-hornets-110-wizards-103"
+  },
+  {
+    "home": "Cleveland Cavaliers",
+    "away": "Minnesota Timberwolves",
+    "score": [
+      127,
+      125
+    ],
+    "recap": "https://www.nba.com/watch/video/game-recap-cavaliers-127-timberwolves-125"
+  },
+  {
+    "home": "Miami Heat",
+    "away": "Dallas Mavericks",
+    "score": [
+      109,
+      113
+    ],
+    "recap": "https://www.nba.com/watch/video/game-recap-mavericks-113-heat-109"
+  },
+  {
+    "home": "Boston Celtics",
+    "away": "Chicago Bulls",
+    "score": [
+      134,
+      99
+    ],
+    "recap": "https://www.nba.com/watch/video/game-recap-celtics-134-bulls-99"
+  },
+  {
+    "home": "Milwaukee Bucks",
+    "away": "Indiana Pacers",
+    "score": [
+      110,
+      102
+    ],
+    "recap": "https://www.nba.com/watch/video/game-recap-bucks-110-pacers-102"
+  },
+  {
+    "home": "Oklahoma City Thunder",
+    "away": "Phoenix Suns",
+    "score": [
+      125,
+      114
+    ],
+    "recap": "https://www.nba.com/watch/video/game-recap-thunder-125-suns-114"
+  },
+  {
+    "home": "Houston Rockets",
+    "away": "Atlanta Hawks",
+    "score": [
+      120,
+      110
+    ],
+    "recap": "https://www.nba.com/watch/video/game-recap-rockets-120-hawks-110"
+  },
+  {
+    "home": "Utah Jazz",
+    "away": "Memphis Grizzlies",
+    "score": [
+      105,
+      110
+    ],
+    "recap": "https://www.nba.com/watch/video/game-recap-grizzlies-110-jazz-105"
+  },
+  {
+    "home": "Denver Nuggets",
+    "away": "Golden State Warriors",
+    "score": [
+      114,
+      134
+    ],
+    "recap": "https://www.nba.com/watch/video/game-recap-warriors-134-nuggets-114"
+  }
+]

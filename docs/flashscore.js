@@ -1,6 +1,6 @@
-import{athensDay}from'./core.js?v=68';
-import{aliases}from'./team-aliases.js?v=68';
-import{sameResultMatch}from'./result-reconciliation.js?v=68';
+import{athensDay}from'./core.js?v=69';
+import{aliases}from'./team-aliases.js?v=69';
+import{sameResultMatch}from'./result-reconciliation.js?v=69';
 export const LIVE_DATA='https://raw.githubusercontent.com/danal8/sportshub-gr/gbl-live-data/live-scores.json';
 export const FLASH_DEFAULT={origin:'https://11.flashscore.ninja',project:'11',sign:'SW9D1eZo'};
 export const flashLeagues={

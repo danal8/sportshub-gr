@@ -1,8 +1,9 @@
+import{verifyESPNFixture}from'./fixture-evidence.mjs';
 import{readFile,writeFile}from'node:fs/promises';
 import{pathToFileURL}from'node:url';
 import{competitions}from'../dist/data.js';
 import{liveLeagues,parseLiveScoreboard,applyLiveScores}from'../dist/live-scores.js';
-import{resultCoverage,sameResultMatch}from'../dist/result-reconciliation.js';
+import{resultCoverage,sameResultMatch,reconcileFixtureDates}from'../dist/result-reconciliation.js';
 import{athensDay,shiftDay}from'../dist/core.js';
 const root=new URL('../dist/snapshots/',import.meta.url);
 export async function refreshConfirmedResults({fetchJSON=async url=>{const r=await fetch(url,{signal:AbortSignal.timeout(20000)});if(!r.ok)throw Error('HTTP '+r.status);return r.json();},today=athensDay()}={}){
@@ -11,11 +12,15 @@ export async function refreshConfirmedResults({fetchJSON=async url=>{const r=awa
   let p;const file=new URL(c.id+'-2026-27.json',root);try{p=JSON.parse(await readFile(file));}catch{return;}
   const matches=p.matches.map(m=>({...m,competition:c.id}));let entries=[],error=null;
   if(liveLeagues[c.id])try{
-   const [sport,league]=liveLeagues[c.id],dates=[...new Set([today,shiftDay(today,-1),...matches.filter(m=>m.date&&m.date<=today&&m.scoreState!=='final').map(m=>m.date)])].sort().reverse();
-   const errors=[];for(const date of dates){try{const raw=await fetchJSON('https://site.web.api.espn.com/apis/site/v2/sports/'+sport+'/'+league+'/scoreboard?region=us&lang=en&contentorigin=espn&limit=1000&dates='+date.replaceAll('-',''));entries.push(...parseLiveScoreboard(raw,c.id).filter(e=>e.date<=today));}catch(e){errors.push(date+': '+e.message);}}if(errors.length)error=errors.join('; ');
+   const [sport,league]=liveLeagues[c.id],dates=[...new Set([...Array.from({length:7},(_,i)=>shiftDay(today,-i)),...matches.filter(m=>m.date&&m.date<=today&&m.scoreState!=='final').map(m=>m.date)])].sort().reverse();
+   const errors=[];let cursor=0;await Promise.all(Array.from({length:3},async()=>{while(cursor<dates.length){const date=dates[cursor++];try{const raw=await fetchJSON('https://site.web.api.espn.com/apis/site/v2/sports/'+sport+'/'+league+'/scoreboard?region=us&lang=en&contentorigin=espn&limit=1000&dates='+date.replaceAll('-',''));entries.push(...parseLiveScoreboard(raw,c.id).filter(e=>e.date<=today));}catch(e){errors.push(date+': '+e.message);}}}));if(errors.length)error=errors.join('; ');
    entries=[...new Map(entries.map(e=>[e.id,e])).values()];
+   for(const x of entries.filter(x=>x.scoreState==='final'&&!matches.some(m=>sameResultMatch(m,x)))){
+    const possible=matches.filter(m=>m.competition===x.competition&&sameResultMatch({...m,date:x.date},x));
+    if(possible.length===1&&possible[0].homeIDs?.espn===x.homeIDs?.espn&&possible[0].awayIDs?.espn===x.awayIDs?.espn)try{x.fixtureEvidence=verifyESPNFixture(await fetchJSON('https://site.api.espn.com/apis/site/v2/sports/'+sport+'/'+league+'/summary?event='+x.eventIDs.espn),x,league);}catch(e){error=[error,'Date verification failed: '+x.id+' '+e.message].filter(Boolean).join('; ');}
+   }
    // Updates only existing, uniquely verified fixtures; never invents a final.
-   p.matches=applyLiveScores(matches,entries);for(const x of entries)if(['final','live'].includes(x.scoreState)&&x.score&&(!matches.some(m=>m.date===x.date)||p.partial===true)&&!p.matches.some(m=>sameResultMatch(m,x)))p.matches.push({...x,scoreCheckedAt:x.checkedAt,scoreSource:x.source,scoreProvider:x.provider});p.resultSources=[...new Set([...(p.resultSources||[]),'ESPN'])];p.resultsCheckedAt=new Date().toISOString();
+   p.matches=applyLiveScores(reconcileFixtureDates(matches,entries),entries);for(const x of entries)if(['final','live'].includes(x.scoreState)&&x.score&&p.partial===true&&!p.matches.some(m=>sameResultMatch(m,x)))p.matches.push({...x,scoreCheckedAt:x.checkedAt,scoreSource:x.source,scoreProvider:x.provider});p.resultSources=[...new Set([...(p.resultSources||[]),'ESPN'])];p.resultsCheckedAt=new Date().toISOString();
    await writeFile(file,JSON.stringify(p));
   }catch(e){error=e.message;}
   const coverage=resultCoverage(p.matches.map(m=>({...m,competition:c.id})),entries,today);

@@ -1,6 +1,7 @@
-import{aliases}from'./team-aliases.js?v=68';
-import{teamKey}from'./badges.js?v=68';
-import{athensDay,shiftDay}from'./core.js?v=68';
+import{mergeResultUpdates}from'./result-reconciliation.js?v=69';
+import{aliases}from'./team-aliases.js?v=69';
+import{teamKey}from'./badges.js?v=69';
+import{athensDay,shiftDay}from'./core.js?v=69';
 export const publishers=[
  {id:'laliga',label:'LALIGA',channel:'UCTv-XvfzLX3i4IGWAm4sbmA'},
  {id:'seriea',label:'Serie A',channel:'UCBJeMCIeLQos7wacox4hmLQ'},
@@ -98,19 +99,20 @@ export async function fetchHighlightsIndex({fetchJSON=async url=>{const r=await 
  const valid=sources.filter(r=>r.status==='fulfilled'&&r.value?.season==='2026-27'&&Array.isArray(r.value.videos)&&Number.isFinite(Date.parse(r.value.retrievedAt))).map(r=>r.value).sort((a,b)=>Date.parse(b.retrievedAt)-Date.parse(a.retrievedAt));
  if(!valid.length)throw Error('Highlights unavailable');return valid[0];
 }
-let cached=null,pending=null,loadedAt=0;
+let cached=null,pending=null,loadedAt=0,loadState=null;
+export function highlightsState(){return loadState;}
 export async function loadHighlightsIndex({force=false}={}){
- if(!pending&&(force||!cached||Date.now()-loadedAt>120000))pending=fetchHighlightsIndex().then(p=>{cached=p.videos;loadedAt=Date.now();}).catch(e=>{if(!cached)throw e;}).finally(()=>pending=null);
+ if(!pending&&(force||!cached||Date.now()-loadedAt>120000))pending=fetchHighlightsIndex().then(p=>{cached=p.videos;loadState={retrievedAt:p.retrievedAt,errors:p.errors||[]};loadedAt=Date.now();}).catch(e=>{if(!cached)throw e;}).finally(()=>pending=null);
  if(pending)await pending;return cached;
 }
-export async function loadMatchHighlights(m,{force=false}={}){
- if(m.scoreState!=='final')return null;
+export async function loadMatchHighlights(m,{force=false,confirmedResults=[]}={}){
+ m=highlightMatch(mergeResultUpdates([m],confirmedResults)[0]);if(m.scoreState!=='final')return null;
  try{
  await loadHighlightsIndex({force});
  let ref=m;
  if(['el','eurocup'].includes(m.competition)&&!m.round){try{const r=await fetch('./snapshots/'+m.competition+'-2026-27.json',{signal:AbortSignal.timeout(6000)}),p=await r.json();const matches=(p.matches||[]).filter(x=>x.date===m.date&&mentions(x.home,choices(m.home,m.homeAliases))&&mentions(x.away,choices(m.away,m.awayAliases)));if(p.season==='2026-27'&&matches.length===1)ref={...matches[0],...m,round:matches[0].round};}catch{}}
- return selectHighlights(cached,ref);
- }catch{return null;}
+ const result=selectHighlights(cached,ref);if(!result&&loadState?.errors.length)throw Error('Δεν βρέθηκε επαληθευμένο βίντεο· ορισμένες πηγές highlights απέτυχαν.');return result;
+ }catch(error){throw Error(error.message?.startsWith('Δεν βρέθηκε')?error.message:'Απέτυχε η ενημέρωση highlights. Δοκίμασε ξανά.');}
 }
 
 

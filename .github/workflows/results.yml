@@ -20,13 +20,21 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: node scripts/snapshot-guard.mjs --save
       - run: node scripts/refresh-results.mjs
+        continue-on-error: true
       - run: node scripts/refresh-gbl.mjs
         continue-on-error: true
       - run: node scripts/refresh-public.mjs
+        continue-on-error: true
       - run: node scripts/refresh-volley.mjs
+        continue-on-error: true
       - run: node scripts/refresh-confirmed-results.mjs
+        continue-on-error: true
       - run: node scripts/refresh-tv-details.mjs
+        continue-on-error: true
+      - run: node scripts/snapshot-guard.mjs
+      - run: node scripts/audit-coverage.mjs
       - run: npm run build
       - run: node --test tests/*.test.mjs
       - name: Save results and rebuild Pages

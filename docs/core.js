@@ -1,3 +1,4 @@
+import{aliases}from'./team-aliases.js?v=69';
 export function escapeHTML(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 export function seasonNow(date=new Date()){const y=date.getFullYear()-(date.getMonth()<6?1:0);return `${y}-${String(y+1).slice(-2)}`;}
 export function validateFootball(data){if(!data||typeof data.name!=='string'||!Array.isArray(data.matches))throw Error('Μη έγκυρη μορφή δεδομένων');for(const m of data.matches){if(typeof m.team1!=='string'||typeof m.team2!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(m.date)||typeof m.round!=='string')throw Error('Μη έγκυρος αγώνας');if(m.score?.ft&&!validScore(m.score.ft))throw Error('Μη έγκυρο τελικό αποτέλεσμα');}return data;}
@@ -8,5 +9,7 @@ export function calculateTable(matches,today){const teams=new Map();for(const m 
 const athensDateFormat=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Athens',year:'numeric',month:'2-digit',day:'2-digit'});
 export function athensDay(date=new Date()){return athensDateFormat.format(date);}
 export function chooseRound(matches,today){const next=matches.filter(m=>m.date>=today).sort((a,b)=>a.date.localeCompare(b.date))[0];return next?.round||matches.at(-1)?.round||'';}
-export function filterMatches(matches,{round='',search='',favoritesOnly=false,favorites=[],date=''}={}){const q=search.toLocaleLowerCase('el');return matches.filter(m=>(!date||m.date===date)&&(!round||m.round===round)&&(!q||`${m.home} ${m.away}`.toLocaleLowerCase('el').includes(q))&&(!favoritesOnly||favorites.includes(m.id)));}
+const searchKey=s=>String(s||'').normalize('NFD').replace(/\p{M}/gu,'').toLocaleLowerCase('el').replace(/ς/g,'σ').replace(/[^\p{L}\p{N}]+/gu,' ').trim();
+const aliasKey=s=>String(s||'').normalize('NFD').replace(/\p{M}/gu,'').toLocaleLowerCase('el').replace(/[^\p{L}\p{N}]/gu,'');
+export function filterMatches(matches,{round='',search='',favoritesOnly=false,favorites=[],date=''}={}){const q=searchKey(search);return matches.filter(m=>(!date||m.date===date)&&(!round||m.round===round)&&(!q||[m.home,m.away,...m.homeAliases||[],...m.awayAliases||[]].flatMap(n=>[n,...aliases[aliasKey(n)]||[]]).map(searchKey).join(' ').includes(q))&&(!favoritesOnly||favorites.includes(m.id)));}
 export function shiftDay(date,delta){const d=new Date(date+'T12:00:00Z');d.setUTCDate(d.getUTCDate()+delta);return d.toISOString().slice(0,10);}

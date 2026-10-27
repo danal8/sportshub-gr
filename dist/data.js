@@ -17,9 +17,9 @@ export const competitions=[
  {id:'pl',name:'Premier League',sport:'football',file:'en.1',url:'https://www.premierleague.com/',zone:'Europe/London'},
  {id:'laliga',name:'La Liga',sport:'football',file:'es.1',url:'https://www.laliga.com/',zone:'Europe/Madrid'},
  {id:'bund',name:'Bundesliga',sport:'football',file:'de.1',url:'https://www.bundesliga.com/',zone:'Europe/Berlin'},
- {id:'cl',name:'UEFA Champions League',sport:'football',url:'https://www.uefa.com/uefachampionsleague/',note:'Αυτόματη ανάκτηση προγράμματος και δημοσιευμένης κατάταξης της φάσης πρωταθλήματος από Wikipedia / CC BY-SA. Κοινοτική πηγή, όχι επίσημη UEFA.'},
- {id:'europa',name:'UEFA Europa League',sport:'football',url:'https://www.uefa.com/uefaeuropaleague/',note:'Αυτόματη ανάκτηση προγράμματος και δημοσιευμένης κατάταξης της φάσης πρωταθλήματος από Wikipedia / CC BY-SA. Κοινοτική πηγή, όχι επίσημη UEFA.'},
- {id:'conference',name:'UEFA Conference League',sport:'football',url:'https://www.uefa.com/uefaconferenceleague/',note:'Αυτόματη ανάκτηση προγράμματος και δημοσιευμένης κατάταξης της φάσης πρωταθλήματος από Wikipedia / CC BY-SA. Κοινοτική πηγή, όχι επίσημη UEFA.'}
+ {id:'cl',name:'UEFA Champions League',sport:'football',url:'https://www.uefa.com/uefachampionsleague/',note:'Μερικό πρόγραμμα και αποτελέσματα από TheSportsDB / ESPN. Δεν υπάρχει επαληθευμένη πλήρης βαθμολογία· δεν υπολογίζεται από το ελλιπές πρόγραμμα.'},
+ {id:'europa',name:'UEFA Europa League',sport:'football',url:'https://www.uefa.com/uefaeuropaleague/',note:'Μερικό πρόγραμμα και αποτελέσματα από TheSportsDB / ESPN. Δεν υπάρχει επαληθευμένη πλήρης βαθμολογία· δεν υπολογίζεται από το ελλιπές πρόγραμμα.'},
+ {id:'conference',name:'UEFA Conference League',sport:'football',url:'https://www.uefa.com/uefaconferenceleague/',note:'Μερικό πρόγραμμα και αποτελέσματα από TheSportsDB / ESPN. Δεν υπάρχει επαληθευμένη πλήρης βαθμολογία· δεν υπολογίζεται από το ελλιπές πρόγραμμα.'}
 ];
 // Personal-use data files are deliberately excluded from the public repository.
 export const eliteMatches=[],broadcasts=[],currentTV=[],gblStandings=[];

@@ -38,3 +38,10 @@ test('confirmed browser result survives a reload with a scoreless provider snaps
  globalThis.fetch=async url=>({ok:true,json:async()=>String(url).includes('catalog')?{teams:{},urls:{}}:{season:'2026-27',retrievedAt:new Date().toISOString(),matches:[{...match,score:null,scoreState:'current'}]}});
  try{const p=await loadProvider('europa','2026-27');assert.deepEqual(p.matches[0].score,[0,4]);assert.equal(p.matches[0].scoreState,'final');}finally{globalThis.fetch=oldFetch;globalThis.localStorage=oldStorage;}
 });
+
+test('A postponed league fixture is moved, not duplicated; cups and ambiguous pairings stay separate',async()=>{
+ const{reconcileFixtureDates}=await import('../dist/result-reconciliation.js');const m={id:'canonical',competition:'ligue1',home:'Paris Saint-Germain FC',away:'Olympique Lyonnais',date:'2026-10-25',round:'8',homeIDs:{espn:'160'},awayIDs:{espn:'167'}},x={competition:'ligue1',home:'Paris Saint-Germain',away:'Lyon',date:'2026-10-26',time:'21:30',score:[2,0],scoreState:'final',eventIDs:{espn:'401876422'},homeIDs:{espn:'160'},awayIDs:{espn:'167'},fixtureEvidence:{provider:'ESPN',season:'2026-27',competition:'ligue1',eventID:'401876422',date:'2026-10-26',homeID:'160',awayID:'167'}};
+ assert.equal(reconcileFixtureDates([m],[x])[0].date,x.date);assert.equal(reconcileFixtureDates([m],[x])[0].id,'canonical');assert.equal(reconcileFixtureDates([m],[{...x,fixtureEvidence:null}])[0].date,m.date);assert.equal(reconcileFixtureDates(reconcileFixtureDates([m],[x]),[x]).length,1);assert.equal(reconcileFixtureDates([{...m,homeIDs:{espn:'wrong'}}],[x])[0].date,m.date);
+ assert.equal(reconcileFixtureDates([m,m],[x])[0].date,m.date);assert.equal(reconcileFixtureDates([{...m,competition:'cl'}],[{...x,competition:'cl'}])[0].date,m.date);
+ assert.equal(reconcileFixtureDates([{...m,scoreState:'final',score:[1,1]}],[x])[0].date,m.date);
+});

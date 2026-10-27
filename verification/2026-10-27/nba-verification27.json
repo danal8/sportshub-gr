@@ -1,0 +1,326 @@
+{
+  "checkedAt": "2026-10-27T11:23:04.939Z",
+  "sourceDates": [
+    "20261026",
+    "20261027"
+  ],
+  "games": [
+    {
+      "athensDate": "2026-10-27",
+      "id": "nba-401909868",
+      "home": "Charlotte Hornets",
+      "away": "Washington Wizards",
+      "source": [
+        110,
+        103
+      ],
+      "local": [
+        110,
+        103
+      ],
+      "agrees": true
+    },
+    {
+      "athensDate": "2026-10-27",
+      "id": "nba-401909869",
+      "home": "Cleveland Cavaliers",
+      "away": "Minnesota Timberwolves",
+      "source": [
+        127,
+        125
+      ],
+      "local": [
+        127,
+        125
+      ],
+      "agrees": true
+    },
+    {
+      "athensDate": "2026-10-27",
+      "id": "nba-401909870",
+      "home": "Boston Celtics",
+      "away": "Chicago Bulls",
+      "source": [
+        134,
+        99
+      ],
+      "local": [
+        134,
+        99
+      ],
+      "agrees": true
+    },
+    {
+      "athensDate": "2026-10-27",
+      "id": "nba-401909871",
+      "home": "Miami Heat",
+      "away": "Dallas Mavericks",
+      "source": [
+        109,
+        113
+      ],
+      "local": [
+        109,
+        113
+      ],
+      "agrees": true
+    },
+    {
+      "athensDate": "2026-10-27",
+      "id": "nba-401909872",
+      "home": "Milwaukee Bucks",
+      "away": "Indiana Pacers",
+      "source": [
+        110,
+        102
+      ],
+      "local": [
+        110,
+        102
+      ],
+      "agrees": true
+    },
+    {
+      "athensDate": "2026-10-27",
+      "id": "nba-401909873",
+      "home": "Oklahoma City Thunder",
+      "away": "Phoenix Suns",
+      "source": [
+        125,
+        114
+      ],
+      "local": [
+        125,
+        114
+      ],
+      "agrees": true
+    },
+    {
+      "athensDate": "2026-10-27",
+      "id": "nba-401909874",
+      "home": "Houston Rockets",
+      "away": "Atlanta Hawks",
+      "source": [
+        120,
+        110
+      ],
+      "local": [
+        120,
+        110
+      ],
+      "agrees": true
+    },
+    {
+      "athensDate": "2026-10-27",
+      "id": "nba-401909875",
+      "home": "Utah Jazz",
+      "away": "Memphis Grizzlies",
+      "source": [
+        105,
+        110
+      ],
+      "local": [
+        105,
+        110
+      ],
+      "agrees": true
+    },
+    {
+      "athensDate": "2026-10-27",
+      "id": "nba-401909876",
+      "home": "Denver Nuggets",
+      "away": "Golden State Warriors",
+      "source": [
+        114,
+        134
+      ],
+      "local": [
+        114,
+        134
+      ],
+      "agrees": true
+    }
+  ],
+  "standings": [
+    {
+      "team": "Detroit Pistons",
+      "wins": 3,
+      "losses": 0,
+      "agrees": true
+    },
+    {
+      "team": "Philadelphia 76ers",
+      "wins": 3,
+      "losses": 1,
+      "agrees": true
+    },
+    {
+      "team": "Charlotte Hornets",
+      "wins": 3,
+      "losses": 1,
+      "agrees": true
+    },
+    {
+      "team": "Toronto Raptors",
+      "wins": 2,
+      "losses": 1,
+      "agrees": true
+    },
+    {
+      "team": "Boston Celtics",
+      "wins": 2,
+      "losses": 1,
+      "agrees": true
+    },
+    {
+      "team": "Cleveland Cavaliers",
+      "wins": 2,
+      "losses": 1,
+      "agrees": true
+    },
+    {
+      "team": "Atlanta Hawks",
+      "wins": 2,
+      "losses": 2,
+      "agrees": true
+    },
+    {
+      "team": "Indiana Pacers",
+      "wins": 2,
+      "losses": 2,
+      "agrees": true
+    },
+    {
+      "team": "Washington Wizards",
+      "wins": 2,
+      "losses": 2,
+      "agrees": true
+    },
+    {
+      "team": "Orlando Magic",
+      "wins": 1,
+      "losses": 2,
+      "agrees": true
+    },
+    {
+      "team": "Chicago Bulls",
+      "wins": 1,
+      "losses": 3,
+      "agrees": true
+    },
+    {
+      "team": "Milwaukee Bucks",
+      "wins": 1,
+      "losses": 3,
+      "agrees": true
+    },
+    {
+      "team": "New York Knicks",
+      "wins": 0,
+      "losses": 3,
+      "agrees": true
+    },
+    {
+      "team": "Brooklyn Nets",
+      "wins": 0,
+      "losses": 3,
+      "agrees": true
+    },
+    {
+      "team": "Miami Heat",
+      "wins": 0,
+      "losses": 4,
+      "agrees": true
+    },
+    {
+      "team": "Houston Rockets",
+      "wins": 4,
+      "losses": 0,
+      "agrees": true
+    },
+    {
+      "team": "Oklahoma City Thunder",
+      "wins": 4,
+      "losses": 0,
+      "agrees": true
+    },
+    {
+      "team": "Memphis Grizzlies",
+      "wins": 4,
+      "losses": 0,
+      "agrees": true
+    },
+    {
+      "team": "Los Angeles Lakers",
+      "wins": 3,
+      "losses": 0,
+      "agrees": true
+    },
+    {
+      "team": "Portland Trail Blazers",
+      "wins": 2,
+      "losses": 0,
+      "agrees": true
+    },
+    {
+      "team": "Minnesota Timberwolves",
+      "wins": 3,
+      "losses": 1,
+      "agrees": true
+    },
+    {
+      "team": "Dallas Mavericks",
+      "wins": 2,
+      "losses": 2,
+      "agrees": true
+    },
+    {
+      "team": "San Antonio Spurs",
+      "wins": 1,
+      "losses": 2,
+      "agrees": true
+    },
+    {
+      "team": "LA Clippers",
+      "wins": 1,
+      "losses": 2,
+      "agrees": true
+    },
+    {
+      "team": "Denver Nuggets",
+      "wins": 1,
+      "losses": 2,
+      "agrees": true
+    },
+    {
+      "team": "Phoenix Suns",
+      "wins": 1,
+      "losses": 2,
+      "agrees": true
+    },
+    {
+      "team": "Golden State Warriors",
+      "wins": 1,
+      "losses": 3,
+      "agrees": true
+    },
+    {
+      "team": "Utah Jazz",
+      "wins": 1,
+      "losses": 3,
+      "agrees": true
+    },
+    {
+      "team": "New Orleans Pelicans",
+      "wins": 0,
+      "losses": 3,
+      "agrees": true
+    },
+    {
+      "team": "Sacramento Kings",
+      "wins": 0,
+      "losses": 3,
+      "agrees": true
+    }
+  ]
+}

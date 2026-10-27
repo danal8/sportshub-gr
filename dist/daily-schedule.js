@@ -1,5 +1,5 @@
-import{safeResults}from'./results.js?v=68';
-import{weekRange}from'./my-teams.js?v=68';
+import{safeResults}from'./results.js?v=69';
+import{weekRange}from'./my-teams.js?v=69';
 const storageKey='sh-data-daily-2026-27';
 function saved(){try{return JSON.parse(localStorage.getItem(storageKey));}catch{return null;}}
 let cached=saved(),pending,loadedAt=0;

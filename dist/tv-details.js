@@ -1,8 +1,8 @@
-import{mergeResultUpdates}from'./result-reconciliation.js?v=68';
-import{sourceClock}from'./live-scores.js?v=68';
-import{teamKey}from'./badges.js?v=68';
-import{aliases}from'./team-aliases.js?v=68';
-import{loadProvider}from'./providers.js?v=68';
+import{mergeResultUpdates}from'./result-reconciliation.js?v=69';
+import{sourceClock}from'./live-scores.js?v=69';
+import{teamKey}from'./badges.js?v=69';
+import{aliases}from'./team-aliases.js?v=69';
+import{loadProvider}from'./providers.js?v=69';
 const leagues={sl:['soccer','gre.1'],pl:['soccer','eng.1'],bund:['soccer','ger.1'],laliga:['soccer','esp.1'],seriea:['soccer','ita.1'],ligue1:['soccer','fra.1'],cl:['soccer','uefa.champions'],europa:['soccer','uefa.europa'],conference:['soccer','uefa.europa.conf'],nba:['basketball','nba']};
 const athens=d=>({date:new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Athens',year:'numeric',month:'2-digit',day:'2-digit'}).format(d),time:new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Athens',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(d)});
 export function decimalOdds(value){if(value===null||value===undefined||value==='')return null;const n=String(value).toUpperCase()==='EVEN'?100:Number(value);return Number.isFinite(n)&&Math.abs(n)>=100?Number((n>0?1+n/100:1+100/Math.abs(n)).toFixed(2)):null;}

@@ -1,12 +1,12 @@
-import{sameResultMatch,synchronizeDetailScore}from'./result-reconciliation.js?v=68';
-import{eventTimeline}from'./event-timeline.js?v=68';
-import{loadMatchHighlights}from'./highlights.js?v=68';
-import{escapeHTML as e,athensDay}from'./core.js?v=68';
-import{competitions}from'./data.js?v=68';
-import{displayTeamName}from'./team-display.js?v=68';
-import{teamMarkup}from'./team-view.js?v=68';
-import{badgeSources}from'./badges.js?v=68';
-import{loadTeamOverview,loadTeamRoster,loadMatchDetails}from'./detail-data.js?v=68';
+import{sameResultMatch,synchronizeDetailScore,mergeResultUpdates}from'./result-reconciliation.js?v=69';
+import{eventTimeline}from'./event-timeline.js?v=69';
+import{loadMatchHighlights}from'./highlights.js?v=69';
+import{escapeHTML as e,athensDay}from'./core.js?v=69';
+import{competitions}from'./data.js?v=69';
+import{displayTeamName}from'./team-display.js?v=69';
+import{teamMarkup}from'./team-view.js?v=69';
+import{badgeSources}from'./badges.js?v=69';
+import{loadTeamOverview,loadTeamRoster,loadMatchDetails}from'./detail-data.js?v=69';
 const $=id=>document.getElementById(id);
 const day=d=>d?new Intl.DateTimeFormat('el-GR',{day:'numeric',month:'short',year:'numeric',timeZone:'Europe/Athens'}).format(new Date(d+'T12:00:00Z')):'Δεν έχει οριστεί';
 const stamp=d=>{try{return new Intl.DateTimeFormat('el-GR',{dateStyle:'short',timeStyle:'short',timeZone:'Europe/Athens'}).format(new Date(d));}catch{return '—';}};
@@ -84,15 +84,15 @@ export function createDetailPanels({getSeed=()=>[]}={}){
  }
  function highlightLink(card){
  const final=card.data?card.data.scoreState==='final':card.match.scoreState==='final',h=card.highlight;
- if(!final||!h)return '';
+ if(!final)return '';if(!h)return card.hlError?'<p class="detail-empty">'+e(card.hlError)+'</p>':card.hlPending?blank('Έλεγχος highlights…'):card.hlLoaded?blank('Δεν βρέθηκε επαληθευμένο βίντεο για αυτόν τον αγώνα.'):' ';
  return '<div class="detail-highlight"><a href="'+e(h.url)+'" target="_blank" rel="noopener noreferrer" aria-label="'+e((h.label||'Highlights')+': '+name(card.match.home)+' – '+name(card.match.away)+' · '+h.provider)+'">▶ '+e(h.label||'Highlights')+' <span aria-hidden="true">↗</span></a><small>'+e(h.provider)+(h.chapter!==null?' · Στο σημείο του συγκεκριμένου αγώνα':'')+'</small></div>';
  }
  async function highlights(card,force=false){
  if(card.hlPending||card.hlLoaded&&!force)return;
- const m={...card.match,...(card.data?{scoreState:card.data.scoreState,score:card.data.score}:{})};
+ const m=card.data?mergeResultUpdates([card.match],[{...card.match,scoreState:card.data.scoreState,score:card.data.score,checkedAt:card.data.scoreCheckedAt||card.data.checkedAt}])[0]:card.match;
  if(m.scoreState!=='final')return;
  card.hlPending=true;card.hlLoaded=true;const gen=generation;
- try{card.highlight=await loadMatchHighlights(m,{force});}finally{card.hlPending=false;if(current===card&&generation===gen)render();}
+ try{card.hlError='';card.highlight=await loadMatchHighlights(m,{force});}catch(e){card.hlError=e.message;card.hlLoaded=false;}finally{card.hlPending=false;if(current===card&&generation===gen)render();}
  }
  function matchBody(card){
  const m=card.match,d=card.data,c=card.competition;
@@ -142,7 +142,7 @@ export function createDetailPanels({getSeed=()=>[]}={}){
  setInterval(()=>{if(document.hidden||!dialog.open||!current||current.type!=='match'||current.loading||current.data?.scoreState!=='live')return;void fetchCard(current,true);},30000);
  function updateMatches(matches){
   for(const card of [current,...history]){if(card?.type!=='match')continue;const hits=matches.filter(m=>sameResultMatch({...card.match,competition:card.competition.id},m));if(hits.length!==1)continue;card.match={...card.match,...hits[0]};card.data=synchronizeDetailScore(card.data,card.match);}
-  if(current?.type==='match')render();
+  if(current?.type==='match'){render();void highlights(current);}
  }
  return{openTeam,openMatch,updateMatches};
 }

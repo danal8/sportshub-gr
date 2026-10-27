@@ -1,5 +1,7 @@
 import{chromium}from'playwright';import{createServer}from'node:http';import{readFile}from'node:fs/promises';import path from'node:path';import assert from'node:assert/strict';
 const root=path.resolve('docs'),daily=JSON.parse(await readFile('docs/snapshots/daily-2026-27.json')),payload=JSON.parse(await readFile('docs/snapshots/gbl-live.json'));
+// Freeze simulated live states instead of depending on today's mutable results.
+payload.entries=payload.entries.map(m=>m.home.includes('ΠΕΡΙΣΤΕΡΙ')?{...m,score:[70,72],scoreState:'live',clock:'4η περ.'}:m.home.includes('ΠΑΝΑΘΗΝΑΪΚΟΣ')?{...m,score:[60,50],scoreState:'live',clock:'3η περ.'}:m);
 daily.matches=daily.matches.filter(m=>m.competition==='gbl'&&m.date==='2026-10-24').map(m=>({...m,score:null,scoreState:null}));
 const server=createServer(async(req,res)=>{try{const p=path.resolve(root,'.'+new URL(req.url,'http://local').pathname.replace(/^\/$/,'/index.html'));if(!p.startsWith(root+path.sep))throw Error();res.setHeader('Content-Type',p.endsWith('.js')?'text/javascript':p.endsWith('.html')?'text/html':p.endsWith('.css')?'text/css':'application/json');res.end(await readFile(p));}catch{res.writeHead(404).end();}});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin='http://127.0.0.1:'+server.address().port,browser=await chromium.launch();

@@ -1,0 +1,146 @@
+[
+  {
+    "run": 1,
+    "steps": [
+      {
+        "script": "refresh-results",
+        "exit": 0,
+        "seconds": 25.8
+      },
+      {
+        "script": "refresh-gbl",
+        "exit": 0,
+        "seconds": 6.2
+      },
+      {
+        "script": "refresh-public",
+        "exit": 0,
+        "seconds": 21.8
+      },
+      {
+        "script": "refresh-volley",
+        "exit": 0,
+        "seconds": 5.6
+      },
+      {
+        "script": "refresh-confirmed-results",
+        "exit": 0,
+        "seconds": 11.0
+      },
+      {
+        "script": "refresh-tv-details",
+        "exit": 0,
+        "seconds": 67.1
+      },
+      {
+        "script": "build",
+        "exit": 0,
+        "seconds": 0.7
+      },
+      {
+        "script": "tests",
+        "exit": 0,
+        "seconds": 1.7
+      }
+    ],
+    "counts": {
+      "ligue1": {
+        "count": 306,
+        "uniqueIDs": 306,
+        "season": "2026-27"
+      },
+      "seriea": {
+        "count": 380,
+        "uniqueIDs": 380,
+        "season": "2026-27"
+      },
+      "nba": {
+        "count": 1200,
+        "uniqueIDs": 1200,
+        "season": "2026-27"
+      },
+      "elite": {
+        "count": 240,
+        "uniqueIDs": 240,
+        "season": "2026-27"
+      },
+      "conference": {
+        "count": 33,
+        "uniqueIDs": 33,
+        "season": "2026-27"
+      }
+    }
+  },
+  {
+    "run": 2,
+    "steps": [
+      {
+        "script": "refresh-results",
+        "exit": 0,
+        "seconds": 21.0
+      },
+      {
+        "script": "refresh-gbl",
+        "exit": 0,
+        "seconds": 5.8
+      },
+      {
+        "script": "refresh-public",
+        "exit": 0,
+        "seconds": 29.7
+      },
+      {
+        "script": "refresh-volley",
+        "exit": 0,
+        "seconds": 8.5
+      },
+      {
+        "script": "refresh-confirmed-results",
+        "exit": 0,
+        "seconds": 7.2
+      },
+      {
+        "script": "refresh-tv-details",
+        "exit": 0,
+        "seconds": 66.7
+      },
+      {
+        "script": "build",
+        "exit": 0,
+        "seconds": 0.5
+      },
+      {
+        "script": "tests",
+        "exit": 0,
+        "seconds": 1.8
+      }
+    ],
+    "counts": {
+      "ligue1": {
+        "count": 306,
+        "uniqueIDs": 306,
+        "season": "2026-27"
+      },
+      "seriea": {
+        "count": 380,
+        "uniqueIDs": 380,
+        "season": "2026-27"
+      },
+      "nba": {
+        "count": 1200,
+        "uniqueIDs": 1200,
+        "season": "2026-27"
+      },
+      "elite": {
+        "count": 240,
+        "uniqueIDs": 240,
+        "season": "2026-27"
+      },
+      "conference": {
+        "count": 33,
+        "uniqueIDs": 33,
+        "season": "2026-27"
+      }
+    }
+  }
+]
