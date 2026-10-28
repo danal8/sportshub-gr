@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-28T17:43:32.872Z",
+  "checkedAt": "2026-10-28T19:07:22.997Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -133,17 +133,10 @@
           "date": "2026-10-28",
           "home": "Neptunas Klaipeda",
           "away": "Napoli Basketball"
-        },
-        {
-          "id": "U-70",
-          "competition": "eurocup",
-          "date": "2026-10-28",
-          "home": "Siauliai Basketball",
-          "away": "Maxima Roma"
         }
       ],
       "sourceError": null,
-      "finals": 70
+      "finals": 71
     },
     {
       "competition": "europa",
