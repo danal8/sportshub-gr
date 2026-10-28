@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-27T21:55:24.703Z",
+  "checkedAt": "2026-10-28T17:43:32.872Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -29,15 +29,36 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "E-73",
+          "id": "E-80",
           "competition": "el",
-          "date": "2026-10-27",
-          "home": "Kosner Baskonia Vitoria-Gasteiz",
-          "away": "Real Madrid"
+          "date": "2026-10-28",
+          "home": "Virtus Bologna",
+          "away": "Zalgiris Kaunas"
+        },
+        {
+          "id": "E-78",
+          "competition": "el",
+          "date": "2026-10-28",
+          "home": "LDLC ASVEL Villeurbanne",
+          "away": "Partizan Mozzart Bet Belgrade"
+        },
+        {
+          "id": "E-77",
+          "competition": "el",
+          "date": "2026-10-28",
+          "home": "Hapoel IBI Tel Aviv",
+          "away": "Anadolu Efes Istanbul"
+        },
+        {
+          "id": "E-79",
+          "competition": "el",
+          "date": "2026-10-28",
+          "home": "Besiktas Istanbul",
+          "away": "Olympiacos Piraeus"
         }
       ],
       "sourceError": null,
-      "finals": 75
+      "finals": 76
     },
     {
       "competition": "elite",
@@ -49,7 +70,78 @@
     {
       "competition": "eurocup",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "U-69",
+          "competition": "eurocup",
+          "date": "2026-10-28",
+          "home": "La Laguna Tenerife",
+          "away": "Umana Reyer Venice"
+        },
+        {
+          "id": "U-71",
+          "competition": "eurocup",
+          "date": "2026-10-28",
+          "home": "London Lions",
+          "away": "Turk Telekom Ankara"
+        },
+        {
+          "id": "U-65",
+          "competition": "eurocup",
+          "date": "2026-10-28",
+          "home": "Recoletas Salud San Pablo Burgos",
+          "away": "Riga Zelli"
+        },
+        {
+          "id": "U-66",
+          "competition": "eurocup",
+          "date": "2026-10-28",
+          "home": "Le Mans Sarthe Basket",
+          "away": "Hapoel Midtown Jerusalem"
+        },
+        {
+          "id": "U-68",
+          "competition": "eurocup",
+          "date": "2026-10-28",
+          "home": "Baglietto Derthona Tortona",
+          "away": "Rostock Seawolves"
+        },
+        {
+          "id": "U-76",
+          "competition": "eurocup",
+          "date": "2026-10-28",
+          "home": "NINERS Chemnitz",
+          "away": "Cosea JL Bourg-en-Bresse"
+        },
+        {
+          "id": "U-73",
+          "competition": "eurocup",
+          "date": "2026-10-28",
+          "home": "Slask Wroclaw",
+          "away": "Tofas Bursa"
+        },
+        {
+          "id": "U-67",
+          "competition": "eurocup",
+          "date": "2026-10-28",
+          "home": "Aris Thessaloniki",
+          "away": "Cedevita Olimpija Ljubljana"
+        },
+        {
+          "id": "U-74",
+          "competition": "eurocup",
+          "date": "2026-10-28",
+          "home": "Neptunas Klaipeda",
+          "away": "Napoli Basketball"
+        },
+        {
+          "id": "U-70",
+          "competition": "eurocup",
+          "date": "2026-10-28",
+          "home": "Siauliai Basketball",
+          "away": "Maxima Roma"
+        }
+      ],
       "sourceError": null,
       "finals": 70
     },
@@ -94,7 +186,7 @@
       "unmatchedResults": [],
       "awaitingResults": [],
       "sourceError": null,
-      "finals": 52
+      "finals": 56
     },
     {
       "competition": "pl",
@@ -108,29 +200,43 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "seriea-2026-10-27-US Sassuolo Calcio-SS Lazio-80",
+          "id": "seriea-2026-10-28-AC Milan-Bologna FC 1909-83",
           "competition": "seriea",
-          "date": "2026-10-27",
-          "home": "US Sassuolo Calcio",
-          "away": "SS Lazio"
+          "date": "2026-10-28",
+          "home": "AC Milan",
+          "away": "Bologna FC 1909"
         },
         {
-          "id": "seriea-2026-10-27-AS Roma-Cagliari Calcio-81",
+          "id": "seriea-2026-10-28-Venezia FC-FC Internazionale Milano-84",
           "competition": "seriea",
-          "date": "2026-10-27",
-          "home": "AS Roma",
-          "away": "Cagliari Calcio"
+          "date": "2026-10-28",
+          "home": "Venezia FC",
+          "away": "FC Internazionale Milano"
         },
         {
-          "id": "seriea-2026-10-27-Torino FC-Como 1907-82",
+          "id": "seriea-2026-10-28-Parma Calcio 1913-Udinese Calcio-85",
           "competition": "seriea",
-          "date": "2026-10-27",
-          "home": "Torino FC",
-          "away": "Como 1907"
+          "date": "2026-10-28",
+          "home": "Parma Calcio 1913",
+          "away": "Udinese Calcio"
+        },
+        {
+          "id": "seriea-2026-10-28-Genoa CFC-Juventus FC-86",
+          "competition": "seriea",
+          "date": "2026-10-28",
+          "home": "Genoa CFC",
+          "away": "Juventus FC"
+        },
+        {
+          "id": "seriea-2026-10-28-AC Monza-SSC Napoli-87",
+          "competition": "seriea",
+          "date": "2026-10-28",
+          "home": "AC Monza",
+          "away": "SSC Napoli"
         }
       ],
       "sourceError": null,
-      "finals": 80
+      "finals": 83
     },
     {
       "competition": "sl",
