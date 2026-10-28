@@ -2,7 +2,7 @@ name: Refresh match results
 on:
   push:
     branches: [main]
-    paths: ['dist/*.js', 'scripts/**', '.github/workflows/results.yml']
+    paths: ['dist/*.js', 'scripts/**', 'tests/**', '.github/workflows/results.yml']
   workflow_dispatch:
   schedule:
     - cron: '*/5 * * * *'
