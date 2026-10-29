@@ -27,6 +27,8 @@ jobs:
         continue-on-error: true
       - run: node scripts/refresh-public.mjs
         continue-on-error: true
+      - run: node scripts/refresh-greek-cup.mjs
+        continue-on-error: true
       - run: node scripts/refresh-volley.mjs
         continue-on-error: true
       - run: node scripts/refresh-confirmed-results.mjs
