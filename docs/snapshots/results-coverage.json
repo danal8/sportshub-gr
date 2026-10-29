@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-29T06:50:20.290Z",
+  "checkedAt": "2026-10-29T08:26:30.123Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -88,6 +88,28 @@
       ],
       "sourceError": null,
       "finals": 28
+    },
+    {
+      "competition": "greek-cup",
+      "unmatchedResults": [],
+      "awaitingResults": [
+        {
+          "id": "greek-cup-4-αστερας-κηφισια",
+          "competition": "greek-cup",
+          "date": "2026-10-27",
+          "home": "Αστέρας AKTOR",
+          "away": "Κηφισιά"
+        },
+        {
+          "id": "greek-cup-4-βολος-ατρομητοςαθηνων",
+          "competition": "greek-cup",
+          "date": "2026-10-29",
+          "home": "Βόλος Elabet",
+          "away": "Ατρόμητος Αθηνών"
+        }
+      ],
+      "sourceError": null,
+      "finals": 6
     },
     {
       "competition": "laliga",
