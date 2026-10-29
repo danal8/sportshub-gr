@@ -3,7 +3,7 @@ import{parseCupSchedule,parseCupResult,refreshGreekCup,cupSeedURL,cupNewsURL}fro
 import{broadcastDetails}from'../dist/tv-meta.js';import{competitions}from'../dist/data.js';import{orderedCompetitions}from'../dist/competition-order.js';import{dailySelection}from'../dist/daily-schedule.js';import{selectTVGuide}from'../dist/tv-guide.js';
 const html='<h1>Κύπελλο Ελλάδας: η ώρα της 4ης αγωνιστικής</h1><h5>Τετάρτη 28 Οκτωβρίου 2026</h5><ul><li>17:30, ΟΑΚΑ: Παναθηναϊκός – Άρης (ΣΚΑΪ / ΣΠΟΡ FM TV 1)</li></ul>';
 test('Greek Cup is separate from Super League 2 and has schedule/TV filters without an invented table',()=>{
- assert.equal(broadcastDetails('Superbet Κύπελλο Ελλάδας').competition,'greek-cup');assert.equal(broadcastDetails('Greek Cup').competition,'greek-cup');assert.equal(broadcastDetails('Superbet').competition,'other');assert.equal(broadcastDetails('Super League 2').competition,'sl2');
+ for(const label of['Superbet Κύπελλο Ελλάδας','Superbet Κυπέλλου Ελλάδος','ΚΥΠΕΛΛΟ ΕΛΛΑΔΑΣ','Greek Cup'])assert.equal(broadcastDetails(label).competition,'greek-cup');assert.equal(broadcastDetails('Superbet').competition,'other');assert.equal(broadcastDetails('Super League 2').competition,'sl2');
  for(const tab of['football','tv','matches'])assert.ok(orderedCompetitions(competitions,tab).some(c=>c.id==='greek-cup'));assert.ok(!orderedCompetitions(competitions,'standings').some(c=>c.id==='greek-cup'));
 });
 test('EPO schedule requires explicit date, time, oriented teams, channel and the current season',()=>{

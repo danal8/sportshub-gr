@@ -1,7 +1,7 @@
 export const tvOnlyCompetitions=[{id:'el-w',name:'EuroLeague Γυναικών',sport:'basketball',tvOnly:true,url:'https://www.fiba.basketball/euroleaguewomen'},{id:'eurocup-w',name:'EuroCup Γυναικών',sport:'basketball',tvOnly:true,url:'https://www.fiba.basketball/eurocupwomen'}];
 export function isExplicitLive(title,hasLiveBadge=false){return hasLiveBadge||/\([ΖZ]\)/.test(title);}
 export function broadcastDetails(label){
- if(/Κ[ύυ]πελλ[οόυ]\s+Ελλ[άα]δ|Greek\s+Cup|Greece\s+Cup/i.test(label||''))return{sportLabel:'Ποδόσφαιρο',competition:'greek-cup',competitionLabel:label};
+ if(/κυπελλ(?:ο|ου)\s+ελλαδ|Greek\s+Cup|Greece\s+Cup/i.test((label||'').normalize('NFD').replace(/\p{M}/gu,'')))return{sportLabel:'Ποδόσφαιρο',competition:'greek-cup',competitionLabel:label};
  const s=label||'',n=s.normalize('NFD').replace(/\p{M}/gu,'').toLowerCase(),women=/women|γυναικ|feminin/.test(n),men=/\bmen(?:s)?\b|ανδρ/.test(n);
  if(/euroleague|eurocup/.test(n)&&women){const ambiguous=men;return{sportLabel:'Μπάσκετ',competition:ambiguous?'other':/euroleague/.test(n)?'el-w':'eurocup-w',competitionLabel:s||null};}
  const sport=/EuroLeague|EuroCup|NBA|Basket|Μπάσκετ|FIBA Champions League/i.test(s)?'Μπάσκετ':/ATP|WTA|Τένις|Tennis/i.test(s)?'Τένις':/UEFA|Super\s*League|Premier League|Bundesliga|La\s*Liga|Ποδόσφαιρο|Ligue|Serie A/i.test(s)?'Ποδόσφαιρο':/Volley|Βόλεϊ|CEV/i.test(s)?'Βόλεϊ':/Snooker|Σνούκερ/i.test(s)?'Σνούκερ':null;
