@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-28T23:12:36.168Z",
+  "checkedAt": "2026-10-29T02:29:09.943Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -108,60 +108,11 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "nba-401909881",
-          "competition": "nba",
-          "date": "2026-10-29",
-          "home": "Atlanta Hawks",
-          "away": "Miami Heat"
-        },
-        {
-          "id": "nba-401909884",
-          "competition": "nba",
-          "date": "2026-10-29",
-          "home": "Indiana Pacers",
-          "away": "Philadelphia 76ers"
-        },
-        {
-          "id": "nba-401909882",
-          "competition": "nba",
-          "date": "2026-10-29",
-          "home": "Cleveland Cavaliers",
-          "away": "Washington Wizards"
-        },
-        {
-          "id": "nba-401909883",
-          "competition": "nba",
-          "date": "2026-10-29",
-          "home": "Detroit Pistons",
-          "away": "Charlotte Hornets"
-        },
-        {
-          "id": "nba-401909885",
-          "competition": "nba",
-          "date": "2026-10-29",
-          "home": "Toronto Raptors",
-          "away": "Orlando Magic"
-        },
-        {
           "id": "nba-401909886",
           "competition": "nba",
           "date": "2026-10-29",
           "home": "Chicago Bulls",
           "away": "New York Knicks"
-        },
-        {
-          "id": "nba-401909887",
-          "competition": "nba",
-          "date": "2026-10-29",
-          "home": "Milwaukee Bucks",
-          "away": "Houston Rockets"
-        },
-        {
-          "id": "nba-401909889",
-          "competition": "nba",
-          "date": "2026-10-29",
-          "home": "New Orleans Pelicans",
-          "away": "Denver Nuggets"
         },
         {
           "id": "nba-401909888",
@@ -193,7 +144,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 56
+      "finals": 63
     },
     {
       "competition": "pl",
