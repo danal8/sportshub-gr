@@ -1,10 +1,10 @@
-import{updatePayloadSections}from'./source-status.js?v=74';
-import{preserveConfirmedResults,mergeResultUpdates,sameResultMatch}from'./result-reconciliation.js?v=74';
-import{loadEuropeanLeague,preferCompleteFootballStandings}from'./football-leagues.js?v=74';
-import{loadNBA,refreshNBAStandings}from'./nba.js?v=74';
-import{safeResults}from'./results.js?v=74';
-import{rememberBadges,loadBadgeCatalog}from'./badges.js?v=74';
-import{directIDs,directProvider}from'./direct.js?v=74';
+import{updatePayloadSections}from'./source-status.js?v=75';
+import{preserveConfirmedResults,mergeResultUpdates,sameResultMatch}from'./result-reconciliation.js?v=75';
+import{loadEuropeanLeague,preferCompleteFootballStandings}from'./football-leagues.js?v=75';
+import{loadNBA,refreshNBAStandings}from'./nba.js?v=75';
+import{safeResults}from'./results.js?v=75';
+import{rememberBadges,loadBadgeCatalog}from'./badges.js?v=75';
+import{directIDs,directProvider}from'./direct.js?v=75';
 const staticIDs=['sl2','elite','gbl','volley-m','volley-w','conference','greek-cup'];
 export function isConnected(id){return ['seriea','ligue1'].includes(id)||id==='nba'||staticIDs.includes(id)||directIDs.includes(id);}
 function read(key){try{return JSON.parse(localStorage.getItem(key));}catch{return null;}}

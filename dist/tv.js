@@ -1,5 +1,5 @@
-import{sectionStatus}from'./source-status.js?v=74';
-import{isExplicitLive,broadcastDetails}from'./tv-meta.js?v=74';
+import{sectionStatus}from'./source-status.js?v=75';
+import{isExplicitLive,broadcastDetails}from'./tv-meta.js?v=75';
 export function novaURL(date){if(!/^\d{4}-\d{2}-\d{2}$/.test(date))throw Error('Μη έγκυρη ημερομηνία');return 'https://www.novasports.gr/wp-admin/admin-ajax.php?action=nova_get_template&template=tv-program/broadcast&dt='+date;}
 const clean=s=>s.replace(/<[^>]*>/g,'').replace(/&#(\d+);/g,(_,n)=>String.fromCodePoint(+n)).replace(/&amp;|&#038;/g,'&').replace(/&nbsp;/g,' ').trim();
 export function parseNova(html,requestedDate){

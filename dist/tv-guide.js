@@ -1,4 +1,4 @@
-import{broadcastDetails}from'./tv-meta.js?v=74';
+import{broadcastDetails}from'./tv-meta.js?v=75';
 const key='sh-tv-guide-2026-27';
 let cached,pending,loadedAt=0;
 try{cached=JSON.parse(localStorage.getItem(key));}catch{}

@@ -1,4 +1,4 @@
-import{aliases}from'./team-aliases.js?v=74';
+import{aliases}from'./team-aliases.js?v=75';
 const key=s=>String(s||'').normalize('NFD').replace(/\p{M}/gu,'').toLocaleLowerCase('el').replace(/[^\p{L}\p{N}]/gu,'');
 const names=(s,extra=[])=>new Set([s,...extra].filter(Boolean).flatMap(n=>[n,...aliases[key(n)]||[]]).map(key));
 function matchesTeam(row,m,side){const id=row.sourceTeamID,ids=m[side+'IDs'];if(id&&ids?.espn)return String(id)===String(ids.espn);const a=names(row.team,row.teamAliases);return[...names(m[side],m[side+'Aliases'])].some(n=>a.has(n));}

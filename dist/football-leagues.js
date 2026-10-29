@@ -1,8 +1,8 @@
-import{normalizeFootball}from'./core.js?v=74';
-import{teamKey}from'./badges.js?v=74';
-import{aliases}from'./team-aliases.js?v=74';
-import{standingsCoverage}from'./standings-health.js?v=74';
-import{sectionStatus}from'./source-status.js?v=74';
+import{normalizeFootball}from'./core.js?v=75';
+import{teamKey}from'./badges.js?v=75';
+import{aliases}from'./team-aliases.js?v=75';
+import{standingsCoverage}from'./standings-health.js?v=75';
+import{sectionStatus}from'./source-status.js?v=75';
 const leagues={pl:{file:'en.1',espn:'eng.1',teams:20,matches:380},laliga:{file:'es.1',espn:'esp.1',teams:20,matches:380},seriea:{file:'it.1',espn:'ita.1',teams:20,matches:380},ligue1:{file:'fr.1',espn:'fra.1',teams:18,matches:306}};
 const local=utc=>({date:new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Athens',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(utc)),time:new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Athens',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date(utc))});
 async function json(url){const r=await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('HTTP '+r.status);return r.json();}

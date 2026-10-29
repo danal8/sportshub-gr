@@ -1,7 +1,7 @@
-import{mergeResultUpdates}from'./result-reconciliation.js?v=74';
-import{aliases}from'./team-aliases.js?v=74';
-import{teamKey}from'./badges.js?v=74';
-import{athensDay,shiftDay}from'./core.js?v=74';
+import{mergeResultUpdates}from'./result-reconciliation.js?v=75';
+import{aliases}from'./team-aliases.js?v=75';
+import{teamKey}from'./badges.js?v=75';
+import{athensDay,shiftDay}from'./core.js?v=75';
 export const publishers=[
  {id:'laliga',label:'LALIGA',channel:'UCTv-XvfzLX3i4IGWAm4sbmA'},
  {id:'seriea',label:'Serie A',channel:'UCBJeMCIeLQos7wacox4hmLQ'},
