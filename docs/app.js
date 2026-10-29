@@ -1,5 +1,6 @@
 import{sourceStatusText}from'./source-status.js?v=72';
 import{standingsCoverage}from'./standings-health.js?v=72';
+import{refreshNBAStandings}from'./nba.js?v=73';
 import{tvOnlyCompetitions}from'./tv-meta.js?v=72';
 import{loadTVGuide}from'./tv-guide.js?v=72';
 import{loadDailySchedule}from'./daily-schedule.js?v=72';
@@ -19,7 +20,7 @@ import{swipeDirection}from'./gestures.js?v=72';
 import{navIcon}from'./icons.js?v=72';
 import{scheduleEntries,daySchedule}from'./schedule.js?v=72';
 import{loadNova}from'./tv.js?v=72';
-import {loadProvider,isConnected,rememberConfirmedResults} from './providers.js?v=72';
+import {loadProvider,isConnected,rememberConfirmedResults} from './providers.js?v=73';
 import {competitions,checkedAt,eliteSchedule,eliteTV,eliteMatches,broadcasts,currentTV,gblStandings} from './data.js?v=72';
 import {escapeHTML as e,normalizeFootball,calculateTable,athensDay,chooseRound,filterMatches,shiftDay} from './core.js?v=72';
 const $=id=>document.getElementById(id);
@@ -297,4 +298,10 @@ function renderFreshness(){
 async function refreshIntegrity(){try{const r=await fetch('./snapshots/snapshot-integrity.json',{cache:'no-store',signal:AbortSignal.timeout(4000)});if(r.ok){snapshotIntegrity=await r.json();renderFreshness();}}catch{}}
 void refreshIntegrity();
 setInterval(()=>{if(!document.hidden){renderFreshness();void refreshIntegrity();}},120000);
+let nbaStandingsPending=false;
+setInterval(async()=>{
+ if(document.hidden||state.loading||nbaStandingsPending||state.tab!=='standings'||state.id!=='nba'||!state.meta)return;
+ const request=state.request;nbaStandingsPending=true;
+ try{const payload=await refreshNBAStandings({...state.meta,matches:state.matches});if(request===state.request){state.meta=payload;render();}}finally{nbaStandingsPending=false;}
+},300000);
 

@@ -1,4 +1,15 @@
+import{sectionStatus}from'./source-status.js?v=72';
+import{standingsCoverage}from'./standings-health.js?v=72';
 export const nbaStandingsURL='https://site.api.espn.com/apis/v2/sports/basketball/nba/standings?season=2027';
+export async function refreshNBAStandings(payload,{fetchJSON=json,now=Date.now()}={}){
+ const previous=payload.sections?.standings,age=now-Date.parse(previous?.lastSuccessAt);
+ if(Number.isFinite(age)&&age>=0&&age<300000&&!standingsCoverage(payload.matches||[],payload.standings||[]).stale)return payload;
+ const checkedAt=new Date(now).toISOString();
+ try{
+  const standings=nbaStandings(await fetchJSON(nbaStandingsURL)),coverage=standingsCoverage(payload.matches||[],standings);
+  return{...payload,standings,standingsSource:nbaStandingsURL,sections:{...payload.sections,standings:sectionStatus(previous,{data:standings,previousData:payload.standings,source:nbaStandingsURL,now:checkedAt,coverage})}};
+ }catch(error){return{...payload,sections:{...payload.sections,standings:sectionStatus(previous,{data:payload.standings,source:nbaStandingsURL,now:checkedAt,error:error.message})}};}
+}
 export function nbaStandings(raw){
  if(raw.children?.length!==2||raw.children.some(c=>c.standings?.season!==2027||c.standings?.entries?.length!==15))throw Error('Λανθασμένη σεζόν ή ελλιπής κατάταξη NBA');
  return raw.children.flatMap(c=>c.standings.entries.map(e=>{
