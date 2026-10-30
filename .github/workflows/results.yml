@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -47,7 +49,21 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add dist/snapshots docs/snapshots
           if ! git diff --cached --quiet; then
+            base=$(git rev-parse HEAD)
+            git fetch origin main
+            if [ "$(git rev-parse origin/main)" != "$base" ]; then
+              echo "::notice::Newer changes are on main; leave this stale snapshot for the next refresh."
+              exit 0
+            fi
             git commit -m "Update published match results"
-            git push
+            if ! git push origin HEAD:main; then
+              git fetch origin main
+              if [ "$(git rev-parse origin/main)" != "$base" ]; then
+                echo "::notice::Main advanced during publication; the next refresh will rebuild from it."
+                exit 0
+              fi
+              echo "::error::Results push failed without a concurrent update."
+              exit 1
+            fi
             gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
           fi
