@@ -13,7 +13,9 @@ test('Observed Greek Cup feed resolves sponsored EPO names, preserves identity a
  assert.equal(parseFlashscore(feed.replace('AB÷2','AB÷3').replace('AC÷13','AC÷3'),[match],{sport:1,date,checkedAt}).entries[0].scoreState,'final');
  const tv={...match,id:'tv-'+match.id};assert.equal(verifiedScoreData({season:'2026-27',provider:'SportsHub live relay',entries},[tv],{date,now})[0].id,tv.id);
 });
-test('Cup-only views request football live scores and the deployed relay parser returns the same fixture',async()=>{
+test('Cup-only views request football live scores and the deployed relay parser returns the same fixture',async(t)=>{
+ // Keep the captured fixture within the live feed window on every CI run.
+ t.mock.timers.enable({apis:['Date'],now});
  let calls=0;const result=await loadFlashScores([match],date,{competitionIDs:['greek-cup'],fetchImpl:async url=>{calls++;if(String(url).includes('flashscore.ninja'))return new Response(feed);return Response.json({season:'2026-27',provider:'SportsHub live relay',entries:[]});}});
  assert.ok(calls>=2);assert.deepEqual(result.entries[0].score,[1,3]);
  const handler=createLiveHandler({now:()=>now,fetchImpl:async url=>String(url).includes('/daily-')?Response.json({season:'2026-27',matches:[match]}):String(url).includes('flashscore.ninja')?new Response(feed):Response.json({})});
