@@ -1,12 +1,20 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-29T20:40:59.275Z",
+  "checkedAt": "2026-10-30T13:51:57.257Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
       "competition": "bund",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "bund-83227",
+          "competition": "bund",
+          "date": "2026-10-30",
+          "home": "SV 07 Elversberg",
+          "away": "1. FSV Mainz 05"
+        }
+      ],
       "sourceError": null,
       "finals": 63
     },
@@ -29,34 +37,70 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "E-83",
+          "id": "E-89",
           "competition": "el",
-          "date": "2026-10-29",
-          "home": "Real Madrid",
-          "away": "Fenerbahce Tarfin Istanbul"
+          "date": "2026-10-30",
+          "home": "Virtus Bologna",
+          "away": "Besiktas Istanbul"
         },
         {
-          "id": "E-82",
+          "id": "E-87",
           "competition": "el",
-          "date": "2026-10-29",
-          "home": "Maccabi Rapyd Tel Aviv",
-          "away": "Paris Basketball"
+          "date": "2026-10-30",
+          "home": "FC Barcelona",
+          "away": "Valencia Basket"
         },
         {
-          "id": "E-81",
+          "id": "E-90",
           "competition": "el",
-          "date": "2026-10-29",
-          "home": "Crvena Zvezda Meridianbet Belgrade",
-          "away": "FC Bayern Munich"
+          "date": "2026-10-30",
+          "home": "Olympiacos Piraeus",
+          "away": "Armani Olimpia Milan"
+        },
+        {
+          "id": "E-85",
+          "competition": "el",
+          "date": "2026-10-30",
+          "home": "LDLC ASVEL Villeurbanne",
+          "away": "Kosner Baskonia Vitoria-Gasteiz"
+        },
+        {
+          "id": "E-86",
+          "competition": "el",
+          "date": "2026-10-30",
+          "home": "Zalgiris Kaunas",
+          "away": "Partizan Mozzart Bet Belgrade"
+        },
+        {
+          "id": "E-88",
+          "competition": "el",
+          "date": "2026-10-30",
+          "home": "Anadolu Efes Istanbul",
+          "away": "Panathinaikos AKTOR Athens"
+        },
+        {
+          "id": "E-84",
+          "competition": "el",
+          "date": "2026-10-30",
+          "home": "Dubai Basketball",
+          "away": "Hapoel IBI Tel Aviv"
         }
       ],
       "sourceError": null,
-      "finals": 80
+      "finals": 83
     },
     {
       "competition": "elite",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "elite-6-INTERPLAST ΓΑΣ ΚΟΜΟΤΗΝΗΣ-KERAKOLL ΑΓΕΧ",
+          "competition": "elite",
+          "date": "2026-10-30",
+          "home": "INTERPLAST ΓΑΣ ΚΟΜΟΤΗΝΗΣ",
+          "away": "KERAKOLL ΑΓΕΧ"
+        }
+      ],
       "sourceError": null,
       "finals": 40
     },
@@ -114,14 +158,37 @@
     {
       "competition": "laliga",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "laliga-85444",
+          "competition": "laliga",
+          "date": "2026-10-30",
+          "home": "FC Villareal",
+          "away": "Espanyol Barcelona"
+        }
+      ],
       "sourceError": null,
       "finals": 99
     },
     {
       "competition": "ligue1",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "ligue1-2026-10-30-Le Havre AC-Paris Saint-Germain FC-72",
+          "competition": "ligue1",
+          "date": "2026-10-30",
+          "home": "Le Havre AC",
+          "away": "Paris Saint-Germain FC"
+        },
+        {
+          "id": "ligue1-2026-10-30-Lille OSC-Racing Club de Lens-73",
+          "competition": "ligue1",
+          "date": "2026-10-30",
+          "home": "Lille OSC",
+          "away": "Racing Club de Lens"
+        }
+      ],
       "sourceError": null,
       "finals": 72
     },
@@ -130,7 +197,7 @@
       "unmatchedResults": [],
       "awaitingResults": [],
       "sourceError": null,
-      "finals": 68
+      "finals": 71
     },
     {
       "competition": "pl",
@@ -142,24 +209,9 @@
     {
       "competition": "seriea",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "seriea-2026-10-29-Frosinone Calcio-US Lecce-88",
-          "competition": "seriea",
-          "date": "2026-10-29",
-          "home": "Frosinone Calcio",
-          "away": "US Lecce"
-        },
-        {
-          "id": "seriea-2026-10-29-ACF Fiorentina-Atalanta BC-89",
-          "competition": "seriea",
-          "date": "2026-10-29",
-          "home": "ACF Fiorentina",
-          "away": "Atalanta BC"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 88
+      "finals": 90
     },
     {
       "competition": "sl",
@@ -193,7 +245,15 @@
     {
       "competition": "volley-w",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "volley-88171",
+          "competition": "volley-w",
+          "date": "2026-10-30",
+          "home": "Πανιώνιος Betsson",
+          "away": "Ολυμπιακός Σ.Φ.Π."
+        }
+      ],
       "sourceError": null,
       "finals": 12
     }
