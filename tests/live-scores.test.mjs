@@ -41,7 +41,10 @@ test('EuroLeague Header refreshes inherited snapshot timestamps and clocks',()=>
 test('Source names are formatted only for display, preserving acronyms and favourite identities',()=>{
  assert.equal(displayTeamName('ΠΑΝΕΡΥΘΡΑΙΚΟΣ ΑΣ'),'Πανερυθραϊκός ΑΣ');assert.equal(displayTeamName('ΓΣ ΣΟΦΑΔΩΝ ΒΙΚΟΣ COLA'),'ΓΣ Σοφάδων Βίκος Cola');assert.equal(displayTeamName('ΠΑΟΚ'),'ΠΑΟΚ');assert.equal(displayTeamName('ΑΕΚ'),'ΑΕΚ');assert.equal(displayTeamName('Boston Celtics'),'Boston Celtics');assert.equal(displayTeamName('<SCRIPT>'),' <Script>'.trim());const m={home:'ΠΑΝΙΩΝΙΟΣ'};displayTeamName(m.home);assert.equal(m.home,'ΠΑΝΙΩΝΙΟΣ');
 });
-test('Score requests deduplicate in-flight calls and surface failed feeds without fake updates',async()=>{
+test('Score requests deduplicate in-flight calls and surface failed feeds without fake updates',async(t)=>{
+ // The fixture must stay inside Flashscore's seven-day window regardless of the CI date.
+ // Mock Date only; real promises and timers still exercise request deduplication.
+ t.mock.timers.enable({apis:['Date'],now});
  const original=globalThis.fetch;let calls=0;globalThis.fetch=async url=>{calls++;if(String(url).includes('flashscore.ninja'))return{ok:true,text:async()=> 'SA÷1¬',headers:{get:()=>null}};if((String(url).includes('/gbl-live-data/live-scores.json')||String(url).includes('/functions/v1/sportshub-live')))return{ok:true,json:async()=>({season:'2026-27',provider:'SportsHub live relay',entries:[]})};return{ok:true,json:async()=>raw()};};
  try{const list=[match];const [a,b]=await Promise.all([loadLiveScores(list,'2026-10-22',{force:true}),loadLiveScores(list,'2026-10-22',{force:true})]);assert.equal(calls,3);assert.equal(a.entries.length,1);assert.equal(b.errors.length,0);globalThis.fetch=async()=>{throw Error('CORS')};const failed=await loadLiveScores(list,'2026-10-22',{force:true});assert.equal(failed.errors.length,4);assert.equal(failed.entries.length,0);assert.equal(failed.succeeded.length,0);
  }finally{globalThis.fetch=original;}
