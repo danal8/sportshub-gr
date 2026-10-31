@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-31T07:42:56.048Z",
+  "checkedAt": "2026-10-31T13:55:41.529Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -508,17 +508,10 @@
           "date": "2026-10-31",
           "home": "Α.Ο. Μαρκοπούλου Revoil",
           "away": "A.E.K."
-        },
-        {
-          "id": "volley-88171",
-          "competition": "volley-w",
-          "date": "2026-10-30",
-          "home": "Πανιώνιος Betsson",
-          "away": "Ολυμπιακός Σ.Φ.Π."
         }
       ],
       "sourceError": null,
-      "finals": 12
+      "finals": 13
     }
   ]
 }
