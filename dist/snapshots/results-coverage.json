@@ -1,22 +1,14 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-10-31T18:18:31.223Z",
+  "checkedAt": "2026-10-31T21:45:18.524Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
       "competition": "bund",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "bund-83219",
-          "competition": "bund",
-          "date": "2026-10-31",
-          "home": "FC Bayern München",
-          "away": "Borussia Dortmund"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 69
+      "finals": 70
     },
     {
       "competition": "cl",
@@ -102,13 +94,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "laliga-85436",
-          "competition": "laliga",
-          "date": "2026-10-31",
-          "home": "Real Betis",
-          "away": "FC Malaga"
-        },
-        {
           "id": "laliga-85439",
           "competition": "laliga",
           "date": "2026-10-31",
@@ -117,7 +102,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 102
+      "finals": 103
     },
     {
       "competition": "ligue1",
@@ -136,44 +121,22 @@
           "date": "2026-10-31",
           "home": "FC Lorient",
           "away": "Stade Brestois 29"
-        },
-        {
-          "id": "ligue1-2026-10-31-ES Troyes AC-Le Mans FC-77",
-          "competition": "ligue1",
-          "date": "2026-10-31",
-          "home": "ES Troyes AC",
-          "away": "Le Mans FC"
         }
       ],
       "sourceError": null,
-      "finals": 75
+      "finals": 76
     },
     {
       "competition": "nba",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "nba-401909896",
-          "competition": "nba",
-          "date": "2026-10-31",
-          "home": "Utah Jazz",
-          "away": "Portland Trail Blazers"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 81
+      "finals": 82
     },
     {
       "competition": "pl",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "pl-86614",
-          "competition": "pl",
-          "date": "2026-10-31",
-          "home": "Tottenham Hotspur FC",
-          "away": "Crystal Palace FC"
-        },
         {
           "id": "pl-86615",
           "competition": "pl",
@@ -183,29 +146,14 @@
         }
       ],
       "sourceError": null,
-      "finals": 86
+      "finals": 87
     },
     {
       "competition": "seriea",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "seriea-2026-10-31-Udinese Calcio-AS Roma-91",
-          "competition": "seriea",
-          "date": "2026-10-31",
-          "home": "Udinese Calcio",
-          "away": "AS Roma"
-        },
-        {
-          "id": "seriea-2026-10-31-AC Milan-FC Internazionale Milano-92",
-          "competition": "seriea",
-          "date": "2026-10-31",
-          "home": "AC Milan",
-          "away": "FC Internazionale Milano"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 91
+      "finals": 93
     },
     {
       "competition": "sl",
@@ -217,17 +165,10 @@
           "date": "2026-10-17",
           "home": "Atromitos",
           "away": "AEK"
-        },
-        {
-          "id": "sl-2026-10-31-Kifisia-Olympiakos Piraeus",
-          "competition": "sl",
-          "date": "2026-10-31",
-          "home": "Kifisia",
-          "away": "Olympiakos Piraeus"
         }
       ],
       "sourceError": null,
-      "finals": 55
+      "finals": 56
     },
     {
       "competition": "sl2",
@@ -246,13 +187,6 @@
           "date": "2026-10-31",
           "home": "Παναθηναϊκός Α.Ο.",
           "away": "Α.Σ.Άρης"
-        },
-        {
-          "id": "volley-m-2-7",
-          "competition": "volley-m",
-          "date": "2026-10-31",
-          "home": "Α.Ο.Φοίνικας Σύρου",
-          "away": "Ο.Φ.Η."
         },
         {
           "id": "volley-m-2-8",
@@ -284,36 +218,14 @@
         }
       ],
       "sourceError": null,
-      "finals": 6
+      "finals": 7
     },
     {
       "competition": "volley-w",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "volley-88172",
-          "competition": "volley-w",
-          "date": "2026-10-31",
-          "home": "Παναθηναϊκός Α.Ο.",
-          "away": "Ο.Φ.Α. Απολλώνιος"
-        },
-        {
-          "id": "volley-88170",
-          "competition": "volley-w",
-          "date": "2026-10-31",
-          "home": "Α.Σ.Π. Θέτις",
-          "away": "Α.Σ. Άρης"
-        },
-        {
-          "id": "volley-88169",
-          "competition": "volley-w",
-          "date": "2026-10-31",
-          "home": "Α.Ο. Θήρας",
-          "away": "Α.Σ. Ελπίς"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 14
+      "finals": 17
     }
   ]
 }
