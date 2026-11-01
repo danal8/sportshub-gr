@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-01T18:40:16.833Z",
+  "checkedAt": "2026-11-01T22:27:14.195Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -34,7 +34,15 @@
     {
       "competition": "elite",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "elite-6-EVERTECH ΠΑΠΑΓΟΥ-ΠΑΝΙΩΝΙΟΣ COSMORAMA TRAVEL",
+          "competition": "elite",
+          "date": "2026-11-02",
+          "home": "EVERTECH ΠΑΠΑΓΟΥ",
+          "away": "ΠΑΝΙΩΝΙΟΣ COSMORAMA TRAVEL"
+        }
+      ],
       "sourceError": null,
       "finals": 47
     },
@@ -106,6 +114,13 @@
           "date": "2026-11-01",
           "home": "Athletic Club",
           "away": "Real Sociedad"
+        },
+        {
+          "id": "laliga-85437",
+          "competition": "laliga",
+          "date": "2026-11-02",
+          "home": "Deportivo A Coruña",
+          "away": "CA Osasuna"
         }
       ],
       "sourceError": null,
@@ -115,6 +130,13 @@
       "competition": "ligue1",
       "unmatchedResults": [],
       "awaitingResults": [
+        {
+          "id": "ligue1-2026-10-25-Paris Saint-Germain FC-Olympique Lyonnais-71",
+          "competition": "ligue1",
+          "date": "2026-10-25",
+          "home": "Paris Saint-Germain FC",
+          "away": "Olympique Lyonnais"
+        },
         {
           "id": "ligue1-2026-10-31-FC Lorient-Stade Brestois 29-76",
           "competition": "ligue1",
@@ -131,7 +153,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 79
+      "finals": 78
     },
     {
       "competition": "nba",
@@ -143,6 +165,27 @@
           "date": "2026-11-01",
           "home": "Orlando Magic",
           "away": "Boston Celtics"
+        },
+        {
+          "id": "nba-401909904",
+          "competition": "nba",
+          "date": "2026-11-02",
+          "home": "Indiana Pacers",
+          "away": "Brooklyn Nets"
+        },
+        {
+          "id": "nba-401909905",
+          "competition": "nba",
+          "date": "2026-11-02",
+          "home": "Golden State Warriors",
+          "away": "LA Clippers"
+        },
+        {
+          "id": "nba-401909906",
+          "competition": "nba",
+          "date": "2026-11-02",
+          "home": "Los Angeles Lakers",
+          "away": "Toronto Raptors"
         }
       ],
       "sourceError": null,
@@ -151,7 +194,15 @@
     {
       "competition": "pl",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "pl-86617",
+          "competition": "pl",
+          "date": "2026-11-02",
+          "home": "Newcastle United FC",
+          "away": "Everton FC"
+        }
+      ],
       "sourceError": null,
       "finals": 89
     },
@@ -172,6 +223,20 @@
           "date": "2026-11-01",
           "home": "Juventus FC",
           "away": "SSC Napoli"
+        },
+        {
+          "id": "seriea-2026-11-02-US Sassuolo Calcio-ACF Fiorentina-98",
+          "competition": "seriea",
+          "date": "2026-11-02",
+          "home": "US Sassuolo Calcio",
+          "away": "ACF Fiorentina"
+        },
+        {
+          "id": "seriea-2026-11-02-Atalanta BC-Parma Calcio 1913-99",
+          "competition": "seriea",
+          "date": "2026-11-02",
+          "home": "Atalanta BC",
+          "away": "Parma Calcio 1913"
         }
       ],
       "sourceError": null,
@@ -201,6 +266,20 @@
           "date": "2026-11-01",
           "home": "Panathinaikos",
           "away": "AEK"
+        },
+        {
+          "id": "sl-2026-11-02-Atromitos-Volos",
+          "competition": "sl",
+          "date": "2026-11-02",
+          "home": "Atromitos",
+          "away": "Volos"
+        },
+        {
+          "id": "sl-2026-11-02-Kalamata-Iraklis 1908",
+          "competition": "sl",
+          "date": "2026-11-02",
+          "home": "Kalamata",
+          "away": "Iraklis 1908"
         }
       ],
       "sourceError": null,
@@ -209,67 +288,31 @@
     {
       "competition": "sl2",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "sl2-2627071",
+          "competition": "sl2",
+          "date": "2026-11-02",
+          "home": "ΜΑΡΚΟ",
+          "away": "ΑΠΟΛΛΩΝ ΚΑΛΑΜΑΡΙΑΣ"
+        }
+      ],
       "sourceError": null,
       "finals": 71
     },
     {
       "competition": "volley-m",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "volley-m-2-6",
-          "competition": "volley-m",
-          "date": "2026-10-31",
-          "home": "Παναθηναϊκός Α.Ο.",
-          "away": "Α.Σ.Άρης"
-        },
-        {
-          "id": "volley-m-2-8",
-          "competition": "volley-m",
-          "date": "2026-10-31",
-          "home": "Α.Ο.Φλοίσβος Members Paron",
-          "away": "Ν.Ο.Π.Ε.Ρεθύμνου"
-        },
-        {
-          "id": "volley-m-2-9",
-          "competition": "volley-m",
-          "date": "2026-10-31",
-          "home": "Π.Α.Ο.Κ.",
-          "away": "Α.Ο.Π. Κηφισιάς"
-        },
-        {
-          "id": "volley-m-2-10",
-          "competition": "volley-m",
-          "date": "2026-10-31",
-          "home": "Πανιώνιος Betsson",
-          "away": "Α.Ο.Καλαμάτα Affidea V.C"
-        },
-        {
-          "id": "volley-m-2-11",
-          "competition": "volley-m",
-          "date": "2026-10-31",
-          "home": "Α.Ο.Ν.Σ. Μίλων",
-          "away": "Ολυμπιακός Σ.Φ.Π. ΟΝΕΧ"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 7
+      "finals": 12
     },
     {
       "competition": "volley-w",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "volley-88167",
-          "competition": "volley-w",
-          "date": "2026-11-01",
-          "home": "Π.Α.Ο.Κ. F&U",
-          "away": "Ζ.Α.Ο.Ν."
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 17
+      "finals": 18
     }
   ]
 }
