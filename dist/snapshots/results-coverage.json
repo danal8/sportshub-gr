@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-01T00:28:54.473Z",
+  "checkedAt": "2026-11-01T06:44:28.723Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -123,13 +123,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "laliga-85439",
-          "competition": "laliga",
-          "date": "2026-10-31",
-          "home": "FC Barcelona",
-          "away": "Deportivo Alaves"
-        },
-        {
           "id": "laliga-85440",
           "competition": "laliga",
           "date": "2026-11-01",
@@ -159,7 +152,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 103
+      "finals": 104
     },
     {
       "competition": "ligue1",
@@ -209,48 +202,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "nba-401909897",
-          "competition": "nba",
-          "date": "2026-11-01",
-          "home": "Charlotte Hornets",
-          "away": "Philadelphia 76ers"
-        },
-        {
-          "id": "nba-401909898",
-          "competition": "nba",
-          "date": "2026-11-01",
-          "home": "New Orleans Pelicans",
-          "away": "Atlanta Hawks"
-        },
-        {
-          "id": "nba-401909900",
-          "competition": "nba",
-          "date": "2026-11-01",
-          "home": "Milwaukee Bucks",
-          "away": "Cleveland Cavaliers"
-        },
-        {
-          "id": "nba-401909899",
-          "competition": "nba",
-          "date": "2026-11-01",
-          "home": "Memphis Grizzlies",
-          "away": "Sacramento Kings"
-        },
-        {
-          "id": "nba-401909901",
-          "competition": "nba",
-          "date": "2026-11-01",
-          "home": "San Antonio Spurs",
-          "away": "Minnesota Timberwolves"
-        },
-        {
-          "id": "nba-401909902",
-          "competition": "nba",
-          "date": "2026-11-01",
-          "home": "Houston Rockets",
-          "away": "Oklahoma City Thunder"
-        },
-        {
           "id": "nba-401909903",
           "competition": "nba",
           "date": "2026-11-01",
@@ -259,7 +210,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 82
+      "finals": 88
     },
     {
       "competition": "pl",
