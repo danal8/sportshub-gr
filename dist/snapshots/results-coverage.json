@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-01T06:44:28.723Z",
+  "checkedAt": "2026-11-01T13:51:01.127Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -72,13 +72,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "gbl-290643D4",
-          "competition": "gbl",
-          "date": "2026-11-01",
-          "home": "ΟΛΥΜΠΙΑΚΟΣ",
-          "away": "ΠΕΡΙΣΤΕΡΙ Betsson"
-        },
-        {
           "id": "gbl-81203867",
           "competition": "gbl",
           "date": "2026-11-01",
@@ -94,7 +87,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 33
+      "finals": 34
     },
     {
       "competition": "greek-cup",
@@ -232,13 +225,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "seriea-2026-11-01-Como 1907-Venezia FC-93",
-          "competition": "seriea",
-          "date": "2026-11-01",
-          "home": "Como 1907",
-          "away": "Venezia FC"
-        },
-        {
           "id": "seriea-2026-11-01-Frosinone Calcio-Torino FC-94",
           "competition": "seriea",
           "date": "2026-11-01",
@@ -268,7 +254,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 93
+      "finals": 94
     },
     {
       "competition": "sl",
@@ -318,20 +304,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "sl2-2627068",
-          "competition": "sl2",
-          "date": "2026-11-01",
-          "home": "ΑΕΛ NOVIBET",
-          "away": "ΟΛΥΜΠΙΑΚΟΣ Β'"
-        },
-        {
-          "id": "sl2-2627070",
-          "competition": "sl2",
-          "date": "2026-11-01",
-          "home": "ΕΛΛΑΣ ΣΥΡΟΥ",
-          "away": "ATHENS KALLITHEA"
-        },
-        {
           "id": "sl2-2627072",
           "competition": "sl2",
           "date": "2026-11-01",
@@ -354,7 +326,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 66
+      "finals": 68
     },
     {
       "competition": "volley-m",
