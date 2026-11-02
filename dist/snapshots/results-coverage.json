@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-02T08:23:38.458Z",
+  "checkedAt": "2026-11-02T18:41:10.079Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -190,13 +190,6 @@
           "away": "AEK"
         },
         {
-          "id": "sl-2026-11-02-Atromitos-Volos",
-          "competition": "sl",
-          "date": "2026-11-02",
-          "home": "Atromitos",
-          "away": "Volos"
-        },
-        {
           "id": "sl-2026-11-02-Kalamata-Iraklis 1908",
           "competition": "sl",
           "date": "2026-11-02",
@@ -205,22 +198,14 @@
         }
       ],
       "sourceError": null,
-      "finals": 60
+      "finals": 61
     },
     {
       "competition": "sl2",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "sl2-2627071",
-          "competition": "sl2",
-          "date": "2026-11-02",
-          "home": "ΜΑΡΚΟ",
-          "away": "ΑΠΟΛΛΩΝ ΚΑΛΑΜΑΡΙΑΣ"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 71
+      "finals": 72
     },
     {
       "competition": "volley-m",
