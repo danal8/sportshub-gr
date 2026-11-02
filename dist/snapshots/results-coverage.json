@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-02T01:44:53.466Z",
+  "checkedAt": "2026-11-02T08:23:38.458Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -137,24 +137,9 @@
     {
       "competition": "nba",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "nba-401909905",
-          "competition": "nba",
-          "date": "2026-11-02",
-          "home": "Golden State Warriors",
-          "away": "LA Clippers"
-        },
-        {
-          "id": "nba-401909906",
-          "competition": "nba",
-          "date": "2026-11-02",
-          "home": "Los Angeles Lakers",
-          "away": "Toronto Raptors"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 90
+      "finals": 92
     },
     {
       "competition": "pl",
