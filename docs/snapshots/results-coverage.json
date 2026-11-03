@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-03T16:08:06.009Z",
+  "checkedAt": "2026-11-03T21:46:12.365Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -14,20 +14,6 @@
       "competition": "cl",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "cl-87442",
-          "competition": "cl",
-          "date": "2026-11-03",
-          "home": "Shakhtar Donetsk",
-          "away": "Sporting CP"
-        },
-        {
-          "id": "cl-87443",
-          "competition": "cl",
-          "date": "2026-11-03",
-          "home": "Galatasaray Istanbul",
-          "away": "VfB Stuttgart"
-        },
         {
           "id": "cl-87444",
           "competition": "cl",
@@ -79,7 +65,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 54
+      "finals": 56
     },
     {
       "competition": "conference",
@@ -105,45 +91,9 @@
     {
       "competition": "eurocup",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "U-91",
-          "competition": "eurocup",
-          "date": "2026-11-03",
-          "home": "Napoli Basketball",
-          "away": "Dolomiti Energia Trento"
-        },
-        {
-          "id": "U-96",
-          "competition": "eurocup",
-          "date": "2026-11-03",
-          "home": "ratiopharm ulm",
-          "away": "Bahcesehir College Istanbul"
-        },
-        {
-          "id": "U-95",
-          "competition": "eurocup",
-          "date": "2026-11-03",
-          "home": "PAOK Thessaloniki",
-          "away": "Roma Basketball"
-        },
-        {
-          "id": "U-90",
-          "competition": "eurocup",
-          "date": "2026-11-03",
-          "home": "Buducnost VOLI Podgorica",
-          "away": "NINERS Chemnitz"
-        },
-        {
-          "id": "U-92",
-          "competition": "eurocup",
-          "date": "2026-11-03",
-          "home": "Tofas Bursa",
-          "away": "Neptunas Klaipeda"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 80
+      "finals": 85
     },
     {
       "competition": "europa",
