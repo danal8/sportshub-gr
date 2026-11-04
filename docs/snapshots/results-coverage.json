@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-04T08:06:35.278Z",
+  "checkedAt": "2026-11-04T16:15:16.073Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -190,7 +190,15 @@
     },
     {
       "competition": "europa",
-      "unmatchedResults": [],
+      "unmatchedResults": [
+        {
+          "id": "espn-401915551",
+          "competition": "europa",
+          "date": "2026-11-04",
+          "home": "Stade Rennais",
+          "away": "Olympiacos"
+        }
+      ],
       "awaitingResults": [],
       "sourceError": null,
       "finals": 54
