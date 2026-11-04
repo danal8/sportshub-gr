@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-04T16:15:16.073Z",
+  "checkedAt": "2026-11-04T21:58:09.259Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -15,62 +15,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "cl-87451",
-          "competition": "cl",
-          "date": "2026-11-04",
-          "home": "AEK Athen",
-          "away": "Real Madrid"
-        },
-        {
-          "id": "cl-87452",
-          "competition": "cl",
-          "date": "2026-11-04",
-          "home": "Fenerbahçe SK",
-          "away": "FC Liverpool"
-        },
-        {
-          "id": "cl-87453",
-          "competition": "cl",
-          "date": "2026-11-04",
-          "home": "RB Leipzig",
-          "away": "Manchester City"
-        },
-        {
-          "id": "cl-87454",
-          "competition": "cl",
-          "date": "2026-11-04",
-          "home": "Slavia Prag",
-          "away": "FC Arsenal"
-        },
-        {
-          "id": "cl-87455",
-          "competition": "cl",
-          "date": "2026-11-04",
-          "home": "PSV Eindhoven",
-          "away": "FC Brügge"
-        },
-        {
-          "id": "cl-87456",
-          "competition": "cl",
-          "date": "2026-11-04",
-          "home": "Borussia Dortmund",
-          "away": "Real Betis"
-        },
-        {
-          "id": "cl-87457",
-          "competition": "cl",
-          "date": "2026-11-04",
-          "home": "FC Porto",
-          "away": "SSC Napoli "
-        },
-        {
-          "id": "cl-87458",
-          "competition": "cl",
-          "date": "2026-11-04",
-          "home": "RC Lens",
-          "away": "Como 1907"
-        },
-        {
           "id": "cl-87459",
           "competition": "cl",
           "date": "2026-11-04",
@@ -79,7 +23,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 63
+      "finals": 71
     },
     {
       "competition": "conference",
@@ -120,73 +64,10 @@
           "date": "2026-11-04",
           "home": "Maxima Roma",
           "away": "London Lions"
-        },
-        {
-          "id": "U-81",
-          "competition": "eurocup",
-          "date": "2026-11-04",
-          "home": "Recoletas Salud San Pablo Burgos",
-          "away": "Rostock Seawolves"
-        },
-        {
-          "id": "U-88",
-          "competition": "eurocup",
-          "date": "2026-11-04",
-          "home": "Umana Reyer Venice",
-          "away": "Siauliai Basketball"
-        },
-        {
-          "id": "U-83",
-          "competition": "eurocup",
-          "date": "2026-11-04",
-          "home": "Hapoel Midtown Jerusalem",
-          "away": "Aris Thessaloniki"
-        },
-        {
-          "id": "U-94",
-          "competition": "eurocup",
-          "date": "2026-11-04",
-          "home": "BOSNA BH Telecom Sarajevo",
-          "away": "Balkan Botevgrad"
-        },
-        {
-          "id": "U-89",
-          "competition": "eurocup",
-          "date": "2026-11-04",
-          "home": "Slask Wroclaw",
-          "away": "Cosea JL Bourg-en-Bresse"
-        },
-        {
-          "id": "U-82",
-          "competition": "eurocup",
-          "date": "2026-11-04",
-          "home": "Cedevita Olimpija Ljubljana",
-          "away": "Baglietto Derthona Tortona"
-        },
-        {
-          "id": "U-93",
-          "competition": "eurocup",
-          "date": "2026-11-04",
-          "home": "Lietkabelis Panevezys",
-          "away": "Kids&Us Manresa"
-        },
-        {
-          "id": "U-84",
-          "competition": "eurocup",
-          "date": "2026-11-04",
-          "home": "Riga Zelli",
-          "away": "Le Mans Sarthe Basket"
-        },
-        {
-          "id": "U-86",
-          "competition": "eurocup",
-          "date": "2026-11-04",
-          "home": "Turk Telekom Ankara",
-          "away": "Skyliners Frankfurt"
         }
       ],
       "sourceError": null,
-      "finals": 85
+      "finals": 94
     },
     {
       "competition": "europa",
