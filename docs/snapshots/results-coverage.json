@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-05T09:32:41.689Z",
+  "checkedAt": "2026-11-05T17:37:19.443Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -234,15 +234,7 @@
     {
       "competition": "gbl",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "gbl-3690EC22",
-          "competition": "gbl",
-          "date": "2026-09-17",
-          "home": "ΜΥΚΟΝΟΣ Betsson BC",
-          "away": "ΠΡΟΜΗΘΕΑΣ ΠΑΤΡΑΣ ΒΙΚΟΣ COLA"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
       "finals": 35
     },
