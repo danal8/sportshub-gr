@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-04T21:58:09.259Z",
+  "checkedAt": "2026-11-05T06:46:06.706Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -13,17 +13,9 @@
     {
       "competition": "cl",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "cl-87459",
-          "competition": "cl",
-          "date": "2026-11-04",
-          "home": "Viking",
-          "away": "Sabah"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 71
+      "finals": 72
     },
     {
       "competition": "conference",
@@ -37,15 +29,43 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "E-91",
+          "id": "E-96",
           "competition": "el",
-          "date": "2026-11-04",
-          "home": "Real Madrid",
-          "away": "Panathinaikos AKTOR Athens"
+          "date": "2026-11-05",
+          "home": "Armani Olimpia Milan",
+          "away": "Valencia Basket"
+        },
+        {
+          "id": "E-94",
+          "competition": "el",
+          "date": "2026-11-05",
+          "home": "LDLC ASVEL Villeurbanne",
+          "away": "FC Bayern Munich"
+        },
+        {
+          "id": "E-93",
+          "competition": "el",
+          "date": "2026-11-05",
+          "home": "Hapoel IBI Tel Aviv",
+          "away": "FC Barcelona"
+        },
+        {
+          "id": "E-92",
+          "competition": "el",
+          "date": "2026-11-05",
+          "home": "Fenerbahce Tarfin Istanbul",
+          "away": "Kosner Baskonia Vitoria-Gasteiz"
+        },
+        {
+          "id": "E-95",
+          "competition": "el",
+          "date": "2026-11-05",
+          "home": "Anadolu Efes Istanbul",
+          "away": "Paris Basketball"
         }
       ],
       "sourceError": null,
-      "finals": 90
+      "finals": 91
     },
     {
       "competition": "elite",
@@ -59,15 +79,15 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "U-87",
+          "id": "U-85",
           "competition": "eurocup",
-          "date": "2026-11-04",
-          "home": "Maxima Roma",
-          "away": "London Lions"
+          "date": "2026-11-05",
+          "home": "La Laguna Tenerife",
+          "away": "U-BT Cluj-Napoca"
         }
       ],
       "sourceError": null,
-      "finals": 94
+      "finals": 95
     },
     {
       "competition": "europa",
@@ -80,7 +100,134 @@
           "away": "Olympiacos"
         }
       ],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "europa-87753",
+          "competition": "europa",
+          "date": "2026-11-05",
+          "home": "Crystal Palace FC",
+          "away": "TSG Hoffenheim"
+        },
+        {
+          "id": "europa-87822",
+          "competition": "europa",
+          "date": "2026-11-05",
+          "home": "AC Mailand",
+          "away": "Ferencváros Budapest"
+        },
+        {
+          "id": "europa-87823",
+          "competition": "europa",
+          "date": "2026-11-05",
+          "home": "Sparta Prag",
+          "away": "AFC Bournemouth"
+        },
+        {
+          "id": "europa-87824",
+          "competition": "europa",
+          "date": "2026-11-05",
+          "home": "Lillestrøm SK",
+          "away": "Viktoria Pilsen"
+        },
+        {
+          "id": "europa-87825",
+          "competition": "europa",
+          "date": "2026-11-05",
+          "home": "NEC Nijmegen",
+          "away": "Omonia Nikosia"
+        },
+        {
+          "id": "europa-87826",
+          "competition": "europa",
+          "date": "2026-11-05",
+          "home": "Levski Sofia",
+          "away": "Jagiellonia Bialystok"
+        },
+        {
+          "id": "europa-87827",
+          "competition": "europa",
+          "date": "2026-11-05",
+          "home": "Real Sociedad",
+          "away": "Olympique Lyon"
+        },
+        {
+          "id": "europa-87828",
+          "competition": "europa",
+          "date": "2026-11-05",
+          "home": "RSC Anderlecht",
+          "away": "RB Salzburg"
+        },
+        {
+          "id": "europa-87829",
+          "competition": "europa",
+          "date": "2026-11-05",
+          "home": "Stade Rennes",
+          "away": "Olympiakos Piräus"
+        },
+        {
+          "id": "europa-87749",
+          "competition": "europa",
+          "date": "2026-11-05",
+          "home": "Bayer 04 Leverkusen",
+          "away": "Olympique Marseille"
+        },
+        {
+          "id": "europa-87830",
+          "competition": "europa",
+          "date": "2026-11-05",
+          "home": "AZ Alkmaar",
+          "away": "Juventus Turin"
+        },
+        {
+          "id": "europa-87831",
+          "competition": "europa",
+          "date": "2026-11-05",
+          "home": "Celtic Glasgow",
+          "away": "Besiktas Istanbul"
+        },
+        {
+          "id": "europa-87832",
+          "competition": "europa",
+          "date": "2026-11-05",
+          "home": "Hapoel Beer Scheva",
+          "away": "OFI Kreta"
+        },
+        {
+          "id": "europa-87833",
+          "competition": "europa",
+          "date": "2026-11-05",
+          "home": "Celta Vigo",
+          "away": "Union Saint-Gilloise"
+        },
+        {
+          "id": "europa-87834",
+          "competition": "europa",
+          "date": "2026-11-05",
+          "home": "SC União Torreense",
+          "away": "FC Ararat-Armenia"
+        },
+        {
+          "id": "europa-87835",
+          "competition": "europa",
+          "date": "2026-11-05",
+          "home": "Sturm Graz",
+          "away": "NK Celje"
+        },
+        {
+          "id": "europa-87836",
+          "competition": "europa",
+          "date": "2026-11-05",
+          "home": "Benfica Lissabon",
+          "away": "Lech Poznan"
+        },
+        {
+          "id": "europa-87837",
+          "competition": "europa",
+          "date": "2026-11-05",
+          "home": "Sunderland AFC",
+          "away": "Dinamo Zagreb"
+        }
+      ],
       "sourceError": null,
       "finals": 54
     },
@@ -148,7 +295,7 @@
       "unmatchedResults": [],
       "awaitingResults": [],
       "sourceError": null,
-      "finals": 107
+      "finals": 121
     },
     {
       "competition": "pl",
