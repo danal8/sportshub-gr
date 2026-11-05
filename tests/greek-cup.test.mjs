@@ -19,7 +19,13 @@ test('Cup refresh discovers newly published schedules and keeps verified fixture
  const p=await refreshGreekCup({fetchText:async u=>u===cupNewsURL?news:u===url?html.replace('4ης','5ης').replace('28 Οκτωβρίου','4 Νοεμβρίου'):html});
  assert.equal(p.matches.length,2);assert.ok(p.matches.some(m=>m.date==='2026-11-04'));const offline=await refreshGreekCup({previous:p,fetchText:async()=>{throw Error('offline');}});assert.deepEqual(offline.matches,p.matches);assert.equal(offline.sections.matches.status,'failed');assert.equal(offline.sections.matches.lastSuccessAt,p.sections.matches.lastSuccessAt);
 });
-test('All five 28 October Cup fixtures and today’s fixture reach both published daily and TV guides',async()=>{
- const daily=JSON.parse(await readFile('docs/snapshots/daily-2026-27.json','utf8')),tv=JSON.parse(await readFile('docs/snapshots/tv-guide-2026-27.json','utf8'));
- for(const [date,n]of[['2026-10-28',5],['2026-10-29',1]]){const d=dailySelection(daily,{season:'2026-27',date,competitionIDs:['greek-cup']}),t=selectTVGuide(tv,date,'greek-cup');assert.equal(d.matches.length,n);assert.equal(t.matches.length,n);assert.ok(t.matches.every(m=>m.channel&&m.live&&!('score'in m)));if(n===5)assert.ok(d.matches.every(m=>m.scoreState==='final'));}
+test('Cup fixtures remain in season and TV archives; daily coverage follows its rolling range',async()=>{
+ const daily=JSON.parse(await readFile('docs/snapshots/daily-2026-27.json','utf8')),tv=JSON.parse(await readFile('docs/snapshots/tv-guide-2026-27.json','utf8')),season=JSON.parse(await readFile('docs/snapshots/greek-cup-2026-27.json','utf8'));
+ for(const [date,n]of[['2026-10-28',5],['2026-10-29',1]]){
+  const full=season.matches.filter(m=>m.date===date),d=dailySelection(daily,{season:'2026-27',date,competitionIDs:['greek-cup']}),t=selectTVGuide(tv,date,'greek-cup');
+  assert.equal(full.length,n);assert.equal(t.matches.length,n);assert.ok(t.matches.every(m=>m.channel&&m.live&&!('score'in m)));
+  if(date>=daily.start&&date<=daily.end){assert.ok(d,'A date inside the daily window must be selectable');assert.equal(d.matches.length,n);}else assert.equal(d,null,'Archive dates fall back to the season schedule');
+  if(n===5)assert.ok(full.every(m=>m.scoreState==='final'));
+ }
+ for(const m of season.matches.filter(m=>m.date>=daily.start&&m.date<=daily.end)){const d=dailySelection(daily,{season:'2026-27',date:m.date,competitionIDs:['greek-cup']});assert.ok(d.matches.some(x=>x.id===m.id),'Every Cup fixture inside the rolling range is published');}
 });

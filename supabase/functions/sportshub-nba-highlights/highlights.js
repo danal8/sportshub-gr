@@ -1,0 +1,142 @@
+import{mergeResultUpdates}from'./result-reconciliation.js';
+import{aliases}from'./team-aliases.js';
+import{teamKey}from'./badges.js';
+import{athensDay,shiftDay}from'./core.js';
+export const publishers=[
+ {id:'laliga',label:'LALIGA',channel:'UCTv-XvfzLX3i4IGWAm4sbmA'},
+ {id:'seriea',label:'Serie A',channel:'UCBJeMCIeLQos7wacox4hmLQ'},
+ {id:'nba',label:'NBA',channel:'UCWJ2lWNubArHWmf3FIHbfcQ'},
+ {id:'el',label:'EuroLeague',channel:'UCGr3nR_XH9r6E5b09ZJAT9w'},
+ {id:'ec',label:'EuroCup',channel:'UCpFqOv5z4WKps64GlQS4ytw'},
+ {id:'nova',label:'Novasports',channel:'UCEIbXco8hU9oDHXGo1kwIlA'},
+ {id:'magenta',label:'Magenta Sport',channel:'UCgMUmr7uLDalwVk63Sf6pBw'}
+];
+const norm=s=>String(s||'').normalize('NFD').replace(/\p{M}/gu,'').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
+const decode=s=>String(s||'').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,'$1').replace(/&#(x[\da-f]+|\d+);/gi,(_,n)=>{const v=n[0].toLowerCase()==='x'?parseInt(n.slice(1),16):Number(n);return v>0&&v<=0x10ffff?String.fromCodePoint(v):'';}).replace(/&(?:amp|lt|gt|quot|apos);/g,s=>({'&amp;':'&','&lt;':'<','&gt;':'>','&quot;':'"','&apos;':"'"}[s]));
+const field=(xml,key)=>decode(xml.match(new RegExp('<'+key+'>([\\s\\S]*?)</'+key+'>'))?.[1]);
+function namedDate(text){const english=text.match(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),?\s+(20\d{2})\b/i);if(english){const d=new Date(english[0]+' 12:00 UTC');return Number.isFinite(+d)?d.toISOString().slice(0,10):null;}const d=text.match(/\b(\d{1,2})\/(\d{1,2})\/((?:20)?\d{2})\b/);return d?(d[3].length===2?'20'+d[3]:d[3])+'-'+d[2].padStart(2,'0')+'-'+d[1].padStart(2,'0'):null;}
+export function publisherCompetition(text){
+ const s=norm(text);if(/γυναικ|women|youth|u19|basketball champions league/.test(s))return null;
+ for(const [id,re]of[['eurocup',/eurocup|γιουροκαπ/],['el',/euroleague|ευρωλιγκα/],['sl2',/super league 2\b|superleague 2\b|super league ii\b/],['sl',/super league|superleague/],['pl',/premier league/],['bund',/bundesliga/],['laliga',/laliga|la liga/],['seriea',/serie a/],['ligue1',/ligue 1/],['cl',/champions league/],['europa',/europa league/],['conference',/conference league/],['gbl',/basket league|gbl/],['elite',/elite league/]])if(re.test(s))return id;return null;
+}
+export function novaWebCompetition(url){try{const u=new URL(url),m=u.pathname.match(/^\/web-tv\/sport\/(podosfairo|mpasket|volei)\/event\/([a-z0-9-]+)\/(?:highlights\/)?video\/\d+\/[a-z0-9-]+\/$/);if(u.origin!=='https://www.novasports.gr'||u.search||u.hash||!m)return null;return { 'super-league-1':'sl','premier-league':'pl',bundesliga:'bund','la-liga':'laliga','laliga-division':'laliga','serie-a':'seriea','ligue-1':'ligue1',euroleague:'el',eurocup:'eurocup','basket-league':'gbl','uefa-champions-league':'cl','uefa-europa-league':'europa','uefa-europa-conference-league':'conference'}[m[2]]||null;}catch{return null;}}
+export function parsePublisherFeed(xml,publisher){
+ const source=publishers.find(p=>p.id===publisher);if(!source)throw Error('Unknown publisher');
+ const entries=[...String(xml).matchAll(/<entry>([\s\S]*?)<\/entry>/g)],videos=[];
+ if(!entries.length)throw Error('Empty publisher feed');
+ for(const [,entry]of entries){const channel=field(entry,'yt:channelId'),videoId=field(entry,'yt:videoId'),title=field(entry,'title'),publishedAt=field(entry,'published'),description=field(entry,'media:description');
+ if(channel!==source.channel||!/^[\w-]{11}$/.test(videoId)||!Number.isFinite(Date.parse(publishedAt)))continue;
+ const base={videoId,channelId:channel,title,publishedAt,publisher:source.id},gameDate=namedDate(title);
+ if(publisher==='nba'){
+  if(!gameDate)continue;
+  if(/full game highlights/i.test(title))videos.push({...base,competition:'nba',gameDate,kind:'game'});
+  else if(/nightly recap/i.test(title)){
+   const chapters=description.split(/\r?\n/).map(line=>{const m=line.match(/^(?:(\d+):)?(\d{1,2}):(\d{2})\s*(?:[-–|]\s*)?(.+?)\s*$/i);return m?{seconds:Number(m[1]||0)*3600+Number(m[2])*60+Number(m[3]),label:m[4]}:null;}).filter(Boolean);
+   if(chapters.length)videos.push({...base,competition:'nba',gameDate,kind:'chapters',chapters});
+  }
+ }else if(publisher==='el'||publisher==='ec'){
+  const r=title.match(/\bR(?:ound\s*)?(\d+)\b/i),season=title.match(/\b(20\d{2})[-–](\d{2})\b/);
+  if(r&&season&&(/highlights/i.test(title+' '+description)||publisher==='ec'&&/\s[-–]\s/.test(title)&&/\|\s*BKT EuroCup Basketball\s+20\d{2}[-–]\d{2}/i.test(title))&&!/player highlights|last \d+ meetings|preview|full game|live stream|press conference/i.test(title))videos.push({...base,competition:publisher==='ec'?'eurocup':'el',round:Number(r[1]),season:season[1]+'-'+season[2],kind:'game'});
+ }else{
+  const intro=description.slice(0,650),competition=publisherCompetition(title)||publisherCompetition(intro),broadcastDate=gameDate||namedDate(intro);
+  if(competition&&broadcastDate&&/highlights|στιγμι[οό]τυπ/i.test(title+' '+intro)&&!/preview|pre game|pregame|δηλ[ωώ]σεις|συν[εέ]ντευξη/i.test(title))videos.push({...base,competition,gameDate:broadcastDate,kind:'game'});
+ }
+ }
+ return videos;
+}
+function choices(name,extra=[],nba=false){
+ const all=[name,...extra].filter(n=>typeof n==='string');
+ // Follow explicit spelling links; a provider name may reach its Greek name through an intermediate alias.
+ const seen=new Set();for(let i=0;i<all.length;i++){const k=teamKey(all[i]);if(seen.has(k))continue;seen.add(k);for(const a of aliases[k]||[])if(!all.includes(a))all.push(a);}
+ for(const row of [['SC Paderborn 07','Paderborn','Πάντερμπορν'],['SV 07 Elversberg','SV Elversberg','Elversberg','Έλβερσμπεργκ'],['FC Schalke 04','Schalke','Σάλκε'],['Coventry City','Coventry','Κόβεντρι'],['Asteras Tripolis','Αστέρας Τρίπολης','Asteras AKTOR'],['ΜΥΚΟΝΟΣ Betsson BC','Μύκονος'],['ΠΕΡΙΣΤΕΡΙ Betsson','Περιστέρι'],['ΚΑΡΔΙΤΣΑ ΙΑΠΩΝΙΚΗ','Καρδίτσα'],['ΠΑΝΑΘΗΝΑΪΚΟΣ AKTOR','Παναθηναϊκός']])if(all.some(n=>row.some(a=>teamKey(a)===teamKey(n))))all.push(...row);
+ if(nba){const english=all.find(n=>/^[A-Za-z0-9 .]+$/.test(n));if(english)all.push(english.endsWith('Trail Blazers')?'Trail Blazers':english.split(' ').at(-1));}
+ if(all.some(n=>/ulm/i.test(n)))all.push('Ουλμ');
+ for(const row of [['Club Brugge','Club Brugge KV','Μπριζ'],['Sporting CP','Sporting Lisbon','Σπόρτινγκ'],['LASK Linz','LASK','ΛΑΣΚ Λιντζ']])if(all.some(n=>row.some(a=>teamKey(a)===teamKey(n))))all.push(...row);
+ return [...new Set(all.map(norm).filter(n=>n.length>=3||n==='ulm'||n==='ουλμ'))];
+}
+export function highlightTeamsMentioned(text,m){return mentions(text,choices(m.home,m.homeAliases,m.competition==='nba'))&&mentions(text,choices(m.away,m.awayAliases,m.competition==='nba'));}
+function mentions(text,names){const s=' '+norm(text)+' ';return names.some(n=>s.includes(' '+n+' '));}
+function nbaDate(m){
+ if(!/^\d{2}:\d{2}$/.test(m.time||''))return null;
+ const part=new Intl.DateTimeFormat('en',{timeZone:'Europe/Athens',timeZoneName:'longOffset'}).formatToParts(new Date(m.date+'T12:00:00Z')).find(p=>p.type==='timeZoneName')?.value.replace('GMT','');
+ const start=new Date(m.date+'T'+m.time+':00'+(part||'+00:00'));if(!Number.isFinite(+start))return null;
+ const parts=Object.fromEntries(new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(start).map(p=>[p.type,p.value]));return parts.year+'-'+parts.month+'-'+parts.day;
+}
+// normalizeFootball exposes score.ft as score and marks the record non-provisional.
+export function highlightMatch(m){
+ return m.scoreState==null&&m.provisional===false&&Array.isArray(m.score)&&m.score.length===2&&m.score.every(n=>Number.isInteger(n)&&n>=0)?{...m,scoreState:'final'}:m;
+}
+export function selectHighlights(videos,m,{now=Date.now()}={}){
+ if(m.scoreState!=='final'||!Array.isArray(m.score)||m.score.length!==2||!m.score.every(n=>Number.isInteger(n)&&n>=0)||!/^\d{4}-\d{2}-\d{2}$/.test(m.date||'')||m.date>athensDay(new Date(now)))return null;
+ const home=choices(m.home,m.homeAliases,m.competition==='nba'),away=choices(m.away,m.awayAliases,m.competition==='nba'),hits=[],gameDate=m.competition==='nba'?nbaDate(m):m.date,minDay=m.competition==='nba'?shiftDay(m.date,-1):m.date,maxDay=shiftDay(m.date,1);
+ for(const v of videos||[]){
+ if(v.competition!==m.competition)continue;
+ if(m.competition==='nba'){if(!['nba','nba-com'].includes(v.publisher)||v.gameDate!==gameDate||v.publisher==='nba'&&!v.availableCountries?.includes('GR'))continue;}
+ else if(v.publisher==='el'||v.publisher==='ec'){if(v.season!=='2026-27'||!Number.isInteger(v.round)||v.round!==Number(m.round))continue;}
+ else if(v.gameDate!==m.date)continue;
+ let native=false;if(v.publisher==='nba-com')try{const u=new URL(v.url),source=new URL(v.sourceURL);native=v.competition==='nba'&&v.format==='recap'&&['free','public'].includes(v.entitlement)&&/^\d{10}$/.test(v.nbaGameId||'')&&u.origin==='https://www.nba.com'&&/^\/watch\/video\/[a-z0-9-]+$/.test(u.pathname)&&!u.search&&!u.hash&&source.origin===u.origin&&new RegExp('^/game/[a-z]{2,3}-vs-[a-z]{2,3}-'+v.nbaGameId+'$').test(source.pathname)&&!source.search&&!source.hash;}catch{}
+ const uefaPath={europa:'uefaeuropaleague',conference:'uefaconferenceleague'}[v.competition];let press=false;if(v.publisher==='press-player')try{const u=new URL(v.url),s=new URL(v.sourceURL);press=v.publisher==='press-player'&&u.origin==='https://platform.firstview.gr'&&/^\/player\/[A-Za-z0-9_+\/=-]+$/.test(u.pathname)&&!u.search&&!u.hash&&s.origin==='https://www.protothema.gr'&&/^\/sports\/article\/\d+\//.test(s.pathname);}catch{}let uefa=false;if(v.publisher==='uefa')try{const u=new URL(v.url);uefa=v.publisher==='uefa'&&u.origin==='https://www.uefa.com'&&uefaPath&&u.pathname.startsWith('/'+uefaPath+'/video/')&&/^\/[a-z]+\/video\/(?:highlights\/)?[a-f0-9-]+--[a-z0-9-]+\/$/.test(u.pathname)&&!u.search&&!u.hash;}catch{}
+ let ert=false;if(v.publisher==='ert-web')try{const u=new URL(v.url);ert=v.competition==='sl2'&&v.kind==='game'&&v.url===v.sourceURL&&u.origin==='https://www.ertsports.gr'&&/^\/podosfairo\/super-league-2\/[a-z0-9-]+\/$/.test(u.pathname)&&!u.search&&!u.hash;}catch{}
+ if(['laliga','seriea'].includes(v.publisher)&&(!v.availableCountries?.includes('GR')||v.season!=='2026-27'))continue;
+ const novaWeb=v.publisher==='nova-web'&&v.kind==='game'&&v.url===v.sourceURL&&novaWebCompetition(v.url)===m.competition;
+ const pub=ert?{id:'ert-web',label:'ΕΡΤ Sports'}:novaWeb?{id:'nova-web',label:'Novasports'}:native?{id:'nba-com',label:'NBA.com'}:press?{id:'press-player',label:'Πρώτο Θέμα'}:uefa?{id:'uefa',label:'UEFA'}:publishers.find(p=>p.id===v.publisher&&p.channel===v.channelId),published=Date.parse(v.publishedAt||(v.metadataSource==='YouTube oEmbed'?v.verifiedAt:null));
+ if(!pub||v.competition!==m.competition||!native&&!uefa&&!press&&!novaWeb&&!ert&&!/^[\w-]{11}$/.test(v.videoId)||!Number.isFinite(published)||published>now+300000||athensDay(new Date(published))<minDay||athensDay(new Date(published))>maxDay)continue;
+
+ let text=v.title,seconds=null;
+ if(v.kind==='chapters'){
+  const matches=(v.chapters||[]).filter(c=>Number.isInteger(c.seconds)&&c.seconds>=0&&mentions(c.label,home)&&mentions(c.label,away));
+  if(matches.length!==1)continue;text=matches[0].label;seconds=matches[0].seconds;
+ }else if(v.kind!=='game')continue;
+ if(!mentions(text,home)||!mentions(text,away))continue;
+ const url=native||uefa||press||novaWeb||ert?v.url:'https://www.youtube.com/watch?v='+v.videoId+(seconds===null?'':'&t='+seconds+'s');
+ hits.push({url,title:text,provider:pub.label,label:native?'Recap':'Highlights',publishedAt:v.publishedAt,chapter:seconds,rank:novaWeb?1:native?3:press?4:uefa?3:seconds!==null?2:v.publisher==='nova'?0:1});
+ }
+ hits.sort((a,b)=>a.rank-b.rank||Date.parse(b.publishedAt)-Date.parse(a.publishedAt));return hits[0]||null;
+}
+export const HIGHLIGHTS_FEED='https://raw.githubusercontent.com/danal8/sportshub-gr/gbl-live-data/highlights-2026-27.json';
+export async function fetchHighlightsIndex({fetchJSON=async url=>{const r=await fetch(url,{cache:'no-store',credentials:'omit',signal:AbortSignal.timeout(6000)});if(!r.ok)throw Error('Highlights HTTP '+r.status);return r.json();}}={}){
+ const sources=await Promise.allSettled([fetchJSON(HIGHLIGHTS_FEED+'?t='+Date.now()),fetchJSON('./snapshots/highlights-2026-27.json')]);
+ const valid=sources.filter(r=>r.status==='fulfilled'&&r.value?.season==='2026-27'&&Array.isArray(r.value.videos)&&Number.isFinite(Date.parse(r.value.retrievedAt))).map(r=>r.value).sort((a,b)=>Date.parse(b.retrievedAt)-Date.parse(a.retrievedAt));
+ if(!valid.length)throw Error('Highlights unavailable');const videos=new Map();for(const p of [...valid].reverse())for(const v of p.videos)videos.set((v.channelId||v.publisher)+'|'+v.videoId,v);return{...valid[0],videos:[...videos.values()]};
+}
+let cached=null,pending=null,loadedAt=0,loadState=null;
+export const NBA_RECAPS='https://odtbtugzilxsfqxlpofq.supabase.co/functions/v1/sportshub-nba-highlights';
+const nbaDatesChecked=new Map(),nbaPending=new Map();
+async function refreshNbaDates(dates,{force=false}={}){
+ const today=athensDay();await Promise.all([...new Set(dates)].filter(d=>/^\d{4}-\d{2}-\d{2}$/.test(d)&&d>=shiftDay(today,-14)&&d<=today).slice(0,3).map(async date=>{
+  if(!force&&Date.now()-(nbaDatesChecked.get(date)||0)<120000)return;
+  if(!nbaPending.has(date))nbaPending.set(date,(async()=>{try{
+   const r=await fetch(NBA_RECAPS+'?date='+date,{cache:'no-store',credentials:'omit',headers:{Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9kdGJ0dWd6aWx4c2ZxeGxwb2ZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1NTM0MTcsImV4cCI6MjA5NjEyOTQxN30.EE5xUVk_M9JVNaA1eSdqYeQxovLgLEzmIV34HHjJ3EU'},signal:AbortSignal.timeout(20000)});if(!r.ok)throw Error('NBA recap HTTP '+r.status);const p=await r.json();
+   if(p.season!=='2026-27'||p.date!==date||!Array.isArray(p.videos)||!Number.isFinite(Date.parse(p.retrievedAt)))throw Error('Invalid NBA recap response');
+   const records=p.videos.filter(v=>v.publisher==='nba-com'&&v.competition==='nba'&&v.format==='recap');const merged=new Map((cached||[]).map(v=>[(v.channelId||v.publisher)+'|'+v.videoId,v]));for(const v of records)merged.set(v.publisher+'|'+v.videoId,v);cached=[...merged.values()];nbaDatesChecked.set(date,Date.now());
+  }catch(e){loadState={...loadState,nbaError:e.message};}finally{nbaPending.delete(date);}})());await nbaPending.get(date);
+ }));
+}
+
+export function highlightsState(){return loadState;}
+export async function loadHighlightsIndex({force=false,nbaDates=[]}={}){
+ if(!pending&&(force||!cached||Date.now()-loadedAt>120000))pending=fetchHighlightsIndex().then(p=>{cached=p.videos;loadState={retrievedAt:p.retrievedAt,lastAttemptAt:new Date().toISOString(),lastSuccessAt:new Date().toISOString(),status:'ok',sourceReports:p.sourceReports||[],errors:p.errors||[]};loadedAt=Date.now();}).catch(e=>{loadState={...loadState,lastAttemptAt:new Date().toISOString(),status:'failed',error:e.message,retainedVideos:cached?.length||0};if(!cached)throw e;}).finally(()=>pending=null);
+ if(pending)await pending;if(nbaDates.length)await refreshNbaDates(nbaDates,{force});return cached;
+}
+export async function loadMatchHighlights(m,{force=false,confirmedResults=[]}={}){
+ m=highlightMatch(mergeResultUpdates([m],confirmedResults)[0]);if(m.scoreState!=='final')return null;
+ try{
+ await loadHighlightsIndex({force,nbaDates:m.competition==='nba'?[m.date]:[]});
+ let ref=m;
+ if(['el','eurocup'].includes(m.competition)&&!m.round){try{const r=await fetch('./snapshots/'+m.competition+'-2026-27.json',{signal:AbortSignal.timeout(6000)}),p=await r.json();const matches=(p.matches||[]).filter(x=>x.date===m.date&&mentions(x.home,choices(m.home,m.homeAliases))&&mentions(x.away,choices(m.away,m.awayAliases)));if(p.season==='2026-27'&&matches.length===1)ref={...matches[0],...m,round:matches[0].round};}catch{}}
+ const result=selectHighlights(cached,ref);if(!result&&loadState?.errors.length)throw Error('Δεν βρέθηκε επαληθευμένο βίντεο· ορισμένες πηγές highlights απέτυχαν.');return result;
+ }catch(error){throw Error(error.message?.startsWith('Δεν βρέθηκε')?error.message:'Απέτυχε η ενημέρωση highlights. Δοκίμασε ξανά.');}
+}
+
+
+export function parseRecapPlaylists(html){return parseNBAPlaylists(html,/nightly recap/i);}
+export function parseGamePlaylists(html){return parseNBAPlaylists(html,/full game highlights.*2026[-–]27/i);}
+function parseNBAPlaylists(html,titlePattern){
+ const raw=String(html).match(/ytInitialData\s*=\s*(\{[\s\S]*?\});/)?.[1];if(!raw)return[];
+ const found=new Set(),walk=v=>{if(!v||typeof v!=='object')return;
+ for(const type of ['playlistRenderer','gridPlaylistRenderer','lockupViewModel']){const r=v[type];if(!r)continue;const title=r.title?.simpleText||r.title?.runs?.map(t=>t.text).join('')||r.metadata?.lockupMetadataViewModel?.title?.content||'';const id=r.playlistId||r.contentId;
+ if(titlePattern.test(title)&&/^PL[\w-]+$/.test(id||''))found.add(id);}
+ for(const child of Object.values(v)){if(Array.isArray(child))child.forEach(walk);else if(child&&typeof child==='object')walk(child);}
+ };walk(JSON.parse(raw));return[...found].slice(0,3);
+}
+

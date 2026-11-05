@@ -100,15 +100,28 @@ export async function fetchHighlightsIndex({fetchJSON=async url=>{const r=await 
  if(!valid.length)throw Error('Highlights unavailable');const videos=new Map();for(const p of [...valid].reverse())for(const v of p.videos)videos.set((v.channelId||v.publisher)+'|'+v.videoId,v);return{...valid[0],videos:[...videos.values()]};
 }
 let cached=null,pending=null,loadedAt=0,loadState=null;
+export const NBA_RECAPS='https://odtbtugzilxsfqxlpofq.supabase.co/functions/v1/sportshub-nba-highlights';
+const nbaDatesChecked=new Map(),nbaPending=new Map();
+async function refreshNbaDates(dates,{force=false}={}){
+ const today=athensDay();await Promise.all([...new Set(dates)].filter(d=>/^\d{4}-\d{2}-\d{2}$/.test(d)&&d>=shiftDay(today,-14)&&d<=today).slice(0,3).map(async date=>{
+  if(!force&&Date.now()-(nbaDatesChecked.get(date)||0)<120000)return;
+  if(!nbaPending.has(date))nbaPending.set(date,(async()=>{try{
+   const r=await fetch(NBA_RECAPS+'?date='+date,{cache:'no-store',credentials:'omit',headers:{Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9kdGJ0dWd6aWx4c2ZxeGxwb2ZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1NTM0MTcsImV4cCI6MjA5NjEyOTQxN30.EE5xUVk_M9JVNaA1eSdqYeQxovLgLEzmIV34HHjJ3EU'},signal:AbortSignal.timeout(20000)});if(!r.ok)throw Error('NBA recap HTTP '+r.status);const p=await r.json();
+   if(p.season!=='2026-27'||p.date!==date||!Array.isArray(p.videos)||!Number.isFinite(Date.parse(p.retrievedAt)))throw Error('Invalid NBA recap response');
+   const records=p.videos.filter(v=>v.publisher==='nba-com'&&v.competition==='nba'&&v.format==='recap');const merged=new Map((cached||[]).map(v=>[(v.channelId||v.publisher)+'|'+v.videoId,v]));for(const v of records)merged.set(v.publisher+'|'+v.videoId,v);cached=[...merged.values()];nbaDatesChecked.set(date,Date.now());
+  }catch(e){loadState={...loadState,nbaError:e.message};}finally{nbaPending.delete(date);}})());await nbaPending.get(date);
+ }));
+}
+
 export function highlightsState(){return loadState;}
-export async function loadHighlightsIndex({force=false}={}){
+export async function loadHighlightsIndex({force=false,nbaDates=[]}={}){
  if(!pending&&(force||!cached||Date.now()-loadedAt>120000))pending=fetchHighlightsIndex().then(p=>{cached=p.videos;loadState={retrievedAt:p.retrievedAt,lastAttemptAt:new Date().toISOString(),lastSuccessAt:new Date().toISOString(),status:'ok',sourceReports:p.sourceReports||[],errors:p.errors||[]};loadedAt=Date.now();}).catch(e=>{loadState={...loadState,lastAttemptAt:new Date().toISOString(),status:'failed',error:e.message,retainedVideos:cached?.length||0};if(!cached)throw e;}).finally(()=>pending=null);
- if(pending)await pending;return cached;
+ if(pending)await pending;if(nbaDates.length)await refreshNbaDates(nbaDates,{force});return cached;
 }
 export async function loadMatchHighlights(m,{force=false,confirmedResults=[]}={}){
  m=highlightMatch(mergeResultUpdates([m],confirmedResults)[0]);if(m.scoreState!=='final')return null;
  try{
- await loadHighlightsIndex({force});
+ await loadHighlightsIndex({force,nbaDates:m.competition==='nba'?[m.date]:[]});
  let ref=m;
  if(['el','eurocup'].includes(m.competition)&&!m.round){try{const r=await fetch('./snapshots/'+m.competition+'-2026-27.json',{signal:AbortSignal.timeout(6000)}),p=await r.json();const matches=(p.matches||[]).filter(x=>x.date===m.date&&mentions(x.home,choices(m.home,m.homeAliases))&&mentions(x.away,choices(m.away,m.awayAliases)));if(p.season==='2026-27'&&matches.length===1)ref={...matches[0],...m,round:matches[0].round};}catch{}}
  const result=selectHighlights(cached,ref);if(!result&&loadState?.errors.length)throw Error('Δεν βρέθηκε επαληθευμένο βίντεο· ορισμένες πηγές highlights απέτυχαν.');return result;

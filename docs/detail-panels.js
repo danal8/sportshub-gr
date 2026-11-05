@@ -1,6 +1,6 @@
 import{sameResultMatch,synchronizeDetailScore,mergeResultUpdates}from'./result-reconciliation.js?v=75';
 import{eventTimeline}from'./event-timeline.js?v=75';
-import{loadMatchHighlights}from'./highlights.js?v=75';
+import{loadMatchHighlights}from'./highlights.js?v=76';
 import{escapeHTML as e,athensDay}from'./core.js?v=75';
 import{competitions}from'./data.js?v=75';
 import{displayTeamName}from'./team-display.js?v=75';
