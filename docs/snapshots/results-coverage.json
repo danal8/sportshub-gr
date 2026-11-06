@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-06T03:02:14.573Z",
+  "checkedAt": "2026-11-06T10:44:09.832Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -173,24 +173,9 @@
     {
       "competition": "nba",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "nba-401909936",
-          "competition": "nba",
-          "date": "2026-11-06",
-          "home": "Phoenix Suns",
-          "away": "Orlando Magic"
-        },
-        {
-          "id": "nba-401909937",
-          "competition": "nba",
-          "date": "2026-11-06",
-          "home": "Golden State Warriors",
-          "away": "Miami Heat"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 121
+      "finals": 123
     },
     {
       "competition": "pl",
