@@ -1,6 +1,9 @@
 // Display names only: raw provider names remain unchanged for scores and favourites.
 const key=s=>String(s).normalize('NFD').replace(/\p{M}/gu,'').toLocaleLowerCase('el').replace(/[^\p{L}\p{N}]/gu,'');
 const names=[
+['Crvena Zvezda Meridianbet Belgrade','Ερυθρός Αστέρας'],['Crvena Zvezda','Ερυθρός Αστέρας'],['Ερυθρός Αστέρας','Ερυθρός Αστέρας'],
+['Besiktas Istanbul','Μπεσίκτας'],['Μπεσίκτας','Μπεσίκτας'],['Zalgiris Kaunas','Ζάλγκιρις Κάουνας'],['Ζάλγκιρις Κάουνας','Ζάλγκιρις Κάουνας'],
+['Virtus Bologna','Βίρτους Μπολόνια'],['Βίρτους Μπολόνια','Βίρτους Μπολόνια'],['Dubai Basketball','Ντουμπάι'],['Ντουμπάι','Ντουμπάι'],['Partizan Mozzart Bet Belgrade','Παρτίζαν'],['Παρτίζαν','Παρτίζαν'],['Maccabi Rapyd Tel Aviv','Μακάμπι Τελ Αβίβ'],['Μακάμπι Τελ Αβίβ','Μακάμπι Τελ Αβίβ'],
 ['Ajax Amsterdam','Ajax'],
 ["FC Liverpool","Liverpool"],
 ["Panathinaikos","Παναθηναϊκός"],
@@ -137,7 +140,7 @@ export function displayTeamName(value){
  const name=String(value??'').trim();if(known.has(key(name)))return known.get(key(name));
  return name.split(/(\s+)/).map(word=>{
   const letters=word.replace(/[^\p{L}]/gu,'');if(!letters||word!==word.toLocaleUpperCase('el'))return word;
-  if(acronyms.has(letters)||letters.length<=2)return word;
+  if(acronyms.has(letters)||letters.length<=2||/^(?:\p{L}\.){2,}$/u.test(word))return word;
   const lower=word.toLocaleLowerCase('el');return lower.replace(/\p{L}/u,c=>c.toLocaleUpperCase('el'));
  }).join('');
 }

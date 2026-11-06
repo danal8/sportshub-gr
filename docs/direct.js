@@ -1,9 +1,9 @@
-import{loadFootballStandings}from'./football-leagues.js?v=75';
-import{standingsCoverage}from'./standings-health.js?v=75';
-import{sectionStatus}from'./source-status.js?v=75';
-import{refreshGreekScores}from'./scoreboard.js?v=75';
-import{sl2Score}from'./results.js?v=75';
-import{parseGreekFootball}from'./feeds.js?v=75';
+import{loadFootballStandings}from'./football-leagues.js?v=77';
+import{standingsCoverage}from'./standings-health.js?v=77';
+import{sectionStatus}from'./source-status.js?v=77';
+import{refreshGreekScores}from'./scoreboard.js?v=77';
+import{sl2Score}from'./results.js?v=77';
+import{parseGreekFootball}from'./feeds.js?v=77';
 const shortcuts={pl:'pl',bund:'bl1',laliga:'la1',cl:'ucl',europa:'uel2026'};
 export const directIDs=['sl','pl','bund','laliga','cl','europa','el','eurocup','volley-w','volley-m','sl2'];
 const pair=s=>Array.isArray(s)&&s.length===2&&s.every(n=>Number.isInteger(n)&&n>=0);

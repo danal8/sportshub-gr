@@ -226,3 +226,5 @@ body[data-tab=matches] .single-day-summary{flex-wrap:nowrap}body[data-tab=matche
 
 #data-freshness{margin:0;padding:7px 17px;font-size:11px;line-height:1.4;border-bottom:1px solid var(--border)}
 @media(max-width:700px){#data-freshness{padding:6px 10px;font-size:10px}}
+
+.match-standings{margin:16px 0;padding:12px;border:1px solid var(--line,#334155);border-radius:10px}.match-standings h3{font-size:14px;margin:0 0 10px}.match-standings small{display:block;font-size:10px;font-weight:400;color:var(--muted,#94a3b8)}.match-standings details{margin-top:10px}.match-standings summary{cursor:pointer;font-size:12px}.match-standings .standing-current{background:rgba(59,130,246,.12)}.standing-adjustment{font-size:11px;white-space:nowrap}

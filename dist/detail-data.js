@@ -1,9 +1,9 @@
-import{footballEvents}from'./football-events.js?v=75';
-import{competitions}from'./data.js?v=75';
-import{aliases}from'./team-aliases.js?v=75';
-import{teamKey}from'./badges.js?v=75';
-import{athensDay,normalizeFootball,shiftDay}from'./core.js?v=75';
-import{liveLeagues,sourceClock,parseEuroHeader}from'./live-scores.js?v=75';
+import{footballEvents}from'./football-events.js?v=77';
+import{competitions}from'./data.js?v=77';
+import{aliases}from'./team-aliases.js?v=77';
+import{teamKey}from'./badges.js?v=77';
+import{athensDay,normalizeFootball,shiftDay}from'./core.js?v=77';
+import{liveLeagues,sourceClock,parseEuroHeader}from'./live-scores.js?v=77';
 const web='https://site.web.api.espn.com/apis/site/v2/sports/',query='region=us&lang=en&contentorigin=espn';
 const validScore=s=>Array.isArray(s)&&s.length===2&&s.every(n=>Number.isInteger(n)&&n>=0);
 const names=(name,extra=[])=>new Set([name,...extra].filter(Boolean).flatMap(n=>[n,...aliases[teamKey(n)]||[]]).map(teamKey));
@@ -144,7 +144,7 @@ export async function loadTeamRoster(team,c,overview,{force=false}={}){
  const resolved=await resolveTeam(team,c,overview,{force}),[sport,league]=liveLeagues[resolved.competition],actual=competitions.find(x=>x.id===resolved.competition);
  const p=await detailJSON(web+sport+'/'+league+'/teams/'+resolved.team.id+'/roster?'+query+'&season='+(c.id==='nba'?2027:2026),{ttl:3600000,force});let roster=parseRoster(p,team,resolved.team.id,actual);if(c.sport==='football')try{roster=applyRosterPhotos(roster,await detailJSON('./snapshots/player-photos-2026-27.json',{ttl:300000,force}),resolved.team.id);}catch{}return roster;
 }
-const labels={foulsCommitted:'Φάουλ',yellowCards:'Κίτρινες κάρτες',redCards:'Κόκκινες κάρτες',offsides:'Οφσάιντ',wonCorners:'Κόρνερ',possessionPct:'Κατοχή %',shotsOnTarget:'Εντός εστίας',totalShots:'Τελικές',saves:'Αποκρούσεις',goalAssists:'Ασίστ',totalGoals:'Γκολ',appearances:'Συμμετοχές',points:'Πόντοι',rebounds:'Ριμπάουντ',totalRebounds:'Ριμπάουντ',assists:'Ασίστ',turnovers:'Λάθη',steals:'Κλεψίματα',blocks:'Τάπες',fieldGoalPct:'Εντός πεδιάς %',threePointFieldGoalPct:'Τρίποντα %',freeThrowPct:'Βολές %',offensiveRebounds:'Επιθετικά ριμπ.',defensiveRebounds:'Αμυντικά ριμπ.',fouls:'Φάουλ','fieldGoalsMade-fieldGoalsAttempted':'Εντός πεδιάς','threePointFieldGoalsMade-threePointFieldGoalsAttempted':'Τρίποντα','freeThrowsMade-freeThrowsAttempted':'Βολές'};
+const labels={teamTurnovers:'Ομαδικά λάθη',totalTurnovers:'Συνολικά λάθη',technicalFouls:'Τεχνικές ποινές',totalTechnicalFouls:'Συνολικές τεχνικές ποινές',flagrantFouls:'Αντιαθλητικά φάουλ',pointsOffTurnovers:'Πόντοι από λάθη',pointsConcededOffTurnovers:'Πόντοι αντιπάλου από λάθη',fastBreakPoints:'Πόντοι αιφνιδιασμού',pointsInPaint:'Πόντοι στη ρακέτα',largestLead:'Μέγιστη διαφορά',leadChanges:'Αλλαγές προβαδίσματος',percentLed:'Χρόνος με προβάδισμα %',foulsCommitted:'Φάουλ',yellowCards:'Κίτρινες κάρτες',redCards:'Κόκκινες κάρτες',offsides:'Οφσάιντ',wonCorners:'Κόρνερ',possessionPct:'Κατοχή %',shotsOnTarget:'Εντός εστίας',totalShots:'Τελικές',saves:'Αποκρούσεις',goalAssists:'Ασίστ',totalGoals:'Γκολ',appearances:'Συμμετοχές',points:'Πόντοι',rebounds:'Ριμπάουντ',totalRebounds:'Ριμπάουντ',assists:'Ασίστ',turnovers:'Λάθη',steals:'Κλεψίματα',blocks:'Τάπες',fieldGoalPct:'Εντός πεδιάς %',threePointFieldGoalPct:'Τρίποντα %',freeThrowPct:'Βολές %',offensiveRebounds:'Επιθετικά ριμπ.',defensiveRebounds:'Αμυντικά ριμπ.',fouls:'Φάουλ','fieldGoalsMade-fieldGoalsAttempted':'Εντός πεδιάς','threePointFieldGoalsMade-threePointFieldGoalsAttempted':'Τρίποντα','freeThrowsMade-freeThrowsAttempted':'Βολές'};
 const ratioStats=new Set(['shotPct','passPct','crossPct','longballPct','tacklePct','onTargetPct','passCompletionPct']);
 export function statisticValue(stat){
  const text=val(stat.displayValue);if(text===null||!ratioStats.has(stat.name)||text.includes('%'))return text;
@@ -194,7 +194,7 @@ export async function loadMatchDetails(m,{force=false}={}){
  const header=await detailJSON(base+'Header'+suffix,{ttl:30000,force});parseEuroHeader(header,ref);
  const [box,pbp]=await Promise.all([detailJSON(base+'Boxscore'+suffix,{ttl:30000,force}).catch(()=>null),detailJSON(base+'PlaybyPlay'+suffix,{ttl:30000,force}).catch(()=>null)]);return parseEuroDetails(header,box,pbp,ref);
  }
- throw Error('Δεν υπάρχει συνδεδεμένη πηγή αναλυτικών στατιστικών για αυτή τη διοργάνωση');
+ return{match:m,score:m.score||null,scoreState:m.scoreState||null,clock:m.scoreClock||null,stats:[],players:[],lineups:[],events:[],periods:[],unsupported:true,provider:'Πρόγραμμα μεταδόσεων',source:'https://www.novasports.gr/tv-program/',checkedAt:null};
 }
 
 

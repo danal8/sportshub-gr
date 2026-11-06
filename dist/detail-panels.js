@@ -1,12 +1,15 @@
-import{sameResultMatch,synchronizeDetailScore,mergeResultUpdates}from'./result-reconciliation.js?v=75';
-import{eventTimeline}from'./event-timeline.js?v=75';
-import{loadMatchHighlights}from'./highlights.js?v=76';
-import{escapeHTML as e,athensDay}from'./core.js?v=75';
-import{competitions}from'./data.js?v=75';
-import{displayTeamName}from'./team-display.js?v=75';
-import{teamMarkup}from'./team-view.js?v=75';
-import{badgeSources}from'./badges.js?v=75';
-import{loadTeamOverview,loadTeamRoster,loadMatchDetails}from'./detail-data.js?v=75';
+import{loadMatchStandings,projectMatchStandings,pointsAdjustment}from'./match-standings.js?v=77';
+import{sameTeam}from'./detail-data.js?v=77';
+import{tvOnlyCompetitions}from'./tv-meta.js?v=77';
+import{sameResultMatch,synchronizeDetailScore,mergeResultUpdates}from'./result-reconciliation.js?v=77';
+import{eventTimeline}from'./event-timeline.js?v=77';
+import{loadMatchHighlights}from'./highlights.js?v=77';
+import{escapeHTML as e,athensDay}from'./core.js?v=77';
+import{competitions}from'./data.js?v=77';
+import{displayTeamName}from'./team-display.js?v=77';
+import{teamMarkup}from'./team-view.js?v=77';
+import{badgeSources}from'./badges.js?v=77';
+import{loadTeamOverview,loadTeamRoster,loadMatchDetails}from'./detail-data.js?v=77';
 const $=id=>document.getElementById(id);
 const day=d=>d?new Intl.DateTimeFormat('el-GR',{day:'numeric',month:'short',year:'numeric',timeZone:'Europe/Athens'}).format(new Date(d+'T12:00:00Z')):'Δεν έχει οριστεί';
 const stamp=d=>{try{return new Intl.DateTimeFormat('el-GR',{dateStyle:'short',timeStyle:'short',timeZone:'Europe/Athens'}).format(new Date(d));}catch{return '—';}};
@@ -21,7 +24,7 @@ function playerAvatar(player){
  return '<span class="player-avatar" aria-hidden="true"><span class="player-initials">'+e(initials)+'</span>'+(photos.length?'<img class="player-photo" data-photo-fallbacks="'+e(JSON.stringify(photos.slice(1)))+'" src="'+e(photos[0])+'" alt="" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer">':'')+'</span>';
 }
 const position=(p,sport)=>({Goalkeeper:'Τερματοφύλακας',Defender:'Αμυντικός',Midfielder:'Μέσος',Forward:sport==='football'?'Επιθετικός':'Φόργουορντ',Guard:'Γκαρντ',Center:'Σέντερ','Guard-Forward':'Γκαρντ / Φόργουορντ','Forward-Center':'Φόργουορντ / Σέντερ'})[p]||p;
-export function createDetailPanels({getSeed=()=>[]}={}){
+export function createDetailPanels({getSeed=()=>[],getMatches=()=>[]}={}){
  const dialog=$('detail-dialog'),body=$('detail-body');
  dialog.addEventListener('error',event=>{const img=event.target;if(!img?.classList?.contains('player-photo'))return;let next=[];try{next=JSON.parse(img.dataset.photoFallbacks||'[]');}catch{}const url=next.shift();img.dataset.photoFallbacks=JSON.stringify(next);if(url)img.src=url;else img.hidden=true;},true);let current=null,history=[],generation=0,games=[];
  // One browser entry for the whole modal, including nested team/match navigation.
@@ -57,7 +60,7 @@ export function createDetailPanels({getSeed=()=>[]}={}){
  }
  function footer(){
  if(current?.type==='team'){const sources=current.overview?.sources||[];$('detail-source').innerHTML='<details><summary>Πηγές και ενημέρωση</summary>'+sources.map(s=>'<p>'+sourceLink(s.url,s.competition)+' · '+e(stamp(s.checkedAt))+'</p>').join('')+'</details>';}
- else{const d=current?.data;$('detail-source').innerHTML=d?sourceLink(d.source,d.provider)+' · Έλεγχος '+e(stamp(d.checkedAt))+(d.scoreState==='live'?' · Ανανέωση ανά 30″':''):sourceLink(current?.competition.url,'Επίσημη ιστοσελίδα');}
+ else{const d=current?.data;$('detail-source').innerHTML=d?sourceLink(d.source,d.provider)+(d.checkedAt?' · Έλεγχος '+e(stamp(d.checkedAt)):'')+(d.scoreState==='live'?' · Ανανέωση ανά 30″':''):sourceLink(current?.competition.url?.includes('/wp-admin/')?'https://www.novasports.gr/tv-program/':current?.competition.url,'Πρόγραμμα / πηγή');}
  }
  function gameList(matches,title){
  if(!matches.length)return '<section><h3>'+e(title)+'</h3>'+blank('Δεν υπάρχουν διαθέσιμοι αγώνες σε αυτή τη λίστα.')+'</section>';
@@ -69,12 +72,12 @@ export function createDetailPanels({getSeed=()=>[]}={}){
  if(card.tab==='roster'){
  if(card.rosterLoading)return blank('Φόρτωση επαληθευμένου ρόστερ…');
  if(card.rosterError)return blank(card.rosterError)+'<button type="button" class="outline" data-detail-retry>Δοκίμασε ξανά</button>';
- const roster=card.roster;if(!roster)return blank('Άνοιξε ξανά το ρόστερ για ενημέρωση.');
- return '<p class="detail-meta">'+e(roster.season)+' · '+roster.players.length+' παίκτες · Φωτογραφίες '+roster.players.filter(p=>p.photo).length+'/'+roster.players.length+' · '+e(roster.provider)+' · '+e(stamp(roster.checkedAt))+'</p>'+(roster.staff.length?'<p class="detail-meta">'+roster.staff.map(p=>e(name(p.name))+' <span class="muted">('+e(p.role)+')</span>').join(' · ')+'</p>':'')+(roster.players.length?'<div class="detail-roster"><table><caption>'+e(name(card.team))+' · Ρόστερ πηγής</caption><thead><tr><th>#</th><th>Παίκτης</th><th>Θέση</th><th>Ηλικία</th></tr></thead><tbody>'+roster.players.map(p=>'<tr><td>'+value(p.jersey)+'</td><td><div class="roster-person">'+playerAvatar(p)+'<div class="roster-name">'+e(name(p.name))+(p.country?'<small>'+e(p.country)+'</small>':'')+'</div></div></td><td>'+e(position(p.position,c.sport))+'</td><td>'+value(p.age)+'</td></tr>').join('')+'</tbody></table></div>':blank('Η πηγή δεν επέστρεψε παίκτες.'))+'<p class="detail-meta">'+sourceLink(roster.source,roster.provider)+(roster.photoSource?' · Φωτογραφίες: '+sourceLink(roster.photoSource,'Επίσημη ομάδα'):'')+'</p>';
+ const roster=card.roster;if(!roster)return blank('Άνοιξε ξανά το ρόστερ για ενημέρωση.');const hasAge=roster.players.some(p=>Number.isFinite(p.age));
+ return '<p class="detail-meta">'+e(roster.season)+' · '+roster.players.length+' παίκτες · Φωτογραφίες '+roster.players.filter(p=>p.photo).length+'/'+roster.players.length+' · '+e(roster.provider)+' · '+e(stamp(roster.checkedAt))+'</p>'+(roster.staff.length?'<p class="detail-meta">'+roster.staff.map(p=>e(name(p.name))+' <span class="muted">('+e(p.role)+')</span>').join(' · ')+'</p>':'')+(roster.players.length?'<div class="detail-roster"><table><caption>'+e(name(card.team))+' · Ρόστερ πηγής</caption><thead><tr><th>#</th><th>Παίκτης</th><th>Θέση</th>'+(hasAge?'<th>Ηλικία</th>':'')+'</tr></thead><tbody>'+roster.players.map(p=>'<tr><td>'+value(p.jersey)+'</td><td><div class="roster-person">'+playerAvatar(p)+'<div class="roster-name">'+e(name(p.name))+(p.country?'<small>'+e(p.country)+'</small>':'')+'</div></div></td><td>'+e(position(p.position,c.sport))+'</td>'+(hasAge?'<td>'+value(p.age)+'</td>':'')+'</tr>').join('')+'</tbody></table></div>':blank('Η πηγή δεν επέστρεψε παίκτες.'))+'<p class="detail-meta">'+sourceLink(roster.source,roster.provider)+(roster.photoSource?' · Φωτογραφίες: '+sourceLink(roster.photoSource,'Επίσημη ομάδα'):'')+'</p>';
  }
  if(card.tab==='games')return gameList(d.recent.slice(0,15),'Πρόσφατα αποτελέσματα')+gameList(d.upcoming.slice(0,15),'Επόμενοι αγώνες')+(d.undated?blank(d.undated+' αγώνες δεν έχουν ακόμα ορισμένη ημερομηνία.'):'');
  const form=d.form.length?'<div class="team-form" aria-label="Φόρμα τελευταίων αγώνων">'+d.form.map(m=>'<span class="form-'+m.outcome+'" title="'+e(day(m.date)+' · '+m.home+' – '+m.away+' '+m.score.join('–'))+'">'+({W:'Ν',D:'Ι',L:'Η'})[m.outcome]+'</span>').join('')+'</div><p class="detail-meta">Τελευταίοι 5 διαθέσιμοι τελικοί αγώνες · Πιο πρόσφατος πρώτος.</p>':blank('Δεν υπάρχουν ακόμα επιβεβαιωμένα τελικά αποτελέσματα για φόρμα.');
- const standings=d.standings.length?'<div class="detail-ranks">'+d.standings.map(r=>'<div><span>'+e(r.competitionLabel)+(r.group?' · '+e(r.group):'')+'</span><strong>'+value(r.rank)+'η</strong><small>'+value(r.played)+' αγ. · '+value(r.wins)+' νίκες'+(r.points!==null&&r.points!==undefined?' · '+value(r.points)+' βαθ.':'')+'</small></div>').join('')+'</div>':'';
+ const standings=d.standings.length?'<div class="detail-ranks">'+d.standings.map(r=>'<div><span>'+e(r.competitionLabel)+(r.group?' · '+e(r.group):'')+'</span><strong>'+value(r.rank)+'η</strong><small>'+value(r.played)+' αγ. · '+value(r.wins)+' νίκες'+(r.points!==null&&r.points!==undefined?' · '+value(r.points)+' βαθ.'+(pointsAdjustment(r,{id:r.competition})?' ('+pointsAdjustment(r,{id:r.competition})+' από προσαρμογή πηγής)':''):'')+'</small></div>').join('')+'</div>':'';
  return '<p class="detail-meta">'+e(c.name)+' · '+(c.id==='volley-w'?'Γυναικών':c.sport==='volleyball'?'Ανδρών':'2026–27')+'</p>'+standings+'<section><h3>Φόρμα</h3>'+form+'</section>'+gameList(d.upcoming.slice(0,3),'Επόμενοι αγώνες')+gameList(d.recent.slice(0,3),'Τελευταία αποτελέσματα')+(d.errors.length?'<p class="detail-meta">Μερική κάλυψη: δεν ανακτήθηκαν όλα τα προγράμματα του τμήματος.</p>':'');
  }
  function playerTables(d){
@@ -94,17 +97,34 @@ export function createDetailPanels({getSeed=()=>[]}={}){
  card.hlPending=true;card.hlLoaded=true;const gen=generation;
  try{card.hlError='';card.highlight=await loadMatchHighlights(m,{force});}catch(e){card.hlError=e.message;card.hlLoaded=false;}finally{card.hlPending=false;if(current===card&&generation===gen)render();}
  }
+
+ function standingsBody(card){
+  const c=card.competition;
+  if(c.noStandings)return '<section class="match-standings"><h3>Βαθμολογία · '+e(c.name)+'</h3>'+blank('Δεν υπάρχει βαθμολογία για αυτή τη διοργάνωση κυπέλλου.')+'</section>';
+  if(!card.ranking)return '<section class="match-standings"><h3>Βαθμολογία · '+e(c.name)+'</h3>'+blank(card.rankingLoading?'Φόρτωση βαθμολογίας…':card.rankingError||'Δεν υπάρχει διαθέσιμη βαθμολογία για αυτή τη διοργάνωση.')+'</section>';
+  const updates=[...getMatches().filter(m=>!sameResultMatch(m,card.match)),{...card.match,...(card.data?.score?{score:card.data.score,scoreState:card.data.scoreState,scoreCheckedAt:card.data.scoreCheckedAt||card.data.checkedAt}:{}),competition:c.id}];
+  const table=projectMatchStandings(c,card.ranking,updates),football=c.sport==='football',percent=['el','eurocup','nba'].includes(c.id);
+  const sides=table.rows.filter(r=>sameTeam(r.team,card.match.home)||sameTeam(r.team,card.match.away));
+  if(sides.length!==2)return '<section class="match-standings"><h3>Βαθμολογία · '+e(c.name)+'</h3>'+blank('Δεν επιβεβαιώθηκαν και οι δύο ομάδες στη βαθμολογία αυτής της διοργάνωσης.')+'</section>';
+  const draw=rows=>'<div class="detail-boxscroll"><table class="detail-compare"><thead><tr><th>#</th><th>Ομάδα</th><th>Αγ.</th><th>Ν</th>'+(football?'<th>Ι</th>':'')+'<th>Η</th><th>'+(percent?'% Ν':'Βαθ.')+'</th></tr></thead><tbody>'+rows.map(r=>'<tr'+(sides.includes(r)?' class="standing-current"':'')+'><td>'+value(r.rank)+'</td><th scope="row">'+e(name(r.team))+(r.group?'<small>'+e(r.group)+'</small>':'')+'</th><td>'+value(r.played)+'</td><td>'+value(r.wins)+'</td>'+(football?'<td>'+value(r.draws)+'</td>':'')+'<td>'+value(r.losses)+'</td><td>'+value(percent?r.winRate:r.points)+(pointsAdjustment(r,c)?'<small>Προσαρμογή πηγής: '+value(pointsAdjustment(r,c))+'</small>':'')+'</td></tr>').join('')+'</tbody></table></div>';
+  return '<section class="match-standings"><h3>'+(table.live?'● LIVE βαθμολογία':'Βαθμολογία')+' · '+e(c.name)+'</h3>'+draw(sides)+'<details><summary>Πλήρης βαθμολογία διοργάνωσης</summary>'+draw(table.rows)+'</details>'+(table.reason?'<p class="detail-meta">'+e(table.reason)+'</p>':'')+'<p class="detail-meta">'+sourceLink(card.ranking.source,'Πηγή βαθμολογίας')+(card.ranking.checkedAt?' · '+e(stamp(card.ranking.checkedAt)):'')+'</p></section>';
+ }
+ async function rankings(card,force=false){
+  if(card.rankingLoading)return;card.rankingLoading=true;const gen=generation;render();
+  try{card.ranking=await loadMatchStandings(card.competition,{seed:getSeed(),force});card.rankingError='';}catch{card.rankingError='Η βαθμολογία δεν είναι διαθέσιμη αυτή τη στιγμή.';}finally{card.rankingLoading=false;if(current===card&&generation===gen)render();}
+ }
  function matchBody(card){
  const m=card.match,d=card.data,c=card.competition;
  const teams='<div class="detail-match-teams"><button type="button" data-detail-team="'+e(m.home)+'" data-detail-competition="'+e(c.id)+'">'+visual(m.home,c,m.homeBadge)+'</button><span>–</span><button type="button" data-detail-team="'+e(m.away)+'" data-detail-competition="'+e(c.id)+'">'+visual(m.away,c,m.awayBadge)+'</button></div>';
- if(!d)return teams+highlightLink(card)+'<p class="detail-meta">'+e(day(m.date))+' · '+e(m.time||'Ώρα μη ορισμένη')+' · '+e(c.name)+'</p>'+blank(card.loading?'Φόρτωση αναλυτικών στατιστικών…':card.error||'Δεν υπάρχουν διαθέσιμα στοιχεία.')+(!card.loading?'<button type="button" class="outline" data-detail-retry>Δοκίμασε ξανά</button>':'');
+ if(!d)return teams+standingsBody(card)+highlightLink(card)+'<p class="detail-meta">'+e(day(m.date))+' · '+e(m.time||'Ώρα μη ορισμένη')+' · '+e(c.name)+'</p>'+blank(card.loading?'Φόρτωση αναλυτικών στατιστικών…':card.error||'Δεν υπάρχουν διαθέσιμα στοιχεία.')+(!card.loading?'<button type="button" class="outline" data-detail-retry>Δοκίμασε ξανά</button>':'');
  const age=Date.now()-Date.parse(d.scoreCheckedAt||d.checkedAt),live=d.scoreState==='live'&&age>=-60000&&age<90000;
  const score=d.score?'<div class="detail-score"><strong>'+e(d.score.join(' – '))+'</strong><span>'+(d.scoreState==='final'?'Τελικό':live?'● LIVE'+(d.clock?' · '+e(d.clock):''):'Σκορ πηγής · αναμονή ενημέρωσης')+'</span></div>':'';
- const head=(card.error?'<p class="detail-empty" role="status">'+e(card.error)+' Τα προηγούμενα στοιχεία παραμένουν ορατά.</p>':'')+teams+score+highlightLink(card)+'<p class="detail-meta">'+e(day(m.date))+' · '+e(m.time||'Ώρα μη ορισμένη')+' · '+e(c.name)+(d.venue?' · '+e(d.venue):'')+'</p>';
+ const head=(card.error?'<p class="detail-empty" role="status">'+e(card.error)+' Τα προηγούμενα στοιχεία παραμένουν ορατά.</p>':'')+teams+score+standingsBody(card)+highlightLink(card)+'<p class="detail-meta">'+e(day(m.date))+' · '+e(m.time||'Ώρα μη ορισμένη')+' · '+e(c.name)+(d.venue?' · '+e(d.venue):'')+'</p>';
  if(card.tab==='players')return head+playerTables(d);
  if(card.tab==='events'&&c.sport==='football')return head+eventTimeline(d.events);
  if(card.tab==='events')return head+(d.events.length?'<ol class="detail-events">'+d.events.slice(0,card.eventCount||40).map(p=>'<li><span>'+e([p.label,p.period?p.period+'η περ.':'',p.clock].filter(Boolean).join(' · '))+'</span><p>'+e(p.text)+'</p></li>').join('')+'</ol>'+(d.events.length>(card.eventCount||40)?'<button type="button" class="outline" data-more-events>Περισσότερες φάσεις</button>':''):blank('Δεν έχει δημοσιευτεί διαθέσιμη εξέλιξη φάσεων.'));
  const periods=d.periods.length?'<section><h3>Ανά περίοδο</h3><div class="detail-periods">'+d.periods.map(p=>'<div><span>'+e(p.label)+'</span><strong>'+value(p.home)+' – '+value(p.away)+'</strong></div>').join('')+'</div></section>':'';
+ if(d.unsupported)return head+blank('Δεν παρέχονται αναλυτικά στατιστικά για αυτή τη διοργάνωση.');
  return head+(c.sport==='football'?eventTimeline(d.events):'')+periods+(d.stats.length?'<section><h3>Ομαδικά στατιστικά</h3><table class="detail-compare"><thead><tr><th>'+e(name(m.home))+'</th><th>Στατιστικό</th><th>'+e(name(m.away))+'</th></tr></thead><tbody>'+d.stats.map(s=>'<tr><td>'+value(s.home)+'</td><th scope="row">'+e(s.label)+'</th><td>'+value(s.away)+'</td></tr>').join('')+'</tbody></table></section>':blank(d.scoreState?'Δεν έχουν δημοσιευτεί επιπλέον ομαδικά στατιστικά.':d.scheduled?'Ο αγώνας δεν έχει αρχίσει. Τα στατιστικά θα εμφανιστούν όταν δημοσιευτούν από την πηγή.':'Τα στατιστικά και οι συνθέσεις θα εμφανιστούν όταν δημοσιευτούν από την πηγή.'));
  }
  function render(){if(!current||!dialog.open)return;const y=body.scrollTop;games=[];headers();body.innerHTML=current.type==='team'?teamBody(current):matchBody(current);body.scrollTop=y;footer();}
@@ -113,14 +133,14 @@ export function createDetailPanels({getSeed=()=>[]}={}){
  try{card.roster=await loadTeamRoster(card.team,card.competition,card.overview,{force});}catch(err){card.rosterError=err.message.startsWith('Δεν ')?err.message:'Η πηγή ρόστερ δεν είναι διαθέσιμη αυτή τη στιγμή.';}finally{card.rosterLoading=false;if(current===card&&generation===gen)render();}
  }
  async function fetchCard(card,force=false){
- const gen=generation;card.loading=true;card.error='';render();if(card.type==='match')void highlights(card,force);
+ const gen=generation;card.loading=true;card.error='';render();if(card.type==='match'){void highlights(card,force);void rankings(card,force);}
  try{if(card.type==='team')card.overview=await loadTeamOverview(card.team,card.competition,{seed:getSeed(),force});else card.data=synchronizeDetailScore(await loadMatchDetails(card.match,{force}),card.match);}
  catch(err){card.error=err.message.startsWith('Δεν ')||err.message.startsWith('Τα ')?err.message:'Η πηγή δεν είναι διαθέσιμη αυτή τη στιγμή.';}
  finally{card.loading=false;if(current===card&&generation===gen){render();if(card.type==='team'&&card.tab==='roster')void roster(card,force);if(card.type==='match')void highlights(card);}}
  }
  function show(card,push=true){if(current&&push)history.push(current);current=card;generation++;openDialog();body.scrollTop=0;render();if(!card.overview&&!card.data)void fetchCard(card);}
  function openTeam(team,competition){const c=competitions.find(c=>c.id===competition);if(!c)return;show({type:'team',team,competition:c,tab:'overview'});}
- function openMatch(match){const c=competitions.find(c=>c.id===match.competition)||{id:match.competition,name:match.competitionLabel||'Αγώνας',sport:match.sportLabel==='Μπάσκετ'?'basketball':match.sportLabel==='Ποδόσφαιρο'?'football':'other',url:match.source||''};show({type:'match',match,competition:c,tab:'overview'});}
+ function openMatch(match){const c=[...competitions,...tvOnlyCompetitions].find(c=>c.id===match.competition)||{id:match.competition,name:match.competitionLabel||'Αγώνας',sport:match.sportLabel==='Μπάσκετ'?'basketball':match.sportLabel==='Ποδόσφαιρο'?'football':'other',url:match.source||''};show({type:'match',match,competition:c,tab:'overview'});}
  $('detail-close').onclick=closeDetails;$('detail-back').onclick=()=>{const prior=history.pop();if(prior)show(prior,false);};
  $('detail-refresh').onclick=()=>{if(!current)return;if(current.type==='team'&&current.tab==='roster')void roster(current,true);else void fetchCard(current,true);};
  function resetCard(){generation++;current=null;history=[];document.body.classList.remove('detail-open');}
