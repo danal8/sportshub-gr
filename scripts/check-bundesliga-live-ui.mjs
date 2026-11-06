@@ -5,7 +5,10 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 const root=path.resolve('docs'),raw=JSON.parse(await readFile('tests/fixtures/bundesliga-20261024.json','utf8'));
 const daily=JSON.parse(await readFile('docs/snapshots/daily-2026-27.json','utf8'));
-daily.matches=daily.matches.filter(m=>m.competition==='bund'&&m.date==='2026-10-24').map(m=>({...m,score:null,scoreState:null}));
+const season=JSON.parse(await readFile('docs/snapshots/bund-2026-27.json','utf8'));
+daily.start=daily.end='2026-10-24';
+daily.matches=season.matches.filter(m=>m.date==='2026-10-24').map(m=>({...m,competition:'bund',competitionLabel:'Bundesliga',sportLabel:'Ποδόσφαιρο',score:null,scoreState:null}));
+assert.equal(daily.matches.length,6,'Stable season fixtures, independent of the rolling daily index');
 const server=createServer(async(req,res)=>{try{const file=path.resolve(root,'.'+new URL(req.url,'http://local').pathname.replace(/^\/$/,'/index.html'));if(!file.startsWith(root+path.sep))throw Error();res.setHeader('Content-Type',file.endsWith('.js')?'text/javascript':file.endsWith('.html')?'text/html':file.endsWith('.css')?'text/css':'application/json');res.end(await readFile(file));}catch{res.writeHead(404).end();}});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin='http://127.0.0.1:'+server.address().port,browser=await chromium.launch();
 try{for(const width of [1280,390]){

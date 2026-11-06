@@ -1,8 +1,13 @@
 import{chromium}from'playwright';import{createServer}from'node:http';import{readFile}from'node:fs/promises';import path from'node:path';import assert from'node:assert/strict';
-const root=path.resolve('docs'),daily=JSON.parse(await readFile('docs/snapshots/daily-2026-27.json')),payload=JSON.parse(await readFile('docs/snapshots/gbl-live.json'));
+import{parseGblWidget}from'../dist/gbl-scores.js';
+const root=path.resolve('docs'),daily=JSON.parse(await readFile('docs/snapshots/daily-2026-27.json'));
+const season=JSON.parse(await readFile('docs/snapshots/gbl-2026-27.json'));
+const fixtures=season.matches.map(m=>({...m,competition:'gbl',competitionLabel:'Greek Basket League',sportLabel:'Μπάσκετ',score:null,scoreState:null}));
+const payload={season:'2026-27',provider:JSON.parse(await readFile('docs/snapshots/gbl-live.json')).provider,entries:parseGblWidget(await readFile('tests/fixtures/gbl-widget.js.txt','utf8'),fixtures,{today:'2026-10-24',checkedAt:'2026-10-24T17:10:00Z'}).entries};
+assert.equal(payload.entries.length,5,'Captured ESAKE fixture, independent of the current live feed');
 // Freeze simulated live states instead of depending on today's mutable results.
 payload.entries=payload.entries.map(m=>m.home.includes('ΠΕΡΙΣΤΕΡΙ')?{...m,score:[70,72],scoreState:'live',clock:'4η περ.'}:m.home.includes('ΠΑΝΑΘΗΝΑΪΚΟΣ')?{...m,score:[60,50],scoreState:'live',clock:'3η περ.'}:m);
-daily.matches=daily.matches.filter(m=>m.competition==='gbl'&&m.date==='2026-10-24').map(m=>({...m,score:null,scoreState:null}));
+daily.start=daily.end='2026-10-24';daily.matches=fixtures.filter(m=>m.date==='2026-10-24');
 const server=createServer(async(req,res)=>{try{const p=path.resolve(root,'.'+new URL(req.url,'http://local').pathname.replace(/^\/$/,'/index.html'));if(!p.startsWith(root+path.sep))throw Error();res.setHeader('Content-Type',p.endsWith('.js')?'text/javascript':p.endsWith('.html')?'text/html':p.endsWith('.css')?'text/css':'application/json');res.end(await readFile(p));}catch{res.writeHead(404).end();}});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin='http://127.0.0.1:'+server.address().port,browser=await chromium.launch();
 try{for(const width of[1280,390]){let final=false;const context=await browser.newContext({viewport:{width,height:844},serviceWorkers:'block'}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.clock.install({time:new Date('2026-10-24T17:10:00Z')});
