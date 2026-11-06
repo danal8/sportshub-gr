@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-05T22:52:22.792Z",
+  "checkedAt": "2026-11-06T03:02:14.573Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -28,24 +28,9 @@
     {
       "competition": "conference",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "espn-401915818",
-          "competition": "conference",
-          "date": "2026-11-05",
-          "home": "Riga FC",
-          "away": "Jablonec"
-        },
-        {
-          "id": "espn-401915820",
-          "competition": "conference",
-          "date": "2026-11-05",
-          "home": "Sint-Truidense",
-          "away": "SK Brann"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 48
+      "finals": 51
     },
     {
       "competition": "el",
