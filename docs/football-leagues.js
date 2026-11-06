@@ -3,11 +3,12 @@ import{teamKey}from'./badges.js?v=77';
 import{aliases}from'./team-aliases.js?v=77';
 import{standingsCoverage}from'./standings-health.js?v=77';
 import{sectionStatus}from'./source-status.js?v=77';
-const leagues={pl:{file:'en.1',espn:'eng.1',teams:20,matches:380},laliga:{file:'es.1',espn:'esp.1',teams:20,matches:380},seriea:{file:'it.1',espn:'ita.1',teams:20,matches:380},ligue1:{file:'fr.1',espn:'fra.1',teams:18,matches:306}};
+const leagues={europa:{espn:'uefa.europa',teams:36,matches:144},conference:{espn:'uefa.europa.conf',teams:36,matches:108},pl:{file:'en.1',espn:'eng.1',teams:20,matches:380},laliga:{file:'es.1',espn:'esp.1',teams:20,matches:380},seriea:{file:'it.1',espn:'ita.1',teams:20,matches:380},ligue1:{file:'fr.1',espn:'fra.1',teams:18,matches:306}};
 const local=utc=>({date:new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Athens',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(utc)),time:new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Athens',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date(utc))});
 async function json(url){const r=await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('HTTP '+r.status);return r.json();}
 export function footballStandings(raw,id){
  const config=leagues[id],table=raw.children?.[0]?.standings;
+ if(['europa','conference'].includes(id)&&(raw.season?.year!==2026||raw.name!==(id==='europa'?'UEFA Europa League':'UEFA Conference League')||raw.children?.[0]?.name!=='League Phase'))throw Error('Λανθασμένη διοργάνωση ή φάση UEFA');
  if(!config||table?.season!==2026||table.entries?.length!==config.teams)throw Error('Λανθασμένη σεζόν ή βαθμολογία');
  return table.entries.map((e,i)=>{const stat=n=>e.stats.find(s=>s.name===n)?.value;const r={rank:stat('rank')||i+1,team:e.team.displayName,sourceTeamID:String(e.team.id),teamAliases:[e.team.shortDisplayName,e.team.name].filter(Boolean),badge:e.team.logos?.[0]?.href,played:stat('gamesPlayed'),wins:stat('wins'),draws:stat('ties'),losses:stat('losses'),points:stat('points')};if(![r.played,r.wins,r.draws,r.losses,r.points].every(Number.isInteger)||r.played<0||r.wins<0||r.draws<0||r.losses<0||r.wins+r.draws+r.losses!==r.played)throw Error('Μη έγκυρη βαθμολογία');return r;});
 }
@@ -26,10 +27,10 @@ export async function loadFootballStandings(id,{fetchJSON=json}={}){
 }
 // Check against reconciled finals, not just the primary provider's older results.
 export async function preferCompleteFootballStandings(payload,id,options){
- if(!['pl','laliga'].includes(id)||payload.standings?.length&&!standingsCoverage(payload.matches,payload.standings).stale)return payload;
+ if(!['pl','laliga','europa','conference'].includes(id)||!options?.force&&payload.standings?.length&&!standingsCoverage(payload.matches,payload.standings).stale)return payload;
  try{
   const alternative=await loadFootballStandings(id,options),coverage=standingsCoverage(payload.matches,alternative.standings);
-  if(coverage.stale||coverage.unmatched.length)throw Error('Ελλιπής εναλλακτική βαθμολογία');
+  if(coverage.stale||coverage.unmatched.length&&!['europa','conference'].includes(id))throw Error('Ελλιπής εναλλακτική βαθμολογία');
   return{...payload,standings:alternative.standings,standingsSource:alternative.source,sections:{...payload.sections,standings:sectionStatus(payload.sections?.standings,{data:alternative.standings,previousData:payload.standings,source:alternative.source,coverage})}};
  }catch{return payload;}
 }

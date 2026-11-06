@@ -1,6 +1,6 @@
 import{updatePayloadSections}from'./source-status.js?v=77';
 import{preserveConfirmedResults,mergeResultUpdates,sameResultMatch}from'./result-reconciliation.js?v=77';
-import{loadEuropeanLeague,preferCompleteFootballStandings}from'./football-leagues.js?v=77';
+import{loadEuropeanLeague,preferCompleteFootballStandings}from'./football-leagues.js?v=78';
 import{loadNBA,refreshNBAStandings}from'./nba.js?v=77';
 import{safeResults}from'./results.js?v=77';
 import{rememberBadges,loadBadgeCatalog}from'./badges.js?v=77';
@@ -10,7 +10,7 @@ export function isConnected(id){return ['seriea','ligue1'].includes(id)||id==='n
 function read(key){try{return JSON.parse(localStorage.getItem(key));}catch{return null;}}
 function save(key,payload){try{localStorage.setItem(key,JSON.stringify(payload));}catch{}}
 const inflight=new Map();
-export function loadProvider(id,season,options={}){const key=id+season;if(inflight.has(key))return inflight.get(key);const task=fetchProvider(id,season,options).then(async p=>{void loadBadgeCatalog();rememberBadges(p,id);const finals=read('sh-confirmed-results-2026-27')||[];p=safeResults({...p,matches:mergeResultUpdates(p.matches.map(m=>({...m,competition:id})),Array.isArray(finals)?finals:[])});if(id==='nba'){p=await refreshNBAStandings(p);save('sh-provider-v5-'+id+'-'+season,p);}return p;}).finally(()=>inflight.delete(key));inflight.set(key,task);return task;}
+export function loadProvider(id,season,options={}){const key=id+season;if(inflight.has(key))return inflight.get(key);const task=fetchProvider(id,season,options).then(async p=>{void loadBadgeCatalog();rememberBadges(p,id);const finals=read('sh-confirmed-results-2026-27')||[];if(['europa','conference'].includes(id))p=await preferCompleteFootballStandings(p,id,{force:options.force});p=safeResults({...p,matches:mergeResultUpdates(p.matches.map(m=>({...m,competition:id})),Array.isArray(finals)?finals:[])});if(id==='nba'){p=await refreshNBAStandings(p);save('sh-provider-v5-'+id+'-'+season,p);}return p;}).finally(()=>inflight.delete(key));inflight.set(key,task);return task;}
 async function fetchProvider(id,season,{force=false}={}){
  if(season!=='2026-27'||!isConnected(id))throw Error('Μη διαθέσιμη σεζόν ή διοργάνωση');
  const key=(staticIDs.includes(id)?'sh-static-':'sh-provider-v5-')+id+'-'+season,cached=read(key);let failure;

@@ -19,8 +19,8 @@ export const competitions=[
  {id:'laliga',name:'La Liga',sport:'football',file:'es.1',url:'https://www.laliga.com/',zone:'Europe/Madrid'},
  {id:'bund',name:'Bundesliga',sport:'football',file:'de.1',url:'https://www.bundesliga.com/',zone:'Europe/Berlin'},
  {id:'cl',name:'UEFA Champions League',sport:'football',url:'https://www.uefa.com/uefachampionsleague/',note:'Μερικό πρόγραμμα και αποτελέσματα από TheSportsDB / ESPN. Δεν υπάρχει επαληθευμένη πλήρης βαθμολογία· δεν υπολογίζεται από το ελλιπές πρόγραμμα.'},
- {id:'europa',name:'UEFA Europa League',sport:'football',url:'https://www.uefa.com/uefaeuropaleague/',note:'Μερικό πρόγραμμα και αποτελέσματα από TheSportsDB / ESPN. Δεν υπάρχει επαληθευμένη πλήρης βαθμολογία· δεν υπολογίζεται από το ελλιπές πρόγραμμα.'},
- {id:'conference',name:'UEFA Conference League',sport:'football',url:'https://www.uefa.com/uefaconferenceleague/',note:'Μερικό πρόγραμμα και αποτελέσματα από TheSportsDB / ESPN. Δεν υπάρχει επαληθευμένη πλήρης βαθμολογία· δεν υπολογίζεται από το ελλιπές πρόγραμμα.'}
+ {id:'europa',name:'UEFA Europa League',sport:'football',url:'https://www.uefa.com/uefaeuropaleague/',note:'Μερικό πρόγραμμα και αποτελέσματα από TheSportsDB / ESPN. Πλήρης βαθμολογία φάσης πρωταθλήματος 36 ομάδων από ESPN, με ξεχωριστή πηγή και χρόνο ενημέρωσης.'},
+ {id:'conference',name:'UEFA Conference League',sport:'football',url:'https://www.uefa.com/uefaconferenceleague/',note:'Μερικό πρόγραμμα και αποτελέσματα από TheSportsDB / ESPN. Πλήρης βαθμολογία φάσης πρωταθλήματος 36 ομάδων από ESPN, με ξεχωριστή πηγή και χρόνο ενημέρωσης.'}
 ];
 // Personal-use data files are deliberately excluded from the public repository.
 export const eliteMatches=[],broadcasts=[],currentTV=[],gblStandings=[];

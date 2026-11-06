@@ -1,3 +1,4 @@
+import{preferCompleteFootballStandings}from'../dist/football-leagues.js';
 import{refreshOfficialTable}from'./official-standings.mjs';
 import{updatePayloadSections}from'../dist/source-status.js';
 import{preserveConfirmedResults}from'../dist/result-reconciliation.js';
@@ -11,7 +12,7 @@ const text=async url=>{const r=await fetch(url,{signal:AbortSignal.timeout(20000
 let updated=0;
 for(const id of ['sl2','elite','gbl','conference']){try{
  const file=new URL(id+'-2026-27.json',root),old=JSON.parse(await readFile(file));let next;
- if(id==='conference'){const url='https://www.thesportsdb.com/api/v1/json/123/eventsseason.php?id=5071&s=2026-2027',raw=JSON.parse(await text(url));const incoming=normalizeSportsDB(raw,'5071','2026-27'),games=new Map(old.matches.map(m=>[m.id,m]));for(const m of incoming)games.set(m.id,m);next={...old,season:'2026-27',source:url,partial:true,standings:[],notice:'Μερικό πρόγραμμα TheSportsDB και επιβεβαιωμένα αποτελέσματα ESPN. Δεν διατίθεται πλήρης επαληθευμένη βαθμολογία.',matches:[...games.values()]};}
+ if(id==='conference'){const url='https://www.thesportsdb.com/api/v1/json/123/eventsseason.php?id=5071&s=2026-2027',raw=JSON.parse(await text(url));const incoming=normalizeSportsDB(raw,'5071','2026-27'),games=new Map(old.matches.map(m=>[m.id,m]));for(const m of incoming)games.set(m.id,m);next={...old,season:'2026-27',source:url,partial:true,notice:'Μερικό πρόγραμμα TheSportsDB και επιβεβαιωμένα αποτελέσματα ESPN. Δεν διατίθεται πλήρης επαληθευμένη βαθμολογία.',matches:[...games.values()]};}
  if(id==='sl2')next={...await loadSL2()};
  if(id==='elite')next={...old,matches:parseEliteSchedule(await text('https://www.eliteleague.gr/schedule/'))};
  if(id==='gbl'){
@@ -20,6 +21,7 @@ for(const id of ['sl2','elite','gbl','conference']){try{
   for(const round of rounds)for(const m of parseGBLRound(await text(`https://www.esake.gr/el/action/EsakeResults?idchampionship=184645B9&idteam=&idseason=00000001&series=${String(round).padStart(2,'0')}`),Number(round)))games.set(m.id,m);
   next={...old,matches:[...games.values()]};
  }
+ if(id==='conference'){next=await preferCompleteFootballStandings(next,id,{force:true});if(next.standings?.length===36)next.notice='Μερικό πρόγραμμα και πλήρης βαθμολογία φάσης πρωταθλήματος 36 ομάδων από ESPN.';}
  const now=new Date().toISOString();if(['elite','gbl'].includes(id))next=await refreshOfficialTable({...next,season:'2026-27'},old,id,{fetchText:text,now});const merged=updatePayloadSections(preserveConfirmedResults({...next,season:'2026-27',retrievedAt:now},old,id),old,{now});await writeFile(file,JSON.stringify(merged));updated++;console.log(id,next.matches.filter(m=>m.score).length,'results');
  }catch(e){console.warn(id,e.message);}}
 if(!updated)throw Error('No result source was available');

@@ -1,11 +1,11 @@
-import{loadMatchStandings,projectMatchStandings,pointsAdjustment}from'./match-standings.js?v=77';
+import{loadMatchStandings,projectMatchStandings,pointsAdjustment}from'./match-standings.js?v=78';
 import{sameTeam}from'./detail-data.js?v=77';
 import{tvOnlyCompetitions}from'./tv-meta.js?v=77';
 import{sameResultMatch,synchronizeDetailScore,mergeResultUpdates}from'./result-reconciliation.js?v=77';
 import{eventTimeline}from'./event-timeline.js?v=77';
 import{loadMatchHighlights}from'./highlights.js?v=77';
 import{escapeHTML as e,athensDay}from'./core.js?v=77';
-import{competitions}from'./data.js?v=77';
+import{competitions}from'./data.js?v=78';
 import{displayTeamName}from'./team-display.js?v=77';
 import{teamMarkup}from'./team-view.js?v=77';
 import{badgeSources}from'./badges.js?v=77';
@@ -55,7 +55,7 @@ export function createDetailPanels({getSeed=()=>[],getMatches=()=>[]}={}){
  function headers(){
  $('detail-back').hidden=!history.length;$('detail-refresh').disabled=!!current?.loading||!!current?.rosterLoading;
  if(current?.type==='team')$('detail-title').innerHTML=visual(current.team,current.competition);else $('detail-title').textContent=name(current?.match.home||'')+' – '+name(current?.match.away||'');
- const tabs=current?.type==='team'?[['overview','Σύνοψη'],['roster','Ρόστερ'],['games','Αγώνες']]:[['overview',current?.competition.sport==='football'?'Σύνοψη':'Στατιστικά'],['players',current?.competition.sport==='football'?'Συνθέσεις':'Παίκτες'],['events','Εξέλιξη']];
+ const tabs=current?.type==='team'?[['overview','Σύνοψη'],['roster','Ρόστερ'],['games','Αγώνες']]:[['overview',current?.competition.sport==='football'?'Σύνοψη':'Στατιστικά'],['players',current?.competition.sport==='football'?'Συνθέσεις':'Παίκτες'],['events','Εξέλιξη'],['standings','Βαθμολογία']];
  $('detail-tabs').innerHTML=tabs.map(([key,label])=>'<button type="button" data-detail-tab="'+key+'" aria-pressed="'+(current.tab===key)+'">'+label+'</button>').join('');
  }
  function footer(){
@@ -105,9 +105,8 @@ export function createDetailPanels({getSeed=()=>[],getMatches=()=>[]}={}){
   const updates=[...getMatches().filter(m=>!sameResultMatch(m,card.match)),{...card.match,...(card.data?.score?{score:card.data.score,scoreState:card.data.scoreState,scoreCheckedAt:card.data.scoreCheckedAt||card.data.checkedAt}:{}),competition:c.id}];
   const table=projectMatchStandings(c,card.ranking,updates),football=c.sport==='football',percent=['el','eurocup','nba'].includes(c.id);
   const sides=table.rows.filter(r=>sameTeam(r.team,card.match.home)||sameTeam(r.team,card.match.away));
-  if(sides.length!==2)return '<section class="match-standings"><h3>Βαθμολογία · '+e(c.name)+'</h3>'+blank('Δεν επιβεβαιώθηκαν και οι δύο ομάδες στη βαθμολογία αυτής της διοργάνωσης.')+'</section>';
   const draw=rows=>'<div class="detail-boxscroll"><table class="detail-compare"><thead><tr><th>#</th><th>Ομάδα</th><th>Αγ.</th><th>Ν</th>'+(football?'<th>Ι</th>':'')+'<th>Η</th><th>'+(percent?'% Ν':'Βαθ.')+'</th></tr></thead><tbody>'+rows.map(r=>'<tr'+(sides.includes(r)?' class="standing-current"':'')+'><td>'+value(r.rank)+'</td><th scope="row">'+e(name(r.team))+(r.group?'<small>'+e(r.group)+'</small>':'')+'</th><td>'+value(r.played)+'</td><td>'+value(r.wins)+'</td>'+(football?'<td>'+value(r.draws)+'</td>':'')+'<td>'+value(r.losses)+'</td><td>'+value(percent?r.winRate:r.points)+(pointsAdjustment(r,c)?'<small>Προσαρμογή πηγής: '+value(pointsAdjustment(r,c))+'</small>':'')+'</td></tr>').join('')+'</tbody></table></div>';
-  return '<section class="match-standings"><h3>'+(table.live?'● LIVE βαθμολογία':'Βαθμολογία')+' · '+e(c.name)+'</h3>'+draw(sides)+'<details><summary>Πλήρης βαθμολογία διοργάνωσης</summary>'+draw(table.rows)+'</details>'+(table.reason?'<p class="detail-meta">'+e(table.reason)+'</p>':'')+'<p class="detail-meta">'+sourceLink(card.ranking.source,'Πηγή βαθμολογίας')+(card.ranking.checkedAt?' · '+e(stamp(card.ranking.checkedAt)):'')+'</p></section>';
+  return '<section class="match-standings"><h3>'+(table.live?'● LIVE βαθμολογία':'Βαθμολογία')+' · '+e(c.name)+'</h3>'+draw(table.rows)+(table.reason?'<p class="detail-meta">'+e(table.reason)+'</p>':'')+'<p class="detail-meta">'+sourceLink(card.ranking.source,'Πηγή βαθμολογίας')+(card.ranking.checkedAt?' · '+e(stamp(card.ranking.checkedAt)):'')+'</p></section>';
  }
  async function rankings(card,force=false){
   if(card.rankingLoading)return;card.rankingLoading=true;const gen=generation;render();
@@ -115,11 +114,12 @@ export function createDetailPanels({getSeed=()=>[],getMatches=()=>[]}={}){
  }
  function matchBody(card){
  const m=card.match,d=card.data,c=card.competition;
+ if(card.tab==='standings')return standingsBody(card);
  const teams='<div class="detail-match-teams"><button type="button" data-detail-team="'+e(m.home)+'" data-detail-competition="'+e(c.id)+'">'+visual(m.home,c,m.homeBadge)+'</button><span>–</span><button type="button" data-detail-team="'+e(m.away)+'" data-detail-competition="'+e(c.id)+'">'+visual(m.away,c,m.awayBadge)+'</button></div>';
- if(!d)return teams+standingsBody(card)+highlightLink(card)+'<p class="detail-meta">'+e(day(m.date))+' · '+e(m.time||'Ώρα μη ορισμένη')+' · '+e(c.name)+'</p>'+blank(card.loading?'Φόρτωση αναλυτικών στατιστικών…':card.error||'Δεν υπάρχουν διαθέσιμα στοιχεία.')+(!card.loading?'<button type="button" class="outline" data-detail-retry>Δοκίμασε ξανά</button>':'');
+ if(!d)return teams+highlightLink(card)+'<p class="detail-meta">'+e(day(m.date))+' · '+e(m.time||'Ώρα μη ορισμένη')+' · '+e(c.name)+'</p>'+blank(card.loading?'Φόρτωση αναλυτικών στατιστικών…':card.error||'Δεν υπάρχουν διαθέσιμα στοιχεία.')+(!card.loading?'<button type="button" class="outline" data-detail-retry>Δοκίμασε ξανά</button>':'');
  const age=Date.now()-Date.parse(d.scoreCheckedAt||d.checkedAt),live=d.scoreState==='live'&&age>=-60000&&age<90000;
  const score=d.score?'<div class="detail-score"><strong>'+e(d.score.join(' – '))+'</strong><span>'+(d.scoreState==='final'?'Τελικό':live?'● LIVE'+(d.clock?' · '+e(d.clock):''):'Σκορ πηγής · αναμονή ενημέρωσης')+'</span></div>':'';
- const head=(card.error?'<p class="detail-empty" role="status">'+e(card.error)+' Τα προηγούμενα στοιχεία παραμένουν ορατά.</p>':'')+teams+score+standingsBody(card)+highlightLink(card)+'<p class="detail-meta">'+e(day(m.date))+' · '+e(m.time||'Ώρα μη ορισμένη')+' · '+e(c.name)+(d.venue?' · '+e(d.venue):'')+'</p>';
+ const head=(card.error?'<p class="detail-empty" role="status">'+e(card.error)+' Τα προηγούμενα στοιχεία παραμένουν ορατά.</p>':'')+teams+score+highlightLink(card)+'<p class="detail-meta">'+e(day(m.date))+' · '+e(m.time||'Ώρα μη ορισμένη')+' · '+e(c.name)+(d.venue?' · '+e(d.venue):'')+'</p>';
  if(card.tab==='players')return head+playerTables(d);
  if(card.tab==='events'&&c.sport==='football')return head+eventTimeline(d.events);
  if(card.tab==='events')return head+(d.events.length?'<ol class="detail-events">'+d.events.slice(0,card.eventCount||40).map(p=>'<li><span>'+e([p.label,p.period?p.period+'η περ.':'',p.clock].filter(Boolean).join(' · '))+'</span><p>'+e(p.text)+'</p></li>').join('')+'</ol>'+(d.events.length>(card.eventCount||40)?'<button type="button" class="outline" data-more-events>Περισσότερες φάσεις</button>':''):blank('Δεν έχει δημοσιευτεί διαθέσιμη εξέλιξη φάσεων.'));
@@ -133,7 +133,7 @@ export function createDetailPanels({getSeed=()=>[],getMatches=()=>[]}={}){
  try{card.roster=await loadTeamRoster(card.team,card.competition,card.overview,{force});}catch(err){card.rosterError=err.message.startsWith('Δεν ')?err.message:'Η πηγή ρόστερ δεν είναι διαθέσιμη αυτή τη στιγμή.';}finally{card.rosterLoading=false;if(current===card&&generation===gen)render();}
  }
  async function fetchCard(card,force=false){
- const gen=generation;card.loading=true;card.error='';render();if(card.type==='match'){void highlights(card,force);void rankings(card,force);}
+ const gen=generation;card.loading=true;card.error='';render();if(card.type==='match'){void highlights(card,force);if(card.tab==='standings'||card.ranking)void rankings(card,force);}
  try{if(card.type==='team')card.overview=await loadTeamOverview(card.team,card.competition,{seed:getSeed(),force});else card.data=synchronizeDetailScore(await loadMatchDetails(card.match,{force}),card.match);}
  catch(err){card.error=err.message.startsWith('Δεν ')||err.message.startsWith('Τα ')?err.message:'Η πηγή δεν είναι διαθέσιμη αυτή τη στιγμή.';}
  finally{card.loading=false;if(current===card&&generation===gen){render();if(card.type==='team'&&card.tab==='roster')void roster(card,force);if(card.type==='match')void highlights(card);}}
@@ -153,7 +153,7 @@ export function createDetailPanels({getSeed=()=>[],getMatches=()=>[]}={}){
  });
  dialog.addEventListener('click',event=>{
  const target=event.target.closest('button');if(!target)return;
- if(target.dataset.detailTab){current.tab=target.dataset.detailTab;render();if(current.type==='team'&&current.tab==='roster'&&!current.roster&&!current.rosterError)void roster(current);return;}
+ if(target.dataset.detailTab){current.tab=target.dataset.detailTab;body.scrollTop=0;render();if(current.type==='match'&&current.tab==='standings'&&!current.ranking&&!current.rankingLoading)void rankings(current);if(current.type==='team'&&current.tab==='roster'&&!current.roster&&!current.rosterError)void roster(current);return;}
  if(target.dataset.detailGame!==undefined){const m=games[Number(target.dataset.detailGame)];if(m)openMatch(m);return;}
  if(target.dataset.detailTeam){openTeam(target.dataset.detailTeam,target.dataset.detailCompetition);return;}
  if(target.hasAttribute('data-detail-retry')){if(current.type==='team'&&current.tab==='roster')void roster(current,true);else void fetchCard(current,true);}

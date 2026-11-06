@@ -1,3 +1,4 @@
+import{preferCompleteFootballStandings}from'./football-leagues.js?v=78';
 import{sameTeam,snapshotMatches,detailJSON}from'./detail-data.js?v=77';
 import{sameResultMatch,mergeResultUpdates}from'./result-reconciliation.js?v=77';
 import{isFreshLive}from'./live-scores.js?v=77';
@@ -11,7 +12,9 @@ export async function loadMatchStandings(c,{seed=[],force=false}={}){
  if(c.noStandings||c.tvOnly||c.sport==='other')return null;
  let payload=!force&&seed.find(r=>r.competition.id===c.id&&r.payload.standings?.length)?.payload;
  if(!payload)payload=await detailJSON('./snapshots/'+c.id+'-2026-27.json',{ttl:30000,force});
- if(payload.season!=='2026-27'||!payload.standings?.length)return null;
+ if(payload.season!=='2026-27')return null;
+ if(['europa','conference'].includes(c.id))payload=await preferCompleteFootballStandings(payload,c.id,{force});
+ if(!payload.standings?.length)return null;
  return{payload,matches:snapshotMatches(payload,c),source:payload.standingsSource||payload.source,checkedAt:payload.sections?.standings?.lastSuccessAt||payload.retrievedAt};
 }
 
