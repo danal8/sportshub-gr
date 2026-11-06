@@ -1,0 +1,6 @@
+import{escapeHTML as e}from'./core.js?v=77';
+import{pointsAdjustment}from'./match-standings.js?v=78';
+export function standingsTable(rows,c,{teamCell,rowClass=()=>''}={}){
+ const football=c.sport==='football',percent=['el','eurocup','nba'].includes(c.id);
+ return `<div class="table-scroll"><table><caption class="fine">${e(c.name)} · 2026–27</caption><thead><tr><th scope="col">#</th><th scope="col">Ομάδα</th><th scope="col">Αγ.</th><th scope="col">Ν</th>${football?'<th scope="col">Ι</th>':''}<th scope="col">Η</th><th scope="col">${percent?'% Ν':'Βαθ.'}</th></tr></thead><tbody>${rows.map((r,i)=>`${r.group&&r.group!==rows[i-1]?.group?`<tr><th colspan="${football?7:6}" scope="rowgroup">${e(r.group)}</th></tr>`:''}<tr class="${e(rowClass(r))}"><td>${r.rank}</td><td>${teamCell(r)}</td><td>${r.played}</td><td>${r.wins}</td>${football?`<td>${r.draws}</td>`:''}<td>${r.losses}</td><td>${percent?e(r.winRate||'—'):r.points}${pointsAdjustment(r,c)?`<small class="standing-adjustment" title="Διαφορά από 2 βαθμούς ανά νίκη και 1 ανά ήττα. Διατηρούνται οι βαθμοί της επίσημης πηγής."> (${pointsAdjustment(r,c)>0?'+':''}${pointsAdjustment(r,c)})</small>`:''}</td></tr>`).join('')}</tbody></table></div>`;
+}

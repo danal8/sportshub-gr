@@ -1,3 +1,4 @@
+import{standingsTable}from'./standings-table.js?v=79';
 import{loadMatchStandings,projectMatchStandings,pointsAdjustment}from'./match-standings.js?v=78';
 import{sameTeam}from'./detail-data.js?v=77';
 import{tvOnlyCompetitions}from'./tv-meta.js?v=77';
@@ -105,7 +106,11 @@ export function createDetailPanels({getSeed=()=>[],getMatches=()=>[]}={}){
   const updates=[...getMatches().filter(m=>!sameResultMatch(m,card.match)),{...card.match,...(card.data?.score?{score:card.data.score,scoreState:card.data.scoreState,scoreCheckedAt:card.data.scoreCheckedAt||card.data.checkedAt}:{}),competition:c.id}];
   const table=projectMatchStandings(c,card.ranking,updates),football=c.sport==='football',percent=['el','eurocup','nba'].includes(c.id);
   const sides=table.rows.filter(r=>sameTeam(r.team,card.match.home)||sameTeam(r.team,card.match.away));
-  const draw=rows=>'<div class="detail-boxscroll"><table class="detail-compare"><thead><tr><th>#</th><th>Ομάδα</th><th>Αγ.</th><th>Ν</th>'+(football?'<th>Ι</th>':'')+'<th>Η</th><th>'+(percent?'% Ν':'Βαθ.')+'</th></tr></thead><tbody>'+rows.map(r=>'<tr'+(sides.includes(r)?' class="standing-current"':'')+'><td>'+value(r.rank)+'</td><th scope="row">'+e(name(r.team))+(r.group?'<small>'+e(r.group)+'</small>':'')+'</th><td>'+value(r.played)+'</td><td>'+value(r.wins)+'</td>'+(football?'<td>'+value(r.draws)+'</td>':'')+'<td>'+value(r.losses)+'</td><td>'+value(percent?r.winRate:r.points)+(pointsAdjustment(r,c)?'<small>Προσαρμογή πηγής: '+value(pointsAdjustment(r,c))+'</small>':'')+'</td></tr>').join('')+'</tbody></table></div>';
+  const draw=rows=>standingsTable(rows,c,{rowClass:r=>sides.includes(r)?'standing-current':'',teamCell:r=>{
+   const game=card.ranking.matches.find(m=>sameTeam(r.team,m.home)||sameTeam(r.team,m.away));
+   const badge=r.badge||(game&&(sameTeam(r.team,game.home)?game.homeBadge:game.awayBadge));
+   return '<span class="standing-team"><button type="button" class="team-open" data-detail-team="'+e(r.team)+'" data-detail-competition="'+e(c.id)+'">'+visual(r.team,c,badge)+'</button></span>';
+  }});
   return '<section class="match-standings"><h3>'+(table.live?'● LIVE βαθμολογία':'Βαθμολογία')+' · '+e(c.name)+'</h3>'+draw(table.rows)+(table.reason?'<p class="detail-meta">'+e(table.reason)+'</p>':'')+'<p class="detail-meta">'+sourceLink(card.ranking.source,'Πηγή βαθμολογίας')+(card.ranking.checkedAt?' · '+e(stamp(card.ranking.checkedAt)):'')+'</p></section>';
  }
  async function rankings(card,force=false){
