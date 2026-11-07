@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-07T08:52:35.992Z",
+  "checkedAt": "2026-11-07T15:18:27.999Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -208,13 +208,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "laliga-85449",
-          "competition": "laliga",
-          "date": "2026-11-07",
-          "home": "FC Malaga",
-          "away": "Racing Santander"
-        },
-        {
           "id": "laliga-85448",
           "competition": "laliga",
           "date": "2026-11-07",
@@ -237,7 +230,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 110
+      "finals": 111
     },
     {
       "competition": "ligue1",
@@ -287,13 +280,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "pl-86624",
-          "competition": "pl",
-          "date": "2026-11-07",
-          "home": "Leeds United",
-          "away": "Tottenham Hotspur FC"
-        },
-        {
           "id": "pl-86618",
           "competition": "pl",
           "date": "2026-11-07",
@@ -316,7 +302,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 91
+      "finals": 92
     },
     {
       "competition": "seriea",
