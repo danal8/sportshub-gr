@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-07T22:57:12.916Z",
+  "checkedAt": "2026-11-08T02:15:04.079Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -180,6 +180,13 @@
           "away": "Stade Rennais FC 1901"
         },
         {
+          "id": "ligue1-2026-10-31-Olympique Lyonnais-Angers SCO-75",
+          "competition": "ligue1",
+          "date": "2026-10-31",
+          "home": "Olympique Lyonnais",
+          "away": "Angers SCO"
+        },
+        {
           "id": "ligue1-2026-11-08-Stade Rennais FC 1901-Lille OSC-84",
           "competition": "ligue1",
           "date": "2026-11-08",
@@ -223,19 +230,12 @@
         }
       ],
       "sourceError": null,
-      "finals": 82
+      "finals": 81
     },
     {
       "competition": "nba",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "nba-401909938",
-          "competition": "nba",
-          "date": "2026-11-08",
-          "home": "Indiana Pacers",
-          "away": "Denver Nuggets"
-        },
         {
           "id": "nba-401909939",
           "competition": "nba",
@@ -287,7 +287,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 132
+      "finals": 133
     },
     {
       "competition": "pl",
