@@ -1,36 +1,14 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-08T15:58:38.751Z",
+  "checkedAt": "2026-11-08T23:52:59.882Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
       "competition": "bund",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "bund-83235",
-          "competition": "bund",
-          "date": "2026-11-08",
-          "home": "1. FC Köln",
-          "away": "Bayer 04 Leverkusen"
-        },
-        {
-          "id": "bund-83232",
-          "competition": "bund",
-          "date": "2026-11-08",
-          "home": "SC Freiburg",
-          "away": "1. FC Union Berlin"
-        },
-        {
-          "id": "bund-83231",
-          "competition": "bund",
-          "date": "2026-11-08",
-          "home": "TSG Hoffenheim",
-          "away": "FC Schalke 04"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 78
+      "finals": 81
     },
     {
       "competition": "cl",
@@ -77,17 +55,9 @@
     {
       "competition": "gbl",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "gbl-84DE99E9",
-          "competition": "gbl",
-          "date": "2026-11-08",
-          "home": "ΜΑΡΟΥΣΙ",
-          "away": "ΟΛΥΜΠΙΑΚΟΣ"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 41
+      "finals": 42
     },
     {
       "competition": "greek-cup",
@@ -114,38 +84,9 @@
     {
       "competition": "laliga",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "laliga-85451",
-          "competition": "laliga",
-          "date": "2026-11-08",
-          "home": "Real Sociedad",
-          "away": "Rayo Vallecano"
-        },
-        {
-          "id": "laliga-85446",
-          "competition": "laliga",
-          "date": "2026-11-08",
-          "home": "Celta Vigo",
-          "away": "Levante UD"
-        },
-        {
-          "id": "laliga-85454",
-          "competition": "laliga",
-          "date": "2026-11-08",
-          "home": "FC Villareal",
-          "away": "FC Getafe"
-        },
-        {
-          "id": "laliga-85445",
-          "competition": "laliga",
-          "date": "2026-11-08",
-          "home": "Atlético Madrid",
-          "away": "FC Barcelona"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 115
+      "finals": 119
     },
     {
       "competition": "ligue1",
@@ -173,102 +114,79 @@
           "away": "Angers SCO"
         },
         {
-          "id": "ligue1-2026-11-08-Le Mans FC-AS Monaco FC-85",
+          "id": "ligue1-2026-10-31-FC Lorient-Stade Brestois 29-76",
           "competition": "ligue1",
-          "date": "2026-11-08",
-          "home": "Le Mans FC",
-          "away": "AS Monaco FC"
-        },
-        {
-          "id": "ligue1-2026-11-08-Stade Brestois 29-Olympique Lyonnais-86",
-          "competition": "ligue1",
-          "date": "2026-11-08",
-          "home": "Stade Brestois 29",
-          "away": "Olympique Lyonnais"
-        },
-        {
-          "id": "ligue1-2026-11-08-Le Havre AC-FC Lorient-87",
-          "competition": "ligue1",
-          "date": "2026-11-08",
-          "home": "Le Havre AC",
-          "away": "FC Lorient"
-        },
-        {
-          "id": "ligue1-2026-11-08-Angers SCO-OGC Nice-88",
-          "competition": "ligue1",
-          "date": "2026-11-08",
-          "home": "Angers SCO",
-          "away": "OGC Nice"
-        },
-        {
-          "id": "ligue1-2026-11-08-Racing Club de Lens-Olympique de Marseille-89",
-          "competition": "ligue1",
-          "date": "2026-11-08",
-          "home": "Racing Club de Lens",
-          "away": "Olympique de Marseille"
+          "date": "2026-10-31",
+          "home": "FC Lorient",
+          "away": "Stade Brestois 29"
         }
       ],
       "sourceError": null,
-      "finals": 82
+      "finals": 86
     },
     {
       "competition": "nba",
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "nba-401909945",
+          "id": "nba-401909946",
           "competition": "nba",
-          "date": "2026-11-08",
-          "home": "Chicago Bulls",
-          "away": "Philadelphia 76ers"
+          "date": "2026-11-09",
+          "home": "Detroit Pistons",
+          "away": "Los Angeles Lakers"
+        },
+        {
+          "id": "nba-401909947",
+          "competition": "nba",
+          "date": "2026-11-09",
+          "home": "Minnesota Timberwolves",
+          "away": "Utah Jazz"
+        },
+        {
+          "id": "nba-401909948",
+          "competition": "nba",
+          "date": "2026-11-09",
+          "home": "Dallas Mavericks",
+          "away": "Brooklyn Nets"
+        },
+        {
+          "id": "nba-401909949",
+          "competition": "nba",
+          "date": "2026-11-09",
+          "home": "Milwaukee Bucks",
+          "away": "Boston Celtics"
+        },
+        {
+          "id": "nba-401909951",
+          "competition": "nba",
+          "date": "2026-11-09",
+          "home": "Sacramento Kings",
+          "away": "Miami Heat"
+        },
+        {
+          "id": "nba-401909950",
+          "competition": "nba",
+          "date": "2026-11-09",
+          "home": "LA Clippers",
+          "away": "New Orleans Pelicans"
         }
       ],
       "sourceError": null,
-      "finals": 139
+      "finals": 140
     },
     {
       "competition": "pl",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "pl-86627",
-          "competition": "pl",
-          "date": "2026-11-08",
-          "home": "Sunderland",
-          "away": "Chelsea FC"
-        },
-        {
-          "id": "pl-86625",
-          "competition": "pl",
-          "date": "2026-11-08",
-          "home": "Manchester United FC",
-          "away": "Aston Villa"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 98
+      "finals": 100
     },
     {
       "competition": "seriea",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "seriea-2026-11-08-FC Internazionale Milano-Como 1907-108",
-          "competition": "seriea",
-          "date": "2026-11-08",
-          "home": "FC Internazionale Milano",
-          "away": "Como 1907"
-        },
-        {
-          "id": "seriea-2026-11-08-ACF Fiorentina-Juventus FC-109",
-          "competition": "seriea",
-          "date": "2026-11-08",
-          "home": "ACF Fiorentina",
-          "away": "Juventus FC"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 108
+      "finals": 110
     },
     {
       "competition": "sl",
@@ -280,50 +198,23 @@
           "date": "2026-10-17",
           "home": "Atromitos",
           "away": "AEK"
-        },
-        {
-          "id": "sl-2026-11-08-Asteras Tripolis-Kalamata",
-          "competition": "sl",
-          "date": "2026-11-08",
-          "home": "Asteras Tripolis",
-          "away": "Kalamata"
-        },
-        {
-          "id": "sl-2026-11-08-AEK-Levadiakos",
-          "competition": "sl",
-          "date": "2026-11-08",
-          "home": "AEK",
-          "away": "Levadiakos"
-        },
-        {
-          "id": "sl-2026-11-08-OFI-Atromitos",
-          "competition": "sl",
-          "date": "2026-11-08",
-          "home": "OFI",
-          "away": "Atromitos"
-        },
-        {
-          "id": "sl-2026-11-08-Iraklis 1908-Panathinaikos",
-          "competition": "sl",
-          "date": "2026-11-08",
-          "home": "Iraklis 1908",
-          "away": "Panathinaikos"
-        },
-        {
-          "id": "sl-2026-11-08-Olympiakos Piraeus-PAOK",
-          "competition": "sl",
-          "date": "2026-11-08",
-          "home": "Olympiakos Piraeus",
-          "away": "PAOK"
         }
       ],
       "sourceError": null,
-      "finals": 64
+      "finals": 69
     },
     {
       "competition": "sl2",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "sl2-2627076",
+          "competition": "sl2",
+          "date": "2026-11-09",
+          "home": "ΖΑΚΥΝΘΟΣ",
+          "away": "ΝΙΚΗ ΒΟΛΟΥ"
+        }
+      ],
       "sourceError": null,
       "finals": 79
     },
@@ -346,15 +237,15 @@
           "away": "Πανιώνιος Betsson"
         },
         {
-          "id": "volley-m-3-16",
+          "id": "volley-m-3-17",
           "competition": "volley-m",
-          "date": "2026-11-08",
-          "home": "Α.Ο.Π. Κηφισιάς",
-          "away": "Α.Ο.Φοίνικας Σύρου"
+          "date": "2026-11-09",
+          "home": "Α.Ο.Καλαμάτα Affidea V.C",
+          "away": "Π.Α.Ο.Κ."
         }
       ],
       "sourceError": null,
-      "finals": 14
+      "finals": 15
     },
     {
       "competition": "volley-w",
