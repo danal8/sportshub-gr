@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-08T02:15:04.079Z",
+  "checkedAt": "2026-11-08T09:09:41.426Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -237,48 +237,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "nba-401909939",
-          "competition": "nba",
-          "date": "2026-11-08",
-          "home": "Atlanta Hawks",
-          "away": "Brooklyn Nets"
-        },
-        {
-          "id": "nba-401909941",
-          "competition": "nba",
-          "date": "2026-11-08",
-          "home": "Oklahoma City Thunder",
-          "away": "Washington Wizards"
-        },
-        {
-          "id": "nba-401909940",
-          "competition": "nba",
-          "date": "2026-11-08",
-          "home": "Cleveland Cavaliers",
-          "away": "New York Knicks"
-        },
-        {
-          "id": "nba-401909942",
-          "competition": "nba",
-          "date": "2026-11-08",
-          "home": "Golden State Warriors",
-          "away": "Orlando Magic"
-        },
-        {
-          "id": "nba-401909943",
-          "competition": "nba",
-          "date": "2026-11-08",
-          "home": "Phoenix Suns",
-          "away": "Houston Rockets"
-        },
-        {
-          "id": "nba-401909944",
-          "competition": "nba",
-          "date": "2026-11-08",
-          "home": "Portland Trail Blazers",
-          "away": "San Antonio Spurs"
-        },
-        {
           "id": "nba-401909945",
           "competition": "nba",
           "date": "2026-11-08",
@@ -287,7 +245,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 133
+      "finals": 139
     },
     {
       "competition": "pl",
@@ -444,13 +402,6 @@
           "away": "ΠΑΝΙΩΝΙΟΣ"
         },
         {
-          "id": "sl2-2627074",
-          "competition": "sl2",
-          "date": "2026-11-08",
-          "home": "ΠΥΡΓΟΣ",
-          "away": "ΠΑΟΚ Β'"
-        },
-        {
           "id": "sl2-2627073",
           "competition": "sl2",
           "date": "2026-11-08",
@@ -463,6 +414,13 @@
           "date": "2026-11-08",
           "home": "ΑΝΑΓ. ΚΑΡΔΙΤΣΑΣ",
           "away": "ΜΑΡΚΟ"
+        },
+        {
+          "id": "sl2-2627074",
+          "competition": "sl2",
+          "date": "2026-11-08",
+          "home": "ΠΥΡΓΟΣ",
+          "away": "ΠΑΟΚ Β'"
         }
       ],
       "sourceError": null,
