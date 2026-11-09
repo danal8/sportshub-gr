@@ -1,5 +1,5 @@
 import{standingsTable}from'./standings-table.js?v=79';
-import{loadMatchStandings,projectMatchStandings,pointsAdjustment}from'./match-standings.js?v=78';
+import{loadMatchStandings,projectMatchStandings,pointsAdjustment}from'./match-standings.js?v=80';
 import{sameTeam}from'./detail-data.js?v=77';
 import{tvOnlyCompetitions}from'./tv-meta.js?v=77';
 import{sameResultMatch,synchronizeDetailScore,mergeResultUpdates}from'./result-reconciliation.js?v=77';
@@ -111,7 +111,7 @@ export function createDetailPanels({getSeed=()=>[],getMatches=()=>[]}={}){
    const badge=r.badge||(game&&(sameTeam(r.team,game.home)?game.homeBadge:game.awayBadge));
    return '<span class="standing-team"><button type="button" class="team-open" data-detail-team="'+e(r.team)+'" data-detail-competition="'+e(c.id)+'">'+visual(r.team,c,badge)+'</button></span>';
   }});
-  return '<section class="match-standings"><h3>'+(table.live?'● LIVE βαθμολογία':'Βαθμολογία')+' · '+e(c.name)+'</h3>'+draw(table.rows)+(table.reason?'<p class="detail-meta">'+e(table.reason)+'</p>':'')+'<p class="detail-meta">'+sourceLink(card.ranking.source,'Πηγή βαθμολογίας')+(card.ranking.checkedAt?' · '+e(stamp(card.ranking.checkedAt)):'')+'</p></section>';
+  return '<section class="match-standings"><h3>'+(table.live?'● LIVE βαθμολογία':'Βαθμολογία')+' · '+e(c.name)+'</h3>'+draw(table.rows)+(card.ranking.payload.computed?'<p class="detail-meta">Ενδεικτική κατάταξη από επιβεβαιωμένα αποτελέσματα.</p>':'')+(table.reason?'<p class="detail-meta">'+e(table.reason)+'</p>':'')+'<p class="detail-meta">'+sourceLink(card.ranking.source,'Πηγή βαθμολογίας')+(card.ranking.checkedAt?' · '+e(stamp(card.ranking.checkedAt)):'')+'</p></section>';
  }
  async function rankings(card,force=false){
   if(card.rankingLoading)return;card.rankingLoading=true;const gen=generation;render();

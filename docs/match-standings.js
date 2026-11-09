@@ -1,3 +1,4 @@
+import{athensDay,calculateTable}from'./core.js?v=77';
 import{preferCompleteFootballStandings}from'./football-leagues.js?v=78';
 import{sameTeam,snapshotMatches,detailJSON}from'./detail-data.js?v=77';
 import{sameResultMatch,mergeResultUpdates}from'./result-reconciliation.js?v=77';
@@ -14,6 +15,10 @@ export async function loadMatchStandings(c,{seed=[],force=false}={}){
  if(!payload)payload=await detailJSON('./snapshots/'+c.id+'-2026-27.json',{ttl:30000,force});
  if(payload.season!=='2026-27')return null;
  if(['europa','conference'].includes(c.id))payload=await preferCompleteFootballStandings(payload,c.id,{force});
+ if(c.id==='sl'&&!payload.standings?.length){
+  const standings=calculateTable(snapshotMatches(payload,c),athensDay());
+  payload={...payload,standings,standingsSource:payload.sections?.results?.source||payload.source,computed:true};
+ }
  if(!payload.standings?.length)return null;
  return{payload,matches:snapshotMatches(payload,c),source:payload.standingsSource||payload.source,checkedAt:payload.sections?.standings?.lastSuccessAt||payload.retrievedAt};
 }
