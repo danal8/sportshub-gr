@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-09T04:01:25.111Z",
+  "checkedAt": "2026-11-09T09:16:33.229Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -127,24 +127,9 @@
     {
       "competition": "nba",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "nba-401909951",
-          "competition": "nba",
-          "date": "2026-11-09",
-          "home": "Sacramento Kings",
-          "away": "Miami Heat"
-        },
-        {
-          "id": "nba-401909950",
-          "competition": "nba",
-          "date": "2026-11-09",
-          "home": "LA Clippers",
-          "away": "New Orleans Pelicans"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 144
+      "finals": 146
     },
     {
       "competition": "pl",
