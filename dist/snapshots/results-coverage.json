@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-09T12:46:33.777Z",
+  "checkedAt": "2026-11-09T22:45:12.154Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -41,7 +41,64 @@
     {
       "competition": "eurocup",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "U-112",
+          "competition": "eurocup",
+          "date": "2026-11-10",
+          "home": "Kids&Us Manresa",
+          "away": "BOSNA BH Telecom Sarajevo"
+        },
+        {
+          "id": "U-102",
+          "competition": "eurocup",
+          "date": "2026-11-10",
+          "home": "London Lions",
+          "away": "Umana Reyer Venice"
+        },
+        {
+          "id": "U-106",
+          "competition": "eurocup",
+          "date": "2026-11-10",
+          "home": "Dolomiti Energia Trento",
+          "away": "Tofas Bursa"
+        },
+        {
+          "id": "U-100",
+          "competition": "eurocup",
+          "date": "2026-11-10",
+          "home": "Rostock Seawolves",
+          "away": "Cedevita Olimpija Ljubljana"
+        },
+        {
+          "id": "U-108",
+          "competition": "eurocup",
+          "date": "2026-11-10",
+          "home": "Cosea JL Bourg-en-Bresse",
+          "away": "Buducnost VOLI Podgorica"
+        },
+        {
+          "id": "U-111",
+          "competition": "eurocup",
+          "date": "2026-11-10",
+          "home": "Balkan Botevgrad",
+          "away": "PAOK Thessaloniki"
+        },
+        {
+          "id": "U-105",
+          "competition": "eurocup",
+          "date": "2026-11-10",
+          "home": "Neptunas Klaipeda",
+          "away": "Slask Wroclaw"
+        },
+        {
+          "id": "U-104",
+          "competition": "eurocup",
+          "date": "2026-11-10",
+          "home": "U-BT Cluj-Napoca",
+          "away": "Turk Telekom Ankara"
+        }
+      ],
       "sourceError": null,
       "finals": 96
     },
@@ -127,7 +184,64 @@
     {
       "competition": "nba",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "nba-401909953",
+          "competition": "nba",
+          "date": "2026-11-10",
+          "home": "Charlotte Hornets",
+          "away": "Cleveland Cavaliers"
+        },
+        {
+          "id": "nba-401909954",
+          "competition": "nba",
+          "date": "2026-11-10",
+          "home": "Detroit Pistons",
+          "away": "Washington Wizards"
+        },
+        {
+          "id": "nba-401909952",
+          "competition": "nba",
+          "date": "2026-11-10",
+          "home": "Atlanta Hawks",
+          "away": "Los Angeles Lakers"
+        },
+        {
+          "id": "nba-401909955",
+          "competition": "nba",
+          "date": "2026-11-10",
+          "home": "Toronto Raptors",
+          "away": "Memphis Grizzlies"
+        },
+        {
+          "id": "nba-401909956",
+          "competition": "nba",
+          "date": "2026-11-10",
+          "home": "Dallas Mavericks",
+          "away": "Indiana Pacers"
+        },
+        {
+          "id": "nba-401909957",
+          "competition": "nba",
+          "date": "2026-11-10",
+          "home": "Houston Rockets",
+          "away": "Denver Nuggets"
+        },
+        {
+          "id": "nba-401909958",
+          "competition": "nba",
+          "date": "2026-11-10",
+          "home": "Phoenix Suns",
+          "away": "San Antonio Spurs"
+        },
+        {
+          "id": "nba-401909959",
+          "competition": "nba",
+          "date": "2026-11-10",
+          "home": "Golden State Warriors",
+          "away": "New Orleans Pelicans"
+        }
+      ],
       "sourceError": null,
       "finals": 146
     },
@@ -163,46 +277,16 @@
     {
       "competition": "sl2",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "sl2-2627076",
-          "competition": "sl2",
-          "date": "2026-11-09",
-          "home": "ΖΑΚΥΝΘΟΣ",
-          "away": "ΝΙΚΗ ΒΟΛΟΥ"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 79
+      "finals": 80
     },
     {
       "competition": "volley-m",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "volley-m-3-13",
-          "competition": "volley-m",
-          "date": "2026-11-07",
-          "home": "Ολυμπιακός Σ.Φ.Π. ΟΝΕΧ",
-          "away": "Α.Ο.Φλοίσβος Members Paron"
-        },
-        {
-          "id": "volley-m-3-15",
-          "competition": "volley-m",
-          "date": "2026-11-08",
-          "home": "Α.Σ.Άρης",
-          "away": "Πανιώνιος Betsson"
-        },
-        {
-          "id": "volley-m-3-17",
-          "competition": "volley-m",
-          "date": "2026-11-09",
-          "home": "Α.Ο.Καλαμάτα Affidea V.C",
-          "away": "Π.Α.Ο.Κ."
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 15
+      "finals": 18
     },
     {
       "competition": "volley-w",
