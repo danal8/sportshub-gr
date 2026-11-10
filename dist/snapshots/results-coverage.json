@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-10T04:22:46.454Z",
+  "checkedAt": "2026-11-10T06:38:33.597Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -184,17 +184,9 @@
     {
       "competition": "nba",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "nba-401909959",
-          "competition": "nba",
-          "date": "2026-11-10",
-          "home": "Golden State Warriors",
-          "away": "New Orleans Pelicans"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 153
+      "finals": 154
     },
     {
       "competition": "pl",
