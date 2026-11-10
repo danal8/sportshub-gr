@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-09T22:45:12.154Z",
+  "checkedAt": "2026-11-10T04:22:46.454Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -186,55 +186,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "nba-401909953",
-          "competition": "nba",
-          "date": "2026-11-10",
-          "home": "Charlotte Hornets",
-          "away": "Cleveland Cavaliers"
-        },
-        {
-          "id": "nba-401909954",
-          "competition": "nba",
-          "date": "2026-11-10",
-          "home": "Detroit Pistons",
-          "away": "Washington Wizards"
-        },
-        {
-          "id": "nba-401909952",
-          "competition": "nba",
-          "date": "2026-11-10",
-          "home": "Atlanta Hawks",
-          "away": "Los Angeles Lakers"
-        },
-        {
-          "id": "nba-401909955",
-          "competition": "nba",
-          "date": "2026-11-10",
-          "home": "Toronto Raptors",
-          "away": "Memphis Grizzlies"
-        },
-        {
-          "id": "nba-401909956",
-          "competition": "nba",
-          "date": "2026-11-10",
-          "home": "Dallas Mavericks",
-          "away": "Indiana Pacers"
-        },
-        {
-          "id": "nba-401909957",
-          "competition": "nba",
-          "date": "2026-11-10",
-          "home": "Houston Rockets",
-          "away": "Denver Nuggets"
-        },
-        {
-          "id": "nba-401909958",
-          "competition": "nba",
-          "date": "2026-11-10",
-          "home": "Phoenix Suns",
-          "away": "San Antonio Spurs"
-        },
-        {
           "id": "nba-401909959",
           "competition": "nba",
           "date": "2026-11-10",
@@ -243,7 +194,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 146
+      "finals": 153
     },
     {
       "competition": "pl",
