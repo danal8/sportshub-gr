@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-10T12:51:59.753Z",
+  "checkedAt": "2026-11-10T20:07:51.172Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -76,31 +76,10 @@
           "date": "2026-11-10",
           "home": "Cosea JL Bourg-en-Bresse",
           "away": "Buducnost VOLI Podgorica"
-        },
-        {
-          "id": "U-111",
-          "competition": "eurocup",
-          "date": "2026-11-10",
-          "home": "Balkan Botevgrad",
-          "away": "PAOK Thessaloniki"
-        },
-        {
-          "id": "U-105",
-          "competition": "eurocup",
-          "date": "2026-11-10",
-          "home": "Neptunas Klaipeda",
-          "away": "Slask Wroclaw"
-        },
-        {
-          "id": "U-104",
-          "competition": "eurocup",
-          "date": "2026-11-10",
-          "home": "U-BT Cluj-Napoca",
-          "away": "Turk Telekom Ankara"
         }
       ],
       "sourceError": null,
-      "finals": 96
+      "finals": 99
     },
     {
       "competition": "europa",
