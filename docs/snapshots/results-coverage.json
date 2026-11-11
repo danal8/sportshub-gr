@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-10T20:07:51.172Z",
+  "checkedAt": "2026-11-11T00:39:50.790Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -27,7 +27,22 @@
     {
       "competition": "el",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "E-102",
+          "competition": "el",
+          "date": "2026-11-11",
+          "home": "Partizan Mozzart Bet Belgrade",
+          "away": "Kosner Baskonia Vitoria-Gasteiz"
+        },
+        {
+          "id": "E-101",
+          "competition": "el",
+          "date": "2026-11-11",
+          "home": "Paris Basketball",
+          "away": "Fenerbahce Tarfin Istanbul"
+        }
+      ],
       "sourceError": null,
       "finals": 100
     },
@@ -43,43 +58,57 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "U-112",
+          "id": "U-110",
           "competition": "eurocup",
-          "date": "2026-11-10",
-          "home": "Kids&Us Manresa",
-          "away": "BOSNA BH Telecom Sarajevo"
+          "date": "2026-11-11",
+          "home": "Roma Basketball",
+          "away": "ratiopharm ulm"
         },
         {
-          "id": "U-102",
+          "id": "U-97",
           "competition": "eurocup",
-          "date": "2026-11-10",
-          "home": "London Lions",
-          "away": "Umana Reyer Venice"
+          "date": "2026-11-11",
+          "home": "Le Mans Sarthe Basket",
+          "away": "Recoletas Salud San Pablo Burgos"
         },
         {
-          "id": "U-106",
+          "id": "U-99",
           "competition": "eurocup",
-          "date": "2026-11-10",
-          "home": "Dolomiti Energia Trento",
-          "away": "Tofas Bursa"
+          "date": "2026-11-11",
+          "home": "Baglietto Derthona Tortona",
+          "away": "Hapoel Midtown Jerusalem"
         },
         {
-          "id": "U-100",
+          "id": "U-107",
           "competition": "eurocup",
-          "date": "2026-11-10",
-          "home": "Rostock Seawolves",
-          "away": "Cedevita Olimpija Ljubljana"
+          "date": "2026-11-11",
+          "home": "NINERS Chemnitz",
+          "away": "Napoli Basketball"
         },
         {
-          "id": "U-108",
+          "id": "U-98",
           "competition": "eurocup",
-          "date": "2026-11-10",
-          "home": "Cosea JL Bourg-en-Bresse",
-          "away": "Buducnost VOLI Podgorica"
+          "date": "2026-11-11",
+          "home": "Aris Thessaloniki",
+          "away": "Riga Zelli"
+        },
+        {
+          "id": "U-101",
+          "competition": "eurocup",
+          "date": "2026-11-11",
+          "home": "Siauliai Basketball",
+          "away": "La Laguna Tenerife"
+        },
+        {
+          "id": "U-109",
+          "competition": "eurocup",
+          "date": "2026-11-11",
+          "home": "Bahcesehir College Istanbul",
+          "away": "Lietkabelis Panevezys"
         }
       ],
       "sourceError": null,
-      "finals": 99
+      "finals": 104
     },
     {
       "competition": "europa",
@@ -163,7 +192,50 @@
     {
       "competition": "nba",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "nba-401909960",
+          "competition": "nba",
+          "date": "2026-11-11",
+          "home": "New York Knicks",
+          "away": "Milwaukee Bucks"
+        },
+        {
+          "id": "nba-401909961",
+          "competition": "nba",
+          "date": "2026-11-11",
+          "home": "Philadelphia 76ers",
+          "away": "Boston Celtics"
+        },
+        {
+          "id": "nba-401909963",
+          "competition": "nba",
+          "date": "2026-11-11",
+          "home": "Utah Jazz",
+          "away": "Miami Heat"
+        },
+        {
+          "id": "nba-401909962",
+          "competition": "nba",
+          "date": "2026-11-11",
+          "home": "Phoenix Suns",
+          "away": "LA Clippers"
+        },
+        {
+          "id": "nba-401909964",
+          "competition": "nba",
+          "date": "2026-11-11",
+          "home": "Sacramento Kings",
+          "away": "Orlando Magic"
+        },
+        {
+          "id": "nba-401909965",
+          "competition": "nba",
+          "date": "2026-11-11",
+          "home": "Portland Trail Blazers",
+          "away": "Oklahoma City Thunder"
+        }
+      ],
       "sourceError": null,
       "finals": 154
     },
