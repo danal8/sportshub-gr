@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-11T00:39:50.790Z",
+  "checkedAt": "2026-11-11T07:11:01.076Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -192,52 +192,9 @@
     {
       "competition": "nba",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "nba-401909960",
-          "competition": "nba",
-          "date": "2026-11-11",
-          "home": "New York Knicks",
-          "away": "Milwaukee Bucks"
-        },
-        {
-          "id": "nba-401909961",
-          "competition": "nba",
-          "date": "2026-11-11",
-          "home": "Philadelphia 76ers",
-          "away": "Boston Celtics"
-        },
-        {
-          "id": "nba-401909963",
-          "competition": "nba",
-          "date": "2026-11-11",
-          "home": "Utah Jazz",
-          "away": "Miami Heat"
-        },
-        {
-          "id": "nba-401909962",
-          "competition": "nba",
-          "date": "2026-11-11",
-          "home": "Phoenix Suns",
-          "away": "LA Clippers"
-        },
-        {
-          "id": "nba-401909964",
-          "competition": "nba",
-          "date": "2026-11-11",
-          "home": "Sacramento Kings",
-          "away": "Orlando Magic"
-        },
-        {
-          "id": "nba-401909965",
-          "competition": "nba",
-          "date": "2026-11-11",
-          "home": "Portland Trail Blazers",
-          "away": "Oklahoma City Thunder"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 154
+      "finals": 160
     },
     {
       "competition": "pl",
