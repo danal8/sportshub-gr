@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-11T22:03:09.962Z",
+  "checkedAt": "2026-11-12T02:54:34.798Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -62,17 +62,10 @@
           "date": "2026-11-12",
           "home": "Maccabi Rapyd Tel Aviv",
           "away": "Hapoel IBI Tel Aviv"
-        },
-        {
-          "id": "E-101",
-          "competition": "el",
-          "date": "2026-11-11",
-          "home": "Paris Basketball",
-          "away": "Fenerbahce Tarfin Istanbul"
         }
       ],
       "sourceError": null,
-      "finals": 101
+      "finals": 102
     },
     {
       "competition": "elite",
@@ -180,27 +173,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "nba-401909966",
-          "competition": "nba",
-          "date": "2026-11-12",
-          "home": "Indiana Pacers",
-          "away": "Washington Wizards"
-        },
-        {
-          "id": "nba-401909967",
-          "competition": "nba",
-          "date": "2026-11-12",
-          "home": "New York Knicks",
-          "away": "Cleveland Cavaliers"
-        },
-        {
-          "id": "nba-401909968",
-          "competition": "nba",
-          "date": "2026-11-12",
-          "home": "Toronto Raptors",
-          "away": "Boston Celtics"
-        },
-        {
           "id": "nba-401909969",
           "competition": "nba",
           "date": "2026-11-12",
@@ -251,7 +223,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 160
+      "finals": 163
     },
     {
       "competition": "pl",
