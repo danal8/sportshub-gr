@@ -3,6 +3,8 @@ export const checkedAt='2026-10-20T13:28:31+03:00';
 export const eliteSchedule='https://www.eliteleague.gr/elite-league-to-analytiko-programma-tis-sezon-2026-2027/';
 export const eliteTV='https://www.eliteleague.gr/elite-league-to-tileoptiko-programma-ton-proton-trion-agonistikon/';
 export const competitions=[
+ {id:'nations',name:'UEFA Nations League · Εθνικές',sport:'football',noStandings:true,url:'https://www.uefa.com/uefanationsleague/',note:'Δημοσιευμένο πρόγραμμα και αποτελέσματα εθνικών ομάδων από ESPN. Μερική κάλυψη.'},
+ {id:'friendly',name:'Φιλικά εθνικών ομάδων',sport:'football',noStandings:true,url:'https://www.espn.com/soccer/league/_/name/fifa.friendly',note:'Δημοσιευμένοι αγώνες εθνικών ομάδων από ESPN. Μερική κάλυψη.'},
  {id:'greek-cup',name:'Κύπελλο Ελλάδας',sport:'football',noStandings:true,url:'https://www.epo.gr/el/competition/5',note:'Δημοσιευμένοι ορισμοί και τηλεοπτικές μεταδόσεις ΕΠΟ για τη σεζόν 2026–27. Μερική κάλυψη· δεν συμπεραίνονται ώρες ή κανάλια.'},
  {id:'seriea',name:'Serie A',sport:'football',url:'https://www.legaseriea.it/',note:'Πρόγραμμα openfootball και δημοσιευμένη βαθμολογία ESPN.'},
  {id:'ligue1',name:'Ligue 1',sport:'football',url:'https://ligue1.com/',note:'Πρόγραμμα openfootball και δημοσιευμένη βαθμολογία ESPN.'},

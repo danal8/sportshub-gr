@@ -33,6 +33,8 @@ jobs:
         continue-on-error: true
       - run: node scripts/refresh-volley.mjs
         continue-on-error: true
+      - run: node scripts/refresh-national-teams.mjs
+        continue-on-error: true
       - run: node scripts/refresh-confirmed-results.mjs
         continue-on-error: true
       - run: node scripts/refresh-tv-details.mjs

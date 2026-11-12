@@ -8,7 +8,7 @@ import{athensDay,shiftDay}from'./core.js?v=77';
 import{openGames,euroGames}from'./direct.js?v=77';
 import{sl2Score}from'./results.js?v=77';
 export const LIVE_INTERVAL=30000,LIVE_TTL=90000;
-export const liveLeagues={sl:['soccer','gre.1'],pl:['soccer','eng.1'],bund:['soccer','ger.1'],laliga:['soccer','esp.1'],seriea:['soccer','ita.1'],ligue1:['soccer','fra.1'],cl:['soccer','uefa.champions'],europa:['soccer','uefa.europa'],conference:['soccer','uefa.europa.conf'],nba:['basketball','nba']};
+export const liveLeagues={nations:['soccer','uefa.nations'],friendly:['soccer','fifa.friendly'],sl:['soccer','gre.1'],pl:['soccer','eng.1'],bund:['soccer','ger.1'],laliga:['soccer','esp.1'],seriea:['soccer','ita.1'],ligue1:['soccer','fra.1'],cl:['soccer','uefa.champions'],europa:['soccer','uefa.europa'],conference:['soccer','uefa.europa.conf'],nba:['basketball','nba']};
 const names=(n,extra=[])=>new Set([n,...extra,...aliases[teamKey(n)]||[]].filter(Boolean).flatMap(x=>[x,...aliases[teamKey(x)]||[]]).filter(Boolean).map(teamKey));
 const same=(a,b,extra=[])=>{const x=names(a);return[...names(b,extra)].some(n=>x.has(n));};
 const score=s=>Array.isArray(s)&&s.length===2&&s.every(v=>Number.isInteger(v)&&v>=0);
@@ -25,7 +25,7 @@ export function sourceClock(status,sport){
 }
 export function parseLiveScoreboard(raw,id,checkedAt=new Date().toISOString()){
  if(!liveLeagues[id]||!Array.isArray(raw?.events))throw Error('Invalid live scoreboard');
- const year=id==='nba'?2027:2026;if(raw.leagues?.[0]?.season?.year!==year)throw Error('Wrong live season');
+ const year=id==='nba'?2027:2026;if(!(id==='friendly'?[2026,2027].includes(raw.leagues?.[0]?.season?.year):raw.leagues?.[0]?.season?.year===year))throw Error('Wrong live season');
  return raw.events.flatMap(e=>{
  const g=e.competitions?.[0],h=g?.competitors?.find(x=>x.homeAway==='home'),a=g?.competitors?.find(x=>x.homeAway==='away'),status=g?.status||e.status,d=new Date(e.date);
  if(!h?.team?.displayName||!a?.team?.displayName||!Number.isFinite(+d))return[];
