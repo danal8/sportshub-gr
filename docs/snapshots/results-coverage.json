@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-12T18:37:05.571Z",
+  "checkedAt": "2026-11-12T18:43:03.804Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -97,6 +97,63 @@
       "finals": 72
     },
     {
+      "competition": "friendly",
+      "unmatchedResults": [],
+      "awaitingResults": [
+        {
+          "id": "espn-401916227",
+          "competition": "friendly",
+          "date": "2026-09-28",
+          "home": "Turkmenistan",
+          "away": "Palestine"
+        },
+        {
+          "id": "espn-401912455",
+          "competition": "friendly",
+          "date": "2026-09-30",
+          "home": "Mauritius",
+          "away": "Djibouti"
+        },
+        {
+          "id": "espn-401912238",
+          "competition": "friendly",
+          "date": "2026-10-03",
+          "home": "Sri Lanka",
+          "away": "Djibouti"
+        },
+        {
+          "id": "espn-401916228",
+          "competition": "friendly",
+          "date": "2026-10-03",
+          "home": "Tunisia",
+          "away": "Mali"
+        },
+        {
+          "id": "espn-401925303",
+          "competition": "friendly",
+          "date": "2026-10-05",
+          "home": "Bolivia",
+          "away": "Gambia"
+        },
+        {
+          "id": "espn-401933115",
+          "competition": "friendly",
+          "date": "2026-11-12",
+          "home": "Lithuania",
+          "away": "Suriname"
+        },
+        {
+          "id": "espn-401931296",
+          "competition": "friendly",
+          "date": "2026-11-12",
+          "home": "Malta",
+          "away": "Eswatini"
+        }
+      ],
+      "sourceError": null,
+      "finals": 77
+    },
+    {
       "competition": "gbl",
       "unmatchedResults": [],
       "awaitingResults": [],
@@ -167,6 +224,70 @@
       ],
       "sourceError": null,
       "finals": 86
+    },
+    {
+      "competition": "nations",
+      "unmatchedResults": [],
+      "awaitingResults": [
+        {
+          "id": "espn-401861146",
+          "competition": "nations",
+          "date": "2026-11-12",
+          "home": "Armenia",
+          "away": "Cyprus"
+        },
+        {
+          "id": "espn-401861145",
+          "competition": "nations",
+          "date": "2026-11-12",
+          "home": "Türkiye",
+          "away": "Belgium"
+        },
+        {
+          "id": "espn-401861147",
+          "competition": "nations",
+          "date": "2026-11-12",
+          "home": "Albania",
+          "away": "Finland"
+        },
+        {
+          "id": "espn-401861148",
+          "competition": "nations",
+          "date": "2026-11-12",
+          "home": "Czechia",
+          "away": "Spain"
+        },
+        {
+          "id": "espn-401861150",
+          "competition": "nations",
+          "date": "2026-11-12",
+          "home": "England",
+          "away": "Croatia"
+        },
+        {
+          "id": "espn-401861151",
+          "competition": "nations",
+          "date": "2026-11-12",
+          "home": "Italy",
+          "away": "France"
+        },
+        {
+          "id": "espn-401861152",
+          "competition": "nations",
+          "date": "2026-11-12",
+          "home": "Montenegro",
+          "away": "Latvia"
+        },
+        {
+          "id": "espn-401861149",
+          "competition": "nations",
+          "date": "2026-11-12",
+          "home": "San Marino",
+          "away": "Belarus"
+        }
+      ],
+      "sourceError": null,
+      "finals": 104
     },
     {
       "competition": "nba",
