@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-14T07:15:56.730Z",
+  "checkedAt": "2026-11-14T14:17:47.396Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -142,41 +142,6 @@
           "away": "Indonesia"
         },
         {
-          "id": "espn-401933864",
-          "competition": "friendly",
-          "date": "2026-11-14",
-          "home": "Tahiti",
-          "away": "Cook Islands"
-        },
-        {
-          "id": "espn-401930879",
-          "competition": "friendly",
-          "date": "2026-11-14",
-          "home": "Bahrain",
-          "away": "Yemen"
-        },
-        {
-          "id": "espn-401916337",
-          "competition": "friendly",
-          "date": "2026-11-14",
-          "home": "Japan",
-          "away": "Brazil"
-        },
-        {
-          "id": "espn-401930236",
-          "competition": "friendly",
-          "date": "2026-11-14",
-          "home": "China",
-          "away": "Malaysia"
-        },
-        {
-          "id": "espn-401930243",
-          "competition": "friendly",
-          "date": "2026-11-14",
-          "home": "Chinese Taipei",
-          "away": "Kyrgyz Republic"
-        },
-        {
           "id": "espn-401932237",
           "competition": "friendly",
           "date": "2026-11-14",
@@ -185,7 +150,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 89
+      "finals": 94
     },
     {
       "competition": "gbl",
@@ -386,13 +351,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "sl2-2627084",
-          "competition": "sl2",
-          "date": "2026-11-14",
-          "home": "ΕΛΛΑΣ ΣΥΡΟΥ",
-          "away": "ΠΑΝΘΡΑΚΙΚΟΣ"
-        },
-        {
           "id": "sl2-2627087",
           "competition": "sl2",
           "date": "2026-11-14",
@@ -415,7 +373,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 80
+      "finals": 81
     },
     {
       "competition": "volley-m",
