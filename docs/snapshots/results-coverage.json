@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-14T00:52:30.375Z",
+  "checkedAt": "2026-11-14T07:15:56.730Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -142,34 +142,6 @@
           "away": "Indonesia"
         },
         {
-          "id": "espn-401930876",
-          "competition": "friendly",
-          "date": "2026-11-14",
-          "home": "Argentina",
-          "away": "Uruguay"
-        },
-        {
-          "id": "espn-401921325",
-          "competition": "friendly",
-          "date": "2026-11-14",
-          "home": "Colombia",
-          "away": "Chile"
-        },
-        {
-          "id": "espn-401930898",
-          "competition": "friendly",
-          "date": "2026-11-14",
-          "home": "Ecuador",
-          "away": "Costa Rica"
-        },
-        {
-          "id": "espn-401930878",
-          "competition": "friendly",
-          "date": "2026-11-14",
-          "home": "Peru",
-          "away": "Bolivia"
-        },
-        {
           "id": "espn-401933864",
           "competition": "friendly",
           "date": "2026-11-14",
@@ -213,7 +185,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 85
+      "finals": 89
     },
     {
       "competition": "gbl",
@@ -376,73 +348,9 @@
     {
       "competition": "nba",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "nba-401909297",
-          "competition": "nba",
-          "date": "2026-11-14",
-          "home": "Orlando Magic",
-          "away": "Milwaukee Bucks"
-        },
-        {
-          "id": "nba-401909296",
-          "competition": "nba",
-          "date": "2026-11-14",
-          "home": "Indiana Pacers",
-          "away": "New York Knicks"
-        },
-        {
-          "id": "nba-401909299",
-          "competition": "nba",
-          "date": "2026-11-14",
-          "home": "Chicago Bulls",
-          "away": "Atlanta Hawks"
-        },
-        {
-          "id": "nba-401909298",
-          "competition": "nba",
-          "date": "2026-11-14",
-          "home": "Miami Heat",
-          "away": "Cleveland Cavaliers"
-        },
-        {
-          "id": "nba-401909300",
-          "competition": "nba",
-          "date": "2026-11-14",
-          "home": "New Orleans Pelicans",
-          "away": "Memphis Grizzlies"
-        },
-        {
-          "id": "nba-401909301",
-          "competition": "nba",
-          "date": "2026-11-14",
-          "home": "Houston Rockets",
-          "away": "Utah Jazz"
-        },
-        {
-          "id": "nba-401909302",
-          "competition": "nba",
-          "date": "2026-11-14",
-          "home": "San Antonio Spurs",
-          "away": "Golden State Warriors"
-        },
-        {
-          "id": "nba-401909303",
-          "competition": "nba",
-          "date": "2026-11-14",
-          "home": "Sacramento Kings",
-          "away": "Portland Trail Blazers"
-        },
-        {
-          "id": "nba-401909304",
-          "competition": "nba",
-          "date": "2026-11-14",
-          "home": "LA Clippers",
-          "away": "Oklahoma City Thunder"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 174
+      "finals": 183
     },
     {
       "competition": "pl",
