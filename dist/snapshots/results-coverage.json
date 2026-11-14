@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-14T14:17:47.396Z",
+  "checkedAt": "2026-11-14T19:18:00.482Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -34,52 +34,9 @@
     {
       "competition": "elite",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "elite-8-ΑΣΑ ΑΝΑΓΕΝΝΗΣΗ-ΓΣ ΣΟΦΑΔΩΝ ΒΙΚΟΣ COLA",
-          "competition": "elite",
-          "date": "2026-11-14",
-          "home": "ΑΣΑ ΑΝΑΓΕΝΝΗΣΗ",
-          "away": "ΓΣ ΣΟΦΑΔΩΝ ΒΙΚΟΣ COLA"
-        },
-        {
-          "id": "elite-8-ΓΣ ΛΑΥΡΙΟΥ - AΦΟΙ ΛΙΟΣΑΤΟΥ-ΠΑΝΙΩΝΙΟΣ COSMORAMA TRAVEL",
-          "competition": "elite",
-          "date": "2026-11-14",
-          "home": "ΓΣ ΛΑΥΡΙΟΥ - AΦΟΙ ΛΙΟΣΑΤΟΥ",
-          "away": "ΠΑΝΙΩΝΙΟΣ COSMORAMA TRAVEL"
-        },
-        {
-          "id": "elite-8-EVERTECH ΠΑΠΑΓΟΥ-KERAKOLL ΑΓΕΧ",
-          "competition": "elite",
-          "date": "2026-11-14",
-          "home": "EVERTECH ΠΑΠΑΓΟΥ",
-          "away": "KERAKOLL ΑΓΕΧ"
-        },
-        {
-          "id": "elite-8-ΠΑΝΕΡΥΘΡΑΙΚΟΣ ΑΣ-ΑΟ ΑΜΥΝΤΑΣ",
-          "competition": "elite",
-          "date": "2026-11-14",
-          "home": "ΠΑΝΕΡΥΘΡΑΙΚΟΣ ΑΣ",
-          "away": "ΑΟ ΑΜΥΝΤΑΣ"
-        },
-        {
-          "id": "elite-8-ΑΕ ΨΥΧΙΚΟΥ-ΑΕΠΣ ΜΑΧΗΤΕΣ ΠΕΙΡΑΜΑΤΙΚΟ",
-          "competition": "elite",
-          "date": "2026-11-14",
-          "home": "ΑΕ ΨΥΧΙΚΟΥ",
-          "away": "ΑΕΠΣ ΜΑΧΗΤΕΣ ΠΕΙΡΑΜΑΤΙΚΟ"
-        },
-        {
-          "id": "elite-8-INTERPLAST ΓΑΣ ΚΟΜΟΤΗΝΗΣ-ΜΕΓΑΡΑ ΟΝΕΧ BC",
-          "competition": "elite",
-          "date": "2026-11-14",
-          "home": "INTERPLAST ΓΑΣ ΚΟΜΟΤΗΝΗΣ",
-          "away": "ΜΕΓΑΡΑ ΟΝΕΧ BC"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 57
+      "finals": 63
     },
     {
       "competition": "eurocup",
@@ -140,46 +97,17 @@
           "date": "2026-11-13",
           "home": "Jordan",
           "away": "Indonesia"
-        },
-        {
-          "id": "espn-401932237",
-          "competition": "friendly",
-          "date": "2026-11-14",
-          "home": "Palestine",
-          "away": "Iran"
         }
       ],
       "sourceError": null,
-      "finals": 94
+      "finals": 95
     },
     {
       "competition": "gbl",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "gbl-51FB1AFE",
-          "competition": "gbl",
-          "date": "2026-11-14",
-          "home": "ΑΕΚ",
-          "away": "ΔΟΞΑ ΛΕΥΚΑΔΑΣ ELABET"
-        },
-        {
-          "id": "gbl-81DA1041",
-          "competition": "gbl",
-          "date": "2026-11-14",
-          "home": "ΚΑΡΔΙΤΣΑ ΙΑΠΩΝΙΚΗ",
-          "away": "ΠΑΟΚ"
-        },
-        {
-          "id": "gbl-7F2985F0",
-          "competition": "gbl",
-          "date": "2026-11-14",
-          "home": "ΠΡΟΜΗΘΕΑΣ ΠΑΤΡΑΣ ΒΙΚΟΣ COLA",
-          "away": "ΗΡΑΚΛΗΣ"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 42
+      "finals": 45
     },
     {
       "competition": "greek-cup",
@@ -251,27 +179,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "espn-401861163",
-          "competition": "nations",
-          "date": "2026-11-14",
-          "home": "Kosovo",
-          "away": "Israel"
-        },
-        {
-          "id": "espn-401861164",
-          "competition": "nations",
-          "date": "2026-11-14",
-          "home": "Georgia",
-          "away": "Hungary"
-        },
-        {
-          "id": "espn-401861165",
-          "competition": "nations",
-          "date": "2026-11-14",
-          "home": "Norway",
-          "away": "Wales"
-        },
-        {
           "id": "espn-401861170",
           "competition": "nations",
           "date": "2026-11-14",
@@ -308,7 +215,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 122
+      "finals": 125
     },
     {
       "competition": "nba",
@@ -349,43 +256,14 @@
     {
       "competition": "sl2",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "sl2-2627087",
-          "competition": "sl2",
-          "date": "2026-11-14",
-          "home": "ΠΑΝΣΕΡΡΑΪΚΟΣ",
-          "away": "ΑΝΑΓ. ΚΑΡΔΙΤΣΑΣ"
-        },
-        {
-          "id": "sl2-2627081",
-          "competition": "sl2",
-          "date": "2026-11-14",
-          "home": "ASTERAS AKTOR Β'",
-          "away": "ΠΑΟΚ Β'"
-        },
-        {
-          "id": "sl2-2627082",
-          "competition": "sl2",
-          "date": "2026-11-14",
-          "home": "ΑΕΛ NOVIBET",
-          "away": "ΝΕΣΤΟΣ ΧΡΥΣΟΥΠΟΛΗΣ"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 81
+      "finals": 84
     },
     {
       "competition": "volley-m",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "volley-m-4-19",
-          "competition": "volley-m",
-          "date": "2026-11-14",
-          "home": "Ο.Φ.Η.",
-          "away": "Α.Ο.Π. Κηφισιάς"
-        },
         {
           "id": "volley-m-4-20",
           "competition": "volley-m",
@@ -402,7 +280,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 19
+      "finals": 20
     },
     {
       "competition": "volley-w",
@@ -414,38 +292,10 @@
           "date": "2026-11-14",
           "home": "Α.Σ.Π. Θέτις",
           "away": "A.E.K."
-        },
-        {
-          "id": "volley-88183",
-          "competition": "volley-w",
-          "date": "2026-11-14",
-          "home": "Ολυμπιακός Σ.Φ.Π.",
-          "away": "Α.Σ. Άρης"
-        },
-        {
-          "id": "volley-88184",
-          "competition": "volley-w",
-          "date": "2026-11-14",
-          "home": "Π.Α.Ο.Κ. F&U",
-          "away": "Ο.Φ.Α. Απολλώνιος"
-        },
-        {
-          "id": "volley-88182",
-          "competition": "volley-w",
-          "date": "2026-11-14",
-          "home": "Πανιώνιος Betsson",
-          "away": "Α.Σ. Ελπίς"
-        },
-        {
-          "id": "volley-88179",
-          "competition": "volley-w",
-          "date": "2026-11-14",
-          "home": "Α.Ο. Θήρας",
-          "away": "Ζ.Α.Ο.Ν."
         }
       ],
       "sourceError": null,
-      "finals": 24
+      "finals": 28
     }
   ]
 }
