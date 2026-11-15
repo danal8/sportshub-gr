@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-15T02:39:23.631Z",
+  "checkedAt": "2026-11-15T09:56:30.503Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -99,13 +99,6 @@
           "away": "Indonesia"
         },
         {
-          "id": "espn-401906463",
-          "competition": "friendly",
-          "date": "2026-11-15",
-          "home": "New Zealand",
-          "away": "India"
-        },
-        {
           "id": "espn-401933837",
           "competition": "friendly",
           "date": "2026-11-15",
@@ -114,7 +107,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 95
+      "finals": 96
     },
     {
       "competition": "gbl",
@@ -286,34 +279,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "nba-401909981",
-          "competition": "nba",
-          "date": "2026-11-15",
-          "home": "Cleveland Cavaliers",
-          "away": "Dallas Mavericks"
-        },
-        {
-          "id": "nba-401909984",
-          "competition": "nba",
-          "date": "2026-11-15",
-          "home": "Minnesota Timberwolves",
-          "away": "Chicago Bulls"
-        },
-        {
-          "id": "nba-401909983",
-          "competition": "nba",
-          "date": "2026-11-15",
-          "home": "Memphis Grizzlies",
-          "away": "Brooklyn Nets"
-        },
-        {
-          "id": "nba-401909982",
-          "competition": "nba",
-          "date": "2026-11-15",
-          "home": "Miami Heat",
-          "away": "Detroit Pistons"
-        },
-        {
           "id": "nba-401909985",
           "competition": "nba",
           "date": "2026-11-15",
@@ -336,7 +301,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 184
+      "finals": 188
     },
     {
       "competition": "pl",
