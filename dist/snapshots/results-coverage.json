@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-14T23:08:32.611Z",
+  "checkedAt": "2026-11-15T02:39:23.631Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -286,13 +286,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "nba-401909980",
-          "competition": "nba",
-          "date": "2026-11-15",
-          "home": "New Orleans Pelicans",
-          "away": "Denver Nuggets"
-        },
-        {
           "id": "nba-401909981",
           "competition": "nba",
           "date": "2026-11-15",
@@ -343,7 +336,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 183
+      "finals": 184
     },
     {
       "competition": "pl",
