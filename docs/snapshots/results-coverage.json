@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-16T08:06:47.798Z",
+  "checkedAt": "2026-11-16T18:27:46.928Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -194,20 +194,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "espn-401861180",
-          "competition": "nations",
-          "date": "2026-11-16",
-          "home": "Faroe Islands",
-          "away": "Moldova"
-        },
-        {
-          "id": "espn-401861181",
-          "competition": "nations",
-          "date": "2026-11-16",
-          "home": "Kazakhstan",
-          "away": "Slovakia"
-        },
-        {
           "id": "espn-401861183",
           "competition": "nations",
           "date": "2026-11-16",
@@ -265,7 +251,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 138
+      "finals": 140
     },
     {
       "competition": "nba",
@@ -306,46 +292,16 @@
     {
       "competition": "sl2",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "sl2-2627085",
-          "competition": "sl2",
-          "date": "2026-11-16",
-          "home": "ΜΑΡΚΟ",
-          "away": "ΖΑΚΥΝΘΟΣ"
-        },
-        {
-          "id": "sl2-2627086",
-          "competition": "sl2",
-          "date": "2026-11-16",
-          "home": "ΠΑΝΙΩΝΙΟΣ",
-          "away": "ΟΛΥΜΠΙΑΚΟΣ Β'"
-        },
-        {
-          "id": "sl2-2627083",
-          "competition": "sl2",
-          "date": "2026-11-16",
-          "home": "ΝΙΚΗ ΒΟΛΟΥ",
-          "away": "ΠΥΡΓΟΣ"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 85
+      "finals": 88
     },
     {
       "competition": "volley-m",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "volley-m-4-22",
-          "competition": "volley-m",
-          "date": "2026-11-15",
-          "home": "Πανιώνιος Betsson",
-          "away": "Ν.Ο.Π.Ε.Ρεθύμνου"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 23
+      "finals": 24
     },
     {
       "competition": "volley-w",
