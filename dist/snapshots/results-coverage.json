@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-17T10:33:53.784Z",
+  "checkedAt": "2026-11-17T19:21:53.286Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -76,39 +76,17 @@
           "date": "2026-11-17",
           "home": "Zalgiris Kaunas",
           "away": "FC Bayern Munich"
-        },
-        {
-          "id": "E-113",
-          "competition": "el",
-          "date": "2026-11-17",
-          "home": "Maccabi Rapyd Tel Aviv",
-          "away": "Olympiacos Piraeus"
-        },
-        {
-          "id": "E-111",
-          "competition": "el",
-          "date": "2026-11-17",
-          "home": "Dubai Basketball",
-          "away": "Anadolu Efes Istanbul"
         }
       ],
       "sourceError": null,
-      "finals": 110
+      "finals": 112
     },
     {
       "competition": "elite",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "elite-8-ΑΕΟ ΠΡΩΤΕΑΣ ΒΟΥΛΑΣ-KRONOS BC PLASIS",
-          "competition": "elite",
-          "date": "2026-11-16",
-          "home": "ΑΕΟ ΠΡΩΤΕΑΣ ΒΟΥΛΑΣ",
-          "away": "KRONOS BC PLASIS"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 63
+      "finals": 64
     },
     {
       "competition": "eurocup",
@@ -134,24 +112,10 @@
           "date": "2026-11-17",
           "home": "Rostock Seawolves",
           "away": "Hapoel Midtown Jerusalem"
-        },
-        {
-          "id": "U-127",
-          "competition": "eurocup",
-          "date": "2026-11-17",
-          "home": "Balkan Botevgrad",
-          "away": "ratiopharm ulm"
-        },
-        {
-          "id": "U-117",
-          "competition": "eurocup",
-          "date": "2026-11-17",
-          "home": "Turk Telekom Ankara",
-          "away": "La Laguna Tenerife"
         }
       ],
       "sourceError": null,
-      "finals": 112
+      "finals": 114
     },
     {
       "competition": "europa",
@@ -205,108 +169,10 @@
           "date": "2026-11-13",
           "home": "Jordan",
           "away": "Indonesia"
-        },
-        {
-          "id": "espn-401933879",
-          "competition": "friendly",
-          "date": "2026-11-17",
-          "home": "Tahiti",
-          "away": "Cook Islands"
-        },
-        {
-          "id": "espn-401930237",
-          "competition": "friendly",
-          "date": "2026-11-17",
-          "home": "Malaysia",
-          "away": "Yemen"
-        },
-        {
-          "id": "espn-401916335",
-          "competition": "friendly",
-          "date": "2026-11-17",
-          "home": "Singapore",
-          "away": "Brazil"
-        },
-        {
-          "id": "espn-401930880",
-          "competition": "friendly",
-          "date": "2026-11-17",
-          "home": "China",
-          "away": "Bahrain"
-        },
-        {
-          "id": "espn-401930242",
-          "competition": "friendly",
-          "date": "2026-11-17",
-          "home": "Kyrgyz Republic",
-          "away": "Vietnam"
-        },
-        {
-          "id": "espn-401933635",
-          "competition": "friendly",
-          "date": "2026-11-17",
-          "home": "Lebanon",
-          "away": "Palestine"
-        },
-        {
-          "id": "espn-401916336",
-          "competition": "friendly",
-          "date": "2026-11-17",
-          "home": "Japan",
-          "away": "Paraguay"
-        },
-        {
-          "id": "espn-401931477",
-          "competition": "friendly",
-          "date": "2026-11-17",
-          "home": "Qatar",
-          "away": "South Korea"
-        },
-        {
-          "id": "espn-401932718",
-          "competition": "friendly",
-          "date": "2026-11-17",
-          "home": "United Arab Emirates",
-          "away": "Syria"
-        },
-        {
-          "id": "espn-401931495",
-          "competition": "friendly",
-          "date": "2026-11-17",
-          "home": "Saudi Arabia",
-          "away": "Uzbekistan"
-        },
-        {
-          "id": "espn-401919974",
-          "competition": "friendly",
-          "date": "2026-11-17",
-          "home": "Jordan",
-          "away": "Australia"
-        },
-        {
-          "id": "espn-401930978",
-          "competition": "friendly",
-          "date": "2026-11-17",
-          "home": "Russia",
-          "away": "Venezuela"
-        },
-        {
-          "id": "espn-401933615",
-          "competition": "friendly",
-          "date": "2026-11-17",
-          "home": "Iraq",
-          "away": "Iran"
-        },
-        {
-          "id": "espn-401931956",
-          "competition": "friendly",
-          "date": "2026-11-17",
-          "home": "Kuwait",
-          "away": "Honduras"
         }
       ],
       "sourceError": null,
-      "finals": 98
+      "finals": 112
     },
     {
       "competition": "gbl",
