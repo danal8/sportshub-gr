@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-20T12:47:36.973Z",
+  "checkedAt": "2026-11-20T20:48:16.893Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -56,32 +56,17 @@
           "date": "2026-11-20",
           "home": "Olympiacos Piraeus",
           "away": "Real Madrid"
-        },
-        {
-          "id": "E-127",
-          "competition": "el",
-          "date": "2026-11-20",
-          "home": "Anadolu Efes Istanbul",
-          "away": "LDLC ASVEL Villeurbanne"
         }
       ],
       "sourceError": null,
-      "finals": 126
+      "finals": 127
     },
     {
       "competition": "elite",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "elite-9-KERAKOLL ΑΓΕΧ-ΓΣ ΛΑΥΡΙΟΥ - AΦΟΙ ΛΙΟΣΑΤΟΥ",
-          "competition": "elite",
-          "date": "2026-11-20",
-          "home": "KERAKOLL ΑΓΕΧ",
-          "away": "ΓΣ ΛΑΥΡΙΟΥ - AΦΟΙ ΛΙΟΣΑΤΟΥ"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 64
+      "finals": 65
     },
     {
       "competition": "eurocup",
@@ -178,7 +163,15 @@
     },
     {
       "competition": "laliga",
-      "unmatchedResults": [],
+      "unmatchedResults": [
+        {
+          "id": "espn-401882805",
+          "competition": "laliga",
+          "date": "2026-11-20",
+          "home": "Athletic Club",
+          "away": "Espanyol"
+        }
+      ],
       "awaitingResults": [
         {
           "id": "laliga-85456",
