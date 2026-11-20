@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-20T04:05:03.512Z",
+  "checkedAt": "2026-11-20T12:47:36.973Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -41,7 +41,7 @@
           "competition": "el",
           "date": "2026-11-20",
           "home": "Partizan Mozzart Bet Belgrade",
-          "away": "Besiktas Istanbul"
+          "away": "Besiktas Fuzul Istanbul"
         },
         {
           "id": "E-128",
