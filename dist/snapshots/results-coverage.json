@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-19T23:20:20.821Z",
+  "checkedAt": "2026-11-20T04:05:03.512Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -63,17 +63,10 @@
           "date": "2026-11-20",
           "home": "Anadolu Efes Istanbul",
           "away": "LDLC ASVEL Villeurbanne"
-        },
-        {
-          "id": "E-125",
-          "competition": "el",
-          "date": "2026-11-19",
-          "home": "Valencia Basket",
-          "away": "Virtus Bologna"
         }
       ],
       "sourceError": null,
-      "finals": 125
+      "finals": 126
     },
     {
       "competition": "elite",
@@ -251,38 +244,9 @@
     {
       "competition": "nba",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "nba-401910020",
-          "competition": "nba",
-          "date": "2026-11-20",
-          "home": "Milwaukee Bucks",
-          "away": "Portland Trail Blazers"
-        },
-        {
-          "id": "nba-401910021",
-          "competition": "nba",
-          "date": "2026-11-20",
-          "home": "Minnesota Timberwolves",
-          "away": "New York Knicks"
-        },
-        {
-          "id": "nba-401910022",
-          "competition": "nba",
-          "date": "2026-11-20",
-          "home": "San Antonio Spurs",
-          "away": "LA Clippers"
-        },
-        {
-          "id": "nba-401910019",
-          "competition": "nba",
-          "date": "2026-11-20",
-          "home": "Memphis Grizzlies",
-          "away": "Golden State Warriors"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 222
+      "finals": 226
     },
     {
       "competition": "pl",
