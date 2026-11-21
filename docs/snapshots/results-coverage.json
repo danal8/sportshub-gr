@@ -1,22 +1,14 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-21T16:40:14.369Z",
+  "checkedAt": "2026-11-21T21:54:52.907Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
       "competition": "bund",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "bund-83244",
-          "competition": "bund",
-          "date": "2026-11-21",
-          "home": "FC Schalke 04",
-          "away": "VfB Stuttgart"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 87
+      "finals": 88
     },
     {
       "competition": "cl",
@@ -42,45 +34,9 @@
     {
       "competition": "elite",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "elite-9-KRONOS BC PLASIS-INTERPLAST ΓΑΣ ΚΟΜΟΤΗΝΗΣ",
-          "competition": "elite",
-          "date": "2026-11-21",
-          "home": "KRONOS BC PLASIS",
-          "away": "INTERPLAST ΓΑΣ ΚΟΜΟΤΗΝΗΣ"
-        },
-        {
-          "id": "elite-9-ΓΣ ΣΟΦΑΔΩΝ ΒΙΚΟΣ COLA-EVERTECH ΠΑΠΑΓΟΥ",
-          "competition": "elite",
-          "date": "2026-11-21",
-          "home": "ΓΣ ΣΟΦΑΔΩΝ ΒΙΚΟΣ COLA",
-          "away": "EVERTECH ΠΑΠΑΓΟΥ"
-        },
-        {
-          "id": "elite-9-ΑΕΠΣ ΜΑΧΗΤΕΣ ΠΕΙΡΑΜΑΤΙΚΟ-ΠΑΝΕΡΥΘΡΑΙΚΟΣ ΑΣ",
-          "competition": "elite",
-          "date": "2026-11-21",
-          "home": "ΑΕΠΣ ΜΑΧΗΤΕΣ ΠΕΙΡΑΜΑΤΙΚΟ",
-          "away": "ΠΑΝΕΡΥΘΡΑΙΚΟΣ ΑΣ"
-        },
-        {
-          "id": "elite-9-ΑΟ ΑΜΥΝΤΑΣ-Α.Ε. ΓΛΑΥΚΟΥ ΕΣΠΕΡΟΥ",
-          "competition": "elite",
-          "date": "2026-11-21",
-          "home": "ΑΟ ΑΜΥΝΤΑΣ",
-          "away": "Α.Ε. ΓΛΑΥΚΟΥ ΕΣΠΕΡΟΥ"
-        },
-        {
-          "id": "elite-9-ΑΣΑ ΚΟΡΟΙΒΟΣ-ΑΕΟ ΠΡΩΤΕΑΣ ΒΟΥΛΑΣ",
-          "competition": "elite",
-          "date": "2026-11-21",
-          "home": "ΑΣΑ ΚΟΡΟΙΒΟΣ",
-          "away": "ΑΕΟ ΠΡΩΤΕΑΣ ΒΟΥΛΑΣ"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 66
+      "finals": 71
     },
     {
       "competition": "eurocup",
@@ -149,31 +105,9 @@
     {
       "competition": "gbl",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "gbl-BE8E8A17",
-          "competition": "gbl",
-          "date": "2026-11-21",
-          "home": "ΔΟΞΑ ΛΕΥΚΑΔΑΣ ELABET",
-          "away": "ΠΕΡΙΣΤΕΡΙ Betsson"
-        },
-        {
-          "id": "gbl-95F2FDAA",
-          "competition": "gbl",
-          "date": "2026-11-21",
-          "home": "ΠΑΟΚ",
-          "away": "ΑΡΗΣ"
-        },
-        {
-          "id": "gbl-779E922D",
-          "competition": "gbl",
-          "date": "2026-11-21",
-          "home": "ΠΑΝΑΘΗΝΑΪΚΟΣ AKTOR",
-          "away": "ΜΑΡΟΥΣΙ"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 51
+      "finals": 54
     },
     {
       "competition": "greek-cup",
@@ -217,20 +151,6 @@
           "away": "Espanyol Barcelona"
         },
         {
-          "id": "laliga-85462",
-          "competition": "laliga",
-          "date": "2026-11-21",
-          "home": "Rayo Vallecano",
-          "away": "FC Valencia"
-        },
-        {
-          "id": "laliga-85464",
-          "competition": "laliga",
-          "date": "2026-11-21",
-          "home": "FC Sevilla",
-          "away": "Real Betis"
-        },
-        {
           "id": "laliga-85463",
           "competition": "laliga",
           "date": "2026-11-21",
@@ -239,7 +159,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 120
+      "finals": 122
     },
     {
       "competition": "ligue1",
@@ -272,45 +192,10 @@
           "date": "2026-10-31",
           "home": "FC Lorient",
           "away": "Stade Brestois 29"
-        },
-        {
-          "id": "ligue1-2026-11-21-OGC Nice-Paris Saint-Germain FC-91",
-          "competition": "ligue1",
-          "date": "2026-11-21",
-          "home": "OGC Nice",
-          "away": "Paris Saint-Germain FC"
-        },
-        {
-          "id": "ligue1-2026-11-21-AS Monaco FC-AJ Auxerre-92",
-          "competition": "ligue1",
-          "date": "2026-11-21",
-          "home": "AS Monaco FC",
-          "away": "AJ Auxerre"
-        },
-        {
-          "id": "ligue1-2026-11-21-Racing Club de Lens-Toulouse FC-93",
-          "competition": "ligue1",
-          "date": "2026-11-21",
-          "home": "Racing Club de Lens",
-          "away": "Toulouse FC"
-        },
-        {
-          "id": "ligue1-2026-11-21-Lille OSC-Olympique Lyonnais-94",
-          "competition": "ligue1",
-          "date": "2026-11-21",
-          "home": "Lille OSC",
-          "away": "Olympique Lyonnais"
-        },
-        {
-          "id": "ligue1-2026-11-21-RC Strasbourg Alsace-Stade Brestois 29-95",
-          "competition": "ligue1",
-          "date": "2026-11-21",
-          "home": "RC Strasbourg Alsace",
-          "away": "Stade Brestois 29"
         }
       ],
       "sourceError": null,
-      "finals": 87
+      "finals": 92
     },
     {
       "competition": "nations",
@@ -322,89 +207,23 @@
     {
       "competition": "nba",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "nba-401910023",
-          "competition": "nba",
-          "date": "2026-11-21",
-          "home": "Philadelphia 76ers",
-          "away": "Milwaukee Bucks"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 235
+      "finals": 236
     },
     {
       "competition": "pl",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "pl-86628",
-          "competition": "pl",
-          "date": "2026-11-21",
-          "home": "AFC Bournemouth",
-          "away": "Nottingham Forest"
-        },
-        {
-          "id": "pl-86629",
-          "competition": "pl",
-          "date": "2026-11-21",
-          "home": "Aston Villa",
-          "away": "Sunderland"
-        },
-        {
-          "id": "pl-86631",
-          "competition": "pl",
-          "date": "2026-11-21",
-          "home": "Chelsea FC",
-          "away": "Leeds United"
-        },
-        {
-          "id": "pl-86632",
-          "competition": "pl",
-          "date": "2026-11-21",
-          "home": "Coventry City",
-          "away": "Crystal Palace FC"
-        },
-        {
-          "id": "pl-86637",
-          "competition": "pl",
-          "date": "2026-11-21",
-          "home": "Tottenham Hotspur FC",
-          "away": "Ipswich Town"
-        },
-        {
-          "id": "pl-86636",
-          "competition": "pl",
-          "date": "2026-11-21",
-          "home": "Newcastle United FC",
-          "away": "FC Arsenal"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 101
+      "finals": 107
     },
     {
       "competition": "seriea",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "seriea-2026-11-21-Parma Calcio 1913-AS Roma-112",
-          "competition": "seriea",
-          "date": "2026-11-21",
-          "home": "Parma Calcio 1913",
-          "away": "AS Roma"
-        },
-        {
-          "id": "seriea-2026-11-21-SSC Napoli-Torino FC-113",
-          "competition": "seriea",
-          "date": "2026-11-21",
-          "home": "SSC Napoli",
-          "away": "Torino FC"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 112
+      "finals": 114
     },
     {
       "competition": "sl",
@@ -416,17 +235,10 @@
           "date": "2026-10-17",
           "home": "Atromitos",
           "away": "AEK"
-        },
-        {
-          "id": "sl-2026-11-21-Kalamata-AEK",
-          "competition": "sl",
-          "date": "2026-11-21",
-          "home": "Kalamata",
-          "away": "AEK"
         }
       ],
       "sourceError": null,
-      "finals": 69
+      "finals": 70
     },
     {
       "competition": "sl2",
@@ -454,13 +266,6 @@
           "away": "Π.Α.Ο.Κ."
         },
         {
-          "id": "volley-m-5-26",
-          "competition": "volley-m",
-          "date": "2026-11-21",
-          "home": "Α.Ο.Π. Κηφισιάς",
-          "away": "Α.Ο.Ν.Σ. Μίλων"
-        },
-        {
           "id": "volley-m-5-27",
           "competition": "volley-m",
           "date": "2026-11-21",
@@ -469,43 +274,14 @@
         }
       ],
       "sourceError": null,
-      "finals": 24
+      "finals": 25
     },
     {
       "competition": "volley-w",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "volley-88192",
-          "competition": "volley-w",
-          "date": "2026-11-21",
-          "home": "Α.Σ.Π. Θέτις",
-          "away": "Παναθηναϊκός Α.Ο."
-        },
-        {
-          "id": "volley-88193",
-          "competition": "volley-w",
-          "date": "2026-11-21",
-          "home": "Α.Ο. Θήρας",
-          "away": "Π.Α.Ο.Κ. F&U"
-        },
-        {
-          "id": "volley-88195",
-          "competition": "volley-w",
-          "date": "2026-11-21",
-          "home": "Α.Σ. Άρης",
-          "away": "Α.Σ. Ελπίς"
-        },
-        {
-          "id": "volley-88196",
-          "competition": "volley-w",
-          "date": "2026-11-21",
-          "home": "Α.Ο. Μαρκοπούλου Revoil",
-          "away": "Ο.Φ.Α. Απολλώνιος"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 37
+      "finals": 41
     }
   ]
 }
