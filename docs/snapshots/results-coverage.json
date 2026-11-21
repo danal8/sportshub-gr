@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-21T01:50:39.733Z",
+  "checkedAt": "2026-11-21T08:56:07.287Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -387,69 +387,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "nba-401909305",
-          "competition": "nba",
-          "date": "2026-11-21",
-          "home": "Atlanta Hawks",
-          "away": "Charlotte Hornets"
-        },
-        {
-          "id": "nba-401909308",
-          "competition": "nba",
-          "date": "2026-11-21",
-          "home": "Detroit Pistons",
-          "away": "Toronto Raptors"
-        },
-        {
-          "id": "nba-401909306",
-          "competition": "nba",
-          "date": "2026-11-21",
-          "home": "Brooklyn Nets",
-          "away": "Orlando Magic"
-        },
-        {
-          "id": "nba-401909307",
-          "competition": "nba",
-          "date": "2026-11-21",
-          "home": "Cleveland Cavaliers",
-          "away": "Indiana Pacers"
-        },
-        {
-          "id": "nba-401909309",
-          "competition": "nba",
-          "date": "2026-11-21",
-          "home": "Chicago Bulls",
-          "away": "Washington Wizards"
-        },
-        {
-          "id": "nba-401909310",
-          "competition": "nba",
-          "date": "2026-11-21",
-          "home": "Oklahoma City Thunder",
-          "away": "New Orleans Pelicans"
-        },
-        {
-          "id": "nba-401909311",
-          "competition": "nba",
-          "date": "2026-11-21",
-          "home": "Utah Jazz",
-          "away": "Phoenix Suns"
-        },
-        {
-          "id": "nba-401909313",
-          "competition": "nba",
-          "date": "2026-11-21",
-          "home": "Los Angeles Lakers",
-          "away": "Sacramento Kings"
-        },
-        {
-          "id": "nba-401909312",
-          "competition": "nba",
-          "date": "2026-11-21",
-          "home": "Denver Nuggets",
-          "away": "Houston Rockets"
-        },
-        {
           "id": "nba-401910023",
           "competition": "nba",
           "date": "2026-11-21",
@@ -458,7 +395,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 226
+      "finals": 235
     },
     {
       "competition": "pl",
