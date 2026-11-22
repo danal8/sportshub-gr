@@ -1,19 +1,12 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-22T09:27:58.121Z",
+  "checkedAt": "2026-11-22T17:20:15.518Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
       "competition": "bund",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "bund-83240",
-          "competition": "bund",
-          "date": "2026-11-22",
-          "home": "FC Augsburg",
-          "away": "1. FSV Mainz 05"
-        },
         {
           "id": "bund-83243",
           "competition": "bund",
@@ -23,7 +16,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 88
+      "finals": 89
     },
     {
       "competition": "cl",
@@ -120,24 +113,9 @@
     {
       "competition": "gbl",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "gbl-6AA68E52",
-          "competition": "gbl",
-          "date": "2026-11-22",
-          "home": "ΜΥΚΟΝΟΣ Betsson BC",
-          "away": "VIKOS ΦALCONS"
-        },
-        {
-          "id": "gbl-C02F68B7",
-          "competition": "gbl",
-          "date": "2026-11-22",
-          "home": "ΚΑΡΔΙΤΣΑ ΙΑΠΩΝΙΚΗ",
-          "away": "ΟΛΥΜΠΙΑΚΟΣ"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 54
+      "finals": 56
     },
     {
       "competition": "greek-cup",
@@ -170,6 +148,13 @@
           "date": "2026-11-20",
           "home": "Athletic Club",
           "away": "Espanyol"
+        },
+        {
+          "id": "espn-401882804",
+          "competition": "laliga",
+          "date": "2026-11-22",
+          "home": "Barcelona",
+          "away": "Villarreal"
         }
       ],
       "awaitingResults": [
@@ -188,13 +173,6 @@
           "away": "FC Villareal"
         },
         {
-          "id": "laliga-85461",
-          "competition": "laliga",
-          "date": "2026-11-22",
-          "home": "Racing Santander",
-          "away": "Real Sociedad"
-        },
-        {
           "id": "laliga-85460",
           "competition": "laliga",
           "date": "2026-11-22",
@@ -210,7 +188,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 123
+      "finals": 124
     },
     {
       "competition": "ligue1",
@@ -245,13 +223,6 @@
           "away": "Stade Brestois 29"
         },
         {
-          "id": "ligue1-2026-11-22-Paris FC-Angers SCO-96",
-          "competition": "ligue1",
-          "date": "2026-11-22",
-          "home": "Paris FC",
-          "away": "Angers SCO"
-        },
-        {
           "id": "ligue1-2026-11-22-FC Lorient-Stade Rennais FC 1901-97",
           "competition": "ligue1",
           "date": "2026-11-22",
@@ -267,7 +238,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 92
+      "finals": 93
     },
     {
       "competition": "nations",
@@ -296,13 +267,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "pl-86633",
-          "competition": "pl",
-          "date": "2026-11-22",
-          "home": "Hull City",
-          "away": "Brighton & Hove Albion"
-        },
-        {
           "id": "pl-86634",
           "competition": "pl",
           "date": "2026-11-22",
@@ -311,32 +275,18 @@
         }
       ],
       "sourceError": null,
-      "finals": 107
+      "finals": 108
     },
     {
       "competition": "seriea",
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "seriea-2026-11-22-US Sassuolo Calcio-Genoa CFC-114",
-          "competition": "seriea",
-          "date": "2026-11-22",
-          "home": "US Sassuolo Calcio",
-          "away": "Genoa CFC"
-        },
-        {
           "id": "seriea-2026-11-22-AC Milan-Frosinone Calcio-115",
           "competition": "seriea",
           "date": "2026-11-22",
           "home": "AC Milan",
           "away": "Frosinone Calcio"
-        },
-        {
-          "id": "seriea-2026-11-22-Bologna FC 1909-Udinese Calcio-116",
-          "competition": "seriea",
-          "date": "2026-11-22",
-          "home": "Bologna FC 1909",
-          "away": "Udinese Calcio"
         },
         {
           "id": "seriea-2026-11-22-Atalanta BC-FC Internazionale Milano-117",
@@ -347,7 +297,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 114
+      "finals": 117
     },
     {
       "competition": "sl",
@@ -359,20 +309,6 @@
           "date": "2026-10-17",
           "home": "Atromitos",
           "away": "AEK"
-        },
-        {
-          "id": "sl-2026-11-22-Levadiakos-Atromitos",
-          "competition": "sl",
-          "date": "2026-11-22",
-          "home": "Levadiakos",
-          "away": "Atromitos"
-        },
-        {
-          "id": "sl-2026-11-22-Panetolikos-Volos",
-          "competition": "sl",
-          "date": "2026-11-22",
-          "home": "Panetolikos",
-          "away": "Volos"
         },
         {
           "id": "sl-2026-11-22-Panathinaikos-OFI",
@@ -397,48 +333,19 @@
         }
       ],
       "sourceError": null,
-      "finals": 70
+      "finals": 72
     },
     {
       "competition": "sl2",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "sl2-2627096",
-          "competition": "sl2",
-          "date": "2026-11-22",
-          "home": "ΑΝΑΓ. ΚΑΡΔΙΤΣΑΣ",
-          "away": "ATHENS KALLITHEA"
-        },
-        {
-          "id": "sl2-2627094",
-          "competition": "sl2",
-          "date": "2026-11-22",
-          "home": "ΖΑΚΥΝΘΟΣ",
-          "away": "ΠΑΝΣΕΡΡΑΪΚΟΣ"
-        },
-        {
-          "id": "sl2-2627095",
-          "competition": "sl2",
-          "date": "2026-11-22",
-          "home": "ΟΛΥΜΠΙΑΚΟΣ Β'",
-          "away": "ΑΠΟΛΛΩΝ ΚΑΛΑΜΑΡΙΑΣ"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 91
+      "finals": 94
     },
     {
       "competition": "volley-m",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "volley-m-5-28",
-          "competition": "volley-m",
-          "date": "2026-11-22",
-          "home": "Α.Ο.Καλαμάτα Affidea V.C",
-          "away": "Ο.Φ.Η."
-        },
         {
           "id": "volley-m-5-29",
           "competition": "volley-m",
@@ -448,7 +355,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 28
+      "finals": 29
     },
     {
       "competition": "volley-w",
