@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-22T22:37:15.135Z",
+  "checkedAt": "2026-11-23T03:07:59.546Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -259,41 +259,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "nba-401910029",
-          "competition": "nba",
-          "date": "2026-11-22",
-          "home": "Atlanta Hawks",
-          "away": "Detroit Pistons"
-        },
-        {
-          "id": "nba-401910030",
-          "competition": "nba",
-          "date": "2026-11-23",
-          "home": "Miami Heat",
-          "away": "Oklahoma City Thunder"
-        },
-        {
-          "id": "nba-401910032",
-          "competition": "nba",
-          "date": "2026-11-23",
-          "home": "Chicago Bulls",
-          "away": "Denver Nuggets"
-        },
-        {
-          "id": "nba-401910031",
-          "competition": "nba",
-          "date": "2026-11-23",
-          "home": "Washington Wizards",
-          "away": "Orlando Magic"
-        },
-        {
-          "id": "nba-401910033",
-          "competition": "nba",
-          "date": "2026-11-23",
-          "home": "Utah Jazz",
-          "away": "Dallas Mavericks"
-        },
-        {
           "id": "nba-401910034",
           "competition": "nba",
           "date": "2026-11-23",
@@ -309,7 +274,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 241
+      "finals": 246
     },
     {
       "competition": "pl",
@@ -388,17 +353,9 @@
     {
       "competition": "volley-m",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "volley-m-5-29",
-          "competition": "volley-m",
-          "date": "2026-11-22",
-          "home": "Α.Σ.Άρης",
-          "away": "Α.Ο.Φοίνικας Σύρου"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 29
+      "finals": 30
     },
     {
       "competition": "volley-w",
