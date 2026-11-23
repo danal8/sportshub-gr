@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-23T03:07:59.546Z",
+  "checkedAt": "2026-11-23T12:29:30.158Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -257,24 +257,9 @@
     {
       "competition": "nba",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "nba-401910034",
-          "competition": "nba",
-          "date": "2026-11-23",
-          "home": "New York Knicks",
-          "away": "Indiana Pacers"
-        },
-        {
-          "id": "nba-401910035",
-          "competition": "nba",
-          "date": "2026-11-23",
-          "home": "Golden State Warriors",
-          "away": "Boston Celtics"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 246
+      "finals": 248
     },
     {
       "competition": "pl",
