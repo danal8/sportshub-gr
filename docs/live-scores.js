@@ -5,7 +5,7 @@ import{mergeResultUpdates,sameResultMatch}from'./result-reconciliation.js?v=77';
 import{teamKey}from'./badges.js?v=77';
 import{aliases}from'./team-aliases.js?v=77';
 import{athensDay,shiftDay}from'./core.js?v=77';
-import{openGames,euroGames}from'./direct.js?v=77';
+import{openGames,euroGames}from'./direct.js?v=83';
 import{sl2Score}from'./results.js?v=77';
 export const LIVE_INTERVAL=30000,LIVE_TTL=90000;
 export const liveLeagues={nations:['soccer','uefa.nations'],friendly:['soccer','fifa.friendly'],sl:['soccer','gre.1'],pl:['soccer','eng.1'],bund:['soccer','ger.1'],laliga:['soccer','esp.1'],seriea:['soccer','ita.1'],ligue1:['soccer','fra.1'],cl:['soccer','uefa.champions'],europa:['soccer','uefa.europa'],conference:['soccer','uefa.europa.conf'],nba:['basketball','nba']};
@@ -83,7 +83,7 @@ export async function loadLiveScores(matches,date,{force=false,competitionIDs,on
  // Coalesce independent result sources before reconciliation (which rejects ambiguous duplicates).
  const volleyball=new Map();for(const x of entries)if(['volley-m','volley-w'].includes(x.competition)){const k=x.competition+'|'+x.id,old=volleyball.get(k);if(!old||Date.parse(x.scoreCheckedAt||x.checkedAt)>Date.parse(old.scoreCheckedAt||old.checkedAt))volleyball.set(k,x);}
  for(let i=entries.length-1;i>=0;i--)if(['volley-m','volley-w'].includes(entries[i].competition))entries.splice(i,1);entries.push(...volleyball.values());
- const openLeagues={pl:'pl',bund:'bl1',laliga:'la1',cl:'ucl',europa:'uel2026'};
+ const openLeagues={pl:'pl',bund:'bl1',cl:'ucl',europa:'uel2026'};
  await Promise.all(ids.filter(id=>openLeagues[id]&&matches.some(m=>m.competition===id&&m.date===date&&!entries.some(x=>x.competition===id&&same(m.home,x.home,x.homeAliases)&&same(m.away,x.away,x.awayAliases)))).map(async id=>{
   try{const value=await requestFeed('open-live-'+id+'-'+date,async()=>{const url='https://api.openligadb.de/getmatchdata/'+openLeagues[id]+'/2026',raw=await requestJSON(url),checkedAt=new Date().toISOString();return openGames(raw,id,2026).filter(m=>m.date===date&&['live','final'].includes(m.scoreState)).map(m=>({...m,competition:id,checkedAt,source:url,provider:'OpenLigaDB'}));},force);
    for(const x of value)if(!entries.some(m=>m.competition===id&&same(m.home,x.home,x.homeAliases)&&same(m.away,x.away,x.awayAliases)))entries.push(x);if(value.length)sources.push('OpenLigaDB');

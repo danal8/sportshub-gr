@@ -4,6 +4,25 @@ import{aliases}from'./team-aliases.js?v=77';
 import{standingsCoverage}from'./standings-health.js?v=77';
 import{sectionStatus}from'./source-status.js?v=77';
 const leagues={europa:{espn:'uefa.europa',teams:36,matches:144},conference:{espn:'uefa.europa.conf',teams:36,matches:108},pl:{file:'en.1',espn:'eng.1',teams:20,matches:380},laliga:{file:'es.1',espn:'esp.1',teams:20,matches:380},seriea:{file:'it.1',espn:'ita.1',teams:20,matches:380},ligue1:{file:'fr.1',espn:'fra.1',teams:18,matches:306}};
+// OpenFootball uses full Spanish club names that ESPN abbreviates.
+const spanishClubNames={
+ 'Rayo Vallecano de Madrid':'Rayo Vallecano',
+ 'Real Racing Club de Santander':'Racing Santander',
+ 'RCD Espanyol de Barcelona':'Espanyol',
+ 'RC Deportivo La Coruña':'Deportivo',
+ 'Club Atlético de Madrid':'Atlético Madrid',
+ 'Málaga CF':'Málaga',
+ 'Real Betis Balompié':'Real Betis',
+ 'Real Sociedad de Fútbol':'Real Sociedad',
+ 'RC Celta de Vigo':'Celta Vigo',
+ 'Real Madrid CF':'Real Madrid'
+};
+export function validSpanishLeague({matches=[],standings=[]}={}){
+ const ids=new Set(standings.map(row=>row.sourceTeamID));
+ if(standings.length!==leagues.laliga.teams||ids.size!==leagues.laliga.teams||ids.has(undefined)||matches.length!==leagues.laliga.matches)return false;
+ const home=new Set(matches.map(match=>match.homeIDs?.espn)),away=new Set(matches.map(match=>match.awayIDs?.espn));
+ return home.size===ids.size&&away.size===ids.size&&[...ids].every(id=>home.has(id)&&away.has(id));
+}
 const local=utc=>({date:new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Athens',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(utc)),time:new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Athens',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date(utc))});
 async function json(url){const r=await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('HTTP '+r.status);return r.json();}
 export function footballStandings(raw,id){
@@ -14,8 +33,8 @@ export function footballStandings(raw,id){
 }
 export function europeanFixtures(raw,id,standings){const config=leagues[id];if(!config||!raw.name?.includes('2026/27'))throw Error('Λανθασμένη σεζόν');const matches=normalizeFootball(raw,id);if(matches.length!==config.matches)throw Error('Ελλιπές πρόγραμμα');
  const same=(name,row)=>{const keys=new Set([name,...aliases[teamKey(name)]||[]].map(teamKey));return[row.team,...row.teamAliases||[]].some(n=>keys.has(teamKey(n)));};
- return matches.map((m,i)=>{const game=raw.matches[i];if(game.time){const dt=local(game.date+'T'+game.time+':00+0'+(game.date<'2026-10-25'||game.date>='2027-03-28'?'2':'1')+':00');Object.assign(m,dt);}for(const side of ['home','away']){const t=standings.find(r=>same(m[side],r));if(t){m[side+'Badge']=t.badge;m[side+'IDs']={...m[side+'IDs'],espn:t.sourceTeamID};m[side+'Aliases']=[t.team,...t.teamAliases];}}return{...m,scoreState:m.score?'final':null};});}
-export async function loadEuropeanLeague(id){const c=leagues[id];if(!c)throw Error('Άγνωστη διοργάνωση');const source='https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/'+c.file+'.json',standingsSource='https://site.api.espn.com/apis/v2/sports/soccer/'+c.espn+'/standings?season=2026';const[raw,table]=await Promise.all([json(source),json(standingsSource)]);const standings=footballStandings(table,id);return{season:'2026-27',source,standingsSource,retrievedAt:new Date().toISOString(),matches:europeanFixtures(raw,id,standings),standings,copyright:'openfootball / CC0 · ESPN standings'};}
+ return matches.map((m,i)=>{const game=raw.matches[i];if(game.time){const dt=local(game.date+'T'+game.time+':00+0'+(game.date<'2026-10-25'||game.date>='2027-03-28'?'2':'1')+':00');Object.assign(m,dt);}for(const side of ['home','away']){const name=id==='laliga'?spanishClubNames[m[side]]||m[side]:m[side];const t=standings.find(r=>same(name,r));if(t){m[side+'Badge']=t.badge;m[side+'IDs']={...m[side+'IDs'],espn:t.sourceTeamID};m[side+'Aliases']=[t.team,...t.teamAliases];}}return{...m,scoreState:m.score?'final':null};});}
+export async function loadEuropeanLeague(id){const c=leagues[id];if(!c)throw Error('Άγνωστη διοργάνωση');const source='https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/'+c.file+'.json',standingsSource='https://site.api.espn.com/apis/v2/sports/soccer/'+c.espn+'/standings?season=2026';const[raw,table]=await Promise.all([json(source),json(standingsSource)]);const standings=footballStandings(table,id),matches=europeanFixtures(raw,id,standings);if(id==='laliga'&&(!validSpanishLeague({matches,standings})||table.name!=='Spanish LALIGA'))throw Error('Οι ομάδες του προγράμματος και της βαθμολογίας La Liga δεν συμφωνούν');return{season:'2026-27',source,standingsSource,retrievedAt:new Date().toISOString(),matches,standings,copyright:'openfootball / CC0 · ESPN standings'};}
 
 
 export async function loadFootballStandings(id,{fetchJSON=json}={}){
@@ -27,7 +46,7 @@ export async function loadFootballStandings(id,{fetchJSON=json}={}){
 }
 // Check against reconciled finals, not just the primary provider's older results.
 export async function preferCompleteFootballStandings(payload,id,options){
- if(!['pl','laliga','europa','conference'].includes(id)||!options?.force&&payload.standings?.length&&!standingsCoverage(payload.matches,payload.standings).stale)return payload;
+ if(!['pl','europa','conference'].includes(id)||!options?.force&&payload.standings?.length&&!standingsCoverage(payload.matches,payload.standings).stale)return payload;
  try{
   const alternative=await loadFootballStandings(id,options),coverage=standingsCoverage(payload.matches,alternative.standings);
   if(coverage.stale||coverage.unmatched.length&&!['europa','conference'].includes(id))throw Error('Ελλιπής εναλλακτική βαθμολογία');

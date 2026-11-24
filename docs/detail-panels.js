@@ -1,5 +1,5 @@
 import{standingsTable}from'./standings-table.js?v=79';
-import{loadMatchStandings,projectMatchStandings,pointsAdjustment}from'./match-standings.js?v=80';
+import{loadMatchStandings,projectMatchStandings,pointsAdjustment}from'./match-standings.js?v=83';
 import{sameTeam}from'./detail-data.js?v=77';
 import{tvOnlyCompetitions}from'./tv-meta.js?v=77';
 import{sameResultMatch,synchronizeDetailScore,mergeResultUpdates}from'./result-reconciliation.js?v=77';
