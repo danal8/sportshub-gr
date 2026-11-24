@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-24T07:07:28.902Z",
+  "checkedAt": "2026-11-24T10:06:59.114Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -248,10 +248,129 @@
           "date": "2026-10-10",
           "home": "Rayo Vallecano de Madrid",
           "away": "Athletic Club"
+        },
+        {
+          "id": "laliga-2026-10-25-Rayo Vallecano de Madrid-Elche CF-90",
+          "competition": "laliga",
+          "date": "2026-10-25",
+          "home": "Rayo Vallecano de Madrid",
+          "away": "Elche CF"
+        },
+        {
+          "id": "laliga-2026-10-25-Deportivo Alavés-Málaga CF-91",
+          "competition": "laliga",
+          "date": "2026-10-25",
+          "home": "Deportivo Alavés",
+          "away": "Málaga CF"
+        },
+        {
+          "id": "laliga-2026-10-25-Sevilla FC-CA Osasuna-93",
+          "competition": "laliga",
+          "date": "2026-10-25",
+          "home": "Sevilla FC",
+          "away": "CA Osasuna"
+        },
+        {
+          "id": "laliga-2026-10-25-Valencia CF-Villarreal CF-94",
+          "competition": "laliga",
+          "date": "2026-10-25",
+          "home": "Valencia CF",
+          "away": "Villarreal CF"
+        },
+        {
+          "id": "laliga-2026-10-25-Club Atlético de Madrid-RC Deportivo La Coruña-96",
+          "competition": "laliga",
+          "date": "2026-10-25",
+          "home": "Club Atlético de Madrid",
+          "away": "RC Deportivo La Coruña"
+        },
+        {
+          "id": "laliga-2026-10-25-Real Racing Club de Santander-RCD Espanyol de Barcelona-99",
+          "competition": "laliga",
+          "date": "2026-10-25",
+          "home": "Real Racing Club de Santander",
+          "away": "RCD Espanyol de Barcelona"
+        },
+        {
+          "id": "laliga-2026-11-01-Real Betis Balompié-Málaga CF-100",
+          "competition": "laliga",
+          "date": "2026-11-01",
+          "home": "Real Betis Balompié",
+          "away": "Málaga CF"
+        },
+        {
+          "id": "laliga-2026-11-01-Villarreal CF-RCD Espanyol de Barcelona-101",
+          "competition": "laliga",
+          "date": "2026-11-01",
+          "home": "Villarreal CF",
+          "away": "RCD Espanyol de Barcelona"
+        },
+        {
+          "id": "laliga-2026-11-01-Levante UD-Club Atlético de Madrid-104",
+          "competition": "laliga",
+          "date": "2026-11-01",
+          "home": "Levante UD",
+          "away": "Club Atlético de Madrid"
+        },
+        {
+          "id": "laliga-2026-11-01-RC Deportivo La Coruña-CA Osasuna-105",
+          "competition": "laliga",
+          "date": "2026-11-01",
+          "home": "RC Deportivo La Coruña",
+          "away": "CA Osasuna"
+        },
+        {
+          "id": "laliga-2026-11-01-FC Barcelona-Deportivo Alavés-106",
+          "competition": "laliga",
+          "date": "2026-11-01",
+          "home": "FC Barcelona",
+          "away": "Deportivo Alavés"
+        },
+        {
+          "id": "laliga-2026-11-01-Rayo Vallecano de Madrid-RC Celta de Vigo-109",
+          "competition": "laliga",
+          "date": "2026-11-01",
+          "home": "Rayo Vallecano de Madrid",
+          "away": "RC Celta de Vigo"
+        },
+        {
+          "id": "laliga-2026-11-08-CA Osasuna-Athletic Club-111",
+          "competition": "laliga",
+          "date": "2026-11-08",
+          "home": "CA Osasuna",
+          "away": "Athletic Club"
+        },
+        {
+          "id": "laliga-2026-11-08-Sevilla FC-Deportivo Alavés-112",
+          "competition": "laliga",
+          "date": "2026-11-08",
+          "home": "Sevilla FC",
+          "away": "Deportivo Alavés"
+        },
+        {
+          "id": "laliga-2026-11-08-Valencia CF-Real Madrid CF-113",
+          "competition": "laliga",
+          "date": "2026-11-08",
+          "home": "Valencia CF",
+          "away": "Real Madrid CF"
+        },
+        {
+          "id": "laliga-2026-11-08-Málaga CF-Real Racing Club de Santander-116",
+          "competition": "laliga",
+          "date": "2026-11-08",
+          "home": "Málaga CF",
+          "away": "Real Racing Club de Santander"
+        },
+        {
+          "id": "laliga-2026-11-08-RCD Espanyol de Barcelona-RC Deportivo La Coruña-117",
+          "competition": "laliga",
+          "date": "2026-11-08",
+          "home": "RCD Espanyol de Barcelona",
+          "away": "RC Deportivo La Coruña"
         }
       ],
       "sourceError": null,
-      "finals": 129
+      "finals": 112
     },
     {
       "competition": "ligue1",
