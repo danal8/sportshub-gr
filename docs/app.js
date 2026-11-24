@@ -22,7 +22,7 @@ import{swipeDirection}from'./gestures.js?v=77';
 import{navIcon}from'./icons.js?v=77';
 import{scheduleEntries,daySchedule}from'./schedule.js?v=77';
 import{loadNova}from'./tv.js?v=77';
-import {loadProvider,isConnected,rememberConfirmedResults} from './providers.js?v=83';
+import {loadProvider,isConnected,rememberConfirmedResults} from './providers.js?v=84';
 import {competitions,checkedAt,eliteSchedule,eliteTV,eliteMatches,broadcasts,currentTV,gblStandings} from './data.js?v=78';
 import {escapeHTML as e,normalizeFootball,calculateTable,athensDay,chooseRound,filterMatches,shiftDay} from './core.js?v=81';
 const $=id=>document.getElementById(id);
