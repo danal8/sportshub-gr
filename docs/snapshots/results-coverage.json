@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-24T00:17:45.827Z",
+  "checkedAt": "2026-11-24T07:04:14.092Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -240,68 +240,137 @@
     },
     {
       "competition": "laliga",
-      "unmatchedResults": [
-        {
-          "id": "espn-401882804",
-          "competition": "laliga",
-          "date": "2026-11-22",
-          "home": "Barcelona",
-          "away": "Villarreal"
-        },
-        {
-          "id": "espn-401882801",
-          "competition": "laliga",
-          "date": "2026-11-22",
-          "home": "Osasuna",
-          "away": "Málaga"
-        },
-        {
-          "id": "espn-401882803",
-          "competition": "laliga",
-          "date": "2026-11-22",
-          "home": "Getafe",
-          "away": "Atlético Madrid"
-        },
-        {
-          "id": "espn-401882805",
-          "competition": "laliga",
-          "date": "2026-11-20",
-          "home": "Athletic Club",
-          "away": "Espanyol"
-        }
-      ],
+      "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "laliga-85456",
+          "id": "laliga-2026-10-10-Rayo Vallecano de Madrid-Athletic Club-70",
           "competition": "laliga",
-          "date": "2026-11-20",
-          "home": "AFC Ajax",
-          "away": "Espanyol Barcelona"
+          "date": "2026-10-10",
+          "home": "Rayo Vallecano de Madrid",
+          "away": "Athletic Club"
         },
         {
-          "id": "laliga-85457",
+          "id": "laliga-2026-10-25-Rayo Vallecano de Madrid-Elche CF-90",
           "competition": "laliga",
-          "date": "2026-11-22",
-          "home": "Excelsior Rotterdam",
-          "away": "FC Villareal"
+          "date": "2026-10-25",
+          "home": "Rayo Vallecano de Madrid",
+          "away": "Elche CF"
         },
         {
-          "id": "laliga-85460",
+          "id": "laliga-2026-10-25-Deportivo Alavés-Málaga CF-91",
           "competition": "laliga",
-          "date": "2026-11-22",
-          "home": "SC Cambuur",
-          "away": "FC Malaga"
+          "date": "2026-10-25",
+          "home": "Deportivo Alavés",
+          "away": "Málaga CF"
         },
         {
-          "id": "laliga-85458",
+          "id": "laliga-2026-10-25-Sevilla FC-CA Osasuna-93",
           "competition": "laliga",
-          "date": "2026-11-22",
-          "home": "FC Getafe",
-          "away": "AZ Alkmaar"
+          "date": "2026-10-25",
+          "home": "Sevilla FC",
+          "away": "CA Osasuna"
+        },
+        {
+          "id": "laliga-2026-10-25-Valencia CF-Villarreal CF-94",
+          "competition": "laliga",
+          "date": "2026-10-25",
+          "home": "Valencia CF",
+          "away": "Villarreal CF"
+        },
+        {
+          "id": "laliga-2026-10-25-Club Atlético de Madrid-RC Deportivo La Coruña-96",
+          "competition": "laliga",
+          "date": "2026-10-25",
+          "home": "Club Atlético de Madrid",
+          "away": "RC Deportivo La Coruña"
+        },
+        {
+          "id": "laliga-2026-10-25-Real Racing Club de Santander-RCD Espanyol de Barcelona-99",
+          "competition": "laliga",
+          "date": "2026-10-25",
+          "home": "Real Racing Club de Santander",
+          "away": "RCD Espanyol de Barcelona"
+        },
+        {
+          "id": "laliga-2026-11-01-Real Betis Balompié-Málaga CF-100",
+          "competition": "laliga",
+          "date": "2026-11-01",
+          "home": "Real Betis Balompié",
+          "away": "Málaga CF"
+        },
+        {
+          "id": "laliga-2026-11-01-Villarreal CF-RCD Espanyol de Barcelona-101",
+          "competition": "laliga",
+          "date": "2026-11-01",
+          "home": "Villarreal CF",
+          "away": "RCD Espanyol de Barcelona"
+        },
+        {
+          "id": "laliga-2026-11-01-Levante UD-Club Atlético de Madrid-104",
+          "competition": "laliga",
+          "date": "2026-11-01",
+          "home": "Levante UD",
+          "away": "Club Atlético de Madrid"
+        },
+        {
+          "id": "laliga-2026-11-01-RC Deportivo La Coruña-CA Osasuna-105",
+          "competition": "laliga",
+          "date": "2026-11-01",
+          "home": "RC Deportivo La Coruña",
+          "away": "CA Osasuna"
+        },
+        {
+          "id": "laliga-2026-11-01-FC Barcelona-Deportivo Alavés-106",
+          "competition": "laliga",
+          "date": "2026-11-01",
+          "home": "FC Barcelona",
+          "away": "Deportivo Alavés"
+        },
+        {
+          "id": "laliga-2026-11-01-Rayo Vallecano de Madrid-RC Celta de Vigo-109",
+          "competition": "laliga",
+          "date": "2026-11-01",
+          "home": "Rayo Vallecano de Madrid",
+          "away": "RC Celta de Vigo"
+        },
+        {
+          "id": "laliga-2026-11-08-CA Osasuna-Athletic Club-111",
+          "competition": "laliga",
+          "date": "2026-11-08",
+          "home": "CA Osasuna",
+          "away": "Athletic Club"
+        },
+        {
+          "id": "laliga-2026-11-08-Sevilla FC-Deportivo Alavés-112",
+          "competition": "laliga",
+          "date": "2026-11-08",
+          "home": "Sevilla FC",
+          "away": "Deportivo Alavés"
+        },
+        {
+          "id": "laliga-2026-11-08-Valencia CF-Real Madrid CF-113",
+          "competition": "laliga",
+          "date": "2026-11-08",
+          "home": "Valencia CF",
+          "away": "Real Madrid CF"
+        },
+        {
+          "id": "laliga-2026-11-08-Málaga CF-Real Racing Club de Santander-116",
+          "competition": "laliga",
+          "date": "2026-11-08",
+          "home": "Málaga CF",
+          "away": "Real Racing Club de Santander"
+        },
+        {
+          "id": "laliga-2026-11-08-RCD Espanyol de Barcelona-RC Deportivo La Coruña-117",
+          "competition": "laliga",
+          "date": "2026-11-08",
+          "home": "RCD Espanyol de Barcelona",
+          "away": "RC Deportivo La Coruña"
         }
       ],
       "sourceError": null,
-      "finals": 125
+      "finals": 112
     },
     {
       "competition": "ligue1",
@@ -349,80 +418,9 @@
     {
       "competition": "nba",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "nba-401910036",
-          "competition": "nba",
-          "date": "2026-11-24",
-          "home": "Charlotte Hornets",
-          "away": "Memphis Grizzlies"
-        },
-        {
-          "id": "nba-401910037",
-          "competition": "nba",
-          "date": "2026-11-24",
-          "home": "Philadelphia 76ers",
-          "away": "Portland Trail Blazers"
-        },
-        {
-          "id": "nba-401910039",
-          "competition": "nba",
-          "date": "2026-11-24",
-          "home": "Toronto Raptors",
-          "away": "Milwaukee Bucks"
-        },
-        {
-          "id": "nba-401910040",
-          "competition": "nba",
-          "date": "2026-11-24",
-          "home": "Minnesota Timberwolves",
-          "away": "Brooklyn Nets"
-        },
-        {
-          "id": "nba-401910038",
-          "competition": "nba",
-          "date": "2026-11-24",
-          "home": "Indiana Pacers",
-          "away": "Oklahoma City Thunder"
-        },
-        {
-          "id": "nba-401910041",
-          "competition": "nba",
-          "date": "2026-11-24",
-          "home": "Chicago Bulls",
-          "away": "Cleveland Cavaliers"
-        },
-        {
-          "id": "nba-401910042",
-          "competition": "nba",
-          "date": "2026-11-24",
-          "home": "New Orleans Pelicans",
-          "away": "Phoenix Suns"
-        },
-        {
-          "id": "nba-401910043",
-          "competition": "nba",
-          "date": "2026-11-24",
-          "home": "Houston Rockets",
-          "away": "LA Clippers"
-        },
-        {
-          "id": "nba-401910044",
-          "competition": "nba",
-          "date": "2026-11-24",
-          "home": "Los Angeles Lakers",
-          "away": "Utah Jazz"
-        },
-        {
-          "id": "nba-401910045",
-          "competition": "nba",
-          "date": "2026-11-24",
-          "home": "Sacramento Kings",
-          "away": "San Antonio Spurs"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 248
+      "finals": 258
     },
     {
       "competition": "pl",
