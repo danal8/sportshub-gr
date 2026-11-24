@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-24T10:06:59.114Z",
+  "checkedAt": "2026-11-24T20:39:31.987Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -14,20 +14,6 @@
       "competition": "cl",
       "unmatchedResults": [],
       "awaitingResults": [
-        {
-          "id": "cl-87460",
-          "competition": "cl",
-          "date": "2026-11-24",
-          "home": "Galatasaray Istanbul",
-          "away": "Aston Villa"
-        },
-        {
-          "id": "cl-87461",
-          "competition": "cl",
-          "date": "2026-11-24",
-          "home": "FK Bodö/Glimt",
-          "away": "LASK"
-        },
         {
           "id": "cl-87462",
           "competition": "cl",
@@ -79,7 +65,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 72
+      "finals": 74
     },
     {
       "competition": "conference",
@@ -119,24 +105,10 @@
           "date": "2026-11-24",
           "home": "FC Bayern Munich",
           "away": "Maccabi Rapyd Tel Aviv"
-        },
-        {
-          "id": "E-131",
-          "competition": "el",
-          "date": "2026-11-24",
-          "home": "Crvena Zvezda Meridianbet Belgrade",
-          "away": "Virtus Bologna"
-        },
-        {
-          "id": "E-132",
-          "competition": "el",
-          "date": "2026-11-24",
-          "home": "Besiktas Fuzul Istanbul",
-          "away": "Paris Basketball"
         }
       ],
       "sourceError": null,
-      "finals": 130
+      "finals": 132
     },
     {
       "competition": "elite",
