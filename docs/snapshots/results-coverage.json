@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-25T03:45:43.264Z",
+  "checkedAt": "2026-11-25T13:37:34.970Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -404,17 +404,9 @@
     {
       "competition": "nba",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "nba-401909316",
-          "competition": "nba",
-          "date": "2026-11-25",
-          "home": "Denver Nuggets",
-          "away": "Dallas Mavericks"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 260
+      "finals": 261
     },
     {
       "competition": "pl",
