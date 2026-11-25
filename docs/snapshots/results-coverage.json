@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-24T20:39:31.987Z",
+  "checkedAt": "2026-11-25T03:45:43.264Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -15,57 +15,71 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "cl-87462",
+          "id": "cl-87469",
           "competition": "cl",
-          "date": "2026-11-24",
-          "home": "Real Madrid",
-          "away": "PSV Eindhoven"
+          "date": "2026-11-25",
+          "home": "Sabah",
+          "away": "FC Barcelona"
         },
         {
-          "id": "cl-87463",
+          "id": "cl-87470",
           "competition": "cl",
-          "date": "2026-11-24",
-          "home": "Manchester City",
-          "away": "SSC Napoli "
+          "date": "2026-11-25",
+          "home": "Slavia Prag",
+          "away": "Villarreal CF"
         },
         {
-          "id": "cl-87464",
+          "id": "cl-87471",
           "competition": "cl",
-          "date": "2026-11-24",
-          "home": "FC Arsenal",
-          "away": "Borussia Dortmund"
+          "date": "2026-11-25",
+          "home": "Inter Mailand",
+          "away": "VfB Stuttgart"
         },
         {
-          "id": "cl-87465",
+          "id": "cl-87472",
           "competition": "cl",
-          "date": "2026-11-24",
-          "home": "Feyenoord Rotterdam",
-          "away": "FC Porto"
+          "date": "2026-11-25",
+          "home": "Atletico Madrid",
+          "away": "Viking"
         },
         {
-          "id": "cl-87466",
+          "id": "cl-87473",
           "competition": "cl",
-          "date": "2026-11-24",
-          "home": "Slovan Bratislava",
-          "away": "Real Betis"
+          "date": "2026-11-25",
+          "home": "Paris St. Germain",
+          "away": "AS Rom"
         },
         {
-          "id": "cl-87467",
+          "id": "cl-87474",
           "competition": "cl",
-          "date": "2026-11-24",
-          "home": "RB Leipzig",
-          "away": "RC Lens"
+          "date": "2026-11-25",
+          "home": "FC Brügge",
+          "away": "FC Liverpool"
         },
         {
-          "id": "cl-87468",
+          "id": "cl-87475",
           "competition": "cl",
-          "date": "2026-11-24",
-          "home": "Como 1907",
-          "away": "AEK Athen"
+          "date": "2026-11-25",
+          "home": "Lille OSC",
+          "away": "FC Bayern München"
+        },
+        {
+          "id": "cl-87476",
+          "competition": "cl",
+          "date": "2026-11-25",
+          "home": "Sporting CP",
+          "away": "Manchester United FC"
+        },
+        {
+          "id": "cl-87477",
+          "competition": "cl",
+          "date": "2026-11-25",
+          "home": "Shakhtar Donetsk",
+          "away": "Fenerbahçe SK"
         }
       ],
       "sourceError": null,
-      "finals": 74
+      "finals": 81
     },
     {
       "competition": "conference",
@@ -79,36 +93,36 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "E-133",
+          "id": "E-139",
           "competition": "el",
-          "date": "2026-11-24",
-          "home": "FC Barcelona",
-          "away": "Fenerbahce Tarfin Istanbul"
+          "date": "2026-11-25",
+          "home": "Real Madrid",
+          "away": "Zalgiris Kaunas"
         },
         {
-          "id": "E-136",
+          "id": "E-138",
           "competition": "el",
-          "date": "2026-11-24",
-          "home": "LDLC ASVEL Villeurbanne",
-          "away": "Armani Olimpia Milan"
+          "date": "2026-11-25",
+          "home": "Kosner Baskonia Vitoria-Gasteiz",
+          "away": "Anadolu Efes Istanbul"
         },
         {
-          "id": "E-135",
+          "id": "E-140",
           "competition": "el",
-          "date": "2026-11-24",
-          "home": "Valencia Basket",
-          "away": "Panathinaikos AKTOR Athens"
+          "date": "2026-11-25",
+          "home": "Olympiacos Piraeus",
+          "away": "Hapoel IBI Tel Aviv"
         },
         {
-          "id": "E-134",
+          "id": "E-137",
           "competition": "el",
-          "date": "2026-11-24",
-          "home": "FC Bayern Munich",
-          "away": "Maccabi Rapyd Tel Aviv"
+          "date": "2026-11-25",
+          "home": "Dubai Basketball",
+          "away": "Partizan Mozzart Bet Belgrade"
         }
       ],
       "sourceError": null,
-      "finals": 132
+      "finals": 136
     },
     {
       "competition": "elite",
@@ -390,9 +404,17 @@
     {
       "competition": "nba",
       "unmatchedResults": [],
-      "awaitingResults": [],
+      "awaitingResults": [
+        {
+          "id": "nba-401909316",
+          "competition": "nba",
+          "date": "2026-11-25",
+          "home": "Denver Nuggets",
+          "away": "Dallas Mavericks"
+        }
+      ],
       "sourceError": null,
-      "finals": 258
+      "finals": 260
     },
     {
       "competition": "pl",
