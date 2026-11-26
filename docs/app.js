@@ -188,10 +188,16 @@ window.addEventListener('appinstalled',()=>{installPrompt=null;save('sh-installe
 window.addEventListener('offline',()=>notify('Εκτός σύνδεσης · τα δεδομένα είναι αποθηκευμένα στιγμιότυπα. Οι εξωτερικές πηγές χρειάζονται internet.'));window.addEventListener('online',()=>load());
 $('today').textContent=new Intl.DateTimeFormat('el-GR',{weekday:'long',day:'numeric',month:'long',timeZone:'Europe/Athens'}).format(new Date());
 if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>notify('Δεν ενεργοποιήθηκε η offline λειτουργία. Άνοιξε την εφαρμογή μέσω HTTPS ή localhost.'));
-function changeDay(delta){state.tvDate=shiftDay(state.tvDate,delta*(state.tab==='matches'&&state.myTeams?7:1));state.archive=false;$('tv-archive').checked=false;if(state.tab==='tv'||state.tab==='matches'&&state.dailyIndex)load();else{render();void refreshLive();}}
-$('tv-date').onchange=()=>{if($('tv-date').value){state.tvDate=$('tv-date').value;state.archive=false;if(state.tab==='tv'||state.tab==='matches'&&state.dailyIndex)load();else{render();void refreshLive();}}};
+function selectDay(date){
+ state.tvDate=date;
+ state.archive=false;
+ $('tv-archive').checked=false;
+ return load();
+}
+function changeDay(delta){return selectDay(shiftDay(state.tvDate,delta*(state.tab==='matches'&&state.myTeams?7:1)));}
+$('tv-date').onchange=()=>{if($('tv-date').value)return selectDay($('tv-date').value);};
 $('prev-day').onclick=()=>changeDay(-1);$('next-day').onclick=()=>changeDay(1);
-$('today-button').onclick=()=>{state.tvDate=athensDay();state.archive=false;if(state.tab==='tv')load();else{render();void refreshLive();}};
+$('today-button').onclick=()=>selectDay(athensDay());
 function installSwipe(element,onSwipe){let start; element.addEventListener('touchstart',event=>{if(event.touches.length!==1||event.target.closest('input,select,a,button,summary,.table-scroll')){start=null;return;}start={x:event.touches[0].clientX,y:event.touches[0].clientY};},{passive:true});element.addEventListener('touchend',event=>{if(!start||!event.changedTouches.length)return;const end={x:event.changedTouches[0].clientX,y:event.changedTouches[0].clientY};const direction=swipeDirection(start,end);start=null;if(direction)onSwipe(direction);},{passive:true});element.addEventListener('touchcancel',()=>{start=null;},{passive:true});}
 installSwipe($('view'),direction=>{if(['tv','matches'].includes(state.tab))changeDay(direction);else{const i=nav.findIndex(n=>n[0]===state.tab),next=nav[i+direction];if(next)selectTab(next[0]);}});
 document.addEventListener('keydown',event=>{if(document.querySelector('dialog[open]')||!['tv','matches'].includes(state.tab)||event.target.closest('input,select,textarea,button,a,summary')||event.altKey||event.ctrlKey||event.metaKey)return;if(event.key==='ArrowLeft')changeDay(-1);if(event.key==='ArrowRight')changeDay(1);});
