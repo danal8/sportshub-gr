@@ -3,6 +3,8 @@ export const checkedAt='2026-10-20T13:28:31+03:00';
 export const eliteSchedule='https://www.eliteleague.gr/elite-league-to-analytiko-programma-tis-sezon-2026-2027/';
 export const eliteTV='https://www.eliteleague.gr/elite-league-to-tileoptiko-programma-ton-proton-trion-agonistikon/';
 export const competitions=[
+ {id:'greece-football',name:'Εθνική Ελλάδας · Ποδόσφαιρο',sport:'football',noStandings:true,url:'https://www.365scores.com/football/team/greece-5030'},
+ {id:'greece-basket',name:'Εθνική Ελλάδας · Μπάσκετ',sport:'basketball',noStandings:true,url:'https://www.365scores.com/basketball/team/greece-2401'},
  {id:'nations',name:'UEFA Nations League · Εθνικές',sport:'football',noStandings:true,url:'https://www.uefa.com/uefanationsleague/',note:'Δημοσιευμένο πρόγραμμα και αποτελέσματα εθνικών ομάδων από ESPN. Μερική κάλυψη.'},
  {id:'friendly',name:'Φιλικά εθνικών ομάδων',sport:'football',noStandings:true,url:'https://www.espn.com/soccer/league/_/name/fifa.friendly',note:'Δημοσιευμένοι αγώνες εθνικών ομάδων από ESPN. Μερική κάλυψη.'},
  {id:'greek-cup',name:'Κύπελλο Ελλάδας',sport:'football',noStandings:true,url:'https://www.epo.gr/el/competition/5',note:'Δημοσιευμένοι ορισμοί και τηλεοπτικές μεταδόσεις ΕΠΟ για τη σεζόν 2026–27. Μερική κάλυψη· δεν συμπεραίνονται ώρες ή κανάλια.'},

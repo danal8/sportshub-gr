@@ -6,7 +6,7 @@ import{safeResults}from'./results.js?v=77';
 import{rememberBadges,loadBadgeCatalog}from'./badges.js?v=77';
 import{directIDs,directProvider}from'./direct.js?v=83';
 const europeanIDs=['seriea','ligue1','laliga'];
-const staticIDs=['sl2','elite','gbl','volley-m','volley-w','conference','greek-cup'];
+const staticIDs=['greece-football','greece-basket','sl2','elite','gbl','volley-m','volley-w','conference','greek-cup'];
 export function isConnected(id){return europeanIDs.includes(id)||id==='nba'||staticIDs.includes(id)||directIDs.includes(id);}
 function read(key){try{return JSON.parse(localStorage.getItem(key));}catch{return null;}}
 function save(key,payload){try{localStorage.setItem(key,JSON.stringify(payload));}catch{}}
