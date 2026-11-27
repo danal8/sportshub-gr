@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-27T05:02:49.279Z",
+  "checkedAt": "2026-11-27T08:55:49.879Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -161,6 +161,20 @@
       "awaitingResults": [],
       "sourceError": null,
       "finals": 56
+    },
+    {
+      "competition": "greece-basket",
+      "unmatchedResults": [],
+      "awaitingResults": [],
+      "sourceError": null,
+      "finals": 7
+    },
+    {
+      "competition": "greece-football",
+      "unmatchedResults": [],
+      "awaitingResults": [],
+      "sourceError": null,
+      "finals": 6
     },
     {
       "competition": "greek-cup",
