@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-27T09:04:12.623Z",
+  "checkedAt": "2026-11-27T14:56:52.670Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -86,24 +86,9 @@
           "away": "SK Sturm Graz"
         }
       ],
-      "awaitingResults": [
-        {
-          "id": "europa-87839",
-          "competition": "europa",
-          "date": "2026-11-26",
-          "home": "FC Red Bull Salzburg",
-          "away": "FC Ararat-Armenia"
-        },
-        {
-          "id": "europa-87754",
-          "competition": "europa",
-          "date": "2026-11-26",
-          "home": "TSG Hoffenheim",
-          "away": "SK Puntigamer Sturm Graz"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 88
+      "finals": 90
     },
     {
       "competition": "friendly",
