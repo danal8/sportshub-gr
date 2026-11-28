@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-28T04:48:24.866Z",
+  "checkedAt": "2026-11-28T13:43:31.547Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -72,20 +72,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "elite-10-ΑΣΑ ΑΝΑΓΕΝΝΗΣΗ-KRONOS BC PLASIS",
-          "competition": "elite",
-          "date": "2026-11-27",
-          "home": "ΑΣΑ ΑΝΑΓΕΝΝΗΣΗ",
-          "away": "KRONOS BC PLASIS"
-        },
-        {
-          "id": "elite-10-INTERPLAST ΓΑΣ ΚΟΜΟΤΗΝΗΣ-ΑΣΑ ΚΟΡΟΙΒΟΣ",
-          "competition": "elite",
-          "date": "2026-11-27",
-          "home": "INTERPLAST ΓΑΣ ΚΟΜΟΤΗΝΗΣ",
-          "away": "ΑΣΑ ΚΟΡΟΙΒΟΣ"
-        },
-        {
           "id": "elite-10-ΓΣ ΛΑΥΡΙΟΥ - AΦΟΙ ΛΙΟΣΑΤΟΥ-ΓΣ ΣΟΦΑΔΩΝ ΒΙΚΟΣ COLA",
           "competition": "elite",
           "date": "2026-11-28",
@@ -122,7 +108,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 72
+      "finals": 74
     },
     {
       "competition": "eurocup",
@@ -248,7 +234,15 @@
     },
     {
       "competition": "laliga",
-      "unmatchedResults": [],
+      "unmatchedResults": [
+        {
+          "id": "espn-401882796",
+          "competition": "laliga",
+          "date": "2026-11-28",
+          "home": "Real Betis",
+          "away": "Rayo Vallecano"
+        }
+      ],
       "awaitingResults": [
         {
           "id": "laliga-2026-10-10-Rayo Vallecano de Madrid-Athletic Club-70",
@@ -496,38 +490,9 @@
     {
       "competition": "nba",
       "unmatchedResults": [],
-      "awaitingResults": [
-        {
-          "id": "nba-401909335",
-          "competition": "nba",
-          "date": "2026-11-28",
-          "home": "LA Clippers",
-          "away": "New Orleans Pelicans"
-        },
-        {
-          "id": "nba-401909334",
-          "competition": "nba",
-          "date": "2026-11-28",
-          "home": "Utah Jazz",
-          "away": "Denver Nuggets"
-        },
-        {
-          "id": "nba-401909336",
-          "competition": "nba",
-          "date": "2026-11-28",
-          "home": "Portland Trail Blazers",
-          "away": "Golden State Warriors"
-        },
-        {
-          "id": "nba-401909333",
-          "competition": "nba",
-          "date": "2026-11-28",
-          "home": "San Antonio Spurs",
-          "away": "Los Angeles Lakers"
-        }
-      ],
+      "awaitingResults": [],
       "sourceError": null,
-      "finals": 277
+      "finals": 281
     },
     {
       "competition": "pl",
@@ -613,18 +578,18 @@
           "away": "ΠΑΟΚ Β'"
         },
         {
-          "id": "sl2-2627097",
-          "competition": "sl2",
-          "date": "2026-11-28",
-          "home": "ASTERAS AKTOR Β'",
-          "away": "ΝΙΚΗ ΒΟΛΟΥ"
-        },
-        {
           "id": "sl2-2627101",
           "competition": "sl2",
           "date": "2026-11-28",
           "home": "ΠΑΝΣΕΡΡΑΪΚΟΣ",
           "away": "ΠΥΡΓΟΣ"
+        },
+        {
+          "id": "sl2-2627097",
+          "competition": "sl2",
+          "date": "2026-11-28",
+          "home": "ASTERAS AKTOR Β'",
+          "away": "ΝΙΚΗ ΒΟΛΟΥ"
         }
       ],
       "sourceError": null,
