@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "checkedAt": "2026-11-27T23:19:08.942Z",
+  "checkedAt": "2026-11-28T04:48:24.866Z",
   "note": "Awaiting results includes scheduled, postponed and unsupported fixtures; it never asserts that a match has finished.",
   "competitions": [
     {
@@ -382,10 +382,38 @@
           "date": "2026-11-22",
           "home": "Athletic Club",
           "away": "RCD Espanyol de Barcelona"
+        },
+        {
+          "id": "laliga-2026-11-22-Rayo Vallecano de Madrid-Valencia CF-123",
+          "competition": "laliga",
+          "date": "2026-11-22",
+          "home": "Rayo Vallecano de Madrid",
+          "away": "Valencia CF"
+        },
+        {
+          "id": "laliga-2026-11-22-Real Madrid CF-RC Celta de Vigo-126",
+          "competition": "laliga",
+          "date": "2026-11-22",
+          "home": "Real Madrid CF",
+          "away": "RC Celta de Vigo"
+        },
+        {
+          "id": "laliga-2026-11-22-Deportivo Alavés-RC Deportivo La Coruña-127",
+          "competition": "laliga",
+          "date": "2026-11-22",
+          "home": "Deportivo Alavés",
+          "away": "RC Deportivo La Coruña"
+        },
+        {
+          "id": "laliga-2026-11-22-Sevilla FC-Real Betis Balompié-128",
+          "competition": "laliga",
+          "date": "2026-11-22",
+          "home": "Sevilla FC",
+          "away": "Real Betis Balompié"
         }
       ],
       "sourceError": null,
-      "finals": 112
+      "finals": 108
     },
     {
       "competition": "ligue1",
@@ -470,55 +498,6 @@
       "unmatchedResults": [],
       "awaitingResults": [
         {
-          "id": "nba-401909326",
-          "competition": "nba",
-          "date": "2026-11-28",
-          "home": "New York Knicks",
-          "away": "Miami Heat"
-        },
-        {
-          "id": "nba-401909327",
-          "competition": "nba",
-          "date": "2026-11-28",
-          "home": "Detroit Pistons",
-          "away": "Milwaukee Bucks"
-        },
-        {
-          "id": "nba-401909329",
-          "competition": "nba",
-          "date": "2026-11-28",
-          "home": "Toronto Raptors",
-          "away": "Brooklyn Nets"
-        },
-        {
-          "id": "nba-401909328",
-          "competition": "nba",
-          "date": "2026-11-28",
-          "home": "Indiana Pacers",
-          "away": "Philadelphia 76ers"
-        },
-        {
-          "id": "nba-401909330",
-          "competition": "nba",
-          "date": "2026-11-28",
-          "home": "Boston Celtics",
-          "away": "Atlanta Hawks"
-        },
-        {
-          "id": "nba-401909331",
-          "competition": "nba",
-          "date": "2026-11-28",
-          "home": "Minnesota Timberwolves",
-          "away": "Memphis Grizzlies"
-        },
-        {
-          "id": "nba-401909332",
-          "competition": "nba",
-          "date": "2026-11-28",
-          "home": "Phoenix Suns",
-          "away": "Dallas Mavericks"
-        },
-        {
           "id": "nba-401909335",
           "competition": "nba",
           "date": "2026-11-28",
@@ -548,7 +527,7 @@
         }
       ],
       "sourceError": null,
-      "finals": 270
+      "finals": 277
     },
     {
       "competition": "pl",
